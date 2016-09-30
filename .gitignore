@@ -178,3 +178,12 @@ platforms/browser/css/
 platforms/browser/img/
 platforms/browser/js/
 platforms/browser/www/
+
+
+www/logs/*
+www/!.gitkeep
+www/node_modules/
+www/bower_components/
+www/tmp
+www/.DS_Store
+www/.idea
