@@ -1,12 +1,12 @@
 # Projet Avalanche - M2 MIAGE - UGA
 
-# Installation
+## Installation des dépendances
 
 * Installer [Git](https://git-scm.com/downloads)
 
 * Installer [Node.js](https://nodejs.org)
 
-* Installer Cordova
+### Installer Cordova
 
 Mac/Linux
 
@@ -22,6 +22,8 @@ C:\>npm install -g cordova
 
 ## Récupérer le projet depuis Github
 
+* [Créer un compte GitHub](https://github.com/join) (si c'est pas déjà fait)
+
 ```sh
 $ git clone https://github.com/francoisburdy/avalanche.git
 $ cd avalanche
@@ -35,12 +37,14 @@ Sur Android :
 * Accepter la signature de l'ordinateur pour le débug (si nécessaire)
 
 ```sh
+# Dans le répertoire racine du projet avalanche/
 $ cordova run android
 ```
 
 Sur iOS (disponible sur MacOS uniquement) :
 
 ```sh
+# Dans le répertoire racine du projet avalanche/
 $ cordova run ios
 ```
 
@@ -49,12 +53,15 @@ $ cordova run ios
 * Pull
 
 ```sh
+# Dans le répertoire racine du projet avalanche/
 $ git pull
 ```
 
 * Voir ses modifications : 
 
 ```sh
+# Dans le répertoire racine du projet avalanche/
+
 # Voir tous les fichiers modifiés
 $ git status
 
@@ -65,6 +72,8 @@ $ git diff www/
 * Commit & push
 
 ```sh
+# Dans le répertoire racine du projet avalanche/
+
 # Ajoute tous les fichiers modifiés au commit
 $ git add .
 
