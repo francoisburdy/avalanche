@@ -8,27 +8,27 @@
 
 * Installer Cordova
 
-### Mac/Linux
+Mac/Linux
 
 ```sh
 $ sudo npm install -g cordova
 ```
 
+Windows
+
 ```sh
 C:\>npm install -g cordova
 ```
 
-* Cloner le repo github
-
-# Récupérer le projet depuis Github
+## Récupérer le projet depuis Github
 
 ```sh
 $ git clone https://github.com/francoisburdy/avalanche.git
 $ cd avalanche
 ```
-# Lancer l'application
+## Lancer l'application
 
-### Sur Android :
+Sur Android :
 
 * Activer le téléphone en mode développeur
 * Brancher le téléphone en USB
@@ -38,9 +38,42 @@ $ cd avalanche
 cordova run android
 ```
 
-### Sur iOS (disponible sur MacOS uniquement) :
+Sur iOS (disponible sur MacOS uniquement) :
 
 ```sh
 cordova run android
 ```
+
+## Rappel utilisation git
+
+* Pull
+
+```sh
+$ git pull
+```
+
+* Voir ses modifications : 
+
+```sh
+# Voir tous les fichiers modifiés
+$ git status
+
+# Voir le détails des modifications
+$ git diff www/
+```
+
+* Commit & push
+
+```sh
+# Ajoute tous les fichiers modifiés au commit
+$ git add .
+
+# Commit avec message
+$ git commit -m "Message de commit"
+
+# Push
+$ git push origin master
+
+```
+
 
