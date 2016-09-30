@@ -1,4 +1,4 @@
-# avalanche
+# Projet Avalanche - M2 MIAGE - UGA
 
 # Installation
 
@@ -35,13 +35,13 @@ Sur Android :
 * Accepter la signature de l'ordinateur pour le débug (si nécessaire)
 
 ```sh
-cordova run android
+$ cordova run android
 ```
 
 Sur iOS (disponible sur MacOS uniquement) :
 
 ```sh
-cordova run android
+$ cordova run ios
 ```
 
 ## Rappel utilisation git
