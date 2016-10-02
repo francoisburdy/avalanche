@@ -1,0 +1,90 @@
+/* app css stylesheet */
+
+
+body {
+    font-size: 16px;
+    font-family: 'Calibri', 'Arial';
+}
+
+.sidebar-left {
+    background: #2196F3;
+}
+
+
+.visible-small-only {
+        display: none;
+}
+
+@media (max-width: 991px) {
+    .visible-small-only {
+        display: block;
+    }
+}
+
+a.flat-link:active, a.flat-link:hover, a.flat-link:focus {
+    text-decoration: none;
+    color:#fff;
+}
+
+.sidebar-left .app-name img {
+    height: 30px;
+    margin-top: -5px;
+    padding-left: 10px;
+    padding-right: 7px;
+}
+
+.list-group-item .fa.pull-left{
+    line-height: 1em;
+    margin-right: 1em;
+}
+
+.list-group-item {
+    padding: 20px 15px;
+}
+
+.list-group-item.active, .list-group-item.active:focus{
+    background: #1976D2;
+}
+
+.app-content > ng-view.ng-scope {
+    background: #fff;
+    padding: 5px;
+}
+
+.navbar-app {
+	min-height: 70px;
+}
+
+.navbar .btn-group{
+	z-index: 100;
+    padding-right: 1.5em;
+}
+
+.navbar-app .btn {
+	line-height: 70px;
+    border-radius: 0;
+    padding: 0em 1.2em;
+}
+
+.navbar-brand {
+	line-height: 40px;
+    font-size: 20px;
+    height: 70px;
+}
+
+.has-navbar-top .app-body {
+	padding-top: 71px;
+}
+
+.faster-sidebar{
+    -webkit-transition: width 250ms ease;
+    -o-transition: width 250ms ease;
+  	transition: width 250ms ease;
+}
+
+.app.faster{
+	-webkit-transition: -webkit-transform 250ms ease;
+    -moz-transition: -moz-transform 250ms ease;
+    -o-transition: -o-transform 250ms ease;
+    transition: transform 250ms ease;
+}

@@ -9,36 +9,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Avalanche</title>
   <meta name="description" content="">
-  <link rel="stylesheet" href="lib/mobile-angular-ui/dist/css/mobile-angular-ui-hover.min.css" />
-  <link rel="stylesheet" href="lib/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
-  <link rel="stylesheet" href="lib/mobile-angular-ui/dist/css/mobile-angular-ui-desktop.min.css" />
+  <link rel="stylesheet" href="lib/mobile-angular-ui/dist/css/mobile-angular-ui-hover.css" />
+  <link rel="stylesheet" href="lib/mobile-angular-ui/dist/css/mobile-angular-ui-base.css" />
+  <link rel="stylesheet" href="lib/mobile-angular-ui/dist/css/mobile-angular-ui-desktop.css" />
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="css/app.css">
   <link rel="icon" type="image/png" href="favicon.png">
   <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
 
   <!-- Menu -->
-  <div class="sidebar sidebar-left">
+  <div class="sidebar sidebar-left faster-sidebar">
     <div class="scrollable">
-      <h1 class="scrollable-header app-name">My App</h1>  
+      
+      <a href="#!/" class="scrollable-header app-name flat-link">
+        <img src="img/icon-sidebar.png" />
+        Avalanche
+      </a>
+
       <div class="scrollable-content">
         <div class="list-group" ui-turn-off='uiSidebarLeft'>
-          <a class="list-group-item" href="#!/view1">Link 1 
-            <i class="fa fa-chevron-right pull-right"></i></a>
-          <a class="list-group-item" href="#!/view2">Link 2
-            <i class="fa fa-chevron-right pull-right"></i></a>
+          <a class="list-group-item" href="#!/view1">
+            <i class="fa fa-users fa-lg pull-left"></i> 
+            <span>Vue 1</span> 
+            <i class="fa fa-chevron-right pull-right"></i> 
+          </a>
+          <a class="list-group-item" href="#!/view2">
+            <i class="fa fa-life-ring fa-lg pull-left"></i> 
+            <span>Vue 2</span>
+            <i class="fa fa-chevron-right pull-right"></i>
+          </a>
+          <a class="list-group-item" href="#!/parametres">
+            <i class="fa fa-cog fa-lg pull-left"></i>
+            <span>Paramètres</span>
+            <i class="fa fa-chevron-right pull-right"></i>
+          </a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="app">
+  <div class="app faster">
     <!-- Topbar -->
     <div class="navbar navbar-app navbar-absolute-top">
-      <a href ui-toggle='uiSidebarLeft'>Toggle sidebar left</a>         
+      <div class="btn-group pull-left visible-small-only" ui-toggle='uiSidebarLeft'>
+        <a href class="btn btn-primary btn-lg">
+          <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="navbar-brand navbar-brand-center" ui-yield-to="title"></div>
     </div>
     <!-- App body -->
 
@@ -47,6 +68,7 @@
         <ng-view></ng-view>
       </div>
     </div>
+
   </div><!-- ~ .app -->
 
   <!-- Modals and Overlays -->
@@ -55,8 +77,9 @@
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-route/angular-route.js"></script>
   <script src="lib/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
+  <script src="js/app.js"></script>
+  <script src="views/view1/view1.js"></script>
+  <script src="views/view2/view2.js"></script>
+  <script src="views/parametres/parametres.js"></script>
 </body>
 </html>

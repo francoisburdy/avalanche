@@ -166,6 +166,7 @@ platforms/android/gen
 platforms/android/local.properties
 platforms/android/ant-build
 platforms/android/ant-gen
+platforms/android/.gradle
 platforms/android/CordovaLib/ant-build
 platforms/android/CordovaLib/ant-gen
 platforms/android/CordovaLib/bin
