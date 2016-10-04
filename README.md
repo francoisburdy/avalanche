@@ -3,12 +3,14 @@
 ## Installation des dépendances
 
 * Installer [Git](https://git-scm.com/downloads)
-
 * Installer [Node.js](https://nodejs.org)
+* Installer le [JDK Java](http://www.oracle.com/technetwork/java/javase/downloads)
 
 ### Installer Cordova
 
 Mac/Linux
+
+Cette installation peut durer pas mal de temps, selon le nombre de dépendances manquantes.
 
 ```sh
 $ sudo npm install -g cordova
@@ -48,9 +50,17 @@ Sur iOS (disponible sur MacOS uniquement) :
 $ cordova run ios
 ```
 
+Pour enlever le message de "You have been opted out of telemetry." (sans importance)
+
+
+```sh
+$ cordova telemetry off
+```
+
+
 ## Rappel utilisation git
 
-* Pull
+* Pull (à faire le plus souvent possible, pour éviter les conflicts)
 
 ```sh
 # Dans le répertoire racine du projet avalanche/
@@ -72,6 +82,10 @@ $ git diff www/
 * Commit & push
 
 ```sh
+# Avant de faire un commit :
+$ cordova clean android
+# ou cordova clean ios sur.. iOS..
+
 # Dans le répertoire racine du projet avalanche/
 
 # Ajoute tous les fichiers modifiés au commit
