@@ -10,13 +10,5 @@ angular.module('myApp', [
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
-
   $routeProvider.otherwise({redirectTo: '/view1'});
-}])
-.run(['$rootScope', function($rootScope) {
-    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-        if(current.$$route){
-          if(current.$$route.hasOwnProperty('title')) $rootScope.title = current.$$route.title;
-        }
-    });
 }]);
