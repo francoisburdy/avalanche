@@ -1,9 +1,11 @@
 <div ui-content-for="title">
-  <span>Titre View 1</span>
+  <span>Mission en cours</span>
 </div>
 
 <div class="scrollable">
 	<div class="scrollable-content section">
+
+
 
 		<form role="form" ng-submit='login()'>
 			<fieldset>
@@ -19,7 +21,7 @@
 			    </div>
 
 			    <div class="form-group">
-			      	<label>Remember Merrrrr</label>
+			      	<label>Remember Me</label>
 			      	<ui-switch ng-model="rememberMe"></ui-switch>
 			    </div>
 			</fieldset>
@@ -34,5 +36,14 @@
 			</div>
 
 		</form>
+
+		<br /><hr/><br />
+
+		<button class="btn btn-primary btn-block" ng-click="launchCamera()">
+			Prendre une photo
+		</button>
+
+		<img id='imagePreview' style="max-width:200px" />
+
 	</div>
 </div>

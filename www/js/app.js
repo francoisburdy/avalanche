@@ -12,3 +12,13 @@ angular.module('myApp', [
   $locationProvider.hashPrefix('!');
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
+
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+  console.log('deviceready');
+  console.log(navigator.camera);
+}
+
+var storage = window.localStorage;
