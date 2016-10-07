@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.home', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'views/view1/view1.html',
-    controller: 'View1Ctrl'
+  $routeProvider.when('/home', {
+    templateUrl: 'views/home/home.html',
+    controller: 'HomeCtrl'
   });
 }])
 
-.controller('View1Ctrl', function($scope) {
+.controller('HomeCtrl', function($scope) {
 	
 	$scope.launchCamera = function() {
     	console.log(navigator.camera);

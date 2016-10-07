@@ -1,0 +1,63 @@
+<div ui-content-for="title">
+  <span>Mission en cours</span>
+</div>
+
+<div class="scrollable">
+	<div class="scrollable-content section">
+
+
+		<div ui-state="activeTab" default="1">
+		  <ul class="nav nav-tabs">
+		    <li ui-class="{'active': activeTab == 1}">
+		      <a ui-set="{'activeTab': 1}">Personnel</a>
+		    </li>
+		    <li ui-class="{'active': activeTab == 2}">
+		      <a ui-set="{'activeTab': 2}">Victime</a>
+		    </li>
+		  </ul>
+
+		  <div ui-if="activeTab == 1">
+		    
+
+
+		    <p><!-- ... --></p>
+		  </div>
+
+		  <div ui-if="activeTab == 2">
+		    
+
+		  	<div class="card">
+		  		<img src="http://www.fakingnews.firstpost.com/wp-content/uploads/2015/12/kim-jaya.jpg" />
+		  		<span class="victime-numero">V8</span>
+		  		<span class="victime-etat">DCD</span>
+		  	</div>
+
+		  	<div class="card">
+		  		<img src="http://www.fakingnews.firstpost.com/wp-content/uploads/2015/12/kim-jaya.jpg" />
+		  		<span class="victime-numero">V9</span>
+		  		<span class="victime-etat">UA</span>
+		  	</div>
+		  
+		  	<div class="card">
+		  		<img src="http://www.fakingnews.firstpost.com/wp-content/uploads/2015/12/kim-jaya.jpg" />
+		  		<span class="victime-numero">V10</span>
+		  		<span class="victime-etat">I</span>
+		  	</div>
+
+
+
+		    <p><!-- ... --></p>
+		  </div>
+
+		</div>
+	
+		<br /><hr/><br />
+
+		<button class="btn btn-primary btn-block" ng-click="launchCamera()">
+			Prendre une photo
+		</button>
+
+		<img id='imagePreview' style="max-width:200px" />
+
+	</div>
+</div>
