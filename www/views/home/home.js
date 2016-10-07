@@ -42,5 +42,28 @@ angular.module('myApp.home', ['ngRoute'])
 		}
 	}
 
+	$scope.testVictimes = [
+	    {num:5, etat:'DCD', gender:'female'},
+	    {num:2, etat:'UR', gender:'female'},
+	    {num:4, etat:'I', gender:'female'},
+	    {num:7, etat:'UR', gender:'male'},
+	    {num:6, etat:'DCD', gender:'female'},
+	    {num:11, etat:'UA', gender:'male'},
+	    {num:1, etat:'DCD', gender:'male'},
+	    {num:11, etat:'I', gender:'male'},
+	    {num:10, etat:'UA', gender:'female'},
+	    {num:12, etat:'I', gender:'female'}
+	];
+
+
+	$scope.etatTexte = function(etat) {
+    	var textes = {
+    		DCD: 'Décédé(e)',
+    		UA: 'Urgence Absolue',
+    		UR: 'Urgence Relative',
+    		I: 'Impliqué(e)'
+    	};
+    	return textes[etat];
+  	}
 
 });

@@ -10,6 +10,11 @@ body {
     background: #2196F3;
 }
 
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 
 .visible-small-only {
         display: none;
@@ -47,7 +52,7 @@ a.flat-link:active, a.flat-link:hover, a.flat-link:focus {
 }
 
 .app-content > ng-view.ng-scope {
-    background: #fff;
+    background: #eee;
     padding: 5px;
 }
 
@@ -89,3 +94,50 @@ a.flat-link:active, a.flat-link:hover, a.flat-link:focus {
     transition: transform 250ms ease;
 }
 
+div.card {
+    min-height: 4em;
+    display: inline-block;
+}
+
+.card .card-container{
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius:2px;
+    margin: 0.5em 0em; 
+    box-shadow: 0px 0px 15px #aaa;
+}
+
+.card .icon{
+    padding:2em 1em 2em 1em;
+    display: inline-block;
+}
+
+.card .card-content {
+    padding-top: 0.5em;
+}
+
+.card .card-title {
+    font-size: 1.2em;
+}
+
+.float-right{
+    float: right;
+}
+
+.nav-tabs.two-tabs > li {
+    width: 48%;
+    margin-left:0.4%;
+    margin-right:0.4%;
+}
+
+.nav-tabs > li.active > a {
+    background: #007aff;
+    color:#fff;
+}
+
+.nav-tabs > li > a{
+    text-align: center;
+    font-weight: bold;
+
+}

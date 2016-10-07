@@ -7,15 +7,16 @@
 
 
 		<div ui-state="activeTab" default="1">
-		  <ul class="nav nav-tabs">
+		  <ul class="nav nav-tabs two-tabs">
 		    <li ui-class="{'active': activeTab == 1}">
-		      <a ui-set="{'activeTab': 1}">Personnel</a>
+		      <a ui-set="{'activeTab': 1}">Personnels ({{testVictimes.length}})</a>
 		    </li>
 		    <li ui-class="{'active': activeTab == 2}">
-		      <a ui-set="{'activeTab': 2}">Victime</a>
+		      <a ui-set="{'activeTab': 2}">Victimes ({{testVictimes.length}})</a>
 		    </li>
 		  </ul>
 
+		  <!-- Onglet personnel -->
 		  <div ui-if="activeTab == 1">
 		    
 
@@ -23,30 +24,34 @@
 		    <p><!-- ... --></p>
 		  </div>
 
+  		  <!-- Onglet victimes -->
 		  <div ui-if="activeTab == 2">
-		    
+		   
+			<div class="row">
+		  		<div ng-repeat="victime in testVictimes | orderBy:'num'">
+  				
+	  			 	<div class="col-lg-4 col-md-6 col-xs-12 card">
+	  			 		<div class="row card-container">
 
-		  	<div class="card">
-		  		<img src="http://www.fakingnews.firstpost.com/wp-content/uploads/2015/12/kim-jaya.jpg" />
-		  		<span class="victime-numero">V8</span>
-		  		<span class="victime-etat">DCD</span>
-		  	</div>
+					  		<div class="col-xs-2 icon">
+					  			<i class="fa fa-ambulance fa-2x" aria-hidden="true"></i>
+					  		</div>
+					  		<div class="col-xs-10 card-content">
+					  			<span class="card-title">
+					  				<strong>Victime n° {{victime.num}}</strong>
+					  				<i class="fa {{ victime.gender == 'male' ? 'fa-mars' : 'fa-venus' }} fa-lg float-right" aria-hidden="true"></i>
+					  			</span>
+					  			<div class="etat-victime {{victime.etat}}"><span>{{ etatTexte(victime.etat) }}</span></div>
+					  		</div>
 
-		  	<div class="card">
-		  		<img src="http://www.fakingnews.firstpost.com/wp-content/uploads/2015/12/kim-jaya.jpg" />
-		  		<span class="victime-numero">V9</span>
-		  		<span class="victime-etat">UA</span>
-		  	</div>
-		  
-		  	<div class="card">
-		  		<img src="http://www.fakingnews.firstpost.com/wp-content/uploads/2015/12/kim-jaya.jpg" />
-		  		<span class="victime-numero">V10</span>
-		  		<span class="victime-etat">I</span>
-		  	</div>
+	  			 		</div>
+				  	</div>
 
+	  			</div>
+			</div>
 
 
-		    <p><!-- ... --></p>
+
 		  </div>
 
 		</div>

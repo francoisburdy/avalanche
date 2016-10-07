@@ -23,3 +23,4 @@ function onDeviceReady() {
 }
 
 var storage = window.localStorage;
+
