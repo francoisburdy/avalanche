@@ -22,5 +22,8 @@ function onDeviceReady() {
   console.log(navigator.camera);
 }
 
-var storage = window.localStorage;
+
+retreiveCurrentOperation();
+
+
 
