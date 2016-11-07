@@ -79,5 +79,29 @@ function archiveCurrentOperation(){
         storage.setItem("current_operation", null);
         window.currentOperation = null;
     }
-    
+}
+
+/* *********** Config ************ */
+
+function retreiveConfig(){
+    var conf = JSON.parse(storage.getItem("config"));
+    if (conf != null) {
+        window.config = conf;
+    } else {
+        var organismes = [
+            {name:'Pompier', color:'red'},
+            {name:'Gendarmes', color:'indigo'},
+            {name:'CRS', color:'blue'},
+            {name:'Secouristes', color:'green'},
+            {name:'Pisteurs', color:'purple'},
+            {name:'Médecins', color:'pink'}
+        ];
+        window.config = {organismes: organismes};
+    }
+}
+
+function saveConfig(){
+    if(window.config != undefined){
+        storage.setItem("config", JSON.stringify(config));
+    }
 }

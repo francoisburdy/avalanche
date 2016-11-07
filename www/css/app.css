@@ -131,8 +131,8 @@ div.card {
     margin-right:0.4%;
 }
 
-.nav-tabs > li.active > a {
-    background: #007aff;
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover {
+    background: #007aff !important;
     color:#fff;
 }
 

@@ -66,4 +66,6 @@ angular.module('myApp.home', ['ngRoute'])
     	return textes[etat];
   	}
 
+  	$scope.organismes = window.config.organismes;
+
 });

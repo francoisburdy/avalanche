@@ -127,6 +127,7 @@ function Personnel(number) {
     this.number = number;
     this.type = "personnel";
     this.missions = [];
+    this.photo = undefined;
 
     this.getNumber = function(){
         return this.number;
@@ -170,8 +171,6 @@ function Personnel(number) {
         }
         console.log("Le personnel #"+this.number+" n'est pas affecté à la mission " + missionName);
     }
-
 }
-
 
 

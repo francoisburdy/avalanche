@@ -4,7 +4,7 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.home',
-  'myApp.suivi',
+  'myApp.journal',
   'myApp.historique',
   'myApp.parametres',
   'mobile-angular-ui'
@@ -23,6 +23,7 @@ function onDeviceReady() {
 }
 
 
+retreiveConfig();
 retreiveCurrentOperation();
 
 
