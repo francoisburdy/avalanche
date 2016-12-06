@@ -1,0 +1,24 @@
+{
+  "name": "avalanche",
+  "homepage": "https://github.com/francoisburdy/avalanche",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-mocks": "^1.5.9",
+    "angular-route": "^1.5.9",
+    "angular": "^1.5.9",
+    "angular-loader": "^1.5.9",
+    "font-awesome": "^4.7.0",
+    "mobile-angular-ui": "^1.3.4",
+    "angular-translate": "^2.13.0"
+  }
+}

@@ -29,7 +29,9 @@ C:\>npm install -g cordova
 ```sh
 $ git clone https://github.com/francoisburdy/avalanche.git
 $ cd avalanche
+$ bower install
 ```
+
 ## Lancer l'application
 
 Sur Android :
