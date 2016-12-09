@@ -6,6 +6,7 @@ angular.module('myApp', [
   'myApp.home',
   'myApp.journal',
   'myApp.historique',
+  'myApp.addvictime',
   'myApp.parametres',
   'mobile-angular-ui'
 ])
