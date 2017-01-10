@@ -13,13 +13,15 @@ Mac/Linux
 Cette installation peut durer pas mal de temps, selon le nombre de dépendances manquantes.
 
 ```sh
-$ sudo npm install -g cordova
+sudo npm install -g cordova
+npm install -g bower
 ```
 
 Windows
 
 ```sh
 C:\>npm install -g cordova
+C:\>npm install -g bower
 ```
 
 ## Récupérer le projet depuis Github
@@ -27,10 +29,9 @@ C:\>npm install -g cordova
 * [Créer un compte GitHub](https://github.com/join) (si c'est pas déjà fait)
 
 ```sh
-$ git clone https://github.com/francoisburdy/avalanche.git
-$ cd avalanche
-$ npm install -g bower
-$ bower install
+git clone https://github.com/francoisburdy/avalanche.git
+cd avalanche
+bower install
 ```
 
 ## Lancer l'application
@@ -55,11 +56,9 @@ $ cordova run ios
 
 Pour enlever le message de "You have been opted out of telemetry." (sans importance)
 
-
 ```sh
 $ cordova telemetry off
 ```
-
 
 ## Rappel utilisation git
 

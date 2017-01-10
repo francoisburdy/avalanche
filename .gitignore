@@ -153,35 +153,14 @@ $RECYCLE.BIN/
 # res
 resources/signing
 
-# iOS
-platforms/ios/build/
-platforms/ios/www/
-platforms/ios/cordova/console.log
+
 *.xcuserdatad
 
-# android
-platforms/android/assets/www
-platforms/android/bin
-platforms/android/gen
-platforms/android/local.properties
-platforms/android/ant-build
-platforms/android/ant-gen
-platforms/android/.gradle
-platforms/android/.gradle/
-platforms/android/CordovaLib/ant-build
-platforms/android/CordovaLib/ant-gen
-platforms/android/CordovaLib/bin
-platforms/android/CordovaLib/gen
-platforms/android/CordovaLib/local.properties
 
-# browser
-platforms/browser/build/
-platforms/browser/css/
-platforms/browser/img/
-platforms/browser/js/
-platforms/browser/www/
+# node
+npm-debug.log
 
-
+platforms
 www/logs/*
 www/!.gitkeep
 www/node_modules/
