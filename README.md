@@ -31,6 +31,8 @@ C:\>npm install -g bower
 ```sh
 git clone https://github.com/francoisburdy/avalanche.git
 cd avalanche
+cordova platform add android
+cordova platform add browser
 bower install
 ```
 

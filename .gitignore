@@ -161,6 +161,7 @@ resources/signing
 npm-debug.log
 
 platforms
+plugins
 www/logs/*
 www/!.gitkeep
 www/node_modules/
