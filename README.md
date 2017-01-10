@@ -13,15 +13,13 @@ Mac/Linux
 Cette installation peut durer pas mal de temps, selon le nombre de dépendances manquantes.
 
 ```sh
-sudo npm install -g cordova
-npm install -g bower
+sudo npm install -g cordova bower jsdoc
 ```
 
 Windows
 
 ```sh
-C:\>npm install -g cordova
-C:\>npm install -g bower
+C:\>npm install -g cordova bower jsdoc
 ```
 
 ## Récupérer le projet depuis Github
@@ -102,5 +100,11 @@ $ git commit -m "Message de commit"
 $ git push origin master
 
 ```
+
+## Documentations des outils et dépendances
+* [Documentation Apache Cordova](https://cordova.apache.org/docs/en/latest/)
+* [Utilisation de JSDoc](http://usejsdoc.org)
+
+
 
 
