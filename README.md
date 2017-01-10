@@ -33,7 +33,7 @@ cordova platform add android
 cordova platform add browser
 bower install
 
-# Generate documentation
+# Generer la documentation
 # jsdoc -c jsdoc.json -d ./doc
 
 ```
