@@ -32,6 +32,10 @@ cd avalanche
 cordova platform add android
 cordova platform add browser
 bower install
+
+# Generate documentation
+# jsdoc -c jsdoc.json -d ./doc
+
 ```
 
 ## Lancer l'application

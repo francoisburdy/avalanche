@@ -153,9 +153,7 @@ $RECYCLE.BIN/
 # res
 resources/signing
 
-
 *.xcuserdatad
-
 
 # node
 npm-debug.log
