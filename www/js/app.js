@@ -7,12 +7,6 @@ angular.module('myApp', [
   'swipe',
   'mobile-angular-ui'
 ])
-.controller('GlobalController', ['$scope', function($scope) {
-  $scope.swipe = function($event) {
-    //console.log($event);
-    simulateClick();
-  };
-}])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 

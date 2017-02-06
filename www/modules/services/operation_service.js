@@ -13,6 +13,8 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope)
                 personnels: [],
                 victimes: []
             };
+            $rootScope.$broadcast('operationUpdated');
+
         } else {
             console.log('Création impossible : this.operation existe déjà.');
         }
@@ -22,8 +24,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope)
         $localStorage.operation.endDate = new Date();
         this.pushHistorique($localStorage.operation);
         $localStorage.operation = null;
-        $rootScope.$broadcast('operationTerminated');
-        console.log($localStorage.historique, $localStorage.operation);
+        $rootScope.$broadcast('operationUpdated');
     }
 
     this.pushHistorique = function(operation) {
@@ -31,6 +32,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope)
             $localStorage.historique = [];
         }
         $localStorage.historique.push(operation);
+        $rootScope.$broadcast('operationUpdated');
     }
 
     this.addPersonnel = function(personnel) {
@@ -54,6 +56,17 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope)
         var index = $localStorage.operation.victimes.indexOf(victime);
         if(index == -1) console.log("Error : Operation does not contain this victime");
         else $localStorage.operation.victimes.splice(index, 1);
+    }
+
+    this.generateVictimeNumber = function() {
+        if ($localStorage.operation.victimes.length == 0) {
+            return 1;
+        } else {
+            var nextNumber = $localStorage.operation.victimes[0].numero + 1;
+            for(let v of $localStorage.operation.victimes)
+                nextNumber = v.numero > nextNumber ? v.numero + 1 : nextNumber;
+            return nextNumber;
+        }
     }
 /*
     this.getMissions = function(){

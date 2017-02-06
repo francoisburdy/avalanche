@@ -7,12 +7,15 @@
     <div class="scrollable-content section">
         <form>
             <div class="form-group">
-                <label for="exampleInputEmail1">N° de victime</label>
-                <input type="number" class="form-control" id="victimeNumber" placeholder="Numéro de victime" />
+                <label>N° de victime</label>
+                <input type="number" class="form-control" ng-model="newVictime.numero" placeholder="Numéro de victime" />
             </div>
-            
-        </form>
-        
+            <div class="form-group">
+                <label>Status de la victime</label>
+                <input type="text" class="form-control" ng-model="newVictime.status" placeholder="Statut de la victime" />
+            </div>
 
+            <button type="button" ng-click="addVictime()">Ajouter la victime</button>
+        </form>       
     </div>
 </div>

@@ -1,21 +1,12 @@
 'use strict';
 
 angular.module('myApp').controller('DashboardCtrl', function($scope, Operation) {
-	
 
-	$scope.$on('operationTerminated', function(event, data) {
-		$scope.operation = Operation.getOperation();
-	});
 
   	$scope.operation = Operation.getOperation();
 
-  	$scope.addVictime = function() {
-  		Operation.addVictime({numero: 1, statut: 'Crevée'});
-  	}
-
 	$scope.terminate = function() {
 		Operation.terminate();
-
 	}
 
 	$scope.launchCamera = function() {
@@ -73,6 +64,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, Operation) 
     	return textes[etat];
   	}
 
-  	//$scope.organismes = window.config.organismes;
-
+	$scope.$on('operationUpdated', function(event) {
+		$scope.operation = Operation.getOperation();
+	});
 });
