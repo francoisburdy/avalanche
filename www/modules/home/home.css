@@ -1,43 +1,51 @@
 
 
-.card .victime-numero, .card .victime-etat{
-	width: calc(100% - 70px);
-    display: inline-block;
+
+.scrollable-content.home-bg { 
+    background: url(../../img/login-background.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-
-.etat-victime {
-	text-align: right;
+.main{
+    width: 80%;
+    margin: 20% 10%;
+    display: block;
+    text-align: center;
 }
 
-.etat-victime > span{
-	border-radius: 3px;
-	font-size: 0.95em;
-	font-weight: bold;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
+.main ul{
+    list-style-type:none;
+    padding-left: 0;
 }
 
-.etat-victime.DCD > span{
-	background: purple;
-	color:white;
+#nouvelle_operation{
+    font-family: "Open Sans";
+    margin-top: 15%;
+    margin-bottom: 15%;
+    padding: 10% ;
+    font-weight: bold;
+    font-size: 3.75vw;
+    text-align: center;
+    opacity: 0.7;
+    border-radius: 10px;
 }
 
-
-.etat-victime.I > span{
-	background: transparent;
-	border: 1px solid grey;
-	color:black;
+#historique_operation{
+    font-family: "Open Sans";
+    padding: 10%;
+    font-weight: bold;
+    font-size: 3.75vw;
+    opacity: 0.7;
+    text-align: center;
+    border-radius: 10px;
 }
-
-
-.etat-victime.UR > span{
-	background: #ffc107;
-	color:black;
-}
-
-
-.etat-victime.UA > span{
-	background: #e53935;
-	color:white;
-}
+ .main img{
+    margin-top: 1%;
+   max-width: 50%;
+    height: auto;
+    opacity: 0.7;
+ }

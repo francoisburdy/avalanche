@@ -1,94 +1,23 @@
 <div ui-content-for="title">
-  <span>Opération en cours</span>
+  <span>Avalanche</span>
 </div>
 
 <div class="scrollable">
-    <div class="scrollable-content section">
+  <div class="scrollable-content section home-bg">
 
-
-        <div ui-state="activeTab" default="1">
-          <ul class="nav nav-tabs two-tabs">
-            <li ui-class="{'active': activeTab == 1}">
-              <a ui-set="{'activeTab': 1}">Intervenants ({{testVictimes.length}})</a>
-            </li>
-            <li ui-class="{'active': activeTab == 2}">
-              <a ui-set="{'activeTab': 2}">Victimes ({{testVictimes.length}})</a>
-            </li>
-          </ul>
-
-          <!-- Onglet personnel -->
-          <div ui-if="activeTab == 1">
-              
-            <div class="row">
-
-                <div ng-repeat="organisme in organismes">
-                
-                    <div class="col-lg-4 col-md-6 col-xs-12 card">
-                        <div class="row card-container" style="background-color:{{organisme.color}}">
-
-                            <div class="col-xs-12 card-content">
-                                <span class="card-title">
-                                    <strong>{{organisme.name}}</strong>
-                                </span>
-                                <p></p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-          </div>
-
-          <!-- Onglet victimes -->
-          <div ui-if="activeTab == 2">
-           
-            <div class="row">
-                <div ng-repeat="victime in testVictimes | orderBy:'num'">
-                
-                    <div class="col-lg-4 col-md-6 col-xs-12 card">
-                        <div class="row card-container">
-
-                            <div class="col-xs-2 icon">
-                                <i class="fa fa-ambulance fa-2x" aria-hidden="true"></i>
-                            </div>
-                            <div class="col-xs-10 card-content">
-                                <span class="card-title">
-                                    <strong>Victime n° {{victime.num}}</strong>
-                                    <i class="fa {{ victime.gender == 'male' ? 'fa-mars' : 'fa-venus' }} fa-lg float-right" aria-hidden="true"></i>
-                                </span>
-                                <div class="etat-victime {{victime.etat}}"><span>{{ etatTexte(victime.etat) }}</span></div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-4 col-md-6 col-xs-12 card">
-                    <div class="row card-container">
-                        <a class="btn btn-default col-xs-12" role="button" href="#!/addvictime">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-
-          </div>
-
-        </div>
-    
-        <br /><hr/><br />
-        <div>
-            {{operation}}
-            <button ng-click="addVictime()"></button>
-        </div>
-        <button class="btn btn-primary btn-block" ng-click="launchCamera()">
-            Prendre une photo
-        </button>
-
-        <img id='imagePreview' style="max-width:200px" />
-
+    <div class="main">
+      <ul>
+        <li>
+            <img  src="../../img/logo-avalanche.jpg" alt="Logo Avalanche" class="img-circle">
+        </li>
+        <li>
+            <button id="nouvelle_operation" class="btn btn-primary btn-block">Créer une nouvelle opération</button>
+        </li>
+        <li>
+          <button id="historique_operation" class="btn btn-primary btn-block">Historique des missions</button>
+        </li>
+      </ul>
     </div>
+
+  </div>
 </div>

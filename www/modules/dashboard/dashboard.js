@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.home', ['ngRoute'])
+angular.module('myApp.dashboard', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/home', {
-    templateUrl: 'modules/home/home.html',
-    controller: 'HomeCtrl'
+  $routeProvider.when('/dashboard', {
+    templateUrl: 'modules/dashboard/dashboard.html',
+    controller: 'DashboardCtrl'
   });
 }])
 
-.controller('HomeCtrl', function($scope, Operation) {
+.controller('DashboardCtrl', function($scope, Operation) {
 	
 
   	$scope.operation = Operation.getOperation();

@@ -36,12 +36,17 @@
       <div class="scrollable-content">
         <div class="list-group" ui-turn-off='uiSidebarLeft'>
           <a class="list-group-item" href="#!/home">
+            <i class="fa fa-home fa-lg pull-left"></i> 
+            <span>Accueil</span> 
+            <i class="fa fa-chevron-right pull-right"></i> 
+          </a>
+          <a class="list-group-item" href="#!/dashboard">
             <i class="fa fa-users fa-lg pull-left"></i> 
             <span>Opération en cours</span> 
             <i class="fa fa-chevron-right pull-right"></i> 
           </a>
           <a class="list-group-item" href="#!/journal">
-            <i class="fa fa-users fa-lg pull-left"></i> 
+            <i class="fa fa-calendar fa-lg pull-left"></i> 
             <span>Journal de l'opération</span> 
             <i class="fa fa-chevron-right pull-right"></i> 
           </a>
@@ -94,8 +99,10 @@
   <script src="js/storage.js"></script>
   <script src="js/app.js"></script>
 
+  
   <!-- Controllers -->
   <script src="modules/home/home.js"></script>
+  <script src="modules/dashboard/dashboard.js"></script>
   <script src="modules/journal/journal.js"></script>
   <script src="modules/historique/historique.js"></script>
   <script src="modules/addvictime/addvictime.js"></script>
