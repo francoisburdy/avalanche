@@ -55,7 +55,9 @@
                                 <span class="card-title">
                                     <strong>Victime n°{{v.numero}}</strong>
                                 </span>
-                                <div class="etat-victime {{v.status}}"><span>{{v.status}}</span></div>
+                                <div class="etat-victime" ng-style="{'background-color': v.status.bg}">
+                                    <span ng-style="{'color': v.status.text}">{{v.status.libelle}}</span>
+                                </div>
                             </div>
                         </div>
                     </div>

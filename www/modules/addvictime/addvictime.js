@@ -1,8 +1,10 @@
 'use strict';
 
-angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location, Operation) {
+angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location, Operation, Parametres) {
 	$scope.newVictime = {};
 	$scope.newVictime.numero = Operation.generateVictimeNumber();
+
+	$scope.victimeStatus = Parametres.getVictimeStatus();
 
   	$scope.addVictime = function() {
   		$scope.newVictime.beginDate = new Date();

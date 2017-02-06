@@ -12,8 +12,10 @@
             </div>
             <div class="form-group">
                 <label>Status de la victime</label>
-                <input type="text" class="form-control" ng-model="newVictime.status" placeholder="Statut de la victime" />
+                <select ng-model="newVictime.status" ng-options="s.libelle for s in victimeStatus">
+                </select>
             </div>
+            {{newVictime.status}}
 
             <button type="button" ng-click="addVictime()">Ajouter la victime</button>
         </form>       

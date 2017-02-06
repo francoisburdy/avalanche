@@ -1,6 +1,5 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
   'ngStorage',
@@ -35,7 +34,16 @@ angular.module('myApp', [
     controller: 'JournalCtrl'
 
   }).otherwise({redirectTo: '/home'});
-}]);
+}])
+
+.run(function($rootScope, $location, Operation) {
+  $rootScope.$on("$routeChangeStart", function(event, next, current) { 
+    console.log(event, next, current);
+    if(next.$$route.originalPath == '/home' && Operation.getOperation() != null) {
+      $location.url('/dashboard');
+    }
+  });
+});
 
 
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -43,23 +51,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
   console.log('deviceready');
   console.log(navigator.camera);
-}
-
-function simulateClick() {
-  var event = new MouseEvent('click', {
-    'view': window,
-    'bubbles': true,
-    'cancelable': true
-  });
-  var cb = document.getElementById('burger'); 
-  var cancelled = !cb.dispatchEvent(event);
-  if (cancelled) {
-    // A handler called preventDefault.
-    alert("cancelled");
-  } else {
-    // None of the handlers called preventDefault.
-    alert("not cancelled");
-  }
 }
 
 //retreiveConfig();
