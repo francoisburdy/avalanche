@@ -6,32 +6,84 @@
 	<div class="scrollable-content">
 		<div class="section">
         
-			<div class="panel panel-default" ng-repeat="idx in [1,2,3]">
+			<div class="panel panel-default" >
 				<div class="panel-heading">
-					<div class="btn-group pull-right">
-						<a ui-turn-on="myDropdown{{idx}}" class="btn">
-						  	<i class="fa fa-ellipsis-v"></i>
-						</a>
-						<ul ui-shared-state="myDropdown{{idx}}"
-							class="dropdown-menu"
-						  	ui-outer-click="Ui.turnOff('myDropdown' + idx)"
-						  	ui-outer-click-if="Ui.active('myDropdown' + idx)"
-						  	role="menu"
-						  	ui-show="myDropdown{{idx}}"
-						  	ui-turn-off="myDropdown{{idx}}">
-							<li><a>Action</a></li>
-							<li><a>Another action</a></li>
-							<li><a>Something else here</a></li>
-							<li class="divider"></li>
-							<li><a>Separated link</a></li>
-						</ul>
+					
+					<h3 class="panel-title">Note</h3>
+				
+				</div>
+				<div class="panel-body">
+				   	<div class="row">
+					  <div class="col-xs-6 col-md-3">
+					    <div class="caption">
+					       
+					        <p> <button type="button" class="btn btn-danger btn-lg" aria-label="Left Align">
+							  <span class="glyphicon glyphicon-remove" aria-hidden="true"> Pompier</span>
+							</button></p>
+					    </div>
+					  </div>
+					  <div class="col-xs-6 col-md-3">
+					    <div class="caption">
+					        
+					        <p> <button type="button" class="btn btn-danger btn-lg" aria-label="Left Align">
+							  <span class="glyphicon glyphicon-remove" aria-hidden="true"> Médecin</span>
+							</button></p>
+					    </div>
+					  </div>
+					  <div class="col-xs-6 col-md-3">
+					    <div class="caption">
+					        <p> <button type="button" class="btn btn-danger btn-lg" aria-label="Left Align">
+							  <span class="glyphicon glyphicon-remove" aria-hidden="true"> CRS</span>
+							</button></p>
+					    </div>
+					   </div>
+					    <div class="col-xs-6 col-md-3">
+					    <div class="caption">
+					        <p> <button type="button" class="btn btn-danger btn-lg" aria-label="Left Align">
+							  <span class="glyphicon glyphicon-remove" aria-hidden="true"> CRS</span>
+							</button></p>
+					    </div>
+					   </div>
+					    <div class="col-xs-6 col-md-3">
+					    <div class="caption">
+					        <p> <button type="button" class="btn btn-danger btn-lg" aria-label="Left Align">
+							  <span class="glyphicon glyphicon-remove" aria-hidden="true"> CRS</span>
+							</button></p>
+					    </div>
+					   </div>
+					    <div class="col-xs-6 col-md-3">
+					    <div class="caption">
+					        <p> <button type="button" class="btn btn-danger btn-lg" aria-label="Left Align">
+							  <span class="glyphicon glyphicon-remove" aria-hidden="true"> CRS</span>
+							</button></p>
+					    </div>
+					   </div>
+					  </div>
 					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" >
+				<div class="panel-heading">
+					
 					<h3 class="panel-title">Note</h3>
 				</div>
 				<div class="panel-body">
-				   	{{lorem}}
+				   	
 				</div>
 			</div>
+
+
+			<div class="panel panel-default" >
+				<div class="panel-heading">
+					
+					<h3 class="panel-title">Note</h3>
+				</div>
+				<div class="panel-body">
+				   	
+				</div>
+			</div>
+
 
     	</div>
 
