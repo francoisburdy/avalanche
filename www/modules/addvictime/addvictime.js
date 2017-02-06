@@ -4,11 +4,11 @@ angular.module('myApp.addvictime', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/addvictime', {
-    templateUrl: 'views/addvictime/addvictime.html',
+    templateUrl: 'modules/addvictime/addvictime.html',
     controller: 'AddVictimeCtrl'
   });
 }])
 
-.controller('AddVictimeCtrl', function($scope) {
+.controller('AddVictimeCtrl', function($scope, Operation) {
 	
 });

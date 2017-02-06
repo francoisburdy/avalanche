@@ -4,7 +4,7 @@ angular.module('myApp.journal', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/journal', {
-    templateUrl: 'views/journal/journal.html',
+    templateUrl: 'modules/journal/journal.html',
     controller: 'JournalCtrl'
   });
 }])

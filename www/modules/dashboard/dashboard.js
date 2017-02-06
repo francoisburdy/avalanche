@@ -4,13 +4,20 @@ angular.module('myApp.home', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/home', {
-    templateUrl: 'views/home/home.html',
+    templateUrl: 'modules/home/home.html',
     controller: 'HomeCtrl'
   });
 }])
 
-.controller('HomeCtrl', function($scope) {
+.controller('HomeCtrl', function($scope, Operation) {
 	
+
+  	$scope.operation = Operation.getOperation();
+
+  	$scope.addVictime = function() {
+  		Operation.addVictime({numero: 1, statut: 'Crevée'});
+  	}
+
 	$scope.launchCamera = function() {
     	console.log(navigator.camera);
     	if(navigator.camera !== undefined)
@@ -66,6 +73,6 @@ angular.module('myApp.home', ['ngRoute'])
     	return textes[etat];
   	}
 
-  	$scope.organismes = window.config.organismes;
+  	//$scope.organismes = window.config.organismes;
 
 });

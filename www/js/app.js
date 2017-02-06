@@ -5,6 +5,7 @@ angular.module('myApp', [
   'ngRoute',
   'ngStorage',
   'myApp.home',
+  'myApp.dashboard',
   'myApp.journal',
   'myApp.historique',
   'myApp.addvictime',
@@ -25,8 +26,8 @@ function onDeviceReady() {
 }
 
 
-retreiveConfig();
-retreiveCurrentOperation();
+//retreiveConfig();
+//retreiveCurrentOperation();
 
 
 
