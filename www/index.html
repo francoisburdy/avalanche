@@ -24,47 +24,7 @@
   <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-
-  <!-- Menu -->
-  <div class="sidebar sidebar-left faster-sidebar" ng-swipe-right="swipe($event)">
-    <div class="scrollable">
-      
-      <a href="#!/" class="scrollable-header app-name flat-link">
-        <img src="img/icon-sidebar.png" />
-        Avalanche
-      </a>
-
-      <div class="scrollable-content">
-        <div class="list-group" ui-turn-off='uiSidebarLeft'>
-          <a class="list-group-item" href="#!/home">
-            <i class="fa fa-home fa-lg pull-left"></i> 
-            <span>Accueil</span> 
-            <i class="fa fa-chevron-right pull-right"></i> 
-          </a>
-          <a class="list-group-item" href="#!/dashboard">
-            <i class="fa fa-users fa-lg pull-left"></i> 
-            <span>Opération en cours</span> 
-            <i class="fa fa-chevron-right pull-right"></i> 
-          </a>
-          <a class="list-group-item" href="#!/journal">
-            <i class="fa fa-calendar fa-lg pull-left"></i> 
-            <span>Journal de l'opération</span> 
-            <i class="fa fa-chevron-right pull-right"></i> 
-          </a>
-          <a class="list-group-item" href="#!/historique">
-            <i class="fa fa-life-ring fa-lg pull-left"></i> 
-            <span>Historique des opérations</span>
-            <i class="fa fa-chevron-right pull-right"></i>
-          </a>
-          <a class="list-group-item" href="#!/parametres">
-            <i class="fa fa-cog fa-lg pull-left"></i>
-            <span>Paramètres</span>
-            <i class="fa fa-chevron-right pull-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div ng-include="'modules/menu/menu.html'" ng-controller="MenuCtrl" class="sidebar sidebar-left faster-sidebar" ng-swipe-right="swipe($event)"></div>
 
   <div class="app faster">
     <!-- Topbar -->
@@ -104,6 +64,7 @@
 
   
   <!-- Controllers -->
+  <script src="modules/menu/menu.js"></script>
   <script src="modules/home/home.js"></script>
   <script src="modules/dashboard/dashboard.js"></script>
   <script src="modules/journal/journal.js"></script>
@@ -113,5 +74,6 @@
 
   <!-- Services -->
   <script src="modules/services/operation_service.js"></script>   
+  <script src="modules/services/parametres_service.js"></script>   
 </body>
 </html>
