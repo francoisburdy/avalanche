@@ -3,8 +3,8 @@
 angular.module('myApp', [
   'ngRoute',
   'ngStorage',
-  'swipe',
-  'mobile-angular-ui'
+  'mobile-angular-ui',
+  'mobile-angular-ui.gestures'
 ])
 
 .run(function($rootScope, $location, Operation) {
@@ -15,12 +15,10 @@ angular.module('myApp', [
   });
 });
 
+
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
   console.log('deviceready');
   console.log(navigator.camera);
 }
-
-//retreiveConfig();
-//retreiveCurrentOperation();

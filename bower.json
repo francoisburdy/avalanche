@@ -20,8 +20,6 @@
     "font-awesome": "4.7.0",
     "mobile-angular-ui": "1.3.4",
     "angular-translate": "2.13.0",
-    "ngstorage": "^0.3.11",
-    "glyphicons-only-bootstrap": "^0.0.1",
-    "angular-swipe": "^0.2.0"
+    "ngstorage": "^0.3.11"
   }
 }

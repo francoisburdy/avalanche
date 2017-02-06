@@ -17,7 +17,7 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
         }
     }
 
-    this.removeStatus = function(status) {
+    this.removeVictimeStatus = function(status) {
         var index = $localStorage.victimeStatus.indexOf(status);
         if(index == -1) console.log("Ce statut n'existe pas dans la liste des statuts.");
         else {
@@ -64,12 +64,12 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
 
     this.createDefaultMetiers = function() {
         $localStorage.metiers = [
-            {libelle: 'Pompiers', bg: '#fff', text: '#333'},
-            {libelle: 'Pisteurs', bg: '#fff', text: '#333'},
-            {libelle: 'Moniteurs de ski', bg: '#fff', text: '#333'},
-            {libelle: 'Gendarmes', bg: 'yellow', text: '#000'},
-            {libelle: 'CRS', bg: 'red', text: '#fff'},
-            {libelle: 'Secouristes', bg: '#000', text: '#fff'}
+            {libelle: 'Pompiers', bg: 'red', text: '#fff'},
+            {libelle: 'Pisteurs', bg: 'purple', text: '#fff'},
+            {libelle: 'Moniteurs', bg: 'yellow', text: '#000'},
+            {libelle: 'Gendarmes', bg: 'darkblue', text: '#fff'},
+            {libelle: 'CRS', bg: 'lightblue', text: '#fff'},
+            {libelle: 'Secouristes', bg: 'green', text: '#fff'}
         ];
     }
 });

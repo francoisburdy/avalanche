@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-hover.css" />
   <link rel="stylesheet" href="bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-base.css" />
   <link rel="stylesheet" href="bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-desktop.css" />
-  <link rel="stylesheet" href="bower_components/glyphicons-only-bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="modules/historique/historique.css">
@@ -22,9 +21,18 @@
   <link rel="stylesheet" href="modules/parametres/parametres.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="icon" type="image/png" href="favicon.png">
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+  <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.min.js"></script>
+
 </head>
-<body>
-  <div ng-include="'modules/menu/menu.html'" ng-controller="MenuCtrl" class="sidebar sidebar-left faster-sidebar" ng-swipe-right="swipe($event)"></div>
+<body ui-swipe-right="Ui.turnOn('uiSidebarLeft')" ui-swipe-left="Ui.turnOff('uiSidebarLeft')">
+
+  <div ng-include="'modules/menu/menu.html'" ng-controller="MenuCtrl" 
+      class="sidebar sidebar-left faster-sidebar" ng-swipe-right="swipe($event)"></div>
 
   <div class="app faster">
     <!-- Topbar -->
@@ -51,11 +59,6 @@
 
   <script type="text/javascript" src="cordova.js"></script>
   <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/ngstorage/ngStorage.min.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
-  <script src="bower_components/angular-swipe/dist/angular-swipe.js"></script>
 
   <script src="js/app.js"></script>
   <script src="js/routes.js"></script>

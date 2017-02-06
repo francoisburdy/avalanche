@@ -2,7 +2,6 @@
   <span>Ajouter une victime</span>
 </div>
 
-
 <div class="scrollable">
     <div class="scrollable-content section">
         <form>
@@ -15,7 +14,6 @@
                 <select ng-model="newVictime.status" ng-options="s.libelle for s in victimeStatus">
                 </select>
             </div>
-            {{newVictime.status}}
 
             <button type="button" ng-click="addVictime()">Ajouter la victime</button>
         </form>       

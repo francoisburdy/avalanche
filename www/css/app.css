@@ -1,9 +1,22 @@
 /* app css stylesheet */
 
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+    outline: none !important;
+}
 
 body {
     font-size: 16px;
     font-family: 'Calibri', 'Arial';
+}
+
+.section{
+    padding-left: 11px;
+    padding-right: 11px;
 }
 
 .sidebar-left {
@@ -15,6 +28,9 @@ body {
     padding-right: 10px;
 }
 
+.full-width {
+    width:100% !important;
+}
 
 .visible-small-only {
         display: none;
@@ -139,5 +155,8 @@ div.card {
 .nav-tabs > li > a{
     text-align: center;
     font-weight: bold;
+}
 
+.panel-body {
+    padding:10px;
 }
