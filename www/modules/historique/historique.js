@@ -1,14 +1,5 @@
 'use strict';
 
-angular.module('myApp.historique', ['ngRoute'])
+angular.module('myApp').controller('HistoriqueCtrl', function($scope, Operation) {
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/historique', {
-    templateUrl: 'modules/historique/historique.html',
-    controller: 'HistoriqueCtrl'
-  });
-}])
-
-.controller('HistoriqueCtrl', [function() {
-
-}]);
+});

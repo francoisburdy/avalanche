@@ -22,7 +22,7 @@
     padding-left: 0;
 }
 
-#nouvelle_operation{
+.nouvelle_operation{
     font-family: "Open Sans";
     margin-top: 15%;
     margin-bottom: 15%;
@@ -34,7 +34,7 @@
     border-radius: 10px;
 }
 
-#historique_operation{
+.historique_operation{
     font-family: "Open Sans";
     padding: 10%;
     font-weight: bold;
@@ -43,7 +43,8 @@
     text-align: center;
     border-radius: 10px;
 }
- .main img{
+
+.main img{
     margin-top: 1%;
    max-width: 50%;
     height: auto;

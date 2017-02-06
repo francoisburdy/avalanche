@@ -1,22 +1,22 @@
 'use strict';
 
-angular.module('myApp.dashboard', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/dashboard', {
-    templateUrl: 'modules/dashboard/dashboard.html',
-    controller: 'DashboardCtrl'
-  });
-}])
-
-.controller('DashboardCtrl', function($scope, Operation) {
+angular.module('myApp').controller('DashboardCtrl', function($scope, Operation) {
 	
+
+	$scope.$on('operationTerminated', function(event, data) {
+		$scope.operation = Operation.getOperation();
+	});
 
   	$scope.operation = Operation.getOperation();
 
   	$scope.addVictime = function() {
   		Operation.addVictime({numero: 1, statut: 'Crevée'});
   	}
+
+	$scope.terminate = function() {
+		Operation.terminate();
+
+	}
 
 	$scope.launchCamera = function() {
     	console.log(navigator.camera);
@@ -38,7 +38,7 @@ angular.module('myApp.dashboard', ['ngRoute'])
 		refreshImageContent(imageData);		
 	}
 
-	function onFail(message) {;
+	function onFail(message) {
 		console.log('image : onFail');
 	}
 
