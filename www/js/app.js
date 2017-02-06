@@ -10,8 +10,15 @@ angular.module('myApp', [
   'myApp.historique',
   'myApp.addvictime',
   'myApp.parametres',
-  'mobile-angular-ui'
+  'mobile-angular-ui',
+  'swipe'
 ])
+.controller('GlobalController', ['$scope', function($scope) {
+  $scope.swipe = function($event) {
+    //console.log($event);
+    simulateClick();
+  };
+}])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
   $routeProvider.otherwise({redirectTo: '/home'});
@@ -25,6 +32,22 @@ function onDeviceReady() {
   console.log(navigator.camera);
 }
 
+function simulateClick() {
+  var event = new MouseEvent('click', {
+    'view': window,
+    'bubbles': true,
+    'cancelable': true
+  });
+  var cb = document.getElementById('burger'); 
+  var cancelled = !cb.dispatchEvent(event);
+  if (cancelled) {
+    // A handler called preventDefault.
+    alert("cancelled");
+  } else {
+    // None of the handlers called preventDefault.
+    alert("not cancelled");
+  }
+}
 
 //retreiveConfig();
 //retreiveCurrentOperation();

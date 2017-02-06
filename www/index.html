@@ -25,7 +25,7 @@
 <body>
 
   <!-- Menu -->
-  <div class="sidebar sidebar-left faster-sidebar">
+  <div class="sidebar sidebar-left faster-sidebar" ng-swipe-right="swipe($event)">
     <div class="scrollable">
       
       <a href="#!/" class="scrollable-header app-name flat-link">
@@ -68,7 +68,7 @@
   <div class="app faster">
     <!-- Topbar -->
     <div class="navbar navbar-app navbar-absolute-top">
-      <div class="btn-group pull-left visible-small-only" ui-toggle='uiSidebarLeft'>
+      <div id="burger" class="btn-group pull-left visible-small-only" ui-toggle='uiSidebarLeft'>
         <a href class="btn btn-primary btn-lg">
           <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
         </a>
@@ -95,6 +95,8 @@
   <script src="bower_components/ngstorage/ngStorage.min.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+  <script src="bower_components/angular-swipe/dist/angular-swipe.js"></script>
+
   <script src="js/model.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/app.js"></script>
