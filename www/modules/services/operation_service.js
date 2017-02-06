@@ -1,16 +1,12 @@
-angular.module('myApp.home').service('Operation', function($localStorage) {
-
-    this.operation = $localStorage.operation;
+angular.module('myApp').service('Operation', function($localStorage, $rootScope) {
     
-    this.pastOperations = $localStorage.pastOperations;
-
     this.getOperation = function() {
-        return this.operation;
+        return $localStorage.operation;
     }
 
     this.createOperation = function() {
-        if(this.operation == null) {
-            this.operation = {
+        if($localStorage.operation == null) {
+            $localStorage.operation = {
                 nom: 'Avalanche du ' + new Date(),
                 beginDate: new Date(),
                 endDate: null,
@@ -23,32 +19,41 @@ angular.module('myApp.home').service('Operation', function($localStorage) {
     }
 
     this.terminate = function() {
-        this.operation.endDate = new Date();
-        this.pastOperations.push(this.operation);
-        // ON VIDE this.operation;
+        $localStorage.operation.endDate = new Date();
+        this.pushHistorique($localStorage.operation);
+        $localStorage.operation = null;
+        $rootScope.$broadcast('operationTerminated');
+        console.log($localStorage.historique, $localStorage.operation);
+    }
+
+    this.pushHistorique = function(operation) {
+        if(!$localStorage.historique) {
+            $localStorage.historique = [];
+        }
+        $localStorage.historique.push(operation);
     }
 
     this.addPersonnel = function(personnel) {
-        if(this.operation.personnels.indexOf(personnel) !== -1) {
+        if($localStorage.operation.personnels.indexOf(personnel) !== -1) {
             console.log("Error : operation already contains this personnel");
-        } else this.operation.personnels.push(personnel);
+        } else $localStorage.operation.personnels.push(personnel);
     }
 
     this.removePersonnel = function(personnel) {
-        var index = this.operation.personnels.indexOf(personnel);
+        var index = $localStorage.operation.personnels.indexOf(personnel);
         if(index == -1) console.log("Error : Operation does not contain this personnel");
-        else this.operation.personnels.splice(index, 1);
+        else $localStorage.operation.personnels.splice(index, 1);
     }
 
     this.addVictime = function(victime) {
-        if(this.operation.victimes.indexOf(victime) !== -1) console.log("Error : Operation already contains this victime");
-        else this.operation.victimes.push(victime);
+        if($localStorage.operation.victimes.indexOf(victime) !== -1) console.log("Error : Operation already contains this victime");
+        else $localStorage.operation.victimes.push(victime);
     }
 
     this.removeVictime = function(victime) {
-        var index = this.operation.victimes.indexOf(victime);
+        var index = $localStorage.operation.victimes.indexOf(victime);
         if(index == -1) console.log("Error : Operation does not contain this victime");
-        else this.operation.victimes.splice(index, 1);
+        else $localStorage.operation.victimes.splice(index, 1);
     }
 /*
     this.getMissions = function(){

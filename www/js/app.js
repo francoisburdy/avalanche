@@ -4,17 +4,36 @@
 angular.module('myApp', [
   'ngRoute',
   'ngStorage',
-  'myApp.home',
-  'myApp.dashboard',
-  'myApp.journal',
-  'myApp.historique',
-  'myApp.addvictime',
-  'myApp.parametres',
   'mobile-angular-ui'
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
-  $routeProvider.otherwise({redirectTo: '/home'});
+
+  $routeProvider.when('/addvictime', {
+    templateUrl: 'modules/addvictime/addvictime.html',
+    controller: 'AddVictimeCtrl'
+
+  }).when('/home', {
+    templateUrl: 'modules/home/home.html',
+    controller: 'HomeCtrl'
+
+  }).when('/dashboard', {
+    templateUrl: 'modules/dashboard/dashboard.html',
+    controller: 'DashboardCtrl'
+
+  }).when('/parametres', {
+    templateUrl: 'modules/parametres/parametres.html',
+    controller: 'ParametresCtrl'
+
+  }).when('/historique', {
+    templateUrl: 'modules/historique/historique.html',
+    controller: 'HistoriqueCtrl'
+
+  }).when('/journal', {
+    templateUrl: 'modules/journal/journal.html',
+    controller: 'JournalCtrl'
+
+  }).otherwise({redirectTo: '/home'});
 }]);
 
 
@@ -28,6 +47,3 @@ function onDeviceReady() {
 
 //retreiveConfig();
 //retreiveCurrentOperation();
-
-
-
