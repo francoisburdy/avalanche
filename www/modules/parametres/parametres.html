@@ -68,7 +68,7 @@
                     <input type="text" class="form-control" id="labelMetier" placeholder="Intitulé métier" />
                   </div>
 
-                  <color-picker ng-model="color"></color-picker>
+                  <color-picker color="color" options="options" on-color-changed="colorChanged(newColor, oldColor)"></color-picker>
 
                   </form>
                 </div>

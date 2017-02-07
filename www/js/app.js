@@ -5,7 +5,7 @@ angular.module('myApp', [
   'ngStorage',
   'mobile-angular-ui',
   'mobile-angular-ui.gestures',
-  'mp.colorPicker'
+  'tb-color-picker'
 ])
 
 .run(function($rootScope, $location, Operation) {

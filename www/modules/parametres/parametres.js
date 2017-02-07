@@ -10,11 +10,18 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
     });
 
 	$scope.addMetier = function() {
-		alert('addMetier()');
+		
 	} 
 
 	$scope.addVictimeStatus = function(){
 		
 	}
+
+	$scope.options = ['transparent','#FF8A80', '#FFD180', '#FFFF8D', '#CFD8DC', '#80D8FF', '#A7FFEB', '#CCFF90'];
+    $scope.color = '#FF8A80';
+
+    $scope.colorChanged = function(newColor, oldColor) {
+        console.log('from ', oldColor, ' to ', newColor);
+    }
 
 });

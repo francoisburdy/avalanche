@@ -16,3 +16,12 @@ button.btn-lg i.left{
 
 #picker { width: 200px; height: 200px }
 #slide { width: 30px; height: 200px }
+
+.selected-color, .color-palette div{
+	width: 40px;
+	height: 40px;
+}
+
+.color-palette{
+	width: 90%;
+}
