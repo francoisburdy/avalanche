@@ -2,7 +2,7 @@
 
 .card .victime-numero, .card .victime-etat{
 	width: calc(100% - 70px);
-    display: inline-block;
+	display: inline-block;
 }
 
 
@@ -41,3 +41,20 @@
 	background: #e53935;
 	color:white;
 }
+
+.ajouter-intervenant {
+	position: absolute;
+    bottom: 3%;
+    font-size: 7em;
+    right: 12%;
+    color: #007aff;
+}
+
+.supprimer-intervenant {
+	position: absolute;
+    bottom: 3%;
+    font-size: 7em;
+    left: 12%;
+    color: red;
+}
+
