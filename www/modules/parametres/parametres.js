@@ -4,6 +4,7 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
 
 	$scope.metiers = Parametres.getMetiers();
 	$scope.victimeStatus = Parametres.getVictimeStatus();
+	$scope.victimeSituation = Parametres.getVictimeSituation();
 
 	$scope.$on('metiersUpdated', function(event) {
         $scope.metiers = Parametres.getMetiers();
@@ -17,4 +18,7 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
 		
 	}
 
+	$scope.addVictimeSituation = function(){
+		
+	}
 });

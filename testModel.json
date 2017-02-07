@@ -25,12 +25,14 @@ operation{
 	victimes: [{
 		numero: 1,
 		state: "urgenceAbsolue",
-		dateDecouverte: "23/11/2016"
+		dateDecouverte: "23/11/2016",
+		situation: "Ensevelie"
 		},
 		{
 		numero: 2,
 		state: "urgenceRelative",
-		dateDecouverte: "23/11/2016"
+		dateDecouverte: "23/11/2016",
+		situation: "Impliquée"
 		}]
 }
 

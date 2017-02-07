@@ -5,6 +5,7 @@ angular.module('myApp').controller('VictimesCtrl', function($scope, $location, O
 	$scope.newVictime.numero = Operation.generateVictimeNumber();
 
 	$scope.victimeStatus = Parametres.getVictimeStatus();
+	$scope.victimeSituation = Parametres.getVictimeSituation();
 
   	$scope.addVictime = function() {
   		$scope.newVictime.beginDate = new Date();
