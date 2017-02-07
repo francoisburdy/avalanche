@@ -1,0 +1,47 @@
+
+
+.home { 
+    background: url(../../img/login-background.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.home .main{
+    position: relative;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 100%;
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+.home .main .btn{
+    font-family: "Open Sans";
+    margin-top: 3vh;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    padding: 1.2em 0em;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    max-width: 255px;
+    background: rgba(0, 122, 255, 0.9);
+    border-radius: 10px;
+    border:none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.main img{
+    width: 40%;
+    margin: auto;
+    margin-bottom: 2vh;
+    text-align: center;
+    opacity: 0.9;
+    display: block;
+    max-width: 130px;
+}

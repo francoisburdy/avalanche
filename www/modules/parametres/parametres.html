@@ -1,0 +1,57 @@
+<div ui-content-for="title">
+  <span>Paramètres</span>
+</div>
+
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div class="section parametres">
+    
+      <div class="panel panel-default" >
+        <div class="panel-heading">
+            <h3 class="panel-title">Corps de métier intervenants</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+
+            <div class="col-xs-6 col-md-3" ng-repeat="m in metiers">
+              <button type="button" class="btn btn-lg full-width" ng-style="{'background-color': m.bg, 'color': m.text}">
+                {{m.libelle}} <i class="fa fa-pencil right" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+              <button type="button" class="btn btn-lg full-width" ng-click="addMetier()" style="background: white">
+                <i class="fa fa-plus-circle left" aria-hidden="true"></i> Nouveau
+              </button>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" >
+        <div class="panel-heading">
+            <h3 class="panel-title">Etats d'une victime</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+
+            <div class="col-xs-6 col-md-3" ng-repeat="vs in victimeStatus">
+              <button type="button" class="btn btn-lg full-width" ng-style="{'background-color': vs.bg, 'color': vs.text}">
+                {{vs.libelle}} <i class="fa fa-pencil right" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+              <button type="button" class="btn btn-lg full-width" ng-click="addVictimeStatus()" style="background: white">
+                <i class="fa fa-plus-circle left" aria-hidden="true"></i> Nouveau
+              </button>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+          
+  </div>
+</div>

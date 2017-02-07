@@ -1,20 +1,19 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
   'ngStorage',
-  'myApp.home',
-  'myApp.journal',
-  'myApp.historique',
-  'myApp.addvictime',
-  'myApp.parametres',
-  'mobile-angular-ui'
+  'mobile-angular-ui',
+  'mobile-angular-ui.gestures'
 ])
-.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-  $routeProvider.otherwise({redirectTo: '/home'});
-}]);
+
+.run(function($rootScope, $location, Operation) {
+  $rootScope.$on("$routeChangeStart", function(event, next, current) { 
+    if(next.$$route && next.$$route.originalPath == '/home' && Operation.getOperation() != null) {
+      $location.url('/dashboard');
+    }
+  });
+});
 
 
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -23,10 +22,3 @@ function onDeviceReady() {
   console.log('deviceready');
   console.log(navigator.camera);
 }
-
-
-retreiveConfig();
-retreiveCurrentOperation();
-
-
-
