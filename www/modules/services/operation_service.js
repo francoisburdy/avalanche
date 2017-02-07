@@ -30,8 +30,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     this.getJournaux = function() {
         var journaux = [];
 
-        for(var i = 0; i < $localStorage.historique.length; i++) {
-            journaux.push(this.getJournal($localStorage.historique[i]));            
+        if($localStorage.historique){
+            for(var i = 0; i < $localStorage.historique.length; i++) {
+                journaux.push(this.getJournal($localStorage.historique[i]));            
+            }
         }
         return journaux;
     }

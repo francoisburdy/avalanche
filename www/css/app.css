@@ -19,6 +19,10 @@ body {
     padding-right: 11px;
 }
 
+.center {
+    text-align: center;
+}
+
 .bold {
     font-weight: bold;
 }

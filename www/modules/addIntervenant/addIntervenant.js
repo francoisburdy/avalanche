@@ -20,8 +20,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
     function onSuccess(imageData) {
         console.log('image : onSuccess');
         console.log(imageData);
-        //storage.setItem('imageData', imageData);
-        refreshImageContent(imageData);     
+        //refreshImageContent(imageData);     
     }
     
     function onFail(message) {
@@ -39,13 +38,11 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
     window.addEventListener('native.keyboardhide', keyboardHideHandler);
 
     function keyboardShowHandler(e) {
-        console.log('show keyboard');
         $scope.keyboardVisible = true;
         $scope.$apply();
     }
 
     function keyboardHideHandler(e) {
-        console.log('hide keyboard');
         $scope.keyboardVisible = false;
         $scope.$apply();
     }

@@ -73,14 +73,6 @@
                 </div>
             </div>
 
-            <!--div class="btn-bottom-left">
-                <div class="green-bg">
-                    <a ng-click="deleteVictime()">
-                        <i class="fa fa-ambulance"></i>
-                    </a>
-                </div>
-            </div-->
-
             <div class="btn-bottom-right">
                 <div class="blue-bg">
                     <a href="#!/victimes">
@@ -94,12 +86,8 @@
         <hr/>
 
         <div>
-            <button ng-click="terminate()">Terminer l'opération</button>
+            <button class="btn btn-danger btn-block" ng-click="terminate()">Terminer l'opération</button>
         </div>
-
-        <button class="btn btn-primary btn-block" ng-click="launchCamera()">
-            Prendre une photo
-        </button>
 
         <img id='imagePreview' style="max-width:200px" />
     </div>

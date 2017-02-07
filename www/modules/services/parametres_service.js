@@ -65,7 +65,7 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
         $localStorage.victimeSituations = [
             'Inconnue',
             'Impliquée',
-            'Désenvelie',
+            'Désensevelie',
             'Ensevelie'
         ];
     }
