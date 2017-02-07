@@ -5,8 +5,6 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
 	$scope.metiers = Parametres.getMetiers();
 	$scope.victimeStatus = Parametres.getVictimeStatus();
 
-
-
 	$scope.$on('metiersUpdated', function(event) {
         $scope.metiers = Parametres.getMetiers();
     });
@@ -16,7 +14,7 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
 	} 
 
 	$scope.addVictimeStatus = function(){
-		alert('addVictimeStatus()');
+		
 	}
 
 });
