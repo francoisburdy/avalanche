@@ -35,5 +35,9 @@ angular.module('myApp').config(['$locationProvider', '$routeProvider', function(
     templateUrl: 'modules/addIntervenant/addIntervenant.html',
     controller: 'AddIntervenantCtrl'
 
+  }).when('/confirmIntervenant', {
+    templateUrl: 'modules/confirmIntervenant/confirmIntervenant.html',
+    controller: 'ConfirmIntervenantCtrl'
+
   }).otherwise({redirectTo: '/home'});
 }])

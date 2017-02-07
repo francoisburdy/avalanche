@@ -1,0 +1,36 @@
+<div ui-content-for="title">
+    <span>Confirmation d'ajout</span>
+</div>
+
+
+
+<div class="scrollable" ng-controller="ConfirmIntervenantCtrl as confIntCtrl">
+    <div class="scrollable-content section confirmIntervenant" id="confirmIntervenant">
+       
+       <h2>Pompier</h2>
+
+       <img  src="img/logo-avalanche.jpg" alt="Logo Avalanche" class="img-circle">
+
+       <div class="numConfInt">
+           <h2>{{num}}</h2>
+       </div>
+       
+
+
+       <div class="btn-bottom-left">
+                <div class="grey-bg">
+                    <a ng-click="deleteIntervenant()">
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="btn-bottom-right">
+                <div class="blue-bg">
+                    <a href="#!/dashboard">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+    </div>
+</div>

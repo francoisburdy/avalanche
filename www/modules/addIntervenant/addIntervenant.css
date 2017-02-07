@@ -1,4 +1,4 @@
-.form-group{
+.addIntervenant form-group{
 	border-bottom-style: groove;
 	text-align: center;
 }
@@ -7,13 +7,13 @@
 	background-color: #dee7f1;
 }
 
-label{
+.addIntervenant label{
 	font-size: 250%;
 	width: 100%;
 	text-align: center;
 }
 
-select{
+.addIntervenant select{
 	height: 45px;
     line-height: 100px;
     font-size: 20px;
