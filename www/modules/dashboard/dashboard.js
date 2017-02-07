@@ -16,6 +16,10 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         }
     }
 
+    $scope.deleteIntervenant = function() {
+        alert("deleteIntervenant");
+    }
+
     $scope.$on('$viewContentLoaded', function() {
         //var imageData = storage.getItem("imageData"); // Pass a key name and its value to add or update that key.
         //refreshImageContent(imageData);

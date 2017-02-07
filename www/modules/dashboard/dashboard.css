@@ -2,7 +2,7 @@
 
 .card .victime-numero, .card .victime-etat{
 	width: calc(100% - 70px);
-    display: inline-block;
+	display: inline-block;
 }
 
 
