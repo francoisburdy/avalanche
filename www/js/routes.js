@@ -4,8 +4,8 @@ angular.module('myApp').config(['$locationProvider', '$routeProvider', function(
   $locationProvider.hashPrefix('!');
 
   $routeProvider.when('/addvictime', {
-    templateUrl: 'modules/addVictime/addVictime.html',
-    controller: 'AddVictimeCtrl'
+    templateUrl: 'modules/victimes/addVictime.html',
+    controller: 'VictimesCtrl'
 
   }).when('/home', {
     templateUrl: 'modules/home/home.html',
@@ -31,5 +31,8 @@ angular.module('myApp').config(['$locationProvider', '$routeProvider', function(
     templateUrl: 'modules/addIntervenant/addIntervenant.html',
     controller: 'AddIntervenantCtrl'
 
+  }).when('/victimes/:num', {
+    templateUrl: 'modules/victimes/editVictime.html',
+    controller: 'VictimesCtrl'
   }).otherwise({redirectTo: '/home'});
 }])
