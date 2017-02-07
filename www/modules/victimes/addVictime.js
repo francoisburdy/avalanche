@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('VictimesCtrl', function($scope, $location, Operation, Parametres) {
+angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location, Operation, Parametres) {
 	$scope.newVictime = {};
 	$scope.newVictime.numero = Operation.generateVictimeNumber();
 
