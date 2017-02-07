@@ -3,7 +3,6 @@
 angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $location, Operation, Parametres) {
 	$scope.newIntervenant = {};
 
-
   	$scope.addIntervenant = function() {
   		$scope.newIntervenant.beginDate = new Date();
   		$scope.newIntervenant.endDate = null;
@@ -36,6 +35,19 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
         }
     }
 
+    window.addEventListener('native.keyboardshow', keyboardShowHandler);
+    window.addEventListener('native.keyboardhide', keyboardHideHandler);
 
+    function keyboardShowHandler(e) {
+        console.log('show keyboard');
+        $scope.keyboardVisible = true;
+        $scope.$apply();
+    }
+
+    function keyboardHideHandler(e) {
+        console.log('hide keyboard');
+        $scope.keyboardVisible = false;
+        $scope.$apply();
+    }
 
 });
