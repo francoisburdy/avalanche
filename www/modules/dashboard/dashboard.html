@@ -25,8 +25,7 @@
             <div class="row">
                 <div ng-repeat="organisme in organismes">
                     <div class="col-lg-4 col-md-6 col-xs-12 card">
-                        <div class="row card-container" style="background-color:{{organisme.color}}">
-
+                        <div class="row card-container" ng-style="{'background-color': organisme.color}">
                             <div class="col-xs-12 card-content">
                                 <span class="card-title">
                                     <strong>{{organisme.name}}</strong>
@@ -41,7 +40,7 @@
             <div class="btn-bottom-left">
                 <div class="red-bg">
                     <a ng-click="deleteIntervenant()">
-                        <i class="fa fa-minus" aria-hidden="true"></i>
+                        <i class="fa fa-minus"></i>
                     </a>
                 </div>
             </div>
@@ -49,7 +48,7 @@
             <div class="btn-bottom-right">
                 <div class="blue-bg">
                     <a href="#!/addIntervenant">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <i class="fa fa-plus"></i>
                     </a>
                 </div>
             </div>
@@ -91,7 +90,8 @@
           </div>
         </div>
     
-        <br/><hr/><br/>
+        <hr/>
+
         <div>
             <button ng-click="terminate()">Terminer l'opération</button>
         </div>
@@ -101,6 +101,5 @@
         </button>
 
         <img id='imagePreview' style="max-width:200px" />
-
     </div>
 </div>
