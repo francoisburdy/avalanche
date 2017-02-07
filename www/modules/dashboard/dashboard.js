@@ -9,6 +9,10 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         $location.url('/home');
     }
 
+    $scope.editVictime = function(num) {
+        $location.url('/victimes/' + num);
+    }
+
     $scope.launchCamera = function() {
         console.log(navigator.camera);
         if(navigator.camera !== undefined) {

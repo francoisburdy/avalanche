@@ -59,7 +59,7 @@
                 <div ng-repeat="v in operation.victimes | orderBy: 'numero'">               
                     <div class="col-lg-4 col-md-6 col-xs-12 card">
                         <div class="row card-container">
-                            <div class="col-xs-12 card-content">
+                            <div class="col-xs-6 card-content" ng-click="editVictime(v.numero)">
                                 <span class="card-title">
                                     <strong>Victime n°{{v.numero}}</strong>
                                 </span>
@@ -72,17 +72,17 @@
                 </div>
             </div>
 
-            <div class="btn-bottom-left">
+            <!--div class="btn-bottom-left">
                 <div class="green-bg">
                     <a ng-click="deleteVictime()">
                         <i class="fa fa-ambulance"></i>
                     </a>
                 </div>
-            </div>
+            </div-->
 
             <div class="btn-bottom-right">
-                <div class="red-bg">
-                    <a href="#!/addvictime">
+                <div class="blue-bg">
+                    <a href="#!/victimes">
                         <i class="fa fa-plus"></i>
                     </a>
                 </div>

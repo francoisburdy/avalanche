@@ -134,6 +134,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
+    /* Génère un numéro inexistant pour une victime */
     this.generateVictimeNumber = function() {
         if ($localStorage.operation.victimes.length == 0) {
             return 1;
@@ -142,6 +143,14 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             for(let v of $localStorage.operation.victimes)
                 nextNumber = v.numero > nextNumber ? v.numero + 1 : nextNumber;
             return nextNumber;
+        }
+    }
+
+    /* Retourne une victime à partir de son numéro */
+    this.getVictime = function(numero) {
+        for(var i = 0; i < $localStorage.operation.victimes.length; i++) {
+            var victime = $localStorage.operation.victimes[i];
+            if(victime.numero == numero) return victime; 
         }
     }
 });
