@@ -4,8 +4,7 @@ angular.module('myApp', [
   'ngRoute',
   'ngStorage',
   'mobile-angular-ui',
-  'mobile-angular-ui.gestures',
-  'color.picker'
+  'mobile-angular-ui.gestures'
 ])
 
 .run(function($rootScope, $location, Operation) {
