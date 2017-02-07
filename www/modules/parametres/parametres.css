@@ -1,15 +1,18 @@
 
 button.btn-lg i.right{
-    float: right;
-    line-height: 24px;
+	float: right;
+	line-height: 24px;
 }
 
 button.btn-lg i.left{
-    float: left;
-    line-height: 24px;
+	float: left;
+	line-height: 24px;
 }
 
 .parametres button{
-    margin-bottom: 0.5em;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	margin-bottom: 0.5em;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+
+#picker { width: 200px; height: 200px }
+#slide { width: 30px; height: 200px }
