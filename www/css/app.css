@@ -161,20 +161,51 @@ div.card {
     padding:10px;
 }
 
-
-.btn-bottom-right i {
-    position: absolute;
+.btn-bottom-left div {
+    position: fixed;
+    border-radius: 50%;
+    width: 95px;
+    height: 95px;
     bottom: 3%;
-    font-size: 7em;
-    right: 12%;
-    color: #007aff;
-}
-
-.btn-bottom-left i {
-    position: absolute;
-    bottom: 3%;
-    font-size: 7em;
     left: 12%;
-    color: red;
 }
+
+.btn-bottom-left div i{
+    font-size: 3.1em;
+    color:white;
+    text-align: center;
+    line-height: 100px;
+    width: 100%;
+}
+
+.btn-bottom-right div {
+    position: fixed;
+    border-radius: 50%;
+    width: 95px;
+    height: 95px;
+    bottom: 3%;
+    right: 12%;
+}
+
+.btn-bottom-right div i{
+    font-size: 3.1em;
+    color:white;
+    text-align: center;
+    width: 100%;
+    line-height: 100px;
+}
+
+
+.red-bg{
+    background-color: red;
+}
+
+.green-bg{
+    background-color: #5cb85c;
+}
+
+.blue-bg{
+    background-color: #337ab7;
+}
+
 

@@ -4,7 +4,6 @@
 
 <div class="scrollable">
     <div class="scrollable-content section">
-        
         <div ui-state="activeTab" default="1">
           <ul class="nav nav-tabs two-tabs">
             <li ui-class="{'active': activeTab == 1}">
@@ -36,34 +35,32 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
             <div class="btn-bottom-left">
-                <a ng-click="deleteIntervenant()">
-                  <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                </a>
+                <div class="red-bg">
+                    <a ng-click="deleteIntervenant()">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
 
             <div class="btn-bottom-right">
-                <a href="#!/addIntervenant">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                </a>
+                <div class="blue-bg">
+                    <a href="#!/addIntervenant">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
- 
-            </div>
+          </div>
           <!-- Onglet victimes -->
-          <div ui-if="activeTab == 2">
-           
+          <div ui-if="activeTab == 2">        
             <div class="row">
                 <div ng-repeat="v in operation.victimes | orderBy: 'numero'">               
                     <div class="col-lg-4 col-md-6 col-xs-12 card">
                         <div class="row card-container">
-                            <div class="col-xs-2 icon">
-                                <i class="fa fa-ambulance fa-2x"></i>
-                            </div>
-                            <div class="col-xs-10 card-content">
+                            <div class="col-xs-12 card-content">
                                 <span class="card-title">
                                     <strong>Victime n°{{v.numero}}</strong>
                                 </span>
@@ -74,12 +71,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-xs-12 card">
-                    <div class="row card-container">
-                        <a class="btn btn-default col-xs-12" role="button" href="#!/addvictime">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Ajouter une victime
-                        </a>
-                    </div>
+            </div>
+
+            <div class="btn-bottom-left">
+                <div class="green-bg">
+                    <a ng-click="deleteVictime()">
+                        <i class="fa fa-ambulance"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="btn-bottom-right">
+                <div class="red-bg">
+                    <a href="#!/addvictime">
+                        <i class="fa fa-plus"></i>
+                    </a>
                 </div>
             </div>
           </div>
@@ -89,6 +95,7 @@
         <div>
             <button ng-click="terminate()">Terminer l'opération</button>
         </div>
+
         <button class="btn btn-primary btn-block" ng-click="launchCamera()">
             Prendre une photo
         </button>

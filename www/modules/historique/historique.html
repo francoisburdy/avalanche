@@ -4,8 +4,25 @@
 
 <div class="scrollable">
  	<div class="scrollable-content section">
+		<div ng-repeat="j in journaux">
+			<h3 ng-click="select($index)">{{j.nom}} {{j.beginDate | date: 'dd/MM/yyyy'}}</h3>
+			<div ng-if="isSelected($index)">
+				<p>
+					Opération débutée le {{j.beginDate | date: 'dd/MM/yyyy, hh:mm'}}
+					et terminée le {{j.endDate | date: 'dd/MM/yyyy, hh:mm'}}
+				</p>
+				<p>
+					Cette opération a impliqué <span class="bold">{{j.nbVictimes}} victimes</span>
+					et <span class="bold">{{j.nbPersonnels}} personnels</span>.
+				</p>
 
-      
-
+				<div ng-repeat="e in j.evenements | orderBy: 'date'" class="ev-journal">
+					<div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie'}">
+						{{e.texte}}
+					</div>
+				</div>
+			</div>
+			<hr/>
+		</div>      
  	</div>
 </div>
