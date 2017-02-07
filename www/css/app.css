@@ -160,3 +160,21 @@ div.card {
 .panel-body {
     padding:10px;
 }
+
+
+.btn-bottom-right i {
+    position: absolute;
+    bottom: 3%;
+    font-size: 7em;
+    right: 12%;
+    color: #007aff;
+}
+
+.btn-bottom-left i {
+    position: absolute;
+    bottom: 3%;
+    font-size: 7em;
+    left: 12%;
+    color: red;
+}
+
