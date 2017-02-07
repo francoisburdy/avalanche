@@ -35,6 +35,40 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
         ];
     }
 
+    /************************
+     * SITUATIONS DES VICTIMES *
+     ***********************/ 
+    this.getVictimeSituation = function() {
+        if(!$localStorage.victimeSituation) this.createDefaultVictimeSituation();
+        return $localStorage.victimeSituation;
+    }
+
+    this.addVictimeSituation = function(newSituation) {
+        if($localStorage.victimeSituation) {
+            $localStorage.victimeSituation.push(newSituation);
+            $rootScope.$broadcast('victimesUpdated');
+        } else {
+            console.log("$localStorage.victimeSituation n'est pas iniatilisé.");
+        }
+    }
+
+    this.removeVictimeSituation = function(situation) {
+        var index = $localStorage.victimeSituation.indexOf(situation);
+        if(index == -1) console.log("Cette situation n'existe pas dans la liste des situations.");
+        else {
+            $localStorage.victimeSituation.splice(index, 1);
+            $rootScope.$broadcast('victimesUpdated');
+        }   
+    }
+
+    this.createDefaultVictimeSituation = function() {
+        $localStorage.victimeSituation = [
+            {libelle: 'Impliquée', code: 'I', bg: '#fff', text: '#333'},
+            {libelle: 'Urgence relative', code: 'UR', bg: 'yellow', text: '#000'},
+            {libelle: 'Urgence absolue', code: 'UA', bg: 'red', text: '#fff'},
+            {libelle: 'Décédée', code: 'DCD', bg: '#000', text: '#fff'}
+        ];
+    }
 
     /************************
      *    CORPS DE METIER   *
