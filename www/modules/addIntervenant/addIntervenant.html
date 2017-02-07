@@ -1,0 +1,46 @@
+    <div ui-content-for="title">
+        <span>Ajouter un intervenant</span>
+    </div>
+
+
+   
+    <div class="scrollable">
+        <div class="scrollable-content section addIntervenant">
+            <form>
+                <div class="form-group">
+                    <label>Corps de métier</label>
+                    <div>
+                        <select class="form-control" name="select">
+                          <option value="valeur1">Valeur 1</option> 
+                          <option value="valeur2" selected>Valeur 2</option>
+                          <option value="valeur3">Valeur 3</option>
+                        </select>
+                    </div>
+                    <!--<select ng-model="newIntervenant.status" ng-options="s.libelle for s in IntervenantStatus"></select>-->
+                    
+                </div>
+                <div class="form-group input-group-lg">
+                    <label>N° d'intervenant</label>
+                    <input type="number" class="form-control" ng-model="newIntervenant.numero" placeholder="Numéro de Intervenant" />
+                </div>
+                
+                <div class="form-group input-group-lg">
+                    <button type="button" class="btn-primary btn-lg" ng-click="addIntervenant()">Ajouter une photo <i class="fa fa-camera" aria-hidden="true"></i></button>
+                </div>
+
+                
+                <div class="btn-bottom-left">
+                    <a ng-click="deleteIntervenant()">
+                      <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="btn-bottom-right">
+                    <a href="#!/addIntervenant">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+            </form>       
+        </div>
+    </div>

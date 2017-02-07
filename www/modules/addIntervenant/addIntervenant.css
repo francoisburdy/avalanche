@@ -1,0 +1,24 @@
+.form-group{
+	border-bottom-style: groove;
+	text-align: center;
+}
+
+.addIntervenant{
+	background-color: #dee7f1;
+}
+
+label{
+	font-size: 250%;
+	width: 100%;
+	text-align: center;
+}
+
+select{
+	height: 45px;
+    line-height: 100px;
+    font-size: 20px;
+}
+
+option{
+	font-size: 60px;
+}
