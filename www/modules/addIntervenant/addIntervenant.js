@@ -21,7 +21,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
     function onSuccess(imageData) {
         console.log('image : onSuccess');
         console.log(imageData);
-        storage.setItem('imageData', imageData);
+        //storage.setItem('imageData', imageData);
         refreshImageContent(imageData);     
     }
     
