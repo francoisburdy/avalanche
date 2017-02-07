@@ -57,11 +57,12 @@
           <div ui-if="activeTab == 2">        
             <div class="row">
                 <div ng-repeat="v in operation.victimes | orderBy: 'numero'">               
-                    <div class="col-lg-4 col-md-6 col-xs-12 card">
+                    <div class="col-lg-4 col-md-6 col-xs-6 card">
                         <div class="row card-container">
-                            <div class="col-xs-6 card-content" ng-click="editVictime(v.numero)">
+                            <div class="col-xs-12 card-content" ng-click="editVictime(v.numero)">
                                 <span class="card-title">
-                                    <strong>Victime n°{{v.numero}}</strong>
+                                    <strong>Victime n°{{v.numero}}</strong> 
+                                    <span class="italic">({{v.situation}})</span>
                                 </span>
                                 <div class="etat-victime" ng-style="{'background-color': v.status.bg}">
                                     <span ng-style="{'color': v.status.text}">{{v.status.libelle}}</span>

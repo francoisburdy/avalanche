@@ -19,6 +19,14 @@ body {
     padding-right: 11px;
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
 .sidebar-left {
     background: #2196F3;
 }

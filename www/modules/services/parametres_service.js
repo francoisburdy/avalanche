@@ -35,17 +35,17 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
         ];
     }
 
-    /************************
+    /***************************
      * SITUATIONS DES VICTIMES *
-     ***********************/ 
-    this.getVictimeSituation = function() {
-        if(!$localStorage.victimeSituation) this.createDefaultVictimeSituation();
-        return $localStorage.victimeSituation;
+     **************************/ 
+    this.getVictimeSituations = function() {
+        if(!$localStorage.victimeSituations) this.createDefaultVictimeSituations();
+        return $localStorage.victimeSituations;
     }
 
     this.addVictimeSituation = function(newSituation) {
-        if($localStorage.victimeSituation) {
-            $localStorage.victimeSituation.push(newSituation);
+        if($localStorage.victimeSituations) {
+            $localStorage.victimeSituations.push(newSituation);
             $rootScope.$broadcast('victimesUpdated');
         } else {
             console.log("$localStorage.victimeSituation n'est pas iniatilisé.");
@@ -53,21 +53,25 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
     }
 
     this.removeVictimeSituation = function(situation) {
-        var index = $localStorage.victimeSituation.indexOf(situation);
+        var index = $localStorage.victimeSituations.indexOf(situation);
         if(index == -1) console.log("Cette situation n'existe pas dans la liste des situations.");
         else {
-            $localStorage.victimeSituation.splice(index, 1);
+            $localStorage.victimeSituations.splice(index, 1);
             $rootScope.$broadcast('victimesUpdated');
         }   
     }
 
-    this.createDefaultVictimeSituation = function() {
-        $localStorage.victimeSituation = [
-            {libelle: 'Impliquée', code: 'I', bg: '#fff', text: '#333'},
-            {libelle: 'Urgence relative', code: 'UR', bg: 'yellow', text: '#000'},
-            {libelle: 'Urgence absolue', code: 'UA', bg: 'red', text: '#fff'},
-            {libelle: 'Décédée', code: 'DCD', bg: '#000', text: '#fff'}
+    this.createDefaultVictimeSituations = function() {
+        $localStorage.victimeSituations = [
+            'Inconnue',
+            'Impliquée',
+            'Désenvelie',
+            'Ensevelie'
         ];
+    }
+
+    this.defaultSituation = function() {
+        return 'Inconnue';
     }
 
     /************************
