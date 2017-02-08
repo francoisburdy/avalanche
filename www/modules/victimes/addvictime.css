@@ -1,0 +1,40 @@
+.victimForm { 
+
+    width: 75%;
+	margin: 0 auto;
+}
+
+.victimId{
+	margin-bottom: 2%;
+}
+
+.victimId input{
+	height: 1em;
+	font-size: 3em;
+	text-align: center;
+	width: 100%;
+}
+
+.victimStatus{
+	margin-bottom: 2%;
+	width: 100%;
+}
+
+.victimSituation{
+	margin-bottom: 2%;
+	width: 100%;
+}
+
+select{
+	text-transform: none;
+	font-size: 2em;
+	width: 100%;
+}
+
+.victimForm i{
+	opacity: 0.2;
+    display: block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 10em;
+} 
