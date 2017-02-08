@@ -10,8 +10,13 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
         $scope.metiers = Parametres.getMetiers();
     });
 
-	$scope.addMetier = function() {
-		
+	$scope.addMetier = function(color, metier) {
+		var metier = {
+			libelle: metier, 
+			bg: color, 
+			text: '#000'
+		}
+		Parametres.addMetier(metier);
 	} 
 
 	$scope.addVictimeStatus = function(){
@@ -23,7 +28,7 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
 	}
 	
 	$scope.options = ['transparent','#FF8A80', '#FFD180', '#FFFF8D', '#CFD8DC', '#80D8FF', '#A7FFEB', '#CCFF90'];
-    $scope.color = '#FF8A80';
+    // $scope.color = '#FF8A80';
 
     $scope.colorChanged = function(newColor, oldColor) {
         console.log('from ', oldColor, ' to ', newColor);

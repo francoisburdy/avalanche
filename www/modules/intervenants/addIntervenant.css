@@ -25,3 +25,12 @@
 .addIntervenant button{
 	width: 100%;
 }
+
+.confirmIntervenant {
+	text-align: center;
+	font-weight: bolder;
+}
+
+.numConfInt {
+	padding-top: 20px;
+}

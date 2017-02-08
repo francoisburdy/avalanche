@@ -5,6 +5,7 @@ angular.module('myApp', [
   'ngStorage',
   'mobile-angular-ui',
   'mobile-angular-ui.gestures',
+  'mobile-angular-ui.core.sharedState',
   'tb-color-picker'
 ])
 

@@ -115,7 +115,7 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
             {libelle: 'Pisteurs', bg: 'purple', text: '#fff'},
             {libelle: 'Moniteurs', bg: 'yellow', text: '#000'},
             {libelle: 'Gendarmes', bg: 'darkblue', text: '#fff'},
-            {libelle: 'CRS', bg: 'lightblue', text: '#fff'},
+            {libelle: 'CRS', bg: 'lightblue', text: '#000'},
             {libelle: 'Secouristes', bg: 'green', text: '#fff'}
         ];
     }

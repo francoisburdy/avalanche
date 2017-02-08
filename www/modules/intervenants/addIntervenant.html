@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label>Corps de métier</label>
                 <div>
-                   <select ng-model="newIntervenant.corpsMetier" ng-options="s.libelle for s in metiers"></select>
+                   <select ng-model="newIntervenant.metier" ng-options="s.libelle for s in metiers"></select>
                 </div>
             </div>
             <div class="form-group input-group-lg">
@@ -17,30 +17,30 @@
             </div>
             
             <div class="form-group input-group-lg">
-                <button ng-click="launchCamera()" type="button" class="btn-primary btn-lg">Ajouter une photo  <i class="fa fa-camera" aria-hidden="true"></i></button>
+                <button ng-click="launchCamera()" type="button" class="btn-primary btn-lg">
+                    Ajouter une photo  
+                    <i class="fa fa-camera"></i>
+                </button>
             </div>
             <div>
-                {{imageInt}}
+                <img id="img-preview" style="max-height: 100px" />
             </div>
             
-
-            
             <div class="btn-bottom-left" ng-show="!keyboardVisible">
-                <div class="red-bg">
-                    <a ng-click="deleteIntervenant()">
-                      <i class="fa fa-remove" aria-hidden="true"></i>
+                <div class="blue-bg">
+                    <a href="#!/dashboard">
+                      <i class="fa fa-arrow-left"></i>
                     </a>
                 </div>
             </div>
 
             <div class="btn-bottom-right" ng-show="!keyboardVisible">
                 <div class="green-bg">
-                    <a href="#!/confirmIntervenant">
-                        <i class="fa fa-check" aria-hidden="true"></i>
+                    <a ng-click="goToConfirmation()">
+                        <i class="fa fa-check"></i>
                     </a>
                 </div>
             </div>
-
-        </form>       
+        </form>
     </div>
 </div>
