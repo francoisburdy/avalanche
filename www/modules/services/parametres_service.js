@@ -28,11 +28,19 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
 
     this.createDefaultVictimeStatus = function() {
         $localStorage.victimeStatus = [
+            {libelle: 'Inconnu', code: '?', bg: '#fff', text: '#333'},
             {libelle: 'Impliquée', code: 'I', bg: '#fff', text: '#333'},
             {libelle: 'Urgence relative', code: 'UR', bg: 'yellow', text: '#000'},
             {libelle: 'Urgence absolue', code: 'UA', bg: 'red', text: '#fff'},
             {libelle: 'Décédée', code: 'DCD', bg: '#000', text: '#fff'}
         ];
+    }
+
+    this.defaultStatus = function() {
+        if(!$localStorage.victimeStatus){
+            this.createDefaultVictimeStatus();
+        }
+        return $localStorage.victimeStatus[0];
     }
 
     /***************************

@@ -64,7 +64,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
 
     this.removeVictime = function(victime) {
         var index = $localStorage.operation.victimes.indexOf(victime);
-        if(index == -1) console.log("Error : Operation does not contain this victime");
+        if(index == -1) console.log("Cette victime n'a pas été trouvée : elle ne peut pas être supprimée.");
         else {
             $localStorage.operation.victimes.splice(index, 1);
             $rootScope.$broadcast('operationUpdated');
@@ -73,7 +73,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
 
     /* Génère un numéro inexistant pour une victime */
     this.generateVictimeNumber = function() {
-        if ($localStorage.operation.victimes.length == 0) {
+        if($localStorage.operation.victimes.length == 0) {
             return 1;
         } else {
             var nextNumber = $localStorage.operation.victimes[0].numero + 1;
@@ -97,11 +97,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
-
     this.getJournaux = function() {
         var journaux = [];
 
-        if($localStorage.historique){
+        if($localStorage.historique) {
             for(var i = 0; i < $localStorage.historique.length; i++) {
                 journaux.push(this.getJournal($localStorage.historique[i]));            
             }
@@ -147,7 +146,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
 
             var evDebut = {
                 date : v.entryDate,
-                texte : 'Le ' + /**** METIER ****/ ' numéro ' + p.numero + ' est entré sur zone à '+ $filter('date')(p.entryDate, 'hh:mm le dd/MM/yyyy') + '.',
+                texte : 'Le ' + /**** METIER ****/ ' numéro ' + p.numero + ' est entré sur zone à ' + $filter('date')(p.entryDate, 'hh:mm le dd/MM/yyyy') + '.',
                 type: 'entrée'  
             };
             journal.evenements.push(evDebut);
@@ -155,7 +154,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(p.exitDate != null) {
                 var evFin = {
                     date : v.exitDate,
-                    texte : 'Le ' + /**** METIER ****/ ' numéro '+ p.numero +' est sortie de la zone à '+ $filter('date')(p.exitDate, 'hh:mm le dd/MM/yyyy') + '.',
+                    texte : 'Le ' + /**** METIER ****/ ' numéro ' + p.numero + ' est sortie de la zone à ' + $filter('date')(p.exitDate, 'hh:mm le dd/MM/yyyy') + '.',
                     type: 'sortie'
                 }
                 journal.evenements.push(evFin);

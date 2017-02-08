@@ -12,8 +12,9 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
 	}
 
 	$scope.deleteVictime = function() {
-		// ToDo OUVRIR UNE POP-UP A LA PLACE
-		alert('Bientôt, ça supprimera ... Mais la flemme !');
+		Operation.removeVictime($scope.victime);
+		// ToDo Confirmation
+		$location.url('/dashboard'); // ToDo Onglet victime
 	}
 
 	$scope.$on('operationUpdated', function(event) {
