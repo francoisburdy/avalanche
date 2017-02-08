@@ -49,6 +49,14 @@
 .color-palette div{
     width: 50px;
     height: 50px;
+    border: 1px solid #aaa;
+}
+
+.color-picker-container {
+    text-align: center;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .color-palette{
@@ -56,11 +64,8 @@
     opacity: 1;
     position: initial;
     width: 80%;
+    max-width: 290px;
     text-align: center;
     width: 100%;
-    padding: 0.8em 2em;
-    text-align: center;
-    box-shadow: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.8em 1em;
 }

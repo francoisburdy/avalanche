@@ -7,21 +7,23 @@
       <i class="fa fa-ellipsis-v fa-lg"></i>
   </a>
   <ul class="dropdown-menu"
-  ui-outer-click="Ui.turnOff('myDropdown')"
-  ui-outer-click-if="Ui.active('myDropdown')"
-  role="menu"
-  ui-show="myDropdown" 
-  ui-state="myDropdown"
-  ui-turn-off="myDropdown">
-  <li><a ng-click="terminate()">Terminer l'opération</a></li>
-  <li class="divider"></li>
-  <li><a ng-click="purgeStorage()">Supprimer les données</a></li>
-  <li><a ng-click="loadDemoData()">Charger les données de démo</a></li>
-</ul>
+      ui-outer-click="Ui.turnOff('myDropdown')"
+      ui-outer-click-if="Ui.active('myDropdown')"
+      role="menu"
+      ui-show="myDropdown" 
+      ui-state="myDropdown"
+      ui-turn-off="myDropdown">
+      <li><a ng-click="terminate()">Terminer l'opération</a></li>
+      <li class="divider"></li>
+      <li><a ng-click="purgeStorage()">Supprimer les données</a></li>
+      <li><a ng-click="loadDemoData()">Charger les données de démo</a></li>
+      <li class="divider"></li>
+      <li><a ng-click="exitApp()">Quitter l'application</a></li>
+    </ul>
 </div>
 
 <div class="scrollable">
-    <div class="scrollable-content section">
+    <div class="scrollable-content section dashboard">
         <div ui-shared-state="activeTab" default="1">
           <ul class="nav nav-tabs two-tabs">
             <li ui-class="{'active': activeTab == 1}">

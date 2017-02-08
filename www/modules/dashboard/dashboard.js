@@ -1,9 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('DashboardCtrl', function($scope, $location, Operation, Parametres, Global, SharedState) {
-
-    //SharedState.initialize($scope, 'activeTab', 1);
-    //SharedState.set('activeTab', 1);
+angular.module('myApp').controller('DashboardCtrl', function($scope, $location, Operation, Parametres, Global) {
 
     $scope.operation = Operation.getOperation();
 
@@ -29,7 +26,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
                     $location.url('/home');
                 } 
             }, 
-            'Terminer l\'opération',
+            'Terminer l\'opération', 
             ['Annuler', 'Terminer l\'opération']
         );
     }
@@ -62,6 +59,19 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         );
     }
 
+    $scope.exitApp = function() {
+        navigator.notification.confirm(
+            'Souhaitez-vous fermer l\'application ?', 
+            function(buttonIndex) {
+                if(buttonIndex == 2) {
+                    navigator.app.exitApp();
+                } 
+            }, 
+            'Quitter l\'application',
+            ['Annuler', 'Quitter']
+        );
+    }
+
     $scope.loadDemoData = function() {
         console.log('Chargement des données de test ...');
         navigator.notification.prompt(
@@ -76,7 +86,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
                 }
             }, 
             'Supprimer les données',
-            ['Annuler', 'Supprimer']
+            ['Supprimer', 'Annuler']
         );
     }
 

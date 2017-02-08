@@ -23,5 +23,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
     console.log('deviceready');
-    console.log(navigator.camera);
+    setTimeout(function() {
+      navigator.splashscreen.hide();
+    }, 50);
 }
