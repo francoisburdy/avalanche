@@ -9,17 +9,18 @@ angular.module('myApp', [
 ])
 
 .run(function($rootScope, $location, Operation) {
-  $rootScope.$on("$routeChangeStart", function(event, next, current) { 
-    if(next.$$route && next.$$route.originalPath == '/home' && Operation.getOperation() != null) {
-      $location.url('/dashboard');
-    }
-  });
+    $rootScope.$on("$routeChangeStart", function(event, next, current) { 
+        if(next.$$route && next.$$route.originalPath == '/home' && Operation.getOperation() != null) {
+            console.log('Redirection automatique vers le dashboard');
+            $location.url('/dashboard');
+        }
+    });
 });
 
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-  console.log('deviceready');
-  console.log(navigator.camera);
+    console.log('deviceready');
+    console.log(navigator.camera);
 }

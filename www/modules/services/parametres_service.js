@@ -66,7 +66,8 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
             'Inconnue',
             'Impliquée',
             'Désensevelie',
-            'Ensevelie'
+            'Ensevelie',
+            'Évacuée'
         ];
     }
 

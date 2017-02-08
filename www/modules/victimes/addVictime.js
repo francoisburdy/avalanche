@@ -12,6 +12,5 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
 		$scope.newVictime.beginDate = new Date();
 		$scope.newVictime.endDate = null;
 		Operation.addVictime($scope.newVictime);
-		$location.url('/dashboard');
 	}
 });

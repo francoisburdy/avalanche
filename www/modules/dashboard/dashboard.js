@@ -7,8 +7,8 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     $scope.terminate = function() {
          navigator.notification.confirm(
             'Souhaitez-vous mettre fin à l\'opération ?\nIl ne sera plus possible de modifier les informations.', 
-            function(buttonIndex){
-                if(buttonIndex == 2){
+            function(buttonIndex) {
+                if(buttonIndex == 2) {
                     Operation.terminate();
                     $location.url('/home');
                 } 
@@ -16,7 +16,6 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
             'Terminer l\'opération',
             ['Annuler', 'Terminer l\'opération']
         );
-       
     }
 
     $scope.editVictime = function(num) {
@@ -27,14 +26,13 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         alert("deleteIntervenant");
     }
 
-    $scope.purgeStorage = function(){
+    $scope.purgeStorage = function() {
         navigator.notification.prompt(
             'Cette action est irréversible !\nSaisir SUPPRIMER pour confirmer', 
-            function(results){
-                if(results.buttonIndex == 2 && results.input1.toLowerCase() == "supprimer"){
+            function(results) {
+                if(results.buttonIndex == 2 && results.input1.toLowerCase() == "supprimer") {
                     console.log('Purge all data !');
                     Global.purgeData();
-                    $location.url('/home');
                 } else {
                     console.log('Purge annulée')
                 }
@@ -44,12 +42,12 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         );
     }
 
-    $scope.loadDemoData = function(){
-        console.log('Chargement des données de test...');
+    $scope.loadDemoData = function() {
+        console.log('Chargement des données de test ...');
         navigator.notification.prompt(
             'Cette action est irréversible !\nSaisir DEMO pour confirmer', 
-            function(results){
-                if(results.buttonIndex == 2 && results.input1.toLowerCase() == "demo"){
+            function(results) {
+                if(results.buttonIndex == 2 && results.input1.toLowerCase() == "demo") {
                     console.log('Charger les données de démo !');
                     Global.purgeData();
                     Global.loadDemoData();
