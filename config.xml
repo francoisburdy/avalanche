@@ -4,10 +4,25 @@
     <description>
         Application de gestion du personnel d'intervention et d'organisation des secours d'avalanche
     </description>
-    <author email="francois.burdy@gmail.com" href="https://francoisburdy.com/">
+    <author email="francois.burdy@gmail.com" href="https://francoisburdy.com/enculé">
         François BURDY
     </author>
     <content src="index.html" />
+    <preference name="ShowSplashScreenSpinner" value="false"/>
+    <preference name="SplashScreenDelay" value="1000" />
+    <platform name="android">
+        <icon density="mdpi" src="res/icone/logo-avalanche_mdpi.png" />
+        <icon density="hdpi" src="res/icone/logo-avalanche_hdpi.png" />
+        <icon density="xhdpi" src="res/icone/logo-avalanche_xhdpi.png" />
+        <icon density="xxhdpi" src="res/icone/logo-avalanche_xxhdpi.png" />
+        <icon density="xxxhdpi" src="res/icone/logo-avalanche_xxxhdpi.png" />
+		
+        <splash density="port-mdpi" src="res/splash/splash-avalanche_mdpi.png" />
+        <splash density="port-hdpi" src="res/splash/splash-avalanche_hdpi.png" />
+        <splash density="port-xhdpi" src="res/splash/splash-avalanche_hdpi.png" />
+        <splash density="port-xxhdpi" src="res/splash/splash-avalanche_hdpi.png" />
+        <splash density="port-xxxhdpi" src="res/splash/splash-avalanche_hdpi.png" />
+    </platform>
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -31,4 +46,5 @@
     <engine name="ios" spec="~4.2.1" />
     <plugin name="cordova-plugin-dialogs" spec="~1.3.1" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
+    <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
 </widget>
