@@ -1,8 +1,19 @@
 'use strict';
 
-angular.module('myApp').controller('DashboardCtrl', function($scope, $location, Operation, Global) {
+angular.module('myApp').controller('DashboardCtrl', function($scope, $location, Operation, Parametres, Global) {
 
     $scope.operation = Operation.getOperation();
+
+    $scope.metiers = Parametres.getMetiers();
+
+    $scope.nbPersonnels = function(metier) {
+        let compteur = 0;
+        for(let i = 0; i < $scope.operation.personnels.length; i++) {
+            let p = $scope.operation.personnels[i];
+            if(p.metier.libelle == metier) compteur++;
+        }
+        return compteur;
+    }
 
     $scope.terminate = function() {
          navigator.notification.confirm(

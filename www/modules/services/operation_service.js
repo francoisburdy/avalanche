@@ -27,11 +27,20 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         $rootScope.$broadcast('operationUpdated');
     }
 
-    this.addPersonnel = function(personnel) {
-        if($localStorage.operation.personnels.indexOf(personnel) !== -1) {
+    this.addTmpPersonnel = function(personnel) {
+        this.tmpPersonnel = personnel;
+    }
+
+    this.getTmpPersonnel = function() {
+        if(!this.tmpPersonnel) return null;
+        return this.tmpPersonnel;
+    }
+
+    this.addPersonnel = function() {
+        if($localStorage.operation.personnels.indexOf(this.tmpPersonnel) !== -1) {
             console.log("Error : operation already contains this personnel");
         } else {
-            $localStorage.operation.personnels.push(personnel);
+            $localStorage.operation.personnels.push(this.tmpPersonnel);
             $rootScope.$broadcast('operationUpdated');
         }
     }

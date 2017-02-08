@@ -2,13 +2,21 @@
 
 angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $location, Operation, Parametres) {
 	$scope.newIntervenant = {};
+    $scope.newIntervenant.beginDate = new Date();
+    $scope.newIntervenant.endDate = null;
+
     $scope.metiers = Parametres.getMetiers();
 
+    $scope.tmpPersonnel = Operation.getTmpPersonnel();
+
+    $scope.goToConfirmation = function() {
+        Operation.addTmpPersonnel($scope.newIntervenant);
+        $location.url('/confirmIntervenant');
+    }
+
   	$scope.addIntervenant = function() {
-  		$scope.newIntervenant.beginDate = new Date();
-  		$scope.newIntervenant.endDate = null;
-  		Operation.addPersonnel($scope.newIntervenant);
-  		$location.url('/dashboard');
+  		Operation.addPersonnel();
+        $location.url('/dashboard');
   	}
 
      $scope.launchCamera = function() {
@@ -20,21 +28,16 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
     
     function onSuccess(imageData) {
         console.log('image : onSuccess');
-        $scope.imageInt = imageData;
-        console.log(imageData);
-        //refreshImageContent(imageData);     
+        
+        var image = document.getElementById('img-preview') ;
+        $scope.newIntervenant.image = "data:image/jpeg;base64," + imageData; // ToDo stocker
+        image.src = $scope.newIntervenant.image;
     }
     
     function onFail(message) {
         console.log('image : onFail');
     }
 
-    function refreshImageContent(imageData) {
-        if(imageData != undefined) {
-            var image = document.getElementById('imagePreview') ;
-            image.src = "data:image/jpeg;base64," + imageData;
-        }
-    }
 
     window.addEventListener('native.keyboardshow', keyboardShowHandler);
     window.addEventListener('native.keyboardhide', keyboardHideHandler);
@@ -48,5 +51,4 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
         $scope.keyboardVisible = false;
         $scope.$apply();
     }
-
 });
