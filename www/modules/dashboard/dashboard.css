@@ -5,14 +5,16 @@
     display: inline-block;
 }
 
-
+.card .card-content{
+     padding-bottom: 0.5em;
+}
 .etat-victime {
     text-align: right;
 }
 
 .etat-victime > span{
     border-radius: 3px;
-    font-size: 0.95em;
+    font-size: 1.5em;
     font-weight: bold;
     padding-left: 0.5em;
     padding-right: 0.5em;
@@ -60,4 +62,27 @@
 .dropdown-menu > li > a{
     font-size: 1.3em;
     line-height: 1.8em;  
+}
+.victim-number{
+    text-decoration: underline;
+}
+
+
+.label{
+    display: block;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.situation-style{
+    float: right;
+
+
 }
