@@ -1,27 +1,66 @@
-
-button.btn-lg i.right{
-	float: right;
-	line-height: 24px;
+.parametres-items {
+    margin-left: -5px;
+    margin-right: -5px;
 }
 
-button.btn-lg i.left{
-	float: left;
-	line-height: 24px;
+.parametres-items .parametres-item{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.parametres-items .parametres-item .truncate{
+    max-width: calc(100% - 20px);
+    display: inline-block;
+    font-size: 0.8em;
+    margin-top: 6px;
+    padding-bottom: 2px;
+    line-height: 0.9em;
+}
+
+.parametres-items button.btn-lg{
+    text-align: left;
+    padding: 6px 12px 4px 12px;
+}
+
+.parametres-items button.btn-lg i.right{
+    float: right;
+    line-height: 24px;
+    font-size: 0.9em;
+}
+
+.parametres-items button.btn-lg i.left{
+    float: left;
+    line-height: 24px;
+    font-size: 0.9em;
 }
 
 .parametres button{
-	margin-bottom: 0.5em;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin-bottom: 0.5em;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 #picker { width: 200px; height: 200px }
 #slide { width: 30px; height: 200px }
 
-.selected-color, .color-palette div{
-	width: 40px;
-	height: 40px;
+.selected-color {
+    display: none;
+}
+
+.color-palette div{
+    width: 50px;
+    height: 50px;
 }
 
 .color-palette{
-	width: 90%;
+    visibility: visible;
+    opacity: 1;
+    position: initial;
+    width: 80%;
+    text-align: center;
+    width: 100%;
+    padding: 0.8em 2em;
+    text-align: center;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }

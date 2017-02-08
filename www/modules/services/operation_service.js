@@ -38,6 +38,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         return journaux;
     }
 
+    this.purgeData = function() {
+         $localStorage.$reset();
+    }
+
     /*********************************
      *       ToDO
      *       RAJOUTER LE METIER

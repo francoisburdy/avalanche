@@ -1,43 +1,63 @@
 
 
 .card .victime-numero, .card .victime-etat{
-	width: calc(100% - 70px);
-	display: inline-block;
+    width: calc(100% - 70px);
+    display: inline-block;
 }
 
 
 .etat-victime {
-	text-align: right;
+    text-align: right;
 }
 
 .etat-victime > span{
-	border-radius: 3px;
-	font-size: 0.95em;
-	font-weight: bold;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
+    border-radius: 3px;
+    font-size: 0.95em;
+    font-weight: bold;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 .etat-victime.DCD > span{
-	background: purple;
-	color:white;
+    background: purple;
+    color:white;
 }
 
 
 .etat-victime.I > span{
-	background: transparent;
-	border: 1px solid grey;
-	color:black;
+    background: transparent;
+    border: 1px solid grey;
+    color:black;
 }
 
 
 .etat-victime.UR > span{
-	background: #ffc107;
-	color:black;
+    background: #ffc107;
+    color:black;
 }
 
 
 .etat-victime.UA > span{
-	background: #e53935;
-	color:white;
+    background: #e53935;
+    color:white;
+}
+
+
+.dropdown-menu-btn{
+    position: absolute;
+    z-index: 1100;
+    top: -50px;
+    right: 15px;
+}
+
+.dropdown-menu{
+    right: 0;
+    left:initial;
+    top: 90%;
+    right: -15px;
+}
+
+.dropdown-menu > li > a{
+    font-size: 1.3em;
+    line-height: 1.8em;  
 }
