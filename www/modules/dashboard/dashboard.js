@@ -1,12 +1,17 @@
 'use strict';
 
-angular.module('myApp').controller('DashboardCtrl', function($scope, $location, Operation, Parametres, Global) {
+angular.module('myApp').controller('DashboardCtrl', function($scope, $location, Operation, Parametres, Global, SharedState) {
+
+    //SharedState.initialize($scope, 'activeTab', 1);
+    //SharedState.set('activeTab', 1);
 
     $scope.operation = Operation.getOperation();
 
     $scope.metiers = Parametres.getMetiers();
 
     $scope.nbPersonnels = function(metier) {
+        if(!$scope.operation.personnels) return 0;
+        
         let compteur = 0;
         for(let i = 0; i < $scope.operation.personnels.length; i++) {
             let p = $scope.operation.personnels[i];
@@ -35,6 +40,10 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     $scope.deleteIntervenant = function() {
         alert("deleteIntervenant");
+    }
+
+    $scope.detailsMetier = function(lib) {
+        $location.url('/metiers/' + lib);
     }
 
     $scope.purgeStorage = function() {

@@ -2,7 +2,6 @@
   <span>Opération en cours</span>
 </div>
 
-
 <div class="btn-group dropdown-menu-btn">
     <a ui-turn-on='myDropdown' class='btn'>
       <i class="fa fa-ellipsis-v fa-lg"></i>
@@ -23,7 +22,7 @@
 
 <div class="scrollable">
     <div class="scrollable-content section">
-        <div ui-state="activeTab" default="1">
+        <div ui-shared-state="activeTab" default="1">
           <ul class="nav nav-tabs two-tabs">
             <li ui-class="{'active': activeTab == 1}">
                 <a ui-set="{'activeTab': 1}">
@@ -43,7 +42,7 @@
           <div ui-if="activeTab == 1">
             <div class="row">
                 <div ng-repeat="m in metiers">
-                    <div class="col-lg-4 col-md-6 col-xs-12 card">
+                    <div class="col-lg-4 col-md-6 col-xs-12 card" ng-click="detailsMetier(m.libelle)">
                         <div class="row card-container" ng-style="{'background-color': m.bg, 'color': m.text}">
                             <div class="col-xs-12 card-content">
                                 <span class="card-title">

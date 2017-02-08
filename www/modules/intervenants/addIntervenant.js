@@ -38,7 +38,6 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
         console.log('image : onFail');
     }
 
-
     window.addEventListener('native.keyboardshow', keyboardShowHandler);
     window.addEventListener('native.keyboardhide', keyboardHideHandler);
 
