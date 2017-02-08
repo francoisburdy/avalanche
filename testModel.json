@@ -2,40 +2,44 @@ operation{
 	nom: "Les deux alpes",
 	beginDate : "23/11/2016",
 	endDate : "23/11/2016",
-	personnels: [{
-		numero: 56,
-		entryDate: "23/11/2016",
-		exitDate: "23/11/2016",
-		mission: [{
-			type: "evacuation",
-			dateDebut: "23/11/2016",
-			dateFin: "23/11/2016"
+	personnels: [
+		{
+			numero: 56,
+			entryDate: "23/11/2016",
+			exitDate: "23/11/2016",
+			mission: [{
+				type: "evacuation",
+				dateDebut: "23/11/2016",
+				dateFin: "23/11/2016"
+				},
+				{
+				type: "materiel",
+				dateDebut: "23/11/2016",
+				dateFin: "23/11/2016"
+				}]
 			},
-			{
-			type: "materiel",
-			dateDebut: "23/11/2016",
-			dateFin: "23/11/2016"
-			}]
+		{
+			numero: 34,
+			entryDate: "23/11/2016",
+			exitDate: "23/11/2016"
+		}
+	]
+	victimes: [
+		{
+			numero: 1,
+			state: "urgenceAbsolue",
+			dateDecouverte: "23/11/2016",
+			situation: "Ensevelie"
 		},
 		{
-		numero: 34,
-		entryDate: "23/11/2016",
-		exitDate: "23/11/2016"
-		}]
-	victimes: [{
-		numero: 1,
-		state: "urgenceAbsolue",
-		dateDecouverte: "23/11/2016",
-		situation: "Ensevelie"
-		},
-		{
-		numero: 2,
-		state: "urgenceRelative",
-		dateDecouverte: "23/11/2016",
-		situation: "Impliquée"
-		}]
+			numero: 2,
+			state: "urgenceRelative",
+			dateDecouverte: "23/11/2016",
+			situation: "Impliquée"
+		}
+	]
 }
 
-pastOperation: []
+pastOperations: []
 
-settings: {}
+parametres: {}
