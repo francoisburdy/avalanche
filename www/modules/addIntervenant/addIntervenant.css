@@ -1,20 +1,27 @@
 .addIntervenant form-group{
 	border-bottom-style: groove;
 	text-align: center;
+	width: 100%;
 }
 
 .addIntervenant{
-	background-color: #dee7f1;
+	background-color: #ffffff;
 }
 
+
 .addIntervenant label{
-	font-size: 250%;
-	width: 100%;
+	font-size: 150%;
 	text-align: center;
+	width: 100%;
 }
 
 .addIntervenant select{
 	height: 45px;
     line-height: 100px;
     font-size: 20px;
+    width: 100%;
+}
+
+.addIntervenant button{
+	width: 100%;
 }

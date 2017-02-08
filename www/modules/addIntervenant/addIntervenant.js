@@ -2,6 +2,7 @@
 
 angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $location, Operation, Parametres) {
 	$scope.newIntervenant = {};
+    $scope.metiers = Parametres.getMetiers();
 
   	$scope.addIntervenant = function() {
   		$scope.newIntervenant.beginDate = new Date();
@@ -19,6 +20,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
     
     function onSuccess(imageData) {
         console.log('image : onSuccess');
+        $scope.imageInt = imageData;
         console.log(imageData);
         //refreshImageContent(imageData);     
     }
