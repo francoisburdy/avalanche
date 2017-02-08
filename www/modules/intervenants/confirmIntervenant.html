@@ -1,0 +1,32 @@
+<div ui-content-for="title">
+    <span>Confirmation d'ajout</span>
+</div>
+
+<div class="scrollable">
+    <div class="scrollable-content section confirmIntervenant" ng-style="{'background-color': tmpPersonnel.metier.bg, 'color': tmpPersonnel.metier.text}">
+       
+       <h2>{{tmpPersonnel.metier.libelle}}</h2>
+
+       <img src="img/logo-avalanche.jpg" alt="Logo Avalanche" class="img-circle">
+
+       <div class="numConfInt">
+           <h2>{{tmpPersonnel.numero}}</h2>
+       </div>
+
+       <div class="btn-bottom-left">
+            <div class="grey-bg">
+                <a href="#!/addIntervenant">
+                  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="btn-bottom-right">
+            <div class="blue-bg">
+                <a ng-click="addIntervenant()">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

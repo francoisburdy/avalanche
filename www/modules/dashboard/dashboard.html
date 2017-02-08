@@ -2,28 +2,27 @@
   <span>Opération en cours</span>
 </div>
 
-
 <div class="btn-group dropdown-menu-btn">
     <a ui-turn-on='myDropdown' class='btn'>
       <i class="fa fa-ellipsis-v fa-lg"></i>
-    </a>
-    <ul class="dropdown-menu"
-        ui-outer-click="Ui.turnOff('myDropdown')"
-        ui-outer-click-if="Ui.active('myDropdown')"
-        role="menu"
-        ui-show="myDropdown" 
-        ui-state="myDropdown"
-        ui-turn-off="myDropdown">
-        <li><a ng-click="terminate()">Terminer l'opération</a></li>
-        <li class="divider"></li>
-        <li><a ng-click="purgeStorage()">Supprimer les données</a></li>
-        <li><a ng-click="loadDemoData()">Charger les données de démo</a></li>
-    </ul>
+  </a>
+  <ul class="dropdown-menu"
+  ui-outer-click="Ui.turnOff('myDropdown')"
+  ui-outer-click-if="Ui.active('myDropdown')"
+  role="menu"
+  ui-show="myDropdown" 
+  ui-state="myDropdown"
+  ui-turn-off="myDropdown">
+  <li><a ng-click="terminate()">Terminer l'opération</a></li>
+  <li class="divider"></li>
+  <li><a ng-click="purgeStorage()">Supprimer les données</a></li>
+  <li><a ng-click="loadDemoData()">Charger les données de démo</a></li>
+</ul>
 </div>
 
 <div class="scrollable">
     <div class="scrollable-content section">
-        <div ui-state="activeTab" default="1">
+        <div ui-shared-state="activeTab" default="1">
           <ul class="nav nav-tabs two-tabs">
             <li ui-class="{'active': activeTab == 1}">
                 <a ui-set="{'activeTab': 1}">
@@ -37,17 +36,18 @@
                     <span ng-if="operation.victimes.length > 0">({{operation.victimes.length}})</span>
                 </a>
             </li>
-          </ul>
+        </ul>
 
-          <!-- Onglet personnel -->
-          <div ui-if="activeTab == 1">
+        <!-- Onglet personnel -->
+        <div ui-if="activeTab == 1">
             <div class="row">
-                <div ng-repeat="organisme in organismes">
-                    <div class="col-lg-4 col-md-6 col-xs-12 card">
-                        <div class="row card-container" ng-style="{'background-color': organisme.color}">
+                <div ng-repeat="m in metiers">
+                    <div class="col-lg-4 col-md-6 col-xs-12 card" ng-click="detailsMetier(m.libelle)">
+                        <div class="row card-container" ng-style="{'background-color': m.bg, 'color': m.text}">
                             <div class="col-xs-12 card-content">
                                 <span class="card-title">
-                                    <strong>{{organisme.name}}</strong>
+                                    <strong>{{m.libelle}}</strong>
+                                    {{nbPersonnels(m.libelle)}}
                                 </span>
                                 <p></p>
                             </div>
@@ -71,21 +71,21 @@
                     </a>
                 </div>
             </div>
-          </div>
-          <!-- Onglet victimes -->
-          <div ui-if="activeTab == 2">        
+        </div>
+        <!-- Onglet victimes -->
+        <div ui-if="activeTab == 2">        
             <div class="row">
                 <div ng-repeat="v in operation.victimes | orderBy: 'numero' | filter: {situation: '!Évacuée'}">               
-                    <div class="col-lg-4 col-md-6 col-xs-6 card">
+                    <div class="col-lg-4 col-md-6 col-xs-12 card">
                         <div class="row card-container">
                             <div class="col-xs-12 card-content" ng-click="editVictime(v.numero)">
-                                <span class="card-title">
-                                    <strong>Victime n°{{v.numero}}</strong> 
-                                    <span class="italic">({{v.situation}})</span>
-                                </span>
-                                <div class="etat-victime" ng-style="{'background-color': v.status.bg}">
-                                    <span ng-style="{'color': v.status.text}">{{v.status.libelle}}</span>
+                                <div class="etat-victime label" ng-style="{'background-color': v.status.bg}">
+                                    <span class='label' ng-style="{'color': v.status.text}">{{v.status.libelle}}</span>
                                 </div>
+                                <span class="card-title">
+                                    <strong class="victim-number">Victime n°{{v.numero}} </strong>
+                                    <span class="situation-style"><strong> Situation: </strong><span class="italic">{{v.situation}}</span></span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -94,16 +94,19 @@
 
             <hr/>
 
-            <div ng-repeat="v in operation.victimes | orderBy: 'numero' | filter: {situation: 'Évacuée'}">               
-                <div class="col-lg-4 col-md-6 col-xs-6 card">
-                    <div class="row card-container">
-                        <div class="col-xs-12 card-content" ng-click="editVictime(v.numero)">
-                            <span class="card-title">
-                                <strong>Victime n°{{v.numero}}</strong> 
-                                <span class="italic">({{v.situation}})</span>
-                            </span>
-                            <div class="etat-victime" ng-style="{'background-color': v.status.bg}">
-                                <span ng-style="{'color': v.status.text}">{{v.status.libelle}}</span>
+       
+            <div class="row">
+                <div ng-repeat="v in operation.victimes | orderBy: 'numero' | filter: {situation: 'Évacuée'}">               
+                    <div class="col-lg-4 col-md-6 col-xs-12 card">
+                        <div class="row card-container">
+                            <div class="col-xs-12 card-content" ng-click="editVictime(v.numero)">
+                                <div class="etat-victime label" ng-style="{'background-color': v.status.bg}">
+                                    <span class='label' ng-style="{'color': v.status.text}">{{v.status.libelle}}</span>
+                                </div>
+                                <span class="card-title">
+                                    <strong class="victim-number">Victime n°{{v.numero}} </strong>
+                                    <span class="situation-style"><strong> Situation: </strong><span class="italic">{{v.situation}}</span></span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -117,7 +120,7 @@
                     </a>
                 </div>
             </div>
-          </div>
         </div>
     </div>
+</div>
 </div>

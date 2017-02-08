@@ -32,12 +32,16 @@ angular.module('myApp').config(['$locationProvider', '$routeProvider', function(
     controller: 'JournalCtrl'
 
   }).when('/addIntervenant', {
-    templateUrl: 'modules/addIntervenant/addIntervenant.html',
+    templateUrl: 'modules/intervenants/addIntervenant.html',
     controller: 'AddIntervenantCtrl'
 
   }).when('/confirmIntervenant', {
-    templateUrl: 'modules/confirmIntervenant/confirmIntervenant.html',
-    controller: 'ConfirmIntervenantCtrl'
+    templateUrl: 'modules/intervenants/confirmIntervenant.html',
+    controller: 'AddIntervenantCtrl'
+
+  }).when('/metiers/:lib', {
+    templateUrl: 'modules/intervenants/detailsMetier.html',
+    controller: 'DetailsMetierCtrl'
 
   }).otherwise({redirectTo: '/home'});
 }])
