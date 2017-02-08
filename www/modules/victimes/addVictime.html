@@ -1,0 +1,46 @@
+<div ui-content-for="title">
+  <span>Ajouter une victime</span>
+</div>
+
+<div class="scrollable">
+    <div class="scrollable-content section victimSection">
+
+        <form class="victimForm">
+           <div class="form-group victimId">
+            <label>N° de victime</label></br>   
+            <input type="number" class="form-control" ng-model="newVictime.numero" placeholder="Numéro" />
+        </div>
+        
+        <div class="form-group victimStatus">
+            <label>Statut de la victime</label></br>
+            <select ng-model="newVictime.status" ng-options="s.libelle for s in victimeStatus">
+                <option value="" disabled selected hidden>Choisir statut</option></select>
+            </div>
+            
+            <div class="form-group victimSituation">
+                <label>Situation de la victime</label></br>
+                <select ng-model="newVictime.situation" ng-options="s for s in victimeSituations">
+                </select>
+            </div>
+            <i class="fa fa-medkit" aria-hidden="true"></i>
+        </form>
+
+        <div class="btn-bottom-left">
+            <div class="blue-bg">
+                <a href="#!/dashboard">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="btn-bottom-right">
+            <div class="green-bg">
+                <a ng-click="addVictime()">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
