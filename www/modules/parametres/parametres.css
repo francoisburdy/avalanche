@@ -63,9 +63,10 @@
     visibility: visible;
     opacity: 1;
     position: initial;
-    width: 80%;
     max-width: 290px;
     text-align: center;
     width: 100%;
+    margin: auto;
     padding: 0.8em 1em;
+    box-shadow: none;
 }
