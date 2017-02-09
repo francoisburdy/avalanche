@@ -19,7 +19,6 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
 
     $scope.goToConfirmation = function() {
         Operation.addTmpPersonnel($scope.newIntervenant);
-        $location.url('/confirmIntervenant');
     }
 
   	$scope.addIntervenant = function() {
