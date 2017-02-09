@@ -16,4 +16,16 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
 
 		if($scope.newVictime.situation == 'Évacuée') Operation.evacuateVictime($scope.newVictime);
 	}
+	window.addEventListener('native.keyboardshow', keyboardShowHandler);
+    window.addEventListener('native.keyboardhide', keyboardHideHandler);
+
+    function keyboardShowHandler(e) {
+        $scope.keyboardVisible = true;
+        $scope.$apply();
+    }
+
+    function keyboardHideHandler(e) {
+        $scope.keyboardVisible = false;
+        $scope.$apply();
+    }
 });

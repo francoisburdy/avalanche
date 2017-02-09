@@ -24,4 +24,17 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
 	$scope.$on('operationUpdated', function(event) {
         $scope.operation = Operation.getOperation();
     });
+    
+    window.addEventListener('native.keyboardshow', keyboardShowHandler);
+    window.addEventListener('native.keyboardhide', keyboardHideHandler);
+
+    function keyboardShowHandler(e) {
+        $scope.keyboardVisible = true;
+        $scope.$apply();
+    }
+
+    function keyboardHideHandler(e) {
+        $scope.keyboardVisible = false;
+        $scope.$apply();
+    }
 });
