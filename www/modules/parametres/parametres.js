@@ -10,6 +10,10 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
         $scope.metiers = Parametres.getMetiers();
     });
 
+    $scope.updateLastClicked = function(index){
+    	$scope.lastClickedIndex = index;
+    }
+
 	$scope.addMetier = function(color, metier) {
 		var metier = {
 			libelle: metier, 
@@ -25,6 +29,15 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
 
 	$scope.addVictimeSituation = function(){
 		
+	}
+
+	$scope.modifyMetier = function(color, metier){
+		var metier = {
+			libelle: metier, 
+			bg: color, 
+			text: '#000'
+		}
+		Parametres.modifyMetier(metier);
 	}
 	
 	$scope.options = ['#FFF', '#FFA773', '#FFD180', '#FFFF8D', 

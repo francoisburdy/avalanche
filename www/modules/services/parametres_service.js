@@ -100,6 +100,17 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
         }
     }
 
+    this.modifyMetier = function(metier){
+        var i=0;
+        var metiers = $localStorage.metiers;
+        while(i<metiers.length && metiers[i].libelle != metier.libelle){
+            i++;
+        }
+        if (metiers[i].libelle == metier.libelle){
+            $localStorage.metiers[i].bg = metier.bg;
+        }
+    }
+
     this.removeMetier = function(metier) {
         var index = $localStorage.metiers.indexOf(metier);
         if(index == -1) console.log("Ce métier n'existe pas dans la liste des métiers.");
