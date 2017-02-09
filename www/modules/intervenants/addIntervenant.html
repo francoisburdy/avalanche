@@ -8,22 +8,28 @@
             <div class="form-group">
                 <label>Corps de métier</label>
                 <div>
-                   <select ng-model="newIntervenant.metier" ng-options="s.libelle for s in metiers"></select>
+                   <select ng-model="newIntervenant.metier" ng-options="s.libelle for s in metiers">
+                       <option label="Choisir le métier" selected="selected" disabled="disabled"></option>
+                   </select>
                 </div>
             </div>
             <div class="form-group input-group-lg">
                 <label>N° de l'intervenant</label>
+                <!-- TODO : rendre obligatoire -->
                 <input type="number" class="form-control" ng-model="newIntervenant.numero" placeholder="Numéro de Intervenant" />
             </div>
             
-            <div class="form-group input-group-lg">
+            <div class="form-group input-group-lg" ng-show="!hasImg">
                 <button ng-click="launchCamera()" type="button" class="btn-primary btn-lg">
                     Ajouter une photo  
                     <i class="fa fa-camera"></i>
                 </button>
             </div>
+
             <div>
-                <img id="img-preview" style="max-height: 100px" />
+                <div class="img-preview-container" ng-click="launchCamera()">
+                    <img id="img-preview" ng-show="hasImg" />
+                </div>
             </div>
             
             <div class="btn-bottom-left" ng-show="!keyboardVisible">

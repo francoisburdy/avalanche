@@ -7,7 +7,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     $scope.metiers = Parametres.getMetiers();
 
     $scope.nbPersonnels = function(metier) {
-        if(!$scope.operation.personnels) return 0;
+        if(! $scope.operation.personnels) return 0;
         
         let compteur = 0;
         for(let i = 0; i < $scope.operation.personnels.length; i++) {

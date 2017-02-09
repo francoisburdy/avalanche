@@ -22,7 +22,7 @@ body {
     padding: 12px 10px;
 }
 
-.section.dashboard, .section.edit-victime,.section.detail-metier {
+.section.dashboard, .section.edit-victime,.section.detail-metier, .section.addIntervenant {
     padding: 12px 10px 110px 10px;
 }
 
@@ -274,4 +274,23 @@ div.card {
 .modal-footer {
     border-top:none;
     padding-top:0;
+}
+
+.img-preview-container {
+    width: 150px;
+    height: 150px;
+    overflow:hidden;
+    border:none;
+    border-radius: 100%;
+    margin:auto;
+}
+
+.img-preview-container img {
+    min-width: 100%;
+    min-height: 100%;
+    border:none;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    margin:auto;
 }

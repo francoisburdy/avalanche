@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $location, Operation, Parametres) {
+angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $location, $document, Operation, Parametres) {
 	$scope.newIntervenant = {};
     $scope.newIntervenant.beginDate = new Date();
     $scope.newIntervenant.endDate = null;
@@ -8,6 +8,15 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
     $scope.metiers = Parametres.getMetiers();
 
     $scope.tmpPersonnel = Operation.getTmpPersonnel();
+
+    angular.element(document).ready(function () {
+        console.log('document.ready');
+        if($location.path() == "/confirmIntervenant" && $scope.tmpPersonnel.image){
+            console.log('print img', $scope.tmpPersonnel.image);
+            document.getElementById('img-preview-confirm').src = $scope.tmpPersonnel.image ;
+        }
+    }); 
+
 
     $scope.goToConfirmation = function() {
         Operation.addTmpPersonnel($scope.newIntervenant);
@@ -22,20 +31,28 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
      $scope.launchCamera = function() {
         console.log(navigator.camera);
         if(navigator.camera !== undefined) {
-            navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
+            navigator.camera.getPicture(onSuccess, onFail, { 
+                quality: 50, 
+                destinationType: Camera.DestinationType.DATA_URL
+            });
         }
     }
     
     function onSuccess(imageData) {
         console.log('image : onSuccess');
-        
-        var image = document.getElementById('img-preview') ;
-        $scope.newIntervenant.image = "data:image/jpeg;base64," + imageData; // ToDo stocker
-        image.src = $scope.newIntervenant.image;
+        var imgSrc = "data:image/jpeg;base64," + imageData;
+        document.getElementById('img-preview').src = imgSrc ;
+        $scope.newIntervenant.image = imgSrc; 
+        $scope.hasImg = true;
+        $scope.$apply();
     }
     
     function onFail(message) {
         console.log('image : onFail');
+        document.getElementById('img-preview').src = "";
+        $scope.hasImg = false;
+        $scope.$apply();
+
     }
 
     window.addEventListener('native.keyboardshow', keyboardShowHandler);
