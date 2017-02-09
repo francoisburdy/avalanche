@@ -35,6 +35,10 @@ angular.module('myApp').config(['$locationProvider', '$routeProvider', function(
     templateUrl: 'modules/intervenants/addIntervenant.html',
     controller: 'AddIntervenantCtrl'
 
+  }).when('/intervenants/:num', {
+    templateUrl: 'modules/intervenants/editIntervenant.html',
+    controller: 'EditIntervenantCtrl'
+
   }).when('/confirmIntervenant', {
     templateUrl: 'modules/intervenants/confirmIntervenant.html',
     controller: 'AddIntervenantCtrl'

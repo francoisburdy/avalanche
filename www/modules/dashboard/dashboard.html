@@ -29,7 +29,7 @@
             <li ui-class="{'active': activeTab == 1}">
                 <a ui-set="{'activeTab': 1}">
                     Intervenants 
-                    <span ng-if="operation.personnels.length > 0">({{operation.personnels.length}})</span>
+                    <span ng-if="nbActivePersonnels() > 0">({{nbActivePersonnels()}})</span>
                 </a>
             </li>
             <li ui-class="{'active': activeTab == 2}">
