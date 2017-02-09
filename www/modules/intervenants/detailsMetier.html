@@ -4,13 +4,15 @@
 
 <div class="scrollable">
 	<div class="scrollable-content section detail-metier">
-		<div ng-repeat="p in personnels" class="col-xs-12 col-md-6 col-lg-4">
-			<div ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}">
-				<div class="inline-block">
+		<div ng-repeat="p in personnels" class="card inline">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}">
+				<div class="col-xs-3 col-sm-3 center flex-center">
 					<img src="http://www.neatvsales.com/usr/Arc/15utility150/feature15utility150.JPG" style="max-width: 60px; border-radius: 50%;"/>
-				</div>	
-				<div class="inline-block">
-					<span style="font-size: 40px">{{p.numero}}</span> 
+				</div>
+				<div class="col-xs-3 col-sm-3 center flex-center">
+					<span style="font-size: 40px">{{p.numero}}</span>
+				</div>
+				<div  class="col-xs-6 col-sm-6 center flex-center">
 					<span>{{p.beginDate | date: 'dd/MM/yyyy à hh:mm'}}</span>
 					<span ng-if="p.endDate">{{p.endDate | date: 'dd/MM/yyyy à hh:mm'}}</span>
 				</div>
