@@ -3,7 +3,7 @@
 angular.module('myApp').controller('DashboardCtrl', function($scope, $location, Operation, Parametres, Global) {
 
     $scope.operation = Operation.getOperation();
-
+    console.log($scope.operation);
     $scope.metiers = Parametres.getMetiers();
 
     $scope.nbPersonnels = function(metier) {

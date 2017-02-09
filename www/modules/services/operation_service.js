@@ -54,6 +54,16 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
+    /* Retourne la liste des personnels du métier passé en paramètre */
+    this.getPersonnelsByMetier = function(libMetier) {
+        let personnels = [];
+        let pers = $localStorage.operation.personnels;
+        for(let i = 0; i < pers.length; i++) {
+            if(pers[i].metier.libelle == libMetier) personnels.push(pers[i]);
+        }
+        return personnels;
+    }
+
     this.addVictime = function(victime) {
         if($localStorage.operation.victimes.indexOf(victime) !== -1) console.log("Error : Operation already contains this victime")
         else if(!this.isVictimeNumberAvailable(victime.numero)) {

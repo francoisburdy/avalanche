@@ -1,3 +1,20 @@
-DETAILS METIER
+<div ui-content-for="title">
+  <span>{{metier}}</span>
+</div>
 
-{{metier}}
+<div class="scrollable">
+    <div class="scrollable-content section edit-victime">
+        <div ng-repeat="p in personnels" class="col-xs-12 col-md-6 col-lg-4">
+        	<div ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}">
+	        	<div class="inline-block">
+	        		<img src="http://www.neatvsales.com/usr/Arc/15utility150/feature15utility150.JPG" style="max-width: 60px; border-radius: 50%;"/>
+	        	</div>	
+	        	<div class="inline-block">
+		        	<span style="font-size: 40px">{{p.numero}}</span> 
+		        	<span>{{p.beginDate | date: 'dd/MM/yyyy à hh:mm'}}</span>
+		        	<span ng-if="p.endDate">{{p.endDate | date: 'dd/MM/yyyy à hh:mm'}}</span>
+		        </div>
+	        </div>
+        </div>
+    </div>
+</div>

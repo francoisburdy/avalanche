@@ -38,6 +38,10 @@ body {
     font-style: italic;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
 .sidebar-left {
     background: #2196F3;
 }
