@@ -82,3 +82,15 @@
 
 .situation-style{
 }
+
+.badge{
+    float: right;
+    margin-top: 0.6em;
+    font-size: 15px;
+}
+
+#carte-intervenant{
+    padding-bottom: 0em;
+}
+
+

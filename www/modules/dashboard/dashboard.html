@@ -46,10 +46,10 @@
                 <div ng-repeat="m in metiers">
                     <div class="col-lg-4 col-md-6 col-xs-12 card" ng-click="detailsMetier(m.libelle)">
                         <div class="row card-container" ng-style="{'background-color': m.bg, 'color': m.text}">
-                            <div class="col-xs-12 card-content">
+                           <div class="col-xs-12 card-content" id="carte-intervenant" >
                                 <span class="card-title">
                                     <strong>{{m.libelle}}</strong>
-                                    {{nbPersonnels(m.libelle)}}
+                                    <span class="badge">{{nbPersonnels(m.libelle)}}</span>
                                 </span>
                                 <p></p>
                             </div>
