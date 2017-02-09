@@ -14,6 +14,7 @@ body {
     font-family: 'Calibri', 'Arial';
 }
 
+
 .scrollable-content {
     overflow-x: hidden;
 }
@@ -190,7 +191,7 @@ div.card {
     float: right;
 }
 
-.nav-tabs.two-tabs > li {
+/*.nav-tabs.two-tabs > li {
     width: 48%;
     margin-left:0.4%;
     margin-right:0.4%;
@@ -204,7 +205,7 @@ div.card {
 .nav-tabs > li > a {
     text-align: center;
     font-weight: bold;
-}
+}*/
 
 .panel-body {
     padding:10px;

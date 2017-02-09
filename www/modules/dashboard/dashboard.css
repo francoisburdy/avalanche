@@ -1,18 +1,18 @@
 
 
-.card .victime-numero, .card .victime-etat{
+.card .victime-numero, .card .victime-etat {
     width: calc(100% - 70px);
     display: inline-block;
 }
 
-.card .card-content{
+.card .card-content {
      padding-bottom: 0.5em;
 }
 .etat-victime {
     text-align: right;
 }
 
-.etat-victime > span{
+.etat-victime > span {
     border-radius: 3px;
     font-size: 1.5em;
     font-weight: bold;
@@ -20,39 +20,38 @@
     padding-right: 0.5em;
 }
 
-.etat-victime.DCD > span{
+.etat-victime.DCD > span {
     background: purple;
     color:white;
 }
 
 
-.etat-victime.I > span{
+.etat-victime.I > span {
     background: transparent;
     border: 1px solid grey;
     color:black;
 }
 
 
-.etat-victime.UR > span{
+.etat-victime.UR > span {
     background: #ffc107;
     color:black;
 }
 
 
-.etat-victime.UA > span{
+.etat-victime.UA > span {
     background: #e53935;
     color:white;
 }
 
-
-.dropdown-menu-btn{
+.dropdown-menu-btn {
     position: absolute;
     z-index: 1100;
     top: -50px;
     right: 15px;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     right: 0;
     left:initial;
     top: 90%;
@@ -63,11 +62,12 @@
     font-size: 1.3em;
     line-height: 1.8em;  
 }
-.victim-number{
+
+.victim-number {
     font-size: 3em;
 }
 
-.label{
+.label {
     display: block;
     padding: .2em .6em .3em;
     font-size: 1em;
@@ -80,15 +80,29 @@
     border-radius: .25em;
 }
 
-
-.badge{
+.badge {
     float: right;
-    margin-top: 0.3em;
     font-size: 15px;
 }
 
-#carte-intervenant{
-    padding-bottom: 0em;
+
+.metier-container {
+    margin-left: -3px;
+    margin-right: -3px;
 }
 
+.metier-libelle {
+    max-width: 70%;
+    display: inline-block;
+    text-shadow: 0px 0px 20px #888;
+}
 
+.metier-card {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.metier-card .card-content{
+    padding-top: 1em;
+    padding-bottom: 1em;
+}

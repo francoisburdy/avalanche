@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('DashboardCtrl', function($scope, $location, Operation, Parametres, Global) {
+angular.module('myApp').controller('DashboardCtrl', function($scope, $location, $rootScope, Operation, Parametres, Global, SharedState) {
 
     $scope.operation = Operation.getOperation();
     console.log($scope.operation);
@@ -103,10 +103,17 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         );
     }
 
-    $scope.$on('$viewContentLoaded', function() {
-        //var imageData = storage.getItem("imageData"); // Pass a key name and its value to add or update that key.
-        //refreshImageContent(imageData);
-    });
+    $scope.nextTab = function(){
+        SharedState.set('activeTab', 2);
+    }
+
+    $scope.prevTab = function(){
+        var tab = SharedState.get('activeTab');
+        if (tab > 1)
+            SharedState.set('activeTab', (tab-1));
+        else 
+            $rootScope.Ui.turnOn('uiSidebarLeft');
+    }
 
     $scope.$on('operationUpdated', function(event) {
         $scope.operation = Operation.getOperation();

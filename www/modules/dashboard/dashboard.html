@@ -4,123 +4,121 @@
 
 <div class="btn-group dropdown-menu-btn">
     <a ui-turn-on='myDropdown' class='btn'>
-      <i class="fa fa-ellipsis-v fa-lg"></i>
-  </a>
-  <ul class="dropdown-menu"
-      ui-outer-click="Ui.turnOff('myDropdown')"
-      ui-outer-click-if="Ui.active('myDropdown')"
-      role="menu"
-      ui-show="myDropdown" 
-      ui-state="myDropdown"
-      ui-turn-off="myDropdown">
-      <li><a ng-click="terminate()">Terminer l'opération</a></li>
-      <li class="divider"></li>
-      <li><a ng-click="purgeStorage()">Supprimer les données</a></li>
-      <li><a ng-click="loadDemoData()">Charger les données de démo</a></li>
-      <li class="divider"></li>
-      <li><a ng-click="exitApp()">Quitter l'application</a></li>
+        <i class="fa fa-ellipsis-v fa-lg"></i>
+    </a>
+    <ul class="dropdown-menu"
+        ui-outer-click="Ui.turnOff('myDropdown')"
+        ui-outer-click-if="Ui.active('myDropdown')"
+        role="menu"
+        ui-show="myDropdown" 
+        ui-state="myDropdown"
+        ui-turn-off="myDropdown">
+        <li><a ng-click="terminate()">Terminer l'opération</a></li>
+        <li class="divider"></li>
+        <li><a ng-click="purgeStorage()">Supprimer les données</a></li>
+        <li><a ng-click="loadDemoData()">Charger les données de démo</a></li>
+        <li class="divider"></li>
+        <li><a ng-click="exitApp()">Quitter l'application</a></li>
     </ul>
-</div>
+</div> <!-- end drop-down-menu -->
 
 <div class="scrollable">
-    <div class="scrollable-content section dashboard">
+    <div class="scrollable-content section dashboard" ui-swipe-left="nextTab()" ui-swipe-right="prevTab()">
         <div ui-shared-state="activeTab" default="1">
-          <ul class="nav nav-tabs two-tabs">
-            <li ui-class="{'active': activeTab == 1}">
-                <a ui-set="{'activeTab': 1}">
-                    Intervenants 
-                    <span ng-if="nbActivePersonnels() > 0">({{nbActivePersonnels()}})</span>
-                </a>
-            </li>
-            <li ui-class="{'active': activeTab == 2}">
-                <a ui-set="{'activeTab': 2}">
-                    Victimes 
-                    <span ng-if="operation.victimes.length > 0">({{operation.victimes.length}})</span>
-                </a>
-            </li>
-        </ul>
+            
+            <!-- boutons Onglets -->
+            <div class="row tabs-container two-tabs">
+                <div class="col-xs-6 tab" ui-class="{'active': activeTab == 1}" ui-set="{'activeTab': 1}">
+                    {{nbActivePersonnels()}} intervenant<span ng-show="nbActivePersonnels() > 1">s</span>
+                </div>
+                <div class="col-xs-6 tab" ui-class="{'active': activeTab == 2}" ui-set="{'activeTab': 2}">
+                    {{operation.victimes.length}} victime<span ng-show="operation.victimes.length > 1">s</span>
+                </div>
+            </div> <!-- fin boutons Onglets -->
 
-        <!-- Onglet personnel -->
-        <div ui-if="activeTab == 1">
-            <div class="row">
-                <div ng-repeat="m in metiers">
-                    <div class="col-lg-4 col-md-6 col-xs-12 card" ng-click="detailsMetier(m.libelle)">
-                        <div class="row card-container" ng-style="{'background-color': m.bg, 'color': m.text}">
-                           <div class="col-xs-12 card-content" id="carte-intervenant" >
-                                <span class="card-title">
-                                    <strong>{{m.libelle}}</strong>
+            <!-- Onglet personnel -->
+            <div ui-if="activeTab == 1">
+                <div class="row metier-container">
+                    <div ng-repeat="m in metiers">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 card metier-card" ng-click="detailsMetier(m.libelle)">
+                            <div class="row card-container" ng-style="{'background-color': m.bg, 'color': m.text}">
+                                <div class="col-xs-12 card-content">
+                                    <span class="metier-libelle">{{m.libelle}}</span>
                                     <span class="badge">{{nbPersonnels(m.libelle)}}</span>
-                                </span>
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="btn-bottom-left">
-                <div class="red-bg">
-                    <a ng-click="deleteIntervenant()">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="btn-bottom-right">
-                <div class="blue-bg">
-                    <a href="#!/addIntervenant">
-                        <i class="fa fa-plus"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- Onglet victimes -->
-        <div ui-if="activeTab == 2">        
-            <div class="row">
-                <div ng-repeat="v in operation.victimes | orderBy: 'numero' | filter: {situation: '!Évacuée'}">               
-                    <div class="col-lg-4 col-md-6 col-xs-12 card">
-                        <div class="row card-container flex-center" ng-click="editVictime(v.numero)">
-                            <div class="col-xs-3 center victim-number">
-                                {{v.numero}}
-                            </div>
-                            <div class="col-xs-9 card-content">
-                                <div class="etat-victime label" ng-style="{'background-color': v.status.bg, 'color': v.status.text}">{{v.status.libelle}}
                                 </div>
-                                <div class="italic center font-larger">{{v.situation}}</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <hr/>
+                <div class="btn-bottom-left">
+                    <div class="red-bg">
+                        <a ng-click="deleteIntervenant()">
+                            <i class="fa fa-minus"></i>
+                        </a>
+                    </div>
+                </div>
 
-       
-            <div class="row">
-                <div ng-repeat="v in operation.victimes | orderBy: 'numero' | filter: {situation: 'Évacuée'}">               
-                   <div class="col-lg-4 col-md-6 col-xs-12 card">
-                        <div class="row card-container flex-center" ng-click="editVictime(v.numero)">
-                            <div class="col-xs-3 center victim-number">
-                                {{v.numero}}
-                            </div>
-                            <div class="col-xs-9 card-content">
-                                <div class="etat-victime label" ng-style="{'background-color': v.status.bg, 'color': v.status.text}">{{v.status.libelle}}
+                <div class="btn-bottom-right">
+                    <div class="blue-bg">
+                        <a href="#!/addIntervenant">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div> <!-- end onglet personnel -->
+
+            <!-- Onglet victimes -->
+            <div ui-if="activeTab == 2">        
+                
+                <div class="row">
+                    <div ng-repeat="v in operation.victimes | orderBy: 'numero' | filter: {situation: '!Évacuée'}">               
+                        <div class="col-lg-4 col-md-6 col-xs-12 card">
+                            <div class="row card-container flex-center" ng-click="editVictime(v.numero)">
+                                <div class="col-xs-3 center victim-number">
+                                    {{v.numero}}
                                 </div>
-                                <div class="italic center font-larger">{{v.situation}}</div>
+                                <div class="col-xs-9 card-content">
+                                    <div class="etat-victime label" ng-style="{'background-color': v.status.bg, 'color': v.status.text}">{{v.status.libelle}}
+                                    </div>
+                                    <div class="italic center font-larger">{{v.situation}}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="btn-bottom-right">
-                <div class="blue-bg">
-                    <a href="#!/victimes">
-                        <i class="fa fa-plus"></i>
-                    </a>
+                <hr/>
+           
+                <div class="row">
+                    <div ng-repeat="v in operation.victimes | orderBy: 'numero' | filter: {situation: 'Évacuée'}">               
+                       <div class="col-lg-4 col-md-6 col-xs-12 card">
+                            <div class="row card-container flex-center" ng-click="editVictime(v.numero)">
+                                <div class="col-xs-3 center victim-number">
+                                    {{v.numero}}
+                                </div>
+                                <div class="col-xs-9 card-content">
+                                    <div class="etat-victime label" ng-style="{'background-color': v.status.bg, 'color': v.status.text}">{{v.status.libelle}}
+                                    </div>
+                                    <div class="italic center font-larger">{{v.situation}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
+
+                <div class="btn-bottom-right">
+                    <div class="blue-bg">
+                        <a href="#!/victimes">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                </div> <!-- end btn-bottom-right --> 
+
+            </div> <!-- end onglet victimes -->
+
+        </div> <!-- end onglets -->
+
+    </div> <!-- end section -->
+</div> <!-- end scrollable -->
