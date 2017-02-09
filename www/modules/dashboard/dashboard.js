@@ -6,15 +6,28 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     console.log($scope.operation);
     $scope.metiers = Parametres.getMetiers();
 
+    /* Retourne le nombre de personnels pour un métier donné */
     $scope.nbPersonnels = function(metier) {
         if(! $scope.operation.personnels) return 0;
         
         let compteur = 0;
         for(let i = 0; i < $scope.operation.personnels.length; i++) {
             let p = $scope.operation.personnels[i];
-            if(p.metier.libelle == metier) compteur++;
+            if(p.metier.libelle == metier && !p.endDate) compteur++;
         }
         return compteur;
+    }
+
+    /* Retourne le nombre de personnels encore présents sur le site */
+    $scope.nbActivePersonnels = function() {
+        if(!$scope.operation.personnels) return 0;
+        
+        let compteur = 0;
+        for(let i = 0; i < $scope.operation.personnels.length; i++) {
+            let p = $scope.operation.personnels[i];
+            if(!p.endDate) compteur++;
+        }
+        return compteur;        
     }
 
     $scope.terminate = function() {

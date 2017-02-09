@@ -54,6 +54,14 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
+    /* Retourne un personnel à partir de son numéro */
+    this.getPersonnel = function(numero) {
+        for(let i = 0; i < $localStorage.operation.personnels.length; i++) {
+            var personnel = $localStorage.operation.personnels[i];
+            if(personnel.numero == numero) return personnel; 
+        }
+    }
+
     /* Retourne la liste des personnels du métier passé en paramètre */
     this.getPersonnelsByMetier = function(libMetier) {
         let personnels = [];
@@ -62,6 +70,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(pers[i].metier.libelle == libMetier) personnels.push(pers[i]);
         }
         return personnels;
+    }
+
+    this.evacuatePersonnel = function(personnel) {
+        personnel.endDate = new Date();
+        $rootScope.$broadcast('operationUpdated');
     }
 
     this.addVictime = function(victime) {

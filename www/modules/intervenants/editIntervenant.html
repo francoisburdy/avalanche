@@ -1,0 +1,37 @@
+<div ui-content-for="title">
+  <span>Modifier le personnel n°{{personnel.numero}}</span>
+</div>
+
+<div class="scrollable">
+    <div class="scrollable-content section edit-victime">
+        <form class="victimForm">
+            <div class="form-group victimId">
+                <label>N° de personnel</label>
+                <input type="number" class="form-control" ng-model="personnel.numero" placeholder="Numéro"/>
+            </div>
+        </form>
+
+        <div class="center">
+            <button type="button" class="btn btn-danger btn-block" ng-click="deletePersonnel()">
+                <i class="fa fa-trash"></i>
+                Supprimer ce personnel
+            </button>
+        </div>
+
+        <div class="btn-bottom-left">
+            <div class="blue-bg">
+                <a ng-click="evacuatePersonnel()">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="btn-bottom-right">
+            <div class="green-bg">
+                <a href="#!/{{personnel.metier.libelle}}">
+                    <i class="fa fa-check"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

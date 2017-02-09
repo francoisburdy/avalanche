@@ -14,7 +14,6 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
 		$scope.newVictime.endDate = null;
 		Operation.addVictime($scope.newVictime);
 
-	    //SharedState.initialize($scope, 'activeTab', 2);
-		//SharedState.set('activeTab', 2);
+		if($scope.newVictime.situation == 'Évacuée') Operation.evacuateVictime($scope.newVictime);
 	}
 });
