@@ -64,7 +64,7 @@
     line-height: 1.8em;  
 }
 .victim-number{
-    text-decoration: underline;
+    font-size: 3em;
 }
 
 
@@ -82,7 +82,5 @@
 }
 
 .situation-style{
-    float: right;
-
-
+    text-align: center;
 }
