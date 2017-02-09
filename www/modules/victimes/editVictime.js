@@ -11,6 +11,10 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
 		$location.url('/dashboard'); // ToDo Onglet victime
 	}
 
+	$scope.checkSituation = function() {
+		if($scope.victime.situation == 'Évacuée') Operation.evacuateVictime($scope.victime);
+	}
+
 	$scope.deleteVictime = function() {
 		Operation.removeVictime($scope.victime);
 		// ToDo Confirmation
