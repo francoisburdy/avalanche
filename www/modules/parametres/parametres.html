@@ -14,7 +14,7 @@
           <div class="row parametres-items">
 
             <div class="col-xs-6 col-md-3 parametres-item" ng-repeat="m in metiers">
-              <button ui-turn-on="modalAddMetier" type="button" class="btn btn-lg full-width" ng-style="{'background-color': m.bg, 'color': m.text}" ng-click="updateLastClicked(m.libelle)">
+              <button ui-turn-on="modalModifyMetier" type="button" class="btn btn-lg full-width" ng-style="{'background-color': m.bg, 'color': m.text}" ng-click="updateLastClicked(m.libelle)">
                 <div class="truncate">{{m.libelle}}</div> <i class="fa fa-pencil right" aria-hidden="true"></i>
               </button>
             </div>
@@ -53,6 +53,7 @@
       </div>
       <!-- Overlay ajout fonction -->
       <div ui-content-for="modals">
+
         <div class="modal" ui-if='modalAddMetier' ui-state='modalAddMetier'>
           <div class="modal-backdrop in"></div>
           <div class="modal-dialog">
@@ -89,18 +90,16 @@
               </div>
             </div>
           </div>
-        </div>
 
-<!--         Modale modifier métier-->        
-      <div ui-content-for="modals">
-        <div class="modal" ui-if='modalAddMetier' ui-state='modalAddMetier'>
+<!--         Modale modifier métier-->
+        <div class="modal" ui-if='modalModifyMetier' ui-state='modalModifyMetier'>
           <div class="modal-backdrop in"></div>
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button class="close"
-                ui-turn-off="modalAddMetier">&times;</button>
-                <h4 class="modal-title">Ajouter un métier</h4>
+                ui-turn-off="modalModifyMetier">&times;</button>
+                <h4 class="modal-title">Modifier un métier</h4>
               </div>
               <div class="modal-body">
                 <form>
@@ -119,16 +118,17 @@
                   </form>
                 </div>
                 <div class="modal-footer center">
-                  <button ui-turn-off="modalAddMetier" class="btn btn-default btn-lg min-width-40">
+                  <button ui-turn-off="modalModifyMetier" class="btn btn-default btn-lg min-width-40">
                     <i class="fa fa-times" aria-hidden="true"></i> &nbsp; Annuler
                   </button>
-                  <button ui-turn-off="modalAddMetier" class="btn btn-primary btn-lg min-width-40" ng-click="modifyMetier(color, lastClickedIndex)">
+                  <button ui-turn-off="modalModifyMetier" class="btn btn-primary btn-lg min-width-40" ng-click="modifyMetier(color, lastClickedIndex)">
                     <i class="fa fa-check" aria-hidden="true"></i> &nbsp; Valider
                   </button>
                 </div>
               </div>
             </div>
           </div>
+          
         </div>
 
       </div>
