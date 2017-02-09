@@ -67,7 +67,6 @@
     font-size: 3em;
 }
 
-
 .label{
     display: block;
     padding: .2em .6em .3em;
@@ -82,5 +81,4 @@
 }
 
 .situation-style{
-    text-align: center;
 }

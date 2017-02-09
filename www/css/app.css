@@ -48,6 +48,10 @@ body {
     display: inline-block;
 }
 
+.small-text{
+    font-size: .5em;
+}
+
 .sidebar-left {
     background: #2196F3;
 }
