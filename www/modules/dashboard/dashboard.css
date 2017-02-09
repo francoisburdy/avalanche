@@ -70,7 +70,7 @@
 .label{
     display: block;
     padding: .2em .6em .3em;
-    font-size: 75%;
+    font-size: 1em;
     font-weight: bold;
     line-height: 1;
     color: #fff;
@@ -80,8 +80,6 @@
     border-radius: .25em;
 }
 
-.situation-style{
-}
 
 .badge{
     float: right;

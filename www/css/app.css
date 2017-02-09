@@ -38,6 +38,10 @@ body {
     font-style: italic;
 }
 
+.font-larger{
+    font-size: 1.15em;
+}
+
 .flex-center {
     display: flex;
     align-items: center;

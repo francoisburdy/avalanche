@@ -28,7 +28,12 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     this.addTmpPersonnel = function(personnel) {
-        this.tmpPersonnel = personnel;
+        if(!this.isPersonnelNumberAvailable(personnel.numero)) {
+            navigator.notification.alert('Il y a déjà un personnel portant ce numéro', null, 'Numéro déjà utilisé', 'OK');
+        } else {
+            this.tmpPersonnel = personnel;
+            $location.url('/confirmIntervenant');
+        }
     }
 
     this.getTmpPersonnel = function() {
@@ -121,6 +126,12 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         return true;
     }
 
+    this.isPersonnelNumberAvailable = function(num) {
+        for(let p of $localStorage.operation.personnels)
+            if(p.numero == num) return false;
+        return true;
+    }
+
     /* Retourne une victime à partir de son numéro */
     this.getVictime = function(numero) {
         for(let i = 0; i < $localStorage.operation.victimes.length; i++) {
@@ -128,6 +139,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(victime.numero == numero) return victime; 
         }
     }
+
+
+    /****************************
+     * HISTORISATION DES DONNES *
+     ***************************/
 
     this.getJournaux = function() {
         var journaux = [];
@@ -140,10 +156,6 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         return journaux;
     }
 
-    /*********************************
-     *       ToDO
-     *       RAJOUTER LE METIER
-     *********************************/
     this.getJournal = function(operation) {
         var journal = {
             nom: operation.nom,

@@ -8,4 +8,8 @@ angular.module('myApp').controller('DetailsMetierCtrl', function($scope, $routeP
     $scope.seeDetails = function(num) {
     	$location.url('/intervenants/' + num);
     }
+
+    $scope.$on('operationUpdated', function(event) {
+        $scope.operation = Operation.getOperation();
+    });
 });
