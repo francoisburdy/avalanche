@@ -7,7 +7,6 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     $scope.metiers = Parametres.getMetiers();
 
     angular.element(document).ready(function () {
-        console.log('activeTab', Global.getDashboardTab());
         $scope.goTab(Global.getDashboardTab());
         $scope.$apply();
     }); 

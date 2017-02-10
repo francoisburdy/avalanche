@@ -1,5 +1,4 @@
 
-
 .card .victime-numero, .card .victime-etat {
     width: calc(100% - 70px);
     display: inline-block;
@@ -7,42 +6,6 @@
 
 .card .card-content {
      padding-bottom: 0.5em;
-}
-
-.etat-victime {
-    text-align: right;
-}
-
-.etat-victime > span {
-    border-radius: 3px;
-    font-size: 1.5em;
-    font-weight: bold;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-}
-
-.etat-victime.DCD > span {
-    background: purple;
-    color:white;
-}
-
-
-.etat-victime.I > span {
-    background: transparent;
-    border: 1px solid grey;
-    color:black;
-}
-
-
-.etat-victime.UR > span {
-    background: #ffc107;
-    color:black;
-}
-
-
-.etat-victime.UA > span {
-    background: #e53935;
-    color:white;
 }
 
 .dropdown-menu-btn {
@@ -92,7 +55,7 @@
     max-width: 40px;
 }
 
-.label {
+.etat-victime {
     display: block;
     padding: .2em .6em .3em;
     font-size: 1em;
