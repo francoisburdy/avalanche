@@ -1,10 +1,10 @@
 <div ui-content-for="title">
-	<span>{{metier}}</span>
+	<span>{{metier}} ({{(personnels | filter: {endDate: null}).length}})</span>
 </div>
 
 <div class="scrollable">
 	<div class="scrollable-content section detail-metier">
-		<div ng-if="personnels.length == 0" class="empty-message">
+		<div ng-if="(personnels | filter: {endDate: null}).length == 0" class="empty-message">
            Aucun {{metier | lowercase}} présent sur site actuellement 
         </div>
 		<div ng-repeat="p in personnels | filter: {endDate: null}" class="card inline">
