@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('HomeCtrl', function($scope, $location, $http, Operation) {
+angular.module('myApp').controller('HomeCtrl', function($scope, $location, $http, $filter, Operation) {
   	$scope.createOperation = function() {
   		Operation.createOperation();
   		$location.url('/dashboard');
@@ -47,7 +47,7 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $http
         }
         html += "</div></div>"; //global journaux + details operation
       }
-      
+
       return html;
     }
 });
