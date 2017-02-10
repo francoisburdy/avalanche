@@ -9,6 +9,9 @@ angular.module('myApp').controller('DetailsMetierCtrl', function($scope, $routeP
     	$location.url('/intervenants/' + num);
     }
 
+    /**
+     * Met à jour l'opération dans le scope lorsque le local storage est modifié 
+     */
     $scope.$on('operationUpdated', function(event) {
         $scope.operation = Operation.getOperation();
     });

@@ -15,18 +15,19 @@
             <div class="form-group">
                 <label>Corps de métier</label>
                 <div>
-                   <select ng-model="newIntervenant.metier" ng-options="s.libelle for s in metiers">
+                    <select ng-model="newIntervenant.metier" ng-options="s.libelle for s in metiers">
                        <option label="Choisir le métier" selected="selected" disabled="disabled"></option>
-                   </select>
+                    </select>
                 </div>
             </div>
             
             <div class="form-group">
                 <label>Mission courante</label>
                 <div>
-                   <select ng-model="selectedMission" ng-options="m for m in missions">
+                    <select ng-model="selectedMission" ng-options="m for m in missions">
                        <option label="Choisir une mission" selected="selected" disabled="disabled"></option>
-                   </select>
+                    </select>
+                    <input type="text" ng-model="newSelectedMission" ng-show="selectedMission == '-- Autre --'"/>
                 </div>
             </div>
 

@@ -23,7 +23,8 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
         if(!$scope.newIntervenant.metier)
             navigator.notification.alert("Choisissez le métier de l'intervenant", null, "Métier", "OK");
         else {
-            $scope.newIntervenant.missions.push({libelle: $scope.selectedMission, beginDate: new Date()});
+            if($scope.newSelectedMission) $scope.newIntervenant.missions.push({libelle: $scope.newSelectedMission, beginDate: new Date()});
+            else $scope.newIntervenant.missions.push({libelle: $scope.selectedMission, beginDate: new Date()});
             Operation.addTmpPersonnel($scope.newIntervenant);
         }
     }

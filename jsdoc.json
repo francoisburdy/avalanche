@@ -6,9 +6,7 @@
     "source": {
         "include": [
             "www/js/app.js",
-            "www/js/helpers.js",
-            "www/js/model.js",
-            "www/js/storage.js"
+            "www/modules/dashboard/dashboard.js"
         ],
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"

@@ -23,6 +23,9 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
 		$location.url('/metiers/' + $scope.personnel.metier.libelle);
 	}
 
+    /**
+     * Met à jour l'opération dans le scope lorsque le local storage est modifié 
+     */
 	$scope.$on('operationUpdated', function(event) {
         $scope.operation = Operation.getOperation();
     });
