@@ -13,7 +13,7 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
     $scope.updateLastClicked = function(index){
     	$scope.lastClickedIndex = index;
     }
-
+    
 	$scope.addMetier = function(color, metier) {
 		var metier = {
 			libelle: metier, 
