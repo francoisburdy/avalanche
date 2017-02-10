@@ -1,32 +1,31 @@
 <div ui-content-for="title">
-	<span>Historique des opérations</span>
+    <span>Journal de l'opération</span>
 </div>
 
 <div class="scrollable">
-	<div class="scrollable-content section">
-		<h3>{{journal.nom}} {{journal.beginDate | date: 'dd/MM/yyyy'}}</h3>
-		<div class="contenu">
-		<p>
-			Opération débutée le {{journal.beginDate | date: 'dd/MM/yyyy à hh:mm'}}
-			et terminée le {{journal.endDate | date: 'dd/MM/yyyy à hh:mm'}}
-		</p>
-		<p>
-			Cette opération a impliqué: 
-			<ul>
-				<li>
-					<span class="bold">{{journal.nbVictimes}} victimes</span>
-				</li>
-				<li>
-					<span class="bold">{{journal.nbPersonnels}} personnels</span>
-				</li>
-			</ul>
-		</p>
+    <div class="scrollable-content section">
+        <h3 class="header-mission">{{journal.nom}} {{journal.beginDate | date: 'dd/MM/yyyy'}}</h3>
+        <div class="contenu">
+            <p>
+                Opération débutée le {{journal.beginDate | date: 'dd/MM/yyyy à hh:mm'}}
+                et terminée le {{journal.endDate | date: 'dd/MM/yyyy à hh:mm'}}
+            </p>
+            <p>
+                   Cette opération a impliqué: 
+                   <ul class="cr_nb_personnes">
+                    <li>
+                        <span class="bold">{{journal.nbVictimes}}</span> victimes
+                    </li>
+                    <li>
+                        <span class="bold">{{journal.nbPersonnels}}</span> personnels
+                    </li>
+                </ul>
+            </p>
 
-		<div ng-repeat="e in journal.evenements | orderBy: 'date'" class="ev-journal">
-			<div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie'}">
-				{{e.texte}}
-			</div>
-		</div>
-		</div>
-	</div>
+        <div ng-repeat="e in journal.evenements | orderBy: 'date'" class="ev-journal">
+            <div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie'}">
+                {{e.texte}}
+            </div>
+        </div>
+    </div>
 </div>
