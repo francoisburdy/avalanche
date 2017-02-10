@@ -1,54 +1,86 @@
-'use strict';
+﻿'use strict';
 
 angular.module('myApp').controller('HomeCtrl', function($scope, $location, $http, $filter, Operation) {
-  	$scope.createOperation = function() {
-  		Operation.createOperation();
-  		$location.url('/dashboard');
-  	}
+    $scope.createOperation = function() {
+        Operation.createOperation();
+        $location.url('/dashboard');
+    }
 
-  	$scope.historique = function() {
-  		$location.url('historique');
-  	}
+    $scope.historique = function() {
+        $location.url('historique');
+    }
 
-  	$scope.exportPdf = function() {
-      var html = parserHtml();
-      console.log(html);
-  		pdf.htmlToPDF({
+    $scope.exportPdf = function() {
+        var html = historiqueAsHtml();
+        console.log(html);
+        pdf.htmlToPDF({
             data: html,
             documentSize: "A4",
             landscape: "portrait",
             type: "base64"
         }, this.success, this.failure);
-  	}
-
-    function parserHtml(){
-      var operation = Operation.getJournaux();
-      var html = "";
-
-      html += '<!doctype html><html lang="fr"><head><meta charset="UTF-8"></head>';
-      html += '<body><div><span>Historique des missions</span></div>';
-      for (var i=0; i<operation.length; i++){
-        html += "<div>"; //global journaux
-        var j = operation[i];
-        var date = $filter('date')(j.beginDate, 'dd/MM/yyyy');
-        var dateDebut = $filter('date')(j.beginDate, 'dd/MM/yyyy, hh:mm');
-        var dateFin = $filter('date')(j.endDate, 'dd/MM/yyyy, hh:mm');
-
-        html += "<h3>"+j.nom+" "+date+"</h3><div>"; //titre + debut details operation
-        html += '<p> Opération débutée le '+dateDebut+ ' et terminée le '+dateFin+'.</p>';
-        html += '<p>Cette opération a impliqué '+j.nbVictimes+' victimes et '+j.nbPersonnels+' personnels.</p>';
-
-        var data = j.evenements;
-        data.sort(function(a, b){
-          return new Date(b.date) - new Date(a.date);
-        });
-
-        for(var y=0; y<data.length; y++){
-          html += '<div>'+data[y].texte+'</div>';
-        }
-        html += "</div></div></body></html>"; //global journaux + details operation
-      }
-
-      return html;
     }
+
+    function historiqueAsHtml() {
+        var operations = Operation.getJournaux();
+        var now = $filter('date')(new Date(), 'dd/MM/yyyy à HH:mm');
+
+        var html = '<!doctype html><html lang="fr"><head>';
+        html += '<style type="text/css">body{margin:1.8cm 2.3cm}</style>';
+        html += '</head>';
+        html += '<body><h1>Rapport des opérations</h1>';
+        html += '<div style="text-align:right"><em>Généré le '+ now +'</em></div>';
+        for (let o of operations){
+            html += operationAsHtml(o) + "<br /><hr />";
+        }
+        html += "</body></html>";
+
+        return html.escape();
+    }
+
+    function currentOperationAsHtml() {
+        var operation = Operation.getJournal();
+        var now = $filter('date')(new Date(), 'dd/MM/yyyy à HH:mm');
+
+        var html = '<!doctype html><html lang="fr"><head>';
+        html += '<style type="text/css">body{margin:1.8cm 2.3cm}</style>';
+        html += '</head>';
+        html += '<body><h1>Rapport des opérations</h1>';
+        html += '<div style="text-align:right"><em>Généré le '+ now +'</em></div>';
+        html += operationAsHtml(operation) + "<br /><hr />";
+        html += "</body></html>";
+
+        return html.escape();
+    }
+
+    function operationAsHtml(o) {
+        var date = $filter('date')(o.beginDate, 'dd/MM/yyyy');
+        var dateDebut = $filter('date')(o.beginDate, 'dd/MM/yyyy, HH:mm');
+        var dateFin = $filter('date')(o.endDate, 'dd/MM/yyyy, HH:mm');
+        var heureFin = $filter('date')(o.endDate, 'HH:mm');
+
+        var html = "<div><div><h3>"+o.nom+" "+date+"</h3><div>"; //titre + debut details operation
+        html += '<p>Opération débutée le '+dateDebut+ ' et terminée le '+dateFin+'.</p>';
+        html += '<p>Cette opération a impliqué '+o.nbVictimes+' victimes et '+o.nbPersonnels+' personnels.</p>';
+
+        var evts = o.evenements;
+        evts.sort(function(a, b){ return new Date(a.date) - new Date(b.date); });
+
+        for(let evt of evts) html += '<div>'+evt.texte+'</div>';
+        html += "<p><em>L'opération à été marquée comme terminée à " + heureFin + "</em></p>";
+        html += "</div>";
+        return html;
+    }
+
+
+    String.prototype.escape = function(){
+        return this.replace(/[éèàêôûùç€°]/g, function(a) {
+            return '&#'+a.charCodeAt(0)+';';
+        });
+    }
+
+
+
+    
+
 });

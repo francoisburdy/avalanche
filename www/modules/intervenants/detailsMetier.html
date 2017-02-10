@@ -4,6 +4,9 @@
 
 <div class="scrollable">
 	<div class="scrollable-content section detail-metier">
+		<div ng-if="personnels.length == 0" class="empty-message">
+           Aucun {{metier | lowercase}} présent sur site actuellement 
+        </div>
 		<div ng-repeat="p in personnels | filter: {endDate: null}" class="card inline">
 			<div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}" ng-click="seeDetails(p.numero)">
 				<div class="row">

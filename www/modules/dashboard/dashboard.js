@@ -20,8 +20,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         if(! $scope.operation || ! $scope.operation.personnels) return 0;
         
         let compteur = 0;
-        for(let i = 0; i < $scope.operation.personnels.length; i++) {
-            let p = $scope.operation.personnels[i];
+        for(let p of $scope.operation.personnels) {
             if(p.metier.libelle == metier && !p.endDate) compteur++;
         }
         return compteur;
@@ -34,8 +33,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         if(! $scope.operation || ! $scope.operation.personnels) return 0;
         
         let compteur = 0;
-        for(let i = 0; i < $scope.operation.personnels.length; i++) {
-            let p = $scope.operation.personnels[i];
+        for(let p of $scope.operation.personnels) {
             if(!p.endDate) compteur++;
         }
         return compteur;        

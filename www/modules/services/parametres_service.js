@@ -1,4 +1,4 @@
-angular.module('myApp').service('Parametres', function($localStorage, $rootScope) {
+﻿angular.module('myApp').service('Parametres', function($localStorage, $rootScope) {
     
     /************************
      * STATUTS DES VICTIMES *

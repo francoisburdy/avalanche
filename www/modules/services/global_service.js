@@ -1,7 +1,6 @@
-angular.module('myApp').service('Global', function($localStorage, $rootScope, $location) {
+﻿angular.module('myApp').service('Global', function($localStorage, $rootScope, $location) {
     
     
-
     this.setDashboardTab = function(index){
     	$localStorage.dashboardTab = index;
     }

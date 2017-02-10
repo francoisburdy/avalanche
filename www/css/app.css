@@ -321,3 +321,9 @@ div.card {
     position: relative;
     margin:auto;
 }
+
+.empty-message {
+    font-size: 2.2em;
+    font-weight: lighter;
+    text-align: center;
+}
