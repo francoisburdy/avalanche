@@ -165,7 +165,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let v of operation.victimes) {           
             var evDebut = {
                 date: v.beginDate,
-                texte: 'La victime n°' + v.numero + ' a été enregistrée à ' + $filter('date')(v.beginDate, 'hh:mm le dd/MM/yyyy') + '.',
+                texte: $filter('date')(v.beginDate, 'hh:mm')+ ': La victime n°' + v.numero + ' a été enregistrée',
                 type: 'entrée'
             };
             journal.evenements.push(evDebut);
@@ -173,7 +173,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(v.endDate != null) {
                 var evFin = {
                     date: v.endDate,
-                    texte: 'La victime n°' + v.numero + ' a été évacuée à ' + $filter('date')(v.endDate, 'hh:mm le dd/MM/yyyy') + '.',               
+                    texte: $filter('date')(v.endDate, 'hh:mm') + ': La victime n°' + v.numero + ' a été évacuée',               
                     type: 'sortie'
                 };
                 journal.evenements.push(evFin);
@@ -182,7 +182,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let p of operation.personnels) {
             var evDebut = {
                 date : p.beginDate,
-                texte : 'L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est entré sur zone à ' + $filter('date')(p.beginDate, 'hh:mm le dd/MM/yyyy') + '.',
+                texte :  $filter('date')(p.beginDate, 'hh:mm') +': L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est entré sur zone',
                 type: 'entrée'  
             };
             journal.evenements.push(evDebut);
@@ -190,7 +190,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(p.endDate != null) {
                 var evFin = {
                     date : p.endDate,
-                    texte : 'L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est sorti de la zone à ' + $filter('date')(p.endDate, 'hh:mm le dd/MM/yyyy') + '.',
+                    texte : $filter('date')(p.endDate, 'hh:mm') + ': L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est sorti de la zone',
                     type: 'sortie'
                 }
                 journal.evenements.push(evFin);

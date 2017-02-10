@@ -2,8 +2,8 @@
 .ev-journal {
 	padding-top: 10px;
 }
-h3{
-	background-color: rgb(148, 186, 226);
+.header-mission{
+	background-color: rgb(33, 154, 243);
     text-align: center;
     color: white;
     border-radius: 0.3em;
@@ -11,4 +11,12 @@ h3{
 }
 .contenu{
 	margin-left: 0.3em;
+}
+.cr_nb_personnes{
+	list-style: none;
+}
+
+.cr_nb_personnes span{
+	font-size: 1.3em;
+	color:#0c77cc;
 }
