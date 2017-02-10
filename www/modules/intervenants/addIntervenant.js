@@ -18,7 +18,10 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
     }); 
 
     $scope.goToConfirmation = function() {
-        Operation.addTmpPersonnel($scope.newIntervenant);
+        if(!$scope.newIntervenant.metier)
+            navigator.notification.alert("L'intervenant n'a pas de métier sélectionné", null, "Pas de métier", "coucou")
+        else
+            Operation.addTmpPersonnel($scope.newIntervenant);
     }
 
   	$scope.addIntervenant = function() {
