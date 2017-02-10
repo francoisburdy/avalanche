@@ -5,8 +5,18 @@
     },
     "source": {
         "include": [
-            "www/js/app.js",
-            "www/modules/dashboard/dashboard.js"
+            "www/",
+            "www/js",
+            "www/modules/dashboard/dashboard.js",
+            "www/modules/export/exportPDF.js",
+            "www/modules/historique",
+            "www/modules/home",
+            "www/modules/intervenant",
+            "www/modules/journal",
+            "www/modules/menu",
+            "www/modules/parametres",
+            "www/modules/services",
+            "www/modules/victimes"
         ],
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"

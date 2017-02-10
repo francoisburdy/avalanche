@@ -1,5 +1,6 @@
 'use strict';
 
+
 angular.module('myApp').controller('DashboardCtrl', function($scope, $location, $rootScope, Operation, Parametres, Global) {
 
     $scope.operation = Operation.getOperation();
@@ -130,6 +131,58 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
             'Supprimer les données',
             ['Supprimer', 'Annuler']
         );
+    }
+
+
+    $scope.evacuatePersonnel = function() {
+        navigator.notification.prompt(
+            'Saisissez le numéro de l\'intervenant sortant', 
+            checkPersonnel, 
+            'Sortie de personnel', 
+            ['Valider', 'Annuler']
+        );
+    }
+
+    function checkPersonnel(results) {
+        console.log(results);
+        if(results.buttonIndex == 1) {
+            console.log('Sortie du personnel', results.input1);
+            var personnel = Operation.getPersonnel(results.input1);
+            if(!personnel) { // Personnel inexistant
+                navigator.notification.alert(
+                    'L\'intervenant n°' + results.input1 + ' est introuvable.',
+                    null,
+                    'Intervenant introuvable',
+                    ['OK']
+                )
+            } else if(personnel.endDate) { // L'intervenant est déjà sorti
+                console.log('Personnel déjà sorti');
+                navigator.notification.confirm(
+                    'L\'intervenant n°' + personnel.numero + ' est déjà sorti le ' + personnel.endDate.toLocaleString() ,
+                    null,
+                    'Déjà sorti',
+                    ['OK']
+                )
+            } else { // On sort l'intervenant
+                navigator.notification.confirm(
+                    'Sortie : ' + personnel.metier.libelle + ' n°' + personnel.numero + '.',
+                    function(buttonIndex) {
+                        console.log('buttonIndex', buttonIndex);
+                        Operation.evacuatePersonnel(personnel);
+                    },
+                    'Confirmation',
+                    ['Valider', 'Annuler']
+                )
+            }
+        } else { // Annulation
+            console.log('Sortie de personnel annulée');
+            navigator.notification.confirm(
+                'Sortie de personnel annulée.',
+                null,
+                'Annulation',
+                ['OK']
+            )
+        }
     }
 
     /**

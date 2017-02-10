@@ -1,5 +1,9 @@
 'use strict';
 
+ /**
+ * @class angular_module.myApp
+ * @memberOf angular_module 
+ */
 angular.module('myApp', [
   'ngRoute',
   'ngStorage',
@@ -21,6 +25,9 @@ angular.module('myApp', [
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
+/**
+* Cordova callback
+*/
 function onDeviceReady() {
     console.log('deviceready');
     setTimeout(function() {

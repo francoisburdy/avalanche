@@ -1,23 +1,34 @@
 'use strict';
 
 angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $location, $document, Operation, Parametres) {
-	$scope.newIntervenant = {};
-    $scope.newIntervenant.beginDate = new Date();
-    $scope.newIntervenant.endDate = null;
-    $scope.newIntervenant.missions = [];
-
-    $scope.missions = Parametres.getMissions();
-    $scope.metiers = Parametres.getMetiers();
-
-    $scope.tmpPersonnel = Operation.getTmpPersonnel();
-
-    angular.element(document).ready(function () {
-        console.log('document.ready');
-        if($location.path() == "/confirmIntervenant" && $scope.tmpPersonnel.image) {
-            console.log('print img', $scope.tmpPersonnel.image);
-            document.getElementById('img-preview-confirm').src = $scope.tmpPersonnel.image ;
+	
+    
+    function init() {
+        $scope.tmpPersonnel = Operation.getTmpPersonnel();
+        
+        if(!$scope.tmpPersonnel) {
+            $scope.newIntervenant = {};
+            $scope.newIntervenant.beginDate = new Date();
+            $scope.newIntervenant.endDate = null;
+            $scope.newIntervenant.missions = [];
+        } else {
+            $scope.newIntervenant = $scope.tmpPersonnel;
         }
-    }); 
+        
+        $scope.missions = Parametres.getMissions();
+        $scope.metiers = Parametres.getMetiers();
+
+        angular.element(document).ready(function () {
+            console.log('document.ready');
+            if($location.path() == "/confirmIntervenant" && $scope.tmpPersonnel.image) {
+                console.log('print img', $scope.tmpPersonnel.image);
+                document.getElementById('img-preview-confirm').src = $scope.tmpPersonnel.image ;
+            }
+        }); 
+    }
+
+
+    init();
 
     $scope.goToConfirmation = function() {
         if(!$scope.newIntervenant.metier)

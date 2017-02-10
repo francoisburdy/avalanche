@@ -1,3 +1,9 @@
+
+/**
+ * @function Operation
+ * @memberOf angular_module.myApp
+ * @description This is an my service.
+ */
 angular.module('myApp').service('Operation', function($localStorage, $rootScope, $location, $filter) {
     
     this.getOperation = function() {
