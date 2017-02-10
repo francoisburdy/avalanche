@@ -13,7 +13,7 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
     $scope.updateLastClicked = function(index){
     	$scope.lastClickedIndex = index;
     }
-    
+
 	$scope.addMetier = function(color, metier) {
 		var metier = {
 			libelle: metier, 
@@ -29,6 +29,20 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
 
 	$scope.addVictimeSituation = function(){
 		
+	}
+
+	$scope.removeMetier = function(metier){
+		var i=0;
+		while ($scope.metiers[i].libelle != metier && i<$scope.metiers.length){
+			i++;
+		}
+		if (i<$scope.metiers.length){
+			Parametres.removeMetier($scope.metiers[i]);
+		}else{
+			console.log("Ce métier n'existe pas dans la liste des métiers.");
+		}
+
+		Parametres.removeMetier(metier)
 	}
 
 	$scope.modifyMetier = function(color, metier){

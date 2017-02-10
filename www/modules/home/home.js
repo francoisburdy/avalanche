@@ -25,7 +25,8 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $http
       var operation = Operation.getJournaux();
       var html = "";
 
-      html += '<div><span>Historique des missions</span></div>';
+      html += '<!doctype html><html lang="fr"><head><meta charset="UTF-8"></head>';
+      html += '<body><div><span>Historique des missions</span></div>';
       for (var i=0; i<operation.length; i++){
         html += "<div>"; //global journaux
         var j = operation[i];
@@ -45,7 +46,7 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $http
         for(var y=0; y<data.length; y++){
           html += '<div>'+data[y].texte+'</div>';
         }
-        html += "</div></div>"; //global journaux + details operation
+        html += "</div></div></body></html>"; //global journaux + details operation
       }
 
       return html;
