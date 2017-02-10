@@ -178,7 +178,6 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
                 };
                 journal.evenements.push(evFin);
             }
-            
         }
         for(let p of operation.personnels) {
             var evDebut = {

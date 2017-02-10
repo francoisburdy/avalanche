@@ -100,13 +100,13 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
         }
     }
 
-    this.modifyMetier = function(metier){
-        var i=0;
+    this.modifyMetier = function(metier) {
+        var i = 0;
         var metiers = $localStorage.metiers;
-        while(i<metiers.length && metiers[i].libelle != metier.libelle){
+        while(i < metiers.length && metiers[i].libelle != metier.libelle) {
             i++;
         }
-        if (metiers[i].libelle == metier.libelle){
+        if(metiers[i].libelle == metier.libelle) {
             $localStorage.metiers[i].bg = metier.bg;
         }
     }
@@ -128,6 +128,37 @@ angular.module('myApp').service('Parametres', function($localStorage, $rootScope
             {libelle: 'Gendarmes', bg: 'darkblue', text: '#fff'},
             {libelle: 'CRS', bg: 'lightblue', text: '#000'},
             {libelle: 'Secouristes', bg: 'green', text: '#fff'}
+        ];
+    }
+
+    /*****************
+     *    MISSIONS   *
+     ****************/ 
+    this.getMissions = function() {
+        if(!$localStorage.missions) this.createDefaultMissions();
+        return $localStorage.missions;
+    }
+
+    this.createDefaultMissions = function() {
+        $localStorage.missions = [
+            'Recherche Chien',
+            'Recherche DVA',
+            'Recherche RECCO',
+            'DSM',
+            'COS CRS',
+            'COS pisteur',
+            'COS PGHM',
+            'COS pompier',
+            'Constatation judiciaire',
+            'Secrétaire',
+            'Pelletage',
+            'Sondage',
+            'Evacuation victime',
+            'Prise en charge victime',
+            'Balisage avalanche',
+            'Guetteur',
+            'Médicalisation',
+            '-- Autre --'
         ];
     }
 });

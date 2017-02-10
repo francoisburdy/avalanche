@@ -21,6 +21,15 @@
                 </div>
             </div>
             
+            <div class="form-group">
+                <label>Mission courante</label>
+                <div>
+                   <select ng-model="selectedMission" ng-options="m for m in missions">
+                       <option label="Choisir une mission" selected="selected" disabled="disabled"></option>
+                   </select>
+                </div>
+            </div>
+
             <div class="form-group input-group-lg" ng-show="!hasImg">
                 <button ng-click="launchCamera()" type="button" class="btn-primary btn-lg">
                     <i class="fa fa-camera"></i> &nbsp;Prendre une photo

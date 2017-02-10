@@ -9,6 +9,21 @@
                 <label>N° de personnel</label>
                 <input type="number" class="form-control" ng-model="personnel.numero" placeholder="Numéro"/>
             </div>
+            <div class="form-group">
+                <label>Mission courante</label>
+                <div>
+                    <h2>{{personnel.missions[personnel.missions.length - 1].libelle}}</h2>
+                    <div class="green-bg">
+                        <a ng-click="addMission = true">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    <select ng-model="selectedMission" ng-options="m for m in missions" ng-show="addMission == true">
+                       <option label="Nouvelle mission" selected="selected" disabled="disabled"></option>
+                    </select>
+                    <input type="text" ng-model="newSelectedMission" ng-show="selectedMission == '-- Autre --'"/>
+                </div>
+            </div>
         </form>
 
         <div class="center">
@@ -28,7 +43,7 @@
 
         <div class="btn-bottom-right">
             <div class="green-bg">
-                <a href="#!/{{personnel.metier.libelle}}">
+                <a ng-click="confirm()">
                     <i class="fa fa-check"></i>
                 </a>
             </div>

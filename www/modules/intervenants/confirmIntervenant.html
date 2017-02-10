@@ -5,22 +5,26 @@
 <div class="scrollable">
     <div class="scrollable-content section confirmIntervenant" ng-style="{'background-color': tmpPersonnel.metier.bg, 'color': tmpPersonnel.metier.text}">
        
-       <h2>{{tmpPersonnel.metier.libelle}}</h2>
+        <h2>{{tmpPersonnel.metier.libelle}}</h2>
 
-      <div>
-          <div class="img-preview-container">
-              <img id="img-preview-confirm" />
-          </div>
-      </div>
+        <div>
+            <div class="img-preview-container">
+                <img id="img-preview-confirm" />
+            </div>
+        </div>
 
-       <div class="numConfInt">
-           <h2>{{tmpPersonnel.numero}}</h2>
-       </div>
+        <div class="numConfInt">
+            <h2>{{tmpPersonnel.numero}}</h2>
+        </div>
+
+        <div class="numConfInt">
+            <h2>{{tmpPersonnel.missions[0].libelle}}</h2>
+        </div>
 
        <div class="btn-bottom-left">
             <div class="blue-bg">
                 <a href="#!/addIntervenant">
-                  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 </a>
             </div>
         </div>

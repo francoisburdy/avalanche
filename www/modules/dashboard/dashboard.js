@@ -14,7 +14,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     /* Retourne le nombre de personnels pour un métier donné */
     $scope.nbPersonnels = function(metier) {
-        if(! $scope.operation.personnels) return 0;
+        if(! $scope.operation || ! $scope.operation.personnels) return 0;
         
         let compteur = 0;
         for(let i = 0; i < $scope.operation.personnels.length; i++) {
@@ -26,7 +26,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     /* Retourne le nombre de personnels encore présents sur le site */
     $scope.nbActivePersonnels = function() {
-        if(!$scope.operation.personnels) return 0;
+        if(! $scope.operation || ! $scope.operation.personnels) return 0;
         
         let compteur = 0;
         for(let i = 0; i < $scope.operation.personnels.length; i++) {

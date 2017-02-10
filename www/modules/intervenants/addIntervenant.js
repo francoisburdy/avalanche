@@ -4,14 +4,16 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
 	$scope.newIntervenant = {};
     $scope.newIntervenant.beginDate = new Date();
     $scope.newIntervenant.endDate = null;
+    $scope.newIntervenant.missions = [];
 
+    $scope.missions = Parametres.getMissions();
     $scope.metiers = Parametres.getMetiers();
 
     $scope.tmpPersonnel = Operation.getTmpPersonnel();
 
     angular.element(document).ready(function () {
         console.log('document.ready');
-        if($location.path() == "/confirmIntervenant" && $scope.tmpPersonnel.image){
+        if($location.path() == "/confirmIntervenant" && $scope.tmpPersonnel.image) {
             console.log('print img', $scope.tmpPersonnel.image);
             document.getElementById('img-preview-confirm').src = $scope.tmpPersonnel.image ;
         }
@@ -19,9 +21,11 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
 
     $scope.goToConfirmation = function() {
         if(!$scope.newIntervenant.metier)
-            navigator.notification.alert("L'intervenant n'a pas de métier sélectionné", null, "Pas de métier", "coucou")
-        else
+            navigator.notification.alert("Choisissez le métier de l'intervenant", null, "Métier", "OK");
+        else {
+            $scope.newIntervenant.missions.push({libelle: $scope.selectedMission, beginDate: new Date()});
             Operation.addTmpPersonnel($scope.newIntervenant);
+        }
     }
 
   	$scope.addIntervenant = function() {
