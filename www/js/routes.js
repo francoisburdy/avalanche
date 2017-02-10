@@ -51,6 +51,10 @@ angular.module('myApp').config(['$locationProvider', '$routeProvider', function(
     templateUrl: 'modules/export/exportPDF.html',
     controller: 'ExportPDFCtrl'
 
+  }).when('/journal', {
+    templateUrl: 'modules/journal/journal.html',
+    controller: 'JournalCtrl'
+
   }).otherwise({redirectTo: '/home'});
 
 }])

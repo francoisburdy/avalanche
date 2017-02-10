@@ -1,11 +1,23 @@
 <div ui-content-for="title">
-  <span>Journal d'opération</span>
+	<span>Historique des opérations</span>
 </div>
 
 <div class="scrollable">
 	<div class="scrollable-content section">
+		<h3>{{journal.nom}} {{journal.beginDate | date: 'dd/MM/yyyy'}}</h3>
+		<p>
+			Opération débutée le {{journal.beginDate | date: 'dd/MM/yyyy à hh:mm'}}
+			et terminée le {{journal.endDate | date: 'dd/MM/yyyy à hh:mm'}}
+		</p>
+		<p>
+			Cette opération a impliqué <span class="bold">{{journal.nbVictimes}} victimes</span>
+			et <span class="bold">{{journal.nbPersonnels}} personnels</span>.
+		</p>
 
-		
-
+		<div ng-repeat="e in journal.evenements | orderBy: 'date'" class="ev-journal">
+			<div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie'}">
+				{{e.texte}}
+			</div>
+		</div>
 	</div>
 </div>
