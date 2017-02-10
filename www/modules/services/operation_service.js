@@ -111,10 +111,14 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         if($localStorage.operation.victimes.length == 0) {
             return 1;
         } else {
-            var nextNumber = $localStorage.operation.victimes[0].numero + 1;
-            for(let v of $localStorage.operation.victimes)
-                nextNumber = v.numero > nextNumber ? v.numero + 1 : nextNumber;
-            return nextNumber;
+            var max = 1;
+            for(var i=0; i<$localStorage.operation.victimes.length; i++){
+                console.log($localStorage.operation.victimes[i].numero);
+                if ($localStorage.operation.victimes[i].numero > max){
+                    max = $localStorage.operation.victimes[i].numero;
+                }
+            }
+            return max + 1;
         }
     }
 
