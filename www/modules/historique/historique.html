@@ -8,8 +8,8 @@
 			<h3 ng-click="select($index)">{{j.nom}} {{j.beginDate | date: 'dd/MM/yyyy'}}</h3>
 			<div ng-if="isSelected($index)">
 				<p>
-					Opération débutée le {{j.beginDate | date: 'dd/MM/yyyy, hh:mm'}}
-					et terminée le {{j.endDate | date: 'dd/MM/yyyy, hh:mm'}}
+					Opération débutée le {{j.beginDate | date: 'dd/MM/yyyy à hh:mm'}}
+					et terminée le {{j.endDate | date: 'dd/MM/yyyy à hh:mm'}}
 				</p>
 				<p>
 					Cette opération a impliqué <span class="bold">{{j.nbVictimes}} victimes</span>

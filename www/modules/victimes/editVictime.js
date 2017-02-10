@@ -8,7 +8,7 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
 
 	$scope.evacuateVictime = function() {
 		Operation.evacuateVictime($scope.victime);
-		$location.url('/dashboard'); // ToDo Onglet victime
+		$location.url('/dashboard'); // TODO : Onglet victime
 	}
 
 	$scope.checkSituation = function() {
@@ -17,8 +17,8 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
 
 	$scope.deleteVictime = function() {
 		Operation.removeVictime($scope.victime);
-		// ToDo Confirmation
-		$location.url('/dashboard'); // ToDo Onglet victime
+		// TODO : Confirmation
+		$location.url('/dashboard'); // TODO Onglet victime
 	}
 
 	$scope.$on('operationUpdated', function(event) {

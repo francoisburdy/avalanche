@@ -14,7 +14,6 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
                 victimes: []
             };
             $rootScope.$broadcast('operationUpdated');
-
         } else {
             console.log('Création impossible : this.operation existe déjà.');
         }
@@ -61,8 +60,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
 
     /* Retourne un personnel à partir de son numéro */
     this.getPersonnel = function(numero) {
-        for(let i = 0; i < $localStorage.operation.personnels.length; i++) {
-            var personnel = $localStorage.operation.personnels[i];
+        for(let personnel of $localStorage.operation.personnels) {
             if(personnel.numero == numero) return personnel; 
         }
     }
@@ -134,8 +132,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
 
     /* Retourne une victime à partir de son numéro */
     this.getVictime = function(numero) {
-        for(let i = 0; i < $localStorage.operation.victimes.length; i++) {
-            var victime = $localStorage.operation.victimes[i];
+        for(let victime of $localStorage.operation.victimes) {
             if(victime.numero == numero) return victime; 
         }
     }
@@ -149,8 +146,8 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         var journaux = [];
 
         if($localStorage.historique) {
-            for(var i = 0; i < $localStorage.historique.length; i++) {
-                journaux.push(this.getJournal($localStorage.historique[i]));            
+            for(let historique of $localStorage.historique) {
+                journaux.push(this.getJournal(historique));            
             }
         }
         return journaux;
@@ -165,12 +162,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             nbPersonnels : operation.personnels.length,
             evenements: []
         };
-        for(var i = 0; i < operation.victimes.length; i++) {
-            var v = operation.victimes[i];
-            
+        for(let v of operation.victimes) {           
             var evDebut = {
                 date: v.beginDate,
-                texte: 'La victime n°' + v.numero + ' a été découverte à ' + $filter('date')(v.beginDate, 'hh:mm le dd/MM/yyyy') + '.',
+                texte: 'La victime n°' + v.numero + ' a été enregistrée à ' + $filter('date')(v.beginDate, 'hh:mm le dd/MM/yyyy') + '.',
                 type: 'entrée'
             };
             journal.evenements.push(evDebut);
@@ -185,20 +180,18 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             }
             
         }
-        for(var i = 0; i < operation.personnels.length; i++) {
-            var p = operation.personnels[i];
-
+        for(let p of operation.personnels) {
             var evDebut = {
-                date : v.entryDate,
-                texte : 'Le ' + /**** METIER ****/ ' numéro ' + p.numero + ' est entré sur zone à ' + $filter('date')(p.entryDate, 'hh:mm le dd/MM/yyyy') + '.',
+                date : p.beginDate,
+                texte : 'L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est entré sur zone à ' + $filter('date')(p.beginDate, 'hh:mm le dd/MM/yyyy') + '.',
                 type: 'entrée'  
             };
             journal.evenements.push(evDebut);
 
-            if(p.exitDate != null) {
+            if(p.endDate != null) {
                 var evFin = {
-                    date : v.exitDate,
-                    texte : 'Le ' + /**** METIER ****/ ' numéro ' + p.numero + ' est sortie de la zone à ' + $filter('date')(p.exitDate, 'hh:mm le dd/MM/yyyy') + '.',
+                    date : p.endDate,
+                    texte : 'L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est sorti de la zone à ' + $filter('date')(p.endDate, 'hh:mm le dd/MM/yyyy') + '.',
                     type: 'sortie'
                 }
                 journal.evenements.push(evFin);

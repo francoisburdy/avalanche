@@ -8,6 +8,7 @@
 .card .card-content {
      padding-bottom: 0.5em;
 }
+
 .etat-victime {
     text-align: right;
 }
@@ -63,8 +64,32 @@
     line-height: 1.8em;  
 }
 
-.victim-number {
-    font-size: 3em;
+.victime-number-container {
+    padding-left: 10px;
+    padding-right: 6px;
+}
+
+.victime-number-sup {
+    margin-top: 9px;
+    font-size: 0.7em;
+}
+
+.victime-number {
+    margin-top: -8px;
+    font-size: 2em;
+    color: #2196f3;
+}
+
+.victime-icon {
+    padding-left: 14px;
+}
+
+.victime-details {
+    padding-left: 0px;
+}
+
+.victime-icon img {
+    max-width: 40px;
 }
 
 .label {
@@ -84,7 +109,6 @@
     float: right;
     font-size: 15px;
 }
-
 
 .metier-container {
     margin-left: -3px;

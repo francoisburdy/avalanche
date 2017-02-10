@@ -1,10 +1,16 @@
 'use strict';
 
-angular.module('myApp').controller('DashboardCtrl', function($scope, $location, $rootScope, Operation, Parametres, Global, SharedState) {
+angular.module('myApp').controller('DashboardCtrl', function($scope, $location, $rootScope, Operation, Parametres, Global) {
 
     $scope.operation = Operation.getOperation();
-    console.log($scope.operation);
     $scope.metiers = Parametres.getMetiers();
+
+    angular.element(document).ready(function () {
+        console.log('activeTab', Global.getDashboardTab());
+        $scope.goTab(Global.getDashboardTab());
+        $scope.$apply();
+    }); 
+
 
     /* Retourne le nombre de personnels pour un métier donné */
     $scope.nbPersonnels = function(metier) {
@@ -103,16 +109,18 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         );
     }
 
+    $scope.goTab = function(index){
+        $scope.activeTab = index;
+        Global.setDashboardTab(index);
+    }
+
     $scope.nextTab = function(){
-        SharedState.set('activeTab', 2);
+        if( $scope.activeTab <= 2) $scope.goTab(2);
     }
 
     $scope.prevTab = function(){
-        var tab = SharedState.get('activeTab');
-        if (tab > 1)
-            SharedState.set('activeTab', (tab-1));
-        else 
-            $rootScope.Ui.turnOn('uiSidebarLeft');
+        if ($scope.activeTab > 1) $scope.goTab(1)
+        else $rootScope.Ui.turnOn('uiSidebarLeft');
     }
 
     $scope.$on('operationUpdated', function(event) {

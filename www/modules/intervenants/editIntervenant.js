@@ -9,7 +9,7 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
 	}
 
 	$scope.deletePersonnel = function() {
-		// ToDo confirmation
+		// TODO : confirmation
 		$location.url('/metiers/' + $scope.personnel.metier.libelle);
 		Operation.removePersonnel($scope.personnel);
 	}

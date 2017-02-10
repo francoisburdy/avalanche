@@ -17,18 +17,27 @@
                 <label>Situation de la victime</label>
                 <select ng-model="victime.situation" ng-options="s for s in victimeSituations"></select>
             </div>
-            <i class="fa fa-medkit" aria-hidden="true"></i>
+            <div class="bg-icon float-left">
+                <i class="fa fa-medkit" aria-hidden="true"></i>    
+            </div>
+            <div class="center btn-delete-victime">
+                <button type="button" class="btn btn-default" ng-click="deleteVictime()">
+                    <i class="fa fa-trash"></i>
+                    Supprimer la victime
+                </button>
+            </div>
         </form>
-
-        <div class="center">
-            <button type="button" class="btn btn-danger btn-block" ng-click="deleteVictime()">
-                <i class="fa fa-trash"></i>
-                Supprimer la victime
-            </button>
-        </div>
 
         <div class="btn-bottom-left" ng-show="!keyboardVisible">
             <div class="blue-bg">
+                <a href="#!/dashboard">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="btn-bottom-center" ng-show="!keyboardVisible">
+            <div class="darkblue-bg">
                 <a ng-click="evacuateVictime()">
                     <i class="fa fa-ambulance"></i>
                 </a>

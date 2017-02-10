@@ -14,6 +14,26 @@ body {
     font-family: 'Calibri', 'Arial';
 }
 
+select {
+    font-size: 1.8em;
+    padding-left: 0.5em;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #003661;
+    height: 50px;
+    border: 1px solid #2196f3;
+}
+
+input[type="number"] {
+    font-size: 2em !important;
+    text-align: center;
+    width: 100%;
+    color: #003661;
+    border-radius: 8px;
+    height: 50px;
+    border: 1px solid #2196f3;
+}
 
 .scrollable-content {
     overflow-x: hidden;
@@ -47,6 +67,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: left;
 }
 
 .inline-block {
@@ -191,50 +219,39 @@ div.card {
     float: right;
 }
 
-/*.nav-tabs.two-tabs > li {
-    width: 48%;
-    margin-left:0.4%;
-    margin-right:0.4%;
-}
-
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover {
-    background: #007aff !important;
-    color:#fff;
-}
-
-.nav-tabs > li > a {
-    text-align: center;
-    font-weight: bold;
-}*/
-
 .panel-body {
     padding:10px;
 }
 
-.btn-bottom-left div, .btn-bottom-right div {
+.btn-bottom-left div, .btn-bottom-right div, .btn-bottom-center div {
     position: fixed;
     border-radius: 50%;
     box-shadow: 0 16px 20px rgba(0,0,0,0.25), 0 5px 21px rgba(0,0,0,0.22);
     opacity: 0.97;
-    width: 85px;
-    height: 85px;
-    bottom: 3%;
+    width: 80px;
+    height: 80px;
+    bottom: 1em;
 }
 
-.btn-bottom-right div i, .btn-bottom-left div i {
-    font-size: 2.8em;
+.btn-bottom-right div i, .btn-bottom-left div i, .btn-bottom-center div i {
+    font-size: 2em;
     color: white;
     text-align: center;
     width: 100%;
-    line-height: 89px;
+    line-height: 83px;
+}
+
+.btn-bottom-center div {
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .btn-bottom-left div {
-    left: 10%;
+    left: 1.2em;
 }
 
 .btn-bottom-right div {
-    right: 10%;
+    right: 1.2em;
 }
 
 .navbar-absolute-top, .navbar-absolute-bottom {
@@ -250,7 +267,11 @@ div.card {
 }
 
 .blue-bg {
-    background-color: #337ab7;
+    background-color: #1a80ff;
+}
+
+.darkblue-bg {
+    background-color: #0d37af;
 }
 
 .white-bg {
