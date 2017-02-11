@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $location, $document, Operation, Parametres) {
-	
+    
     
     function init() {
         $scope.tmpPersonnel = Operation.getTmpPersonnel();
@@ -18,11 +18,19 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
         $scope.missions = Parametres.getMissions();
         $scope.metiers = Parametres.getMetiers();
 
-        angular.element(document).ready(function () {
-            console.log('document.ready');
-            if($location.path() == "/confirmIntervenant" && $scope.tmpPersonnel.image) {
-                console.log('print img', $scope.tmpPersonnel.image);
-                document.getElementById('img-preview-confirm').src = $scope.tmpPersonnel.image ;
+        // Affichage de la photo si elle est présente dans $scope.tmpPersonnel
+        angular.element(document).ready(function() {
+            console.log('document.ready', $scope.tmpPersonnel, $location.path());
+            if($scope.tmpPersonnel){
+                if($location.path() == "/confirmIntervenant" && $scope.tmpPersonnel.image) {
+                    $scope.hasImg = true;
+                    document.getElementById('img-preview-confirm').src = $scope.tmpPersonnel.image;
+                    $scope.$apply()
+                } else if ($location.path() == "/addIntervenant" && $scope.tmpPersonnel.image) {
+                    $scope.hasImg = true;
+                    document.getElementById('img-preview').src = $scope.tmpPersonnel.image ;
+                    $scope.$apply()                    
+                }
             }
         }); 
     }
@@ -31,27 +39,45 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
     init();
 
     $scope.goToConfirmation = function() {
-        if(!$scope.newIntervenant.metier)
-            navigator.notification.alert("Choisissez le métier de l'intervenant", null, "Métier", "OK");
-        else {
-            if($scope.newSelectedMission) $scope.newIntervenant.missions.push({libelle: $scope.newSelectedMission, beginDate: new Date()});
-            else $scope.newIntervenant.missions.push({libelle: $scope.selectedMission, beginDate: new Date()});
+        if(!$scope.newIntervenant.numero){
+            navigator.notification.alert("Saisissez le numéro de l'intervenant", null, "Numéro intervenant", "OK");
+        } else if(!$scope.newIntervenant.metier){
+            navigator.notification.alert("Choisissez le métier de l'intervenant", null, "Corps de métier", "OK");
+        } else {
+            if($scope.newSelectedMission) 
+                $scope.newIntervenant.missions.push({libelle: $scope.newSelectedMission, beginDate: new Date()});
+            else 
+                $scope.newIntervenant.missions.push({libelle: $scope.selectedMission, beginDate: new Date()});
             Operation.addTmpPersonnel($scope.newIntervenant);
         }
     }
 
-  	$scope.addIntervenant = function() {
-  		Operation.addPersonnel();
+    $scope.addIntervenant = function() {
+        Operation.addPersonnel();
         $location.url('/dashboard');
-  	}
+    }
 
-     $scope.launchCamera = function() {
+    $scope.cancelAddIntervenant = function() {
+        Operation.cancelTmpPersonnel();
+        $location.url('/dashboard');
+    }
+
+    $scope.launchCamera = function() {
         console.log(navigator.camera);
         if(navigator.camera !== undefined) {
             navigator.camera.getPicture(onSuccess, onFail, { 
-                quality: 50, 
+                quality: 40,
+                encodingType: Camera.EncodingType.JPEG,
+                correctOrientation: true,
+                targetWidth: 600,
                 destinationType: Camera.DestinationType.DATA_URL
             });
+        } else {
+            navigator.notification.alert(
+                "Votre appareil photo n'est pas compatible avec cette fonctionnalité", 
+                null, 
+                "Appareil photo incompatible", "OK"
+            );
         }
     }
     

@@ -46,6 +46,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         return this.tmpPersonnel;
     }
 
+    this.cancelTmpPersonnel = function() {
+        delete this.tmpPersonnel;
+    }
+
     this.addPersonnel = function() {
         if($localStorage.operation.personnels.indexOf(this.tmpPersonnel) !== -1) {
             console.log("Error : operation already contains this personnel");

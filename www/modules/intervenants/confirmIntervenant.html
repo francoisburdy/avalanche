@@ -1,24 +1,22 @@
 <div ui-content-for="title">
-    <span>Confirmation d'ajout</span>
+    <span>Validation intervenant</span>
 </div>
 
 <div class="scrollable">
     <div class="scrollable-content section confirmIntervenant" ng-style="{'background-color': tmpPersonnel.metier.bg, 'color': tmpPersonnel.metier.text}">
        
-        <h2>{{tmpPersonnel.metier.libelle}}</h2>
+        <h1>{{tmpPersonnel.metier.libelle}} <span class="confirm-numero">{{ tmpPersonnel.numero }}</span></h1>
 
         <div>
-            <div class="img-preview-container">
-                <img id="img-preview-confirm" />
+            <div class="img-preview-container confirm">
+                <img ng-show="hasImg" id="img-preview-confirm" />
+                <img ng-show="!hasImg" src="img/add-photo.png" class="white-bg" />
             </div>
         </div>
 
-        <div class="numConfInt">
-            <h2>{{tmpPersonnel.numero}}</h2>
-        </div>
-
-        <div class="numConfInt">
-            <h2>{{tmpPersonnel.missions[0].libelle}}</h2>
+        <div class="numConfInt" ng-if="tmpPersonnel.missions && tmpPersonnel.missions[tmpPersonnel.missions.length - 1].libelle">
+            <div class="text-lighter">Mission affectée</div>
+            <h3>{{tmpPersonnel.missions[tmpPersonnel.missions.length - 1].libelle}}</h3>
         </div>
 
        <div class="btn-bottom-left">

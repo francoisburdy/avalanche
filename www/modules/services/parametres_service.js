@@ -122,12 +122,12 @@
 
     this.createDefaultMetiers = function() {
         $localStorage.metiers = [
-            {libelle: 'Pompiers', bg: 'red', text: '#fff'},
-            {libelle: 'Pisteurs', bg: 'purple', text: '#fff'},
-            {libelle: 'Moniteurs', bg: 'yellow', text: '#000'},
-            {libelle: 'Gendarmes', bg: 'darkblue', text: '#fff'},
+            {libelle: 'Pompier', bg: 'red', text: '#fff'},
+            {libelle: 'Pisteur', bg: 'purple', text: '#fff'},
+            {libelle: 'Moniteur', bg: 'yellow', text: '#000'},
+            {libelle: 'Gendarme', bg: 'darkblue', text: '#fff'},
             {libelle: 'CRS', bg: 'lightblue', text: '#000'},
-            {libelle: 'Secouristes', bg: 'green', text: '#fff'}
+            {libelle: 'Secouriste', bg: 'green', text: '#fff'}
         ];
     }
 

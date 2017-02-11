@@ -1,6 +1,6 @@
 .addIntervenantForm{
     width: 90%;
-    margin: 0 auto;
+    margin: 20px auto;
     max-width: 400px;
 }
 
@@ -13,6 +13,16 @@
     font-weight: bolder;
 }
 
+.confirmIntervenant h1 {
+    margin: 0.4em 0;
+}
+
 .numConfInt {
-    padding-top: 20px;
+    padding-top: 15px;
+}
+
+.confirm-numero {
+    padding-left: 0.8em;
+    font-weight: bold;
+    font-size: 1.3em; 
 }

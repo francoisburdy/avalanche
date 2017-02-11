@@ -15,7 +15,7 @@ body {
 }
 
 select {
-    font-size: 1.8em;
+    font-size: 1.7em;
     padding-left: 0.5em;
     width: 100%;
     border-radius: 8px;
@@ -25,8 +25,9 @@ select {
     border: 1px solid #2196f3;
 }
 
-input[type="number"] {
-    font-size: 2em !important;
+input.huge-input {
+    font-size: 3em !important;
+    height: 60px !important;
     text-align: center;
     width: 100%;
     color: #003661;
@@ -80,6 +81,10 @@ input[type="number"] {
 
 .inline-block {
     display: inline-block;
+}
+
+.text-lighter {
+    font-weight: lighter;
 }
 
 .small-text{
@@ -304,12 +309,16 @@ div.card {
 }
 
 .img-preview-container {
-    width: 150px;
-    height: 150px;
+    width: 33vw;
+    height: 33vw;
+    max-width: 140px;
+    max-height: 140px;
     overflow:hidden;
-    border:none;
-    border-radius: 100%;
+    border:1px solid #2196f3;
+    border-radius: 50%;
     margin:auto;
+    /* evite les soucis de overflow hidden qui marche pas sur chrome */
+    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
 }
 
 .img-preview-container img {
@@ -320,6 +329,13 @@ div.card {
     transform: translateY(-50%);
     position: relative;
     margin:auto;
+}
+
+.img-preview-container.confirm {
+    width: 70vw;
+    height: 70vw;
+    max-width: 250px;
+    max-height: 250px;
 }
 
 .empty-message {

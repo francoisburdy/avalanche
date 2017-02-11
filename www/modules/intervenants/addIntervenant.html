@@ -6,12 +6,22 @@
     <div class="scrollable-content section addIntervenant">
         <form class="addIntervenantForm">
             
-            <div class="form-group input-group-lg">
-                <label>N° de l'intervenant</label>
-                <!-- TODO : rendre obligatoire -->
-                <input type="number" class="form-control" ng-model="newIntervenant.numero" placeholder="numéro" min=1 max=999  />
+            <div class="row">
+                <div class="col-xs-5 col-md-5">
+                    <div class="img-preview-container" ng-click="launchCamera()">
+                        <img id="img-preview" ng-show="hasImg" />
+                        <img ng-show="!hasImg" src="img/add-photo.png" />
+                    </div>
+                </div>
+                <div class="col-xs-7 col-md-7">                
+                    <div class="form-group input-group-lg">
+                        <label>N° de l'intervenant</label>
+                        <!-- TODO : rendre obligatoire -->
+                        <input type="number" class="form-control huge-input" ng-model="newIntervenant.numero" placeholder="n°" min=1 max=999  />
+                    </div>
+                </div>
             </div>
-
+ 
             <div class="form-group">
                 <label>Corps de métier</label>
                 <div>
@@ -31,33 +41,23 @@
                 </div>
             </div>
 
-            <div class="form-group input-group-lg" ng-show="!hasImg">
-                <button ng-click="launchCamera()" type="button" class="btn-primary btn-lg">
-                    <i class="fa fa-camera"></i> &nbsp;Prendre une photo
-                </button>
-            </div>
-
-            <div>
-                <div class="img-preview-container" ng-click="launchCamera()">
-                    <img id="img-preview" ng-show="hasImg" />
-                </div>
-            </div>
-            
-            <div class="btn-bottom-left" ng-show="!keyboardVisible">
-                <div class="blue-bg">
-                    <a href="#!/dashboard">
-                      <i class="fa fa-arrow-left"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="btn-bottom-right" ng-show="!keyboardVisible">
-                <div class="green-bg">
-                    <a ng-click="goToConfirmation()">
-                        <i class="fa fa-check"></i>
-                    </a>
-                </div>
-            </div>
         </form>
+
+        
+        <div class="btn-bottom-left" ng-show="!keyboardVisible">
+            <div class="blue-bg">
+                <a ng-click="cancelAddIntervenant()">
+                  <i class="fa fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="btn-bottom-right" ng-show="!keyboardVisible">
+            <div class="green-bg">
+                <a ng-click="goToConfirmation()">
+                    <i class="fa fa-check"></i>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
