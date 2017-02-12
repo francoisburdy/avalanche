@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-xs-7 col-md-7">                
                     <div class="form-group input-group-lg">
-                        <label>N° de l'intervenant</label>
+                        <label>N° de l'intervenant <span class="red-text">*</span></label>
                         <!-- TODO : rendre obligatoire -->
                         <input type="number" class="form-control huge-input" ng-model="newIntervenant.numero" placeholder="n°" min=1 max=999  />
                     </div>
@@ -23,7 +23,7 @@
             </div>
  
             <div class="form-group">
-                <label>Corps de métier</label>
+                <label>Corps de métier <span class="red-text">*</span></label>
                 <div>
                     <select ng-model="newIntervenant.metier" ng-options="s.libelle for s in metiers">
                        <option label="Choisir le métier" selected="selected" disabled="disabled"></option>
