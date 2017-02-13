@@ -51,10 +51,6 @@ angular.module('myApp').config(['$locationProvider', '$routeProvider', function(
     templateUrl: 'modules/intervenants/detailsMetier.html',
     controller: 'DetailsMetierCtrl'
 
-  }).when('/exportPdf', {
-    templateUrl: 'modules/export/exportPDF.html',
-    controller: 'ExportPDFCtrl'
-
   }).when('/journal', {
     templateUrl: 'modules/journal/journal.html',
     controller: 'JournalCtrl'

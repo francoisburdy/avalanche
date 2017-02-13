@@ -158,14 +158,17 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         var journaux = [];
 
         if($localStorage.historique) {
-            for(let historique of $localStorage.historique) {
-                journaux.push(this.getJournal(historique));            
-            }
+            for(let historique of $localStorage.historique) journaux.push(this.getJournal(historique)); 
         }
         return journaux;
     }
 
+    this.getCurrentJournal = function() {
+        return this.getOperation(this.getOperation());
+    }
+
     this.getJournal = function(operation) {
+        
         var journal = {
             nom: operation.nom,
             beginDate: operation.beginDate,
@@ -174,6 +177,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             nbPersonnels : operation.personnels.length,
             evenements: []
         };
+
         for(let v of operation.victimes) {           
             var evDebut = {
                 date: v.beginDate,
@@ -191,6 +195,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
                 journal.evenements.push(evFin);
             }
         }
+
         for(let p of operation.personnels) {
             // TODO : journaliser les changement de mission
             var evDebut = {

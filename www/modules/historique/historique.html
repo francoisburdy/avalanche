@@ -7,6 +7,11 @@
         <div ng-if="journaux.length == 0" class="empty-message">
            Aucune opération passée n'est enregistrée.
         </div>
+
+        <div ng-if="journaux.length > 0">
+            <button ng-click="exportPdf()" class="btn btn-primary btn-block">Export PDF</button>
+        </div>
+
         <div ng-repeat="j in journaux">
             <h3 class="header-mission" ng-click="select($index)">{{j.nom}}</h3>
             <div ng-if="isSelected($index)">
