@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="col-xs-5 col-md-5">
                     <div class="img-preview-container" ng-click="launchCamera()">
-                        <img id="img-preview" ng-show="hasImg" />
-                        <img ng-show="!hasImg" src="img/add-photo.png" />
+                        <img ng-src="{{newIntervenant.image}}" ng-show="newIntervenant.image" />
+                        <img ng-show="!newIntervenant.image" src="img/add-photo.png" />
                     </div>
                 </div>
                 <div class="col-xs-7 col-md-7">                

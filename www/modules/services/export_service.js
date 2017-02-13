@@ -57,13 +57,19 @@ angular.module('myApp').service('Export', function($filter, Operation) {
         var dateDebut = $filter('date')(o.beginDate, 'dd/MM/yyyy, HH:mm');
         var dateFin = $filter('date')(o.endDate, 'dd/MM/yyyy, HH:mm');
         var heureFin = $filter('date')(o.endDate, 'HH:mm');
+        var heureNow = $filter('date')(new Date(), 'HH:mm');
 
         var html = "<div><div><h3>"+o.nom+" "+date+"</h3><div>"; //titre + debut details operation
         html += '<p>Opération débutée le '+dateDebut+ ' et terminée le '+dateFin+'.</p>';
         html += '<p>Cette opération a impliqué '+o.nbVictimes+' victimes et '+o.nbPersonnels+' personnels.</p>';
 
         for(let evt of o.evenements) html += '<div>'+evt.texte+'</div>';
-        html += "<p><em>L'opération à été marquée comme terminée à " + heureFin + "</em></p>";
+        
+        if(heureFin)
+        	html += "<p><em>L'opération à été marquée comme terminée à " + heureFin + "</em></p>";
+        else 
+        	html += "<p><em>&Agrave; " + heureNow + ", l'opération n'est pas marquée comme terminée.</em></p>";
+
         html += "</div>";
         return html;
     }

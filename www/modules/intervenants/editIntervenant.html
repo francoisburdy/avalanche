@@ -1,13 +1,24 @@
 <div ui-content-for="title">
-  <span>Modifier le personnel n°{{personnel.numero}}</span>
+  <span>Intervenant n°{{personnel.numero}}</span>
 </div>
 
 <div class="scrollable">
     <div class="scrollable-content section edit-victime">
         <form class="victimForm">
-            <div class="form-group victimId">
-                <label>N° de personnel</label>
-                <input type="number" class="form-control" ng-model="personnel.numero" placeholder="Numéro"/>
+            <div class="row">
+                <div class="col-xs-5 col-md-5">
+                    <div class="img-preview-container" ng-click="launchCamera()">
+                        <img ng-show="personnel.image" ng-src="{{personnel.image}}" />
+                        <img ng-show="!personnel.image" src="img/add-photo.png" />
+                    </div>
+                </div>
+                <div class="col-xs-7 col-md-7">                
+                    <div class="form-group input-group-lg">
+                        <label>N° de l'intervenant</label>
+                        <!-- TODO : rendre obligatoire -->
+                        <input type="number" class="form-control huge-input" ng-model="personnel.numero" placeholder="n°" min=1 max=999  />
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label>Mission courante</label>
@@ -23,16 +34,16 @@
                     <input type="text" class="large-input" ng-model="newSelectedMission" ng-show="selectedMission == '-- Autre --'"/>
                 </div>
             </div>
+            <div class="center btn-delete-victime">
+                <button type="button" class="btn btn-default" ng-click="deletePersonnel()">
+                    <i class="fa fa-trash"></i>
+                    Supprimer l'intervenant
+                </button>
+            </div>
         </form>
 
-        <div class="center btn-delete-victime">
-            <button type="button" class="btn btn-default" ng-click="deletePersonnel()">
-                <i class="fa fa-trash"></i>
-                Supprimer l'intervenant
-            </button>
-        </div>
 
-        <div class="btn-bottom-left">
+        <div class="btn-bottom-left" ng-show="!keyboardVisible">
             <div class="blue-bg">
                 <a ng-click="evacuatePersonnel()">
                     <i class="fa fa-sign-out"></i>
@@ -40,7 +51,7 @@
             </div>
         </div>
 
-        <div class="btn-bottom-right">
+        <div class="btn-bottom-right" ng-show="!keyboardVisible">
             <div class="green-bg">
                 <a ng-click="confirm()">
                     <i class="fa fa-check"></i>

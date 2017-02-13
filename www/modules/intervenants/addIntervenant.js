@@ -22,7 +22,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
         }
         
         // Affichage de la photo si elle est présente dans $scope.tmpPersonnel
-        angular.element(document).ready(function() {
+        /*angular.element(document).ready(function() {
             console.log('document.ready', $scope.tmpPersonnel, $location.path());
             if($scope.tmpPersonnel) {
                 if($location.path() == "/confirmIntervenant" && $scope.tmpPersonnel.image) {
@@ -35,7 +35,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
                     $scope.$apply();                   
                 }
             }
-        }); 
+        }); */
     }
     init();
 
@@ -79,27 +79,20 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
         } else {
             navigator.notification.alert(
                 "Votre appareil photo n'est pas compatible avec cette fonctionnalité", 
-                null, 
-                "Appareil photo incompatible", "OK"
+                null, "Appareil photo incompatible", "OK"
             );
         }
     }
     
     function onSuccess(imageData) {
         console.log('image : onSuccess');
-        var imgSrc = "data:image/jpeg;base64," + imageData;
-        document.getElementById('img-preview').src = imgSrc ;
+        var imgSrc = 'data:image/jpeg;base64,' + imageData;
         $scope.newIntervenant.image = imgSrc; 
-        $scope.hasImg = true;
         $scope.$apply();
     }
     
     function onFail(message) {
         console.log('image : onFail');
-        document.getElementById('img-preview').src = "";
-        $scope.hasImg = false;
-        $scope.$apply();
-
     }
 
     window.addEventListener('native.keyboardshow', keyboardShowHandler);
