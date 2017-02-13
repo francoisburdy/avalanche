@@ -24,9 +24,10 @@
                 </ul>
             </p>
 
-        <div ng-repeat="e in journal.evenements | orderBy: 'date'" class="ev-journal">
-            <div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie'}">
-                {{e.texte}}
+            <div ng-repeat="e in journal.evenements | orderBy: 'date'" class="ev-journal">
+                <div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie'}">
+                    {{e.texte}}
+                </div>
             </div>
         </div>
     </div>

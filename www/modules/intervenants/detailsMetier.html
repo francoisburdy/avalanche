@@ -1,37 +1,38 @@
 <div ui-content-for="title">
-	<span>{{metier}} ({{(personnels | filter: {endDate: null}).length}})</span>
+    <span>{{metier}} ({{(personnels | filter: {endDate: null}).length}})</span>
 </div>
 
 <div class="scrollable">
-	<div class="scrollable-content section detail-metier">
-		<div ng-if="(personnels | filter: {endDate: null}).length == 0" class="empty-message">
+    <div class="scrollable-content section detail-metier">
+        <div ng-if="(personnels | filter: {endDate: null}).length == 0" class="empty-message">
            Aucun {{metier | lowercase}} présent sur site actuellement 
         </div>
-		<div ng-repeat="p in personnels | filter: {endDate: null}" class="card inline">
-			<div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}" ng-click="seeDetails(p.numero)">
-				<div class="row">
-					<!-- TODO : mettre en page les cartes intervenant (image etc.) -->
-					<div class="col-xs-3 col-sm-3 center flex-center">
-						<img src="http://www.neatvsales.com/usr/Arc/15utility150/feature15utility150.JPG" style="max-width: 60px; border-radius: 50%;"/>
-					</div>
-					<div class="col-xs-3 col-sm-3 center flex-center">
-						<span style="font-size: 40px">{{p.numero}}</span>
-					</div>
-					<div  class="col-xs-6 col-sm-6 center flex-center">
-						<span>{{p.beginDate | date: 'dd/MM/yyyy à hh:mm'}}</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="btn-bottom-left">
-		<div class="blue-bg">
-			<a href="#!/dashboard">
-				<i class="fa fa-arrow-left"></i>
-			</a>
-		</div>
-	</div>
-	<div class="btn-bottom-right">
+        <div class="row personnels-list">
+            <div ng-repeat="p in personnels | filter: {endDate: null}" class="col-xs-6 col-md-3 card inline">
+                <div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}" ng-click="seeDetails(p.numero)">
+                    <!-- TODO : mettre en page les cartes intervenant (image etc.) -->
+                    <div class="img-container white-bg float-left">
+                        <img ng-src="{{p.image}}" ng-if="p.image" class="intervenant-img" />
+                        <img src="img/intervenant.png" ng-if="!p.image" class="intervenant-img" />
+                    </div>
+                    <div class="intervenant-num">
+                        {{p.numero}}
+                    </div>
+                    <div class="intervenant-date italic">
+                        Arrivée : {{p.beginDate | date: 'dd/MM à HH:mm'}}
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-bottom-left">
+        <div class="blue-bg">
+            <a href="#!/dashboard">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+    <div class="btn-bottom-right">
         <div class="blue-bg">
             <a ng-click="addIntervenantMetier(metier)">
                 <i class="fa fa-plus"></i>

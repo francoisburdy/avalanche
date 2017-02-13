@@ -114,6 +114,10 @@ input.large-input {
     display: inline-block;
 }
 
+.inline {
+    display:inline !important;
+}
+
 .text-lighter {
     font-weight: lighter;
 }
