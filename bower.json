@@ -20,6 +20,11 @@
     "font-awesome": "4.7.0",
     "mobile-angular-ui": "1.3.4",
     "angular-translate": "2.13.0",
-    "ngstorage": "0.3.11"
+    "ngstorage": "0.3.11",
+    "angular-i18n": "^1.6.2",
+    "angular-resource": "^1.6.2"
+  },
+  "resolutions": {
+    "angular": "1.5.9"
   }
 }

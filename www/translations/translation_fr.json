@@ -1,0 +1,34 @@
+{
+	"home" : {
+		"btnDemarrerOperation" : "Démarrer une opération",
+		"btnHistoriqueOperation" : "Historique des opérations"
+	},
+	"dashboard" : {
+
+	},
+	"export" : {
+
+	},
+	"historique" : {
+
+	},
+	"intervenants" : {
+
+	},
+	"journal" : {
+
+	},
+	"menu" : {
+
+	},
+	"parametres" : {
+
+	},
+	"victimes" : {
+
+	},
+	"global" : {
+		
+	}
+
+}

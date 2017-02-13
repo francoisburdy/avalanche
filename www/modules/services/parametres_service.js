@@ -130,6 +130,29 @@
             {libelle: 'Secouriste', bg: '#54a754', text: '#fff'}
         ];
     }
+    /*****************
+     *    LANGUES   *
+     ****************/ 
+     this.createDefaultLanguage = function(){
+        $localStorage.languages = ['fr', 'en'];
+     }
+
+     this.getCurrentLanguage = function(){
+        var l = "fr";
+        if($localStorage.language != null){
+            l =  $localStorage.language;
+        }
+        return l;
+     }
+
+     this.getLanguages = function(){
+        if (!$localStorage.languages) this.createDefaultLanguage();
+        return $localStorage.languages;
+     }
+
+     this.setLanguage = function(language){
+        $localStorage.language = language;
+     }
 
     /*****************
      *    MISSIONS   *

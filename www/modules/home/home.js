@@ -1,7 +1,10 @@
 ﻿'use strict';
 
-angular.module('myApp').controller('HomeCtrl', function($scope, $location, $route, $filter, Operation, Global) {
+angular.module('myApp').controller('HomeCtrl', function($scope, $location, $route, $filter, Operation, Global, Translation, Parametres) {
     
+    var language = Parametres.getCurrentLanguage();
+    Translation.getTranslation($scope, language);
+
     $scope.createOperation = function() {
         navigator.notification.prompt(
             'Saisissez le nom de la nouvelle opération',

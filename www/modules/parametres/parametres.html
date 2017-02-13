@@ -33,6 +33,19 @@
                 </div>
             </div>
 
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                  <h3 class="panel-title">Choix de la langue</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-6 col-md-3 parametres-item" ng-repeat="l in languages">
+                        <button type="button" class="btn btn-lg full-width" ng-click="changeLanguage(l)">
+                            <div>{{l}}</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Overlay ajout fonction -->
             <div ui-content-for="modals">
 

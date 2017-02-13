@@ -7,9 +7,11 @@
 angular.module('myApp', [
   'ngRoute',
   'ngStorage',
+  'ngResource',
   'mobile-angular-ui',
   'mobile-angular-ui.gestures',
-  'tb-color-picker'
+  'tb-color-picker',
+  'ngLocale'
 ])
 
 .run(function($rootScope, $location, Operation) {

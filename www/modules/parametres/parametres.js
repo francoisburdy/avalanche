@@ -5,10 +5,17 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
     $scope.metiers = Parametres.getMetiers();
     $scope.victimeStatus = Parametres.getVictimeStatus();
     $scope.victimeSituation = Parametres.getVictimeSituations();
+    $scope.languages = Parametres.getLanguages();
+    console.log($scope.languages);
+    $scope.language = Parametres.getCurrentLanguage();
 
     $scope.$on('metiersUpdated', function(event) {
         $scope.metiers = Parametres.getMetiers();
     });
+
+    $scope.changeLanguage = function(l){
+        Parametres.setLanguage(l);
+    }
 
     $scope.updateLastClicked = function(index) {
         $scope.lastClickedIndex = index;
