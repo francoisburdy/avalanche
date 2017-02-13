@@ -10,24 +10,24 @@
         <h3 class="header-mission">{{journal.nom}}</h3>
         <div class="contenu">
             <p>
-                Opération débutée le {{journal.beginDate | date: 'dd/MM/yyyy à HH:mm'}}
-                et terminée le {{journal.endDate | date: 'dd/MM/yyyy à HH:mm'}}
+                Opération débutée le {{journal.beginDate | date: 'dd/MM/yyyy à HH:mm'}}.
             </p>
             <p>
-                Cette opération a impliqué: 
+                Cette opération a impliqué : 
                 <ul class="cr_nb_personnes">
                     <li>
-                        <span class="bold">{{journal.nbVictimes}}</span> victimes
+                        <span class="bold">{{journal.nbVictimes}}</span> victime<span ng-if="journal.nbVictimes > 1">s</span>
                     </li>
                     <li>
-                        <span class="bold">{{journal.nbPersonnels}}</span> personnels
+                        <span class="bold">{{journal.nbPersonnels}}</span> personnel<span ng-if="journal.nbPersonnels > 1">s</span>
                     </li>
                 </ul>
             </p>
 
-        <div ng-repeat="e in journal.evenements | orderBy: 'date'" class="ev-journal">
-            <div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie'}">
-                {{e.texte}}
+            <div ng-repeat="e in journal.evenements | orderBy: 'date'" class="ev-journal">
+                <div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie'}">
+                    {{e.texte}}
+                </div>
             </div>
         </div>
     </div>

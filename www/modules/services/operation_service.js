@@ -138,7 +138,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
 
     this.isPersonnelNumberAvailable = function(num) {
         for(let p of $localStorage.operation.personnels)
-            if(p.numero == num) return false;
+            if(p.numero == num && !p.endDate) return false;
         return true;
     }
 
