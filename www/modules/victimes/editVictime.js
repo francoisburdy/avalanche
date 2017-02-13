@@ -1,10 +1,14 @@
 'use strict';
 
 angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routeParams, $location, Operation, Parametres) {
-    $scope.victime = Operation.getVictime($routeParams.num);
 
-    $scope.victimeStatus = Parametres.getVictimeStatus();
-    $scope.victimeSituations = Parametres.getVictimeSituations();
+    function init() {
+        $scope.victime = Operation.getVictime($routeParams.num);
+        $scope.victimeStatus = Parametres.getVictimeStatus();
+        $scope.victimeSituations = Parametres.getVictimeSituations();
+    }
+
+    init();
 
     $scope.evacuateVictime = function() {
         navigator.notification.confirm(
@@ -22,6 +26,7 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
     }
 
     $scope.checkSituation = function() {
+        // TODO : ajouter confirmation
         if($scope.victime.situation == 'Évacuée') Operation.evacuateVictime($scope.victime);
     }
 

@@ -28,7 +28,6 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
         else 
             console.log("Ce métier n'existe pas dans la liste des métiers.");
         
-
         Parametres.removeMetier(metier)
     }
 

@@ -53,6 +53,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
     }
 
     $scope.addIntervenant = function() {
+        // TODO : ajouter confirmation
         Operation.addPersonnel();
         $location.url('/dashboard');
     }

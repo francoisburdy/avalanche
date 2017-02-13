@@ -10,6 +10,7 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
 	$scope.victimeSituations = Parametres.getVictimeSituations();
 
 	$scope.addVictime = function() {
+		// TODO : ajouter confirmation
 		$scope.newVictime.beginDate = new Date();
 		$scope.newVictime.endDate = null;
 		Operation.addVictime($scope.newVictime);

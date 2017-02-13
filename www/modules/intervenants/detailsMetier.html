@@ -10,6 +10,7 @@
 		<div ng-repeat="p in personnels | filter: {endDate: null}" class="card inline">
 			<div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}" ng-click="seeDetails(p.numero)">
 				<div class="row">
+					<!-- TODO : mettre en page les cartes intervenant (image etc.) -->
 					<div class="col-xs-3 col-sm-3 center flex-center">
 						<img src="http://www.neatvsales.com/usr/Arc/15utility150/feature15utility150.JPG" style="max-width: 60px; border-radius: 50%;"/>
 					</div>
@@ -30,4 +31,5 @@
 			</a>
 		</div>
 	</div>
+	<!-- TODO : Ajouter bouton d'ajout d'un intervenant pour le métier courant -->
 </div>

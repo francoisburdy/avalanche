@@ -33,8 +33,19 @@ input.huge-input {
     width: 100%;
     color: #003661;
     border-radius: 8px;
-    height: 50px;
     border: 1px solid #2196f3;
+}
+
+input.large-input {
+    font-size: 1.7em !important;
+    height: 50px !important;
+    text-align: left;
+    width: 100%;
+    color: #003661;
+    border-radius: 8px;
+    border: 1px solid #2196f3;
+    margin-top: 10px;
+    padding: 0px 15px;
 }
 
 .scrollable-content {
@@ -310,6 +321,10 @@ div.card {
 
 .red-text {
     color: red;
+}
+
+.white-text {
+    color: #fff;
 }
 
 .modal-title {

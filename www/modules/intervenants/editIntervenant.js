@@ -13,6 +13,7 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
 		// TODO : confirmation
 		$location.url('/metiers/' + $scope.personnel.metier.libelle);
 		Operation.removePersonnel($scope.personnel);
+		$scope.$apply();
 	}
 
 	$scope.confirm = function() {

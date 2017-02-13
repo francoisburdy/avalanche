@@ -12,24 +12,23 @@
             <div class="form-group">
                 <label>Mission courante</label>
                 <div>
-                    <h2>{{personnel.missions[personnel.missions.length - 1].libelle}}</h2>
-                    <div class="green-bg">
-                        <a ng-click="addMission = true">
-                            <i class="fa fa-plus"></i>
-                        </a>
-                    </div>
-                    <select ng-model="selectedMission" ng-options="m for m in missions" ng-show="addMission == true">
+                    <h2 class="inline-block">{{personnel.missions[personnel.missions.length - 1].libelle}}</h2>
+                    <a ng-click="addMission = true" ng-show="!addMission" class="btn blue-bg white-text add-mission-btn">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <select ng-model="selectedMission" ng-options="m for m in missions" ng-show="addMission">
                        <option label="Nouvelle mission" selected="selected" disabled="disabled"></option>
                     </select>
-                    <input type="text" ng-model="newSelectedMission" ng-show="selectedMission == '-- Autre --'"/>
+                    <!-- TODO : cacher les boutons sur le keyboard est visible -->
+                    <input type="text" class="large-input" ng-model="newSelectedMission" ng-show="selectedMission == '-- Autre --'"/>
                 </div>
             </div>
         </form>
 
-        <div class="center">
-            <button type="button" class="btn btn-danger btn-block" ng-click="deletePersonnel()">
+        <div class="center btn-delete-victime">
+            <button type="button" class="btn btn-default" ng-click="deletePersonnel()">
                 <i class="fa fa-trash"></i>
-                Supprimer ce personnel
+                Supprimer l'intervenant
             </button>
         </div>
 
