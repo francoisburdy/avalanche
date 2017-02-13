@@ -28,7 +28,15 @@
 
 	},
 	"victimes" : {
+		"addVictime" : {
+			"title" : "Ajouter une victime",
+			"number" : "N° de victime",
+			"status" : "Statut de la victime",
+			"situation" : "Situation de la victime"
+		},
+		"editVictime" : {
 
+		}
 	},
 	"global" : {
 

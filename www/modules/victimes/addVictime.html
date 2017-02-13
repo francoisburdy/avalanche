@@ -1,5 +1,5 @@
 <div ui-content-for="title">
-  <span>Ajouter une victime</span>
+  <span>{{translation.victimes.addVictime.title}}</span>
 </div>
 
 <div class="scrollable">
@@ -12,19 +12,19 @@
                 </div>
                 <div class="col-xs-8 col-md-8">
                     <div class="form-group victimId">
-                        <label>N° de victime <span class="red-text">*</span></label>   
+                        <label>{{translation.victimes.addVictime.number}} <span class="red-text">*</span></label>
                         <input type="number" class="form-control huge-input" ng-model="newVictime.numero" placeholder="Numéro" min=1 max=999 />
                     </div>
                 </div>
             </div>
         
             <div class="form-group victimStatus">
-                <label>Statut de la victime</label>
+                <label>{{translation.victimes.addVictime.status}}</label>
                 <select ng-model="newVictime.status" ng-options="s.libelle for s in victimeStatus"></select>
             </div>
                 
             <div class="form-group victimSituation">
-                <label>Situation de la victime</label>
+                <label>{{translation.victimes.addVictime.situation}}</label>
                 <select ng-model="newVictime.situation" ng-options="s for s in victimeSituations"></select>
             </div>
 

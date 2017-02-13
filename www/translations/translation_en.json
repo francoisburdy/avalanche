@@ -28,6 +28,17 @@
 
 	},
 	"victimes" : {
+		"addVictime" : {
+			"title" : "Add a victim",
+			"number" : "Victim number",
+			"status" : "Victim status",
+			"situation" : "Victim situation"
+		},
+		"editVictime" : {
+
+		}
+	},
+	"global" : {
 
 	}
 
