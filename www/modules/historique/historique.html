@@ -4,12 +4,15 @@
 
 <div class="scrollable">
     <div class="scrollable-content section">
+        <div ng-if="journaux.length == 0" class="empty-message">
+           Aucune opération passée n'est enregistrée.
+        </div>
         <div ng-repeat="j in journaux">
-            <h3 class="header-mission" ng-click="select($index)">{{j.nom}} {{j.beginDate | date: 'dd/MM/yyyy'}}</h3>
+            <h3 class="header-mission" ng-click="select($index)">{{j.nom}}</h3>
             <div ng-if="isSelected($index)">
                 <p>
-                    Opération débutée le {{j.beginDate | date: 'dd/MM/yyyy à hh:mm'}}
-                    et terminée le {{j.endDate | date: 'dd/MM/yyyy à hh:mm'}}
+                    Opération débutée le {{j.beginDate | date: 'dd/MM/yyyy à HH:mm'}}
+                    et terminée le {{j.endDate | date: 'dd/MM/yyyy à HH:mm'}}
                 </p>
                 <p>
                     Cette opération a impliqué: 

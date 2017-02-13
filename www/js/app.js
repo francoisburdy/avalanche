@@ -13,10 +13,16 @@ angular.module('myApp', [
 ])
 
 .run(function($rootScope, $location, Operation) {
+    
+    $rootScope.$on('$stateChangeStart', function(){
+        $rootScope.broadcast('$routeChangeStart');
+    });
+
     $rootScope.$on("$routeChangeStart", function(event, next, current) { 
-        if(next.$$route && next.$$route.originalPath == '/home' && Operation.getOperation() != null) {
-            console.log('Redirection automatique vers le dashboard');
-            $location.url('/dashboard');
+        if(next.$$route) {
+            var nextPath = next.$$route.originalPath;
+            if(nextPath == '/home' && Operation.getOperation() != null)  $location.url('/dashboard');
+            if(nextPath == '/dashboard' && Operation.getOperation() == null)  $location.url('/home');
         }
     });
 });

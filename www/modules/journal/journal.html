@@ -4,15 +4,18 @@
 
 <div class="scrollable">
     <div class="scrollable-content section">
-        <h3 class="header-mission">{{journal.nom}} {{journal.beginDate | date: 'dd/MM/yyyy'}}</h3>
+        <div ng-if="!journal" class="empty-message">
+           Aucune opération n'est en cours.
+        </div>
+        <h3 class="header-mission">{{journal.nom}}</h3>
         <div class="contenu">
             <p>
-                Opération débutée le {{journal.beginDate | date: 'dd/MM/yyyy à hh:mm'}}
-                et terminée le {{journal.endDate | date: 'dd/MM/yyyy à hh:mm'}}
+                Opération débutée le {{journal.beginDate | date: 'dd/MM/yyyy à HH:mm'}}
+                et terminée le {{journal.endDate | date: 'dd/MM/yyyy à HH:mm'}}
             </p>
             <p>
-                   Cette opération a impliqué: 
-                   <ul class="cr_nb_personnes">
+                Cette opération a impliqué: 
+                <ul class="cr_nb_personnes">
                     <li>
                         <span class="bold">{{journal.nbVictimes}}</span> victimes
                     </li>

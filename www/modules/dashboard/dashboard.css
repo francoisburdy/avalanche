@@ -8,24 +8,6 @@
      padding-bottom: 0.5em;
 }
 
-.dropdown-menu-btn {
-    position: absolute;
-    z-index: 1100;
-    top: -50px;
-    right: 15px;
-}
-
-.dropdown-menu {
-    right: 0;
-    left:initial;
-    top: 90%;
-    right: -15px;
-}
-
-.dropdown-menu > li > a{
-    font-size: 1.3em;
-    line-height: 1.8em;  
-}
 
 .victime-number-container {
     padding-left: 10px;

@@ -3,14 +3,17 @@
 
 angular.module('myApp').controller('DashboardCtrl', function($scope, $location, $rootScope, Operation, Parametres, Global) {
 
-    $scope.operation = Operation.getOperation();
-    $scope.metiers = Parametres.getMetiers();
+    function init() {
+        $scope.operation = Operation.getOperation();
+        $scope.metiers = Parametres.getMetiers();
 
-    angular.element(document).ready(function () {
-        $scope.goTab(Global.getDashboardTab());
-        $scope.$apply();
-    }); 
+        angular.element(document).ready(function () {
+            $scope.goTab(Global.getDashboardTab());
+            $scope.$apply();
+        }); 
+    }
 
+    init();
 
     /**
      * Retourne le nombre de personnels pour un métier donné 
@@ -20,9 +23,8 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         if(! $scope.operation || ! $scope.operation.personnels) return 0;
         
         let compteur = 0;
-        for(let p of $scope.operation.personnels) {
+        for(let p of $scope.operation.personnels)
             if(p.metier.libelle == metier && !p.endDate) compteur++;
-        }
         return compteur;
     }
 
@@ -43,17 +45,19 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
      * Termine une opération.
      * Enregistre également dans le journal toutes les évènements effectués. 
      */
-    $scope.terminate = function() {
+    $scope.terminateOperation = function() {
          navigator.notification.confirm(
             'Souhaitez-vous mettre fin à l\'opération ?\nIl ne sera plus possible de modifier les informations.', 
             function(buttonIndex) {
                 if(buttonIndex == 2) {
                     Operation.terminate();
-                    $location.url('/home');
-                } 
+                    console.log('Opération terminée...');
+                    $location.url('/home')
+                    $scope.$apply();
+                }
             }, 
             'Terminer l\'opération', 
-            ['Annuler', 'Terminer l\'opération']
+            ['Annuler', 'Terminer']
         );
     }
 
@@ -73,64 +77,6 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         $location.url('/metiers/' + lib);
     }
 
-
-    /**
-     * Vide le contenu du local storage
-     */
-    $scope.purgeStorage = function() {
-        navigator.notification.prompt(
-            'Cette action est irréversible !\nSaisir SUPPRIMER pour confirmer', 
-            function(results) {
-                if(results.buttonIndex == 2 && results.input1.toLowerCase() == "supprimer") {
-                    console.log('Purge all data !');
-                    Global.purgeData();
-                } else {
-                    console.log('Purge annulée')
-                }
-            }, 
-            'Supprimer les données',
-            ['Annuler', 'Supprimer']
-        );
-    }
-
-    /**
-     * Ferme l'application
-     */
-    $scope.exitApp = function() {
-        navigator.notification.confirm(
-            'Souhaitez-vous fermer l\'application ?', 
-            function(buttonIndex) {
-                if(buttonIndex == 2) {
-                    navigator.app.exitApp();
-                } 
-            }, 
-            'Quitter l\'application',
-            ['Annuler', 'Quitter']
-        );
-    }
-
-    /**
-     * Charge les données de démonstration de l'application
-     */
-    $scope.loadDemoData = function() {
-        console.log('Chargement des données de test ...');
-        navigator.notification.prompt(
-            'Cette action est irréversible !\nSaisir DEMO pour confirmer', 
-            function(results) {
-                if(results.buttonIndex == 2 && results.input1.toLowerCase() == "demo") {
-                    console.log('Charger les données de démo !');
-                    Global.purgeData();
-                    Global.loadDemoData();
-                } else {
-                    console.log('Chargement données démo annulé !');
-                }
-            }, 
-            'Supprimer les données',
-            ['Supprimer', 'Annuler']
-        );
-    }
-
-
     $scope.evacuatePersonnel = function() {
         navigator.notification.prompt(
             'Saisissez le numéro de l\'intervenant sortant', 
@@ -141,24 +87,19 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     }
 
     function checkPersonnel(results) {
-        console.log(results);
         if(results.buttonIndex == 1) {
             console.log('Sortie du personnel', results.input1);
             var personnel = Operation.getPersonnel(results.input1);
             if(!personnel) { // Personnel inexistant
                 navigator.notification.alert(
                     'L\'intervenant n°' + results.input1 + ' est introuvable.',
-                    null,
-                    'Intervenant introuvable',
-                    ['OK']
+                    null, 'Intervenant introuvable', ['OK']
                 )
             } else if(personnel.endDate) { // L'intervenant est déjà sorti
                 console.log('Personnel déjà sorti');
                 navigator.notification.confirm(
                     'L\'intervenant n°' + personnel.numero + ' est déjà sorti le ' + personnel.endDate.toLocaleString() ,
-                    null,
-                    'Déjà sorti',
-                    ['OK']
+                    null, 'Déjà sorti', ['OK']
                 )
             } else { // On sort l'intervenant
                 navigator.notification.confirm(
@@ -166,18 +107,15 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
                     function(buttonIndex) {
                         console.log('buttonIndex', buttonIndex);
                         Operation.evacuatePersonnel(personnel);
+                        $scope.$apply();
                     },
-                    'Confirmation',
-                    ['Valider', 'Annuler']
+                    'Confirmation', ['Valider', 'Annuler']
                 )
             }
         } else { // Annulation
             console.log('Sortie de personnel annulée');
             navigator.notification.confirm(
-                'Sortie de personnel annulée.',
-                null,
-                'Annulation',
-                ['OK']
+                'Sortie de personnel annulée.', null, 'Annulation', ['OK']
             )
         }
     }
@@ -212,4 +150,12 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     $scope.$on('operationUpdated', function(event) {
         $scope.operation = Operation.getOperation();
     });
+
+    /**
+     * Ferme l'application après avoir demandé la confirmation
+     */
+    $scope.exitApp = function(){
+        Global.exitApp();
+    }
+
 });

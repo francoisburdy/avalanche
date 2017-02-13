@@ -45,6 +45,25 @@ input.huge-input {
     padding: 12px 10px;
 }
 
+.dropdown-menu-btn {
+    position: absolute;
+    z-index: 1100;
+    top: -50px;
+    right: 15px;
+}
+
+.dropdown-menu {
+    right: 0;
+    left:initial;
+    top: 90%;
+    min-width: 210px;
+    right: -15px;
+}
+
+.dropdown-menu > li > a{
+    font-size: 1.3em;
+    line-height: 1.8em;  
+}
 
 .section.dashboard, .section.edit-victime,.section.detail-metier, .section.addIntervenant {
     padding: 12px 10px 110px 10px;

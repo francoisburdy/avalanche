@@ -38,3 +38,9 @@
     color: #c10000;
     border-color: #c10000;
 }
+
+.add-victime-icon {
+    max-height: 75px;
+    max-width: 75px;
+    margin: 20px 0px 0px 5px;
+}

@@ -3,139 +3,132 @@
 </div>
 
 <div class="scrollable">
-  <div class="scrollable-content">
-    <div class="section parametres">
+    <div class="scrollable-content">
+        <div class="section parametres">
 
-      <div class="panel panel-default" >
-        <div class="panel-heading">
-          <h3 class="panel-title">Corps de métier intervenants</h3>
-        </div>
-        <div class="panel-body">
-          <div class="row parametres-items">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                  <h3 class="panel-title">Corps de métier intervenants</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row parametres-items">
 
-            <div class="col-xs-6 col-md-3 parametres-item" ng-repeat="m in metiers">
-              <button ui-turn-on="modalModifyMetier" type="button" class="btn btn-lg full-width" ng-style="{'background-color': m.bg, 'color': m.text}" ng-click="updateLastClicked(m.libelle)">
-                <div class="truncate">{{m.libelle}}</div> <i class="fa fa-pencil right" aria-hidden="true"></i>
-              </button>
-            </div>
+                        <div class="col-xs-6 col-md-3 parametres-item" ng-repeat="m in metiers">
+                            <button ui-turn-on="modalModifyMetier" type="button" 
+                                class="btn btn-lg full-width" ng-style="{'background-color': m.bg, 'color': m.text}" 
+                                ng-click="updateLastClicked(m.libelle)">
+                                <div class="truncate">{{m.libelle}}</div> 
+                                <i class="fa fa-pencil right" aria-hidden="true"></i>
+                            </button>
+                        </div>
 
-            <div class="col-xs-6 col-md-3 parametres-item">
-              <button  ui-turn-on="modalAddMetier" type="button" class="btn btn-lg full-width white-bg center">
-                <i class="fa fa-plus-circle left" aria-hidden="true"></i> Nouveau
-              </button>
-            </div>
+                        <div class="col-xs-6 col-md-3 parametres-item">
+                            <button  ui-turn-on="modalAddMetier" type="button" 
+                                class="btn btn-lg full-width white-bg center">
+                                <i class="fa fa-plus-circle left" aria-hidden="true"></i> Nouveau
+                            </button>
+                        </div>
 
-          </div>
-        </div>
-      </div>
-
-      <div class="panel panel-default" >
-        <div class="panel-heading">
-          <h3 class="panel-title">Etats d'une victime</h3>
-        </div>
-        <div class="panel-body">
-          <div class="row parametres-items">
-
-            <div class="col-xs-6 col-md-3 parametres-item" ng-repeat="vs in victimeStatus">
-              <button type="button" class="btn btn-lg full-width" ng-style="{'background-color': vs.bg, 'color': vs.text}">
-                <div class="truncate">{{vs.libelle}}</div> <i class="fa fa-pencil right" aria-hidden="true"></i>
-              </button>
-            </div>
-
-            <div class="col-xs-6 col-md-3 parametres-item">
-              <button type="button" class="btn btn-lg full-width white-bg center" ng-click="addVictimeStatus()">
-                <i class="fa fa-plus-circle left" aria-hidden="true"></i> Nouveau
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <!-- Overlay ajout fonction -->
-      <div ui-content-for="modals">
-
-        <div class="modal" ui-if='modalAddMetier' ui-state='modalAddMetier'>
-          <div class="modal-backdrop in"></div>
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button class="close"
-                ui-turn-off="modalAddMetier">&times;</button>
-                <h4 class="modal-title">Ajouter un métier</h4>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group form-group-lg">
-                    <label for="labelMetier">Intitulé métier</label>
-                    <input type="text" class="form-control" id="labelMetier" placeholder="Intitulé métier" ng-model="labelMetier" ng-required="true"/>
-                  </div>
-                  
-                  <div class="form-group form-group-lg">
-                    <label>Couleur associée</label>
-                    <div class="color-picker-container">
-                      <color-picker color="color" options="options" on-color-changed="colorChanged(newColor, oldColor)"></color-picker>
                     </div>
-                  </div>
-
-                  </form>
                 </div>
-                <div class="modal-footer center">
-                  <button ui-turn-off="modalAddMetier" class="btn btn-default btn-lg min-width-40">
-                    <i class="fa fa-times" aria-hidden="true"></i> &nbsp; Annuler
-                  </button>
-                  <button ui-turn-off="modalAddMetier" class="btn btn-primary btn-lg min-width-40" ng-click="addMetier(color, labelMetier)">
-                    <i class="fa fa-check" aria-hidden="true"></i> &nbsp; Valider
-                  </button>
-                </div>
-              </div>
             </div>
-          </div>
 
-<!--         Modale modifier métier-->
-        <div class="modal" ui-if='modalModifyMetier' ui-state='modalModifyMetier'>
-          <div class="modal-backdrop in"></div>
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button class="close"
-                ui-turn-off="modalModifyMetier">&times;</button>
-                <h4 class="modal-title">Modifier un métier</h4>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group form-group-lg">
-                    <label for="labelMetier">Intitulé métier</label>
-                    <input type="text" class="form-control" id="labelMetier" ng-model="lastClickedIndex" disabled/>
-                  </div>
-                  
-                  <div class="form-group form-group-lg">
-                    <label>Couleur associée</label>
-                    <div class="color-picker-container">
-                      <color-picker color="color" options="options" on-color-changed="colorChanged(newColor, oldColor)"></color-picker>
+            <!-- Overlay ajout fonction -->
+            <div ui-content-for="modals">
+
+                <!-- Modale Ajouter métier-->
+                <div class="modal" ui-if='modalAddMetier' ui-state='modalAddMetier'>
+                    <div class="modal-backdrop in"></div>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" ui-turn-off="modalAddMetier">&times;</button>
+                                <h4 class="modal-title">Ajouter un métier</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group form-group-lg">
+                                        <label for="labelMetier">Intitulé métier</label>
+                                        <input type="text" class="form-control" 
+                                            id="labelMetier" placeholder="Intitulé métier" 
+                                            ng-model="labelMetier" ng-required="true"/>
+                                    </div>
+
+                                    <div class="form-group form-group-lg">
+                                        <label>Couleur associée</label>
+                                        <div class="color-picker-container">
+                                          <color-picker color="color" options="options"></color-picker>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer center">
+                                <button ui-turn-off="modalAddMetier" class="btn btn-default btn-lg min-width-40">
+                                    <i class="fa fa-times" aria-hidden="true"></i> &nbsp; Annuler
+                                </button>
+                                <button ui-turn-off="modalAddMetier" class="btn btn-primary btn-lg min-width-40" 
+                                        ng-click="addMetier(color, labelMetier)">
+                                    <i class="fa fa-check" aria-hidden="true"></i> &nbsp; Valider
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                </div> <!-- end modale ajout métier -->
 
-                  <div>
-                    <label>Supprimer le métier</label>
-                    <button ui-turn-off="modalModifyMetier" class="btn btn-default btn-lg min-width-40" ng-click="removeMetier(lastClickedIndex)">Supprimer</button>
-                  </div>
+            <!-- Modale modifier métier-->
+                <div class="modal" ui-if='modalModifyMetier' ui-state='modalModifyMetier'>
+                    <div class="modal-backdrop in"></div>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" ui-turn-off="modalModifyMetier">&times;</button>
+                                <h4 class="modal-title">Modifier un métier</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group form-group-lg">
+                                        <label for="labelMetier">Intitulé métier</label>
+                                        <input type="text" class="form-control" id="labelMetier"
+                                            ng-model="lastClickedIndex" disabled/>
+                                    </div>
+                                  
+                                    <div class="form-group form-group-lg">
+                                        <label>Couleur associée</label>
+                                        <div class="color-picker-container">
+                                            <color-picker color="color" options="options" 
+                                                on-color-changed="colorChanged(newColor, oldColor)">
+                                            </color-picker>
+                                        </div>
+                                    </div>
 
-                  </form>
-                </div>
-                <div class="modal-footer center">
-                  <button ui-turn-off="modalModifyMetier" class="btn btn-default btn-lg min-width-40">
-                    <i class="fa fa-times" aria-hidden="true"></i> &nbsp; Annuler
-                  </button>
-                  <button ui-turn-off="modalModifyMetier" class="btn btn-primary btn-lg min-width-40" ng-click="modifyMetier(color, lastClickedIndex)">
-                    <i class="fa fa-check" aria-hidden="true"></i> &nbsp; Valider
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
+                                    <div>
+                                        <label>Supprimer le métier</label>
+                                        <button ui-turn-off="modalModifyMetier" 
+                                            class="btn btn-default btn-lg min-width-40" 
+                                            ng-click="removeMetier(lastClickedIndex)">
+                                            Supprimer
+                                        </button>
+                                    </div>
 
-      </div>
-    </div>
-  </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer center">
+                                <button ui-turn-off="modalModifyMetier" 
+                                    class="btn btn-default btn-lg min-width-40">
+                                    <i class="fa fa-times" aria-hidden="true"></i> &nbsp; Annuler
+                                </button>
+                                <button ui-turn-off="modalModifyMetier" 
+                                    class="btn btn-primary btn-lg min-width-40" 
+                                    ng-click="modifyMetier(color, lastClickedIndex)">
+                                    <i class="fa fa-check" aria-hidden="true"></i> &nbsp; Valider
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end modale modifier métier -->
+              
+            </div> <!-- end modals container -->
+
+        </div> <!-- end section -->
+    </div> <!-- end scrollable-content -->
+</div> <!-- end scrollable -->

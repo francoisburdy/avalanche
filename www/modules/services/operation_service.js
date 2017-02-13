@@ -10,10 +10,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         return $localStorage.operation;
     }
 
-    this.createOperation = function() {
+    this.createOperation = function(nomOperation) {
         if($localStorage.operation == null) {
             $localStorage.operation = {
-                nom: 'Avalanche du ',
+                nom: nomOperation,
                 beginDate: new Date(),
                 endDate: null,
                 personnels: [],
@@ -99,6 +99,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             $localStorage.operation.victimes.push(victime);
             $rootScope.$broadcast('operationUpdated');
             $location.url('/dashboard');
+            $scope.$apply();
         }
     }
 
@@ -177,7 +178,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let v of operation.victimes) {           
             var evDebut = {
                 date: v.beginDate,
-                texte: $filter('date')(v.beginDate, 'HH:mm')+ ': La victime n°' + v.numero + ' a été enregistrée',
+                texte: $filter('date')(v.beginDate, 'HH:mm')+ ' : La victime n°' + v.numero + ' a été enregistrée',
                 type: 'entrée'
             };
             journal.evenements.push(evDebut);
@@ -185,7 +186,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(v.endDate != null) {
                 var evFin = {
                     date: v.endDate,
-                    texte: $filter('date')(v.endDate, 'HH:mm') + ': La victime n°' + v.numero + ' a été évacuée',               
+                    texte: $filter('date')(v.endDate, 'HH:mm') + ' : La victime n°' + v.numero + ' a été évacuée',               
                     type: 'sortie'
                 };
                 journal.evenements.push(evFin);
@@ -194,7 +195,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let p of operation.personnels) {
             var evDebut = {
                 date : p.beginDate,
-                texte :  $filter('date')(p.beginDate, 'HH:mm') +': L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est entré sur zone',
+                texte :  $filter('date')(p.beginDate, 'HH:mm') +' : L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est entré sur zone',
                 type: 'entrée'  
             };
             journal.evenements.push(evDebut);
@@ -202,12 +203,15 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(p.endDate != null) {
                 var evFin = {
                     date : p.endDate,
-                    texte : $filter('date')(p.endDate, 'HH:mm') + ': L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est sorti de la zone',
+                    texte : $filter('date')(p.endDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est sorti de la zone',
                     type: 'sortie'
                 }
                 journal.evenements.push(evFin);
             }
         }
+        
+        journal.evenements = journal.evenements.sort(function(a, b){ return new Date(a.date) - new Date(b.date); });
+
         return journal;
     }
 
