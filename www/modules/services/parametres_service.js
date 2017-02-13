@@ -30,8 +30,8 @@
         $localStorage.victimeStatus = [
             {libelle: 'Inconnu', code: '?', bg: '#fff', text: '#333'},
             {libelle: 'Indemne', code: 'I', bg: '#DCDDDE', text: '#333'},
-            {libelle: 'Urgence relative', code: 'UR', bg: 'yellow', text: '#000'},
-            {libelle: 'Urgence absolue', code: 'UA', bg: 'red', text: '#fff'},
+            {libelle: 'Urgence relative', code: 'UR', bg: '#fffd36', text: '#000'},
+            {libelle: 'Urgence absolue', code: 'UA', bg: '#b30000', text: '#fff'},
             {libelle: 'Décédée', code: 'DCD', bg: '#000', text: '#fff'}
         ];
     }
@@ -122,12 +122,12 @@
 
     this.createDefaultMetiers = function() {
         $localStorage.metiers = [
-            {libelle: 'Pompier', bg: 'red', text: '#fff'},
-            {libelle: 'Pisteur', bg: 'purple', text: '#fff'},
-            {libelle: 'Moniteur', bg: 'yellow', text: '#000'},
-            {libelle: 'Gendarme', bg: 'darkblue', text: '#fff'},
-            {libelle: 'CRS', bg: 'lightblue', text: '#000'},
-            {libelle: 'Secouriste', bg: 'green', text: '#fff'}
+            {libelle: 'Pompier', bg: '#b30000', text: '#fff'},
+            {libelle: 'Pisteur', bg: '#8b4ca0', text: '#fff'},
+            {libelle: 'Moniteur', bg: '#ffdb4d', text: '#000'},
+            {libelle: 'Gendarme', bg: '#001a66', text: '#fff'},
+            {libelle: 'CRS', bg: '#b3ccff', text: '#000'},
+            {libelle: 'Secouriste', bg: '#54a754', text: '#fff'}
         ];
     }
 

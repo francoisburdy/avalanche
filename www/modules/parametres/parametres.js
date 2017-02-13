@@ -10,7 +10,7 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
         $scope.metiers = Parametres.getMetiers();
     });
 
-    $scope.updateLastClicked = function(index){
+    $scope.updateLastClicked = function(index) {
         $scope.lastClickedIndex = index;
     }
 
@@ -18,9 +18,9 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
         Parametres.addMetier({libelle: metier, bg: color, text: '#000'});
     } 
 
-    $scope.removeMetier = function(metier){
+    $scope.removeMetier = function(metier) {
         // TODO : vérifier qu'il n'y a aucun intervenant pour ce métier dans l'opération courante
-        var i=0;
+        var i = 0;
         while ($scope.metiers[i].libelle != metier && i<$scope.metiers.length) i++;
         
         if (i<$scope.metiers.length)
@@ -28,10 +28,10 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
         else 
             console.log("Ce métier n'existe pas dans la liste des métiers.");
         
-        Parametres.removeMetier(metier)
+        Parametres.removeMetier(metier);
     }
 
-    $scope.modifyMetier = function(color, metier){
+    $scope.modifyMetier = function(color, metier) {
         Parametres.modifyMetier({libelle: metier, bg: color, text: '#000' });
     }
     

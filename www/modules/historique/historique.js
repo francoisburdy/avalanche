@@ -17,6 +17,7 @@ angular.module('myApp').controller('HistoriqueCtrl', function($scope, Operation)
 	 * @param index à sélectionner
 	 */
 	$scope.select = function(index) {
-		$scope.selected = index;
+		if($scope.selected == index) $scope.selected = null;
+		else $scope.selected = index;
 	}
 });

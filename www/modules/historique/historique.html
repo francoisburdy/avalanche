@@ -18,10 +18,10 @@
                     Cette opération a impliqué: 
                     <ul class="cr_nb_personnes">
                         <li>
-                            <span class="bold">{{j.nbVictimes}}</span> victimes
+                            <span class="bold">{{j.nbVictimes}}</span> victime<span ng-if="j.nbVictimes > 1">s</span>
                         </li>
                         <li>
-                            <span class="bold">{{j.nbPersonnels}}</span> personnels
+                            <span class="bold">{{j.nbPersonnels}}</span> personnel<span ng-if="j.nbPersonnels > 1">s</span>
                         </li>
                     </ul>
                 </p>

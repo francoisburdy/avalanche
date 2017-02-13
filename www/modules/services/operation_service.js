@@ -2,7 +2,7 @@
 /**
  * @function Operation
  * @memberOf angular_module.myApp
- * @description This is an my service.
+ * @description Service gérant toutes les informations relatives à l'opération courante et à l'historisation des données.
  */
 angular.module('myApp').service('Operation', function($localStorage, $rootScope, $location, $filter) {
     
@@ -99,7 +99,6 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             $localStorage.operation.victimes.push(victime);
             $rootScope.$broadcast('operationUpdated');
             $location.url('/dashboard');
-            $scope.$apply();
         }
     }
 
@@ -152,7 +151,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
 
 
     /****************************
-     * HISTORISATION DES DONNES *
+     * HISTORISATION DES DONNEES *
      ***************************/
 
     this.getJournaux = function() {
