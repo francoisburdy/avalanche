@@ -138,29 +138,30 @@
             {libelle: 'Secouriste', bg: '#54a754', text: '#fff'}
         ];
     }
+
     /*****************
-     *    LANGUES   *
-     ****************/ 
-     this.createDefaultLanguage = function(){
-        $localStorage.languages = ['fr', 'en'];
-     }
+    *    LANGUES   *
+    ****************/ 
+    this.createDefaultLanguages = function(){
+        $localStorage.languages = [ {code:'fr', intitule:'Français'}, {code:'en', intitule: 'English' }];
+    }
 
-     this.getCurrentLanguage = function(){
-        var l = "fr";
-        if($localStorage.language != null){
-            l =  $localStorage.language;
+    this.getCurrentLanguage = function(){
+        if(!$localStorage.language) {
+            this.setLanguage(this.getLanguages()[0]);
         }
-        return l;
-     }
+        return $localStorage.language;
+    }
 
-     this.getLanguages = function(){
-        if (!$localStorage.languages) this.createDefaultLanguage();
+    this.getLanguages = function(){
+        if (!$localStorage.languages) this.createDefaultLanguages();
         return $localStorage.languages;
-     }
+    }
 
-     this.setLanguage = function(language){
+    this.setLanguage = function(language){
         $localStorage.language = language;
-     }
+        $rootScope.$broadcast('langUpdated');
+    }
 
     /*****************
      *    MISSIONS   *

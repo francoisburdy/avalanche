@@ -21,21 +21,6 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
             $scope.newIntervenant.metier = Parametres.getMetier($routeParams.lib);
         }
         
-        // Affichage de la photo si elle est présente dans $scope.tmpPersonnel
-        /*angular.element(document).ready(function() {
-            console.log('document.ready', $scope.tmpPersonnel, $location.path());
-            if($scope.tmpPersonnel) {
-                if($location.path() == "/confirmIntervenant" && $scope.tmpPersonnel.image) {
-                    $scope.hasImg = true;
-                    document.getElementById('img-preview-confirm').src = $scope.tmpPersonnel.image;
-                    $scope.$apply();
-                } else if($location.path() == "/addIntervenant" && $scope.tmpPersonnel.image) {
-                    $scope.hasImg = true;
-                    document.getElementById('img-preview').src = $scope.tmpPersonnel.image ;
-                    $scope.$apply();                   
-                }
-            }
-        }); */
     }
     init();
 

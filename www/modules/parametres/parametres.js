@@ -8,10 +8,7 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
     $scope.languages = Parametres.getLanguages();
     $scope.language = Parametres.getCurrentLanguage();
 
-    $scope.$on('metiersUpdated', function(event) {
-        $scope.metiers = Parametres.getMetiers();
-    });
-
+    
     $scope.changeLanguage = function(l){
         Parametres.setLanguage(l);
     }
@@ -45,5 +42,14 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
         '#FFF', '#FFA773', '#FFD180', '#FFFF8D', '#CFD8DC', '#80D8FF', 
         '#A7FFEB', '#E969A8', '#6996D3', '#CCFF90', '#5FD2B5', '#FF8A80'
     ];
+
+    $scope.$on('langUpdated', function(event) {
+        $scope.language = Parametres.getCurrentLanguage();
+    });
+
+    $scope.$on('metiersUpdated', function(event) {
+        $scope.metiers = Parametres.getMetiers();
+    });
+
 
 });

@@ -40,7 +40,11 @@
                 <div class="panel-body">
                     <div class="col-xs-6 col-md-3 parametres-item" ng-repeat="l in languages">
                         <button type="button" class="btn btn-lg full-width" ng-click="changeLanguage(l)">
-                            <div>{{l}}</div>
+                            <div>
+                                <i class="fa fa-circle-o" ng-if="language.code != l.code"></i>
+                                <i class="fa fa-check-circle-o" ng-if="language.code == l.code"></i>
+                                {{l.intitule}}
+                            </div> 
                         </button>
                     </div>
                 </div>
