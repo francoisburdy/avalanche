@@ -1,5 +1,5 @@
 <div ui-content-for="title">
-  <span>Modifier la victime n°{{victime.numero}}</span>
+  <span>{{translation.victimes.editVictime.title}}{{victime.numero}}</span>
 </div>
 
 <div class="scrollable">
@@ -12,18 +12,18 @@
                 </div>
                 <div class="col-xs-8 col-md-8">
                     <div class="form-group victimId">
-                        <label>N° de victime <span class="red-text">*</span></label>   
+                        <label>{{translation.victimes.number}} <span class="red-text">*</span></label>   
                         <input type="number" class="form-control huge-input" ng-model="victime.numero" placeholder="Numéro" min=1 max=999 />
                     </div>
                 </div>
             </div>
 
             <div class="form-group victimStatus">
-                <label>Statut de la victime</label>
+                <label>{{translation.victimes.status}}</label>
                 <select ng-model="victime.status" ng-options="s.libelle for s in victimeStatus"></select>
             </div>
             <div class="form-group victimSituation">
-                <label>Situation de la victime</label>
+                <label>{{translation.victimes.situation}}</label>
                 <select ng-model="victime.situation" ng-options="s for s in victimeSituations"></select>
             </div>
             <div class="bg-icon float-left">
@@ -31,8 +31,7 @@
             </div>
             <div class="center btn-delete-victime">
                 <button type="button" class="btn btn-default" ng-click="deleteVictime()">
-                    <i class="fa fa-trash"></i>
-                    Supprimer la victime
+                    <i class="fa fa-trash"></i> {{translation.victimes.editVictime.delete}}
                 </button>
             </div>
         </form>

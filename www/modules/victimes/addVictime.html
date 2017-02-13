@@ -12,19 +12,19 @@
                 </div>
                 <div class="col-xs-8 col-md-8">
                     <div class="form-group victimId">
-                        <label>{{translation.victimes.addVictime.number}} <span class="red-text">*</span></label>
+                        <label>{{translation.victimes.number}} <span class="red-text">*</span></label>
                         <input type="number" class="form-control huge-input" ng-model="newVictime.numero" placeholder="Numéro" min=1 max=999 />
                     </div>
                 </div>
             </div>
         
             <div class="form-group victimStatus">
-                <label>{{translation.victimes.addVictime.status}}</label>
+                <label>{{translation.victimes.status}}</label>
                 <select ng-model="newVictime.status" ng-options="s.libelle for s in victimeStatus"></select>
             </div>
                 
             <div class="form-group victimSituation">
-                <label>{{translation.victimes.addVictime.situation}}</label>
+                <label>{{translation.victimes.situation}}</label>
                 <select ng-model="newVictime.situation" ng-options="s for s in victimeSituations"></select>
             </div>
 

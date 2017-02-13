@@ -29,14 +29,15 @@
 	},
 	"victimes" : {
 		"addVictime" : {
-			"title" : "Add a victim",
-			"number" : "Victim number",
-			"status" : "Victim status",
-			"situation" : "Victim situation"
+			"title" : "Add a victim"
 		},
 		"editVictime" : {
-
-		}
+			"title" : "Delete victim number",
+			"delete" : "Delete victim"
+		},
+		"number" : "Victim number",
+		"status" : "Victim status",
+		"situation" : "Victim situation"
 	},
 	"global" : {
 
