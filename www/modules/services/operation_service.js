@@ -193,6 +193,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             }
         }
         for(let p of operation.personnels) {
+            // TODO : journaliser les changement de mission
             var evDebut = {
                 date : p.beginDate,
                 texte :  $filter('date')(p.beginDate, 'HH:mm') +' : L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est entré sur zone',
