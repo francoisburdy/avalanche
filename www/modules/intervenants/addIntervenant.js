@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $location, $document, Operation, Parametres) {
+angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $routeParams, $location, $document, Operation, Parametres) {
     
-    
+
+
     function init() {
         $scope.tmpPersonnel = Operation.getTmpPersonnel();
         
@@ -17,6 +18,12 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $locat
         
         $scope.missions = Parametres.getMissions();
         $scope.metiers = Parametres.getMetiers();
+
+        if ($routeParams.lib) {
+            $scope.newIntervenant.metier = Parametres.getMetier($routeParams.lib);
+        }
+        
+        
 
         // Affichage de la photo si elle est présente dans $scope.tmpPersonnel
         angular.element(document).ready(function() {

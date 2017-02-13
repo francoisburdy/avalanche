@@ -91,6 +91,14 @@
         return $localStorage.metiers;
     }
 
+    this.getMetier = function(lib) {
+        if(!$localStorage.metiers) this.createDefaultMetiers();
+        for (var i = 0; i < $localStorage.metiers.length; i++) {
+            if($localStorage.metiers[i].libelle == lib) return $localStorage.metiers[i];
+        }
+        return null;
+    }
+
     this.addMetier = function(metier) {
         if($localStorage.metiers) {
             $localStorage.metiers.push(metier);
