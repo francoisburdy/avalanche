@@ -13,10 +13,10 @@
         ui-show="myDropdown" 
         ui-state="myDropdown"
         ui-turn-off="myDropdown">
-        <li><a ng-click="purgeStorage()">Supprimer les données</a></li>
-        <li><a ng-click="loadDemoData()">Charger les données de démo</a></li>
+        <li><a ng-click="purgeStorage()">{{translation.home.menuPurge}}</a></li>
+        <li><a ng-click="loadDemoData()">{{translation.home.menuLoad}}</a></li>
         <li class="divider"></li>
-        <li><a ng-click="exitApp()">Fermer l'application</a></li>
+        <li><a ng-click="exitApp()">{{translation.home.menuClose}}</a></li>
     </ul>
 </div> <!-- end drop-down-menu -->
 

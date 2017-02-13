@@ -6,7 +6,6 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
     $scope.victimeStatus = Parametres.getVictimeStatus();
     $scope.victimeSituation = Parametres.getVictimeSituations();
     $scope.languages = Parametres.getLanguages();
-    console.log($scope.languages);
     $scope.language = Parametres.getCurrentLanguage();
 
     $scope.$on('metiersUpdated', function(event) {

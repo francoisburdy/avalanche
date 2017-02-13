@@ -1,7 +1,10 @@
 {
 	"home" : {
 		"btnDemarrerOperation" : "Démarrer une opération",
-		"btnHistoriqueOperation" : "Historique des opérations"
+		"btnHistoriqueOperation" : "Historique des opérations",
+		"menuPurge" : "Supprimer les données",
+		"menuLoad" : "Charger les données de démo",
+		"menuClose" : "Fermer l'application"
 	},
 	"dashboard" : {
 
@@ -28,7 +31,7 @@
 
 	},
 	"global" : {
-		
+
 	}
 
 }

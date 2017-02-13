@@ -1,7 +1,10 @@
 {
 	"home" : {
 		"btnDemarrerOperation" : "Start operation",
-		"btnHistoriqueOperation" : "Operations history"
+		"btnHistoriqueOperation" : "Operations history",
+		"menuPurge" : "Delete all data",
+		"menuLoad" : "Load demo data",
+		"menuClose" : "Close application"
 	},
 	"dashboard" : {
 
