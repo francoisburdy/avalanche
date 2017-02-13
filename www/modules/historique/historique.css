@@ -16,7 +16,7 @@
 	list-style: none;
 }
 
-.cr_nb_personnes span{
+.cr_nb_personnes span.bold{
 	font-size: 1.3em;
 	color:#0c77cc;
 }

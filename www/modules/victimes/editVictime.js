@@ -8,7 +8,6 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
         $scope.victimeSituations = Parametres.getVictimeSituations();
         console.log($scope.victime.status);
     }
-
     init();
 
     $scope.evacuateVictime = function() {

@@ -1,8 +1,6 @@
 'use strict';
 
 angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $routeParams, $location, $document, Operation, Parametres) {
-    
-
 
     function init() {
         $scope.tmpPersonnel = Operation.getTmpPersonnel();
@@ -19,42 +17,40 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
         $scope.missions = Parametres.getMissions();
         $scope.metiers = Parametres.getMetiers();
 
-        if ($routeParams.lib) {
+        if($routeParams.lib) {
             $scope.newIntervenant.metier = Parametres.getMetier($routeParams.lib);
         }
         
-        
-
         // Affichage de la photo si elle est présente dans $scope.tmpPersonnel
         angular.element(document).ready(function() {
             console.log('document.ready', $scope.tmpPersonnel, $location.path());
-            if($scope.tmpPersonnel){
+            if($scope.tmpPersonnel) {
                 if($location.path() == "/confirmIntervenant" && $scope.tmpPersonnel.image) {
                     $scope.hasImg = true;
                     document.getElementById('img-preview-confirm').src = $scope.tmpPersonnel.image;
-                    $scope.$apply()
-                } else if ($location.path() == "/addIntervenant" && $scope.tmpPersonnel.image) {
+                    $scope.$apply();
+                } else if($location.path() == "/addIntervenant" && $scope.tmpPersonnel.image) {
                     $scope.hasImg = true;
                     document.getElementById('img-preview').src = $scope.tmpPersonnel.image ;
-                    $scope.$apply()                    
+                    $scope.$apply();                   
                 }
             }
         }); 
     }
-
-
     init();
 
+    /**
+     * Remplit l'intervenant temporaire et le passe à l'écran de confirmation
+     */
     $scope.goToConfirmation = function() {
-        if(!$scope.newIntervenant.numero){
+        if(!$scope.newIntervenant.numero) {
             navigator.notification.alert("Saisissez le numéro de l'intervenant", null, "Numéro intervenant", "OK");
-        } else if(!$scope.newIntervenant.metier){
+        } else if(!$scope.newIntervenant.metier) {
             navigator.notification.alert("Choisissez le métier de l'intervenant", null, "Corps de métier", "OK");
         } else {
-            if($scope.newSelectedMission) 
-                $scope.newIntervenant.missions.push({libelle: $scope.newSelectedMission, beginDate: new Date()});
-            else 
-                $scope.newIntervenant.missions.push({libelle: $scope.selectedMission, beginDate: new Date()});
+            let libMission = $scope.newSelectedMission || $scope.selectedMission;
+            $scope.newIntervenant.missions = libMission ? [{libelle: libMission, beginDate: new Date()}] : [];
+
             Operation.addTmpPersonnel($scope.newIntervenant);
         }
     }
