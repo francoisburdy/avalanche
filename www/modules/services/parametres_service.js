@@ -73,8 +73,8 @@
         $localStorage.victimeSituations = [
             'Inconnue',
             'Impliquée',
-            'Désensevelie',
             'Ensevelie',
+            'Désensevelie',
             'Évacuée'
         ];
     }
@@ -130,11 +130,11 @@
 
     this.createDefaultMetiers = function() {
         $localStorage.metiers = [
-            {libelle: 'Pompier', bg: '#b30000', text: '#fff'},
+            {libelle: 'CRS', bg: '#b3ccff', text: '#000'},
             {libelle: 'Pisteur', bg: '#8b4ca0', text: '#fff'},
             {libelle: 'Moniteur', bg: '#ffdb4d', text: '#000'},
             {libelle: 'Gendarme', bg: '#001a66', text: '#fff'},
-            {libelle: 'CRS', bg: '#b3ccff', text: '#000'},
+            {libelle: 'Pompier', bg: '#b30000', text: '#fff'},
             {libelle: 'Secouriste', bg: '#54a754', text: '#fff'}
         ];
     }
