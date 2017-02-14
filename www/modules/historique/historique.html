@@ -1,32 +1,32 @@
 <div ui-content-for="title">
-  <span>Historique des opérations</span>
+  <span>{{translation.historique.title}}</span>
 </div>
 
 <div class="scrollable">
     <div class="scrollable-content section">
         <div ng-if="journaux.length == 0" class="empty-message">
-           Aucune opération passée n'est enregistrée.
+           {{translation.historique.noHistory}}.
         </div>
 
         <div ng-if="journaux.length > 0">
-            <button ng-click="exportPdf()" class="btn btn-primary btn-block">Export PDF</button>
+            <button ng-click="exportPdf()" class="btn btn-primary btn-block">{{translation.journal.pdfExport}}</button>
         </div>
 
         <div ng-repeat="j in journaux">
             <h3 class="header-mission" ng-click="select($index)">{{j.nom}}</h3>
             <div ng-if="isSelected($index)">
                 <p>
-                    Opération débutée le {{j.beginDate | date: 'dd/MM/yyyy à HH:mm'}}
-                    et terminée le {{j.endDate | date: 'dd/MM/yyyy à HH:mm'}}.
+                    {{translation.journal.operationStarted}} {{j.beginDate | date: 'dd/MM/yyyy ' + translation.journal.operationTime + ' HH:mm'}}
+                    {{translation.history.endDate}} {{j.endDate | date: 'dd/MM/yyyy ' + translation.journal.operationTime + ' HH:mm'}}.
                 </p>
                 <p>
-                    Cette opération a impliqué : 
+                    {{translation.journal.implicated}} : 
                     <ul class="cr_nb_personnes">
                         <li>
-                            <span class="bold">{{j.nbVictimes}}</span> victime<span ng-if="j.nbVictimes > 1">s</span>
+                            <span class="bold">{{j.nbVictimes}}</span> {{translation.victime | lowercase}}<span ng-if="j.nbVictimes > 1">s</span>
                         </li>
                         <li>
-                            <span class="bold">{{j.nbPersonnels}}</span> personnel<span ng-if="j.nbPersonnels > 1">s</span>
+                            <span class="bold">{{j.nbPersonnels}}</span> {{translation.journal.personnel}}<span ng-if="j.nbPersonnels > 1">s</span>
                         </li>
                     </ul>
                 </p>

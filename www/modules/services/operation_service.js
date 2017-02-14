@@ -180,7 +180,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let v of operation.victimes) {           
             var evDebut = {
                 date: v.beginDate,
-                texte: $filter('date')(v.beginDate, 'HH:mm') + ' : La victime n°' + v.numero + ' a été enregistrée.',
+                texte: $filter('date')(v.beginDate, 'HH:mm') + ' : La victime n°' + v.numero + ' a été enregistrée. Son statut est : '+ v.status.libelle + ' et sa situation est '+ v.situation +'.',
                 type: 'entrée'
             };
             journal.evenements.push(evDebut);
@@ -188,7 +188,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(v.endDate != null) {
                 var evFin = {
                     date: v.endDate,
-                    texte: $filter('date')(v.endDate, 'HH:mm') + ' : La victime n°' + v.numero + ' a été évacuée.',               
+                    texte: $filter('date')(v.endDate, 'HH:mm') + ' : La victime n°' + v.numero + ' a été évacuée. Son statut était '+ v.status.libelle + '.',               
                     type: 'sortie'
                 };
                 journal.evenements.push(evFin);
