@@ -13,8 +13,7 @@
 		"intervenant" : "rescuer",
 		"noIntervenant" : "No rescuer currently on site",
 		"noVictime" : "No victim currently on site",
-		"noEvacuatedVictime" : "No evacuated victim",
-		"victime" : "Victim"
+		"noEvacuatedVictime" : "No evacuated victim"
 	},
     "export" : {
 
@@ -44,14 +43,20 @@
             "currentMission" : "Current mission"
     },
     "journal" : {
-
+		"title" : "Operation diary",
+		"noOperation" : "No ongoing operation",
+		"pdfExport" : "Export PDF",
+		"operationStarted" : "Operation started the ",
+		"operationTime" : "at",
+		"implicated" : "This operation implicated",
+		"personnel" : "Rescuer"
     },
     "menu" : {
 
     },
     "parametres" : {
     	"title" : "Parameters",
-		"corpsMetier" : "Resciers professions",
+		"corpsMetier" : "Rescuers professions",
 		"nouveau" : "New",
 		"languageChoice" : "Language choice",
 		"addMetier" : "Add a profession",
@@ -80,6 +85,7 @@
     },
 	"cancel" : "Cancel",
 	"validate" : "Validate",
-	"delete" : "Delete"
+	"delete" : "Delete",
+	"victime" : "Victim"
 
 }

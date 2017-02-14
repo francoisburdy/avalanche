@@ -13,8 +13,7 @@
 		"intervenant" : "intervenant",
 		"noIntervenant" : "Aucun personnel sur site actuellement",
 		"noVictime" : "Aucune victime présente sur site actuellement",
-		"noEvacuatedVictime" : "Aucune victime évacuée",
-		"victime" : "Victime"
+		"noEvacuatedVictime" : "Aucune victime évacuée"
 	},
 	"export" : {
 
@@ -45,11 +44,12 @@
 	},
 	"journal" : {
 		"title" : "Journal de l'opération",
-		"noOperation" : "Aucune opération n'est en cours.",
+		"noOperation" : "Aucune opération n'est en cours",
 		"pdfExport" : "Export PDF",
 		"operationStarted" : "Opération débutée le",
 		"operationTime" : "à",
-		"implicated" : "Cette opération a impliqué"
+		"implicated" : "Cette opération a impliqué",
+		"personnel" : "personnel"
 	},
 	"menu" : {
 
@@ -85,6 +85,7 @@
 	},
 	"cancel" : "Annuler",
 	"validate" : "Valider",
-	"delete" : "Supprimer"
+	"delete" : "Supprimer",
+	"victime" : "Victime"
 
 }

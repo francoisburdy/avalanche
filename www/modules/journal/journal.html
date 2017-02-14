@@ -5,7 +5,7 @@
 <div class="scrollable">
     <div class="scrollable-content section">
         <div ng-if="!journal" class="empty-message">
-           {{translation.journal.noOperation}}
+           {{translation.journal.noOperation}}.
         </div>
         <div ng-if="journal" class="btnExportJournal">
             <button ng-click="exportPdf()" class="btn btn-primary btn-block">
@@ -22,10 +22,10 @@
                 {{translation.journal.implicated}} : 
                 <ul class="cr_nb_personnes">
                     <li>
-                        <span class="bold">{{journal.nbVictimes}}</span> victime<span ng-if="journal.nbVictimes > 1">s</span>
+                        <span class="bold">{{journal.nbVictimes}}</span> {{translation.victime | lowercase}}<span ng-if="journal.nbVictimes > 1">s</span>
                     </li>
                     <li>
-                        <span class="bold">{{journal.nbPersonnels}}</span> personnel<span ng-if="journal.nbPersonnels > 1">s</span>
+                        <span class="bold">{{journal.nbPersonnels}}</span> {{translation.journal.personnel}}<span ng-if="journal.nbPersonnels > 1">s</span>
                     </li>
                 </ul>
             </p>

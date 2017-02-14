@@ -29,7 +29,7 @@
                     {{nbActivePersonnels()}} {{translation.dashboard.intervenant}}<span ng-show="nbActivePersonnels() > 1">s</span>
                 </div>
                 <div class="col-xs-6 tab" ng-class="{'active': activeTab == 2}" ng-click="goTab(2)">
-                    {{operation.victimes.length}} {{translation.dashboard.victime | lowercase}}<span ng-show="operation.victimes.length > 1">s</span>
+                    {{operation.victimes.length}} {{translation.victime | lowercase}}<span ng-show="operation.victimes.length > 1">s</span>
                 </div>
             </div> <!-- fin boutons Onglets -->
 
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="col-xs-3 center victime-number-container">
                                     <div class="victime-number-sup">
-                                        {{translation.dashboard.victim}}
+                                        {{translation.victim}}
                                     </div>
                                     <div class="victime-number">{{v.numero}}</div>
                                 </div>
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="col-xs-3 center victime-number-container">
                                     <div class="victime-number-sup">
-                                        {{translation.dashboard.victim}}
+                                        {{translation.victim}}
                                     </div>
                                     <div class="victime-number">{{v.numero}}</div>
                                 </div>
