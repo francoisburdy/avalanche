@@ -2,7 +2,7 @@
 
 angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location, Operation, Parametres, SharedState, Translation) {
 	var language = Parametres.getCurrentLanguage();
-    Translation.getTranslation($scope, language);
+	Translation.getTranslation($scope, language);
 
 	$scope.newVictime = {};
 	$scope.newVictime.numero = Operation.generateVictimeNumber();

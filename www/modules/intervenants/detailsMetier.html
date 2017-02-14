@@ -5,7 +5,7 @@
 <div class="scrollable">
     <div class="scrollable-content section detail-metier">
         <div ng-if="(personnels | filter: {endDate: null}).length == 0" class="empty-message">
-           Aucun {{metier | lowerMetier}} présent sur site actuellement.
+           {{translation.intervenants.detailsMetier.negation}} {{metier | lowercase}} {{translation.intervenants.detailsMetier.noOneFromJob}}
         </div>
         <div class="row personnels-list">
             <div ng-repeat="p in personnels | filter: {endDate: null}" class="col-xs-6 col-md-3 card inline">
@@ -19,8 +19,8 @@
                         {{p.numero}}
                     </div>
                     <div class="intervenant-date italic">
-                        Arrivée : {{p.beginDate | date: 'dd/MM à HH:mm'}}
-                    </div> 
+                        {{translation.intervenants.detailsMetier.arrival}} : {{p.beginDate | date: 'dd/MM à HH:mm'}}
+                    </div>
                 </div>
             </div>
         </div>

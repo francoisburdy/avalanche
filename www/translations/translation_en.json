@@ -16,7 +16,25 @@
 
 	},
 	"intervenants" : {
-
+			"addIntervenant" : {
+				"title" : "Add a rescuer",
+				"corpsMetier" : "Profession"
+			},
+			"editIntervenant" : {
+				"title" : "Rescuer number",
+				"delete" : "Delete rescuer"
+			},
+			"confirmIntervenant" : {
+				"title" : "Confirm rescuer",
+				"affectedMission" : "Affected mission"
+			},
+			"detailsMetier" : {
+				"negation" : "No",
+				"noOneFromJob" : "currently on site",
+				"arrival" : "Arrival"
+			},
+			"number" : "Rescuer number",
+			"currentMission" : "Current mission"
 	},
 	"journal" : {
 

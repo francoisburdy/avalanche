@@ -16,7 +16,25 @@
 
 	},
 	"intervenants" : {
-
+			"addIntervenant" : {
+				"title" : "Ajouter un intervenant",
+				"corpsMetier" : "Corps de métier"
+			},
+			"editIntervenant" : {
+				"title" : "Intervenant n°",
+				"delete" : "Supprimer l'intervenant"
+			},
+			"confirmIntervenant" : {
+				"title" : "Validation intervenant",
+				"affectedMission" : "Mission affectée"
+			},
+			"detailsMetier" : {
+				"negation" : "Aucun",
+				"noOneFromJob" : "présent sur site actuellement",
+				"arrival" : "Arrivée"
+			},
+			"number" : "N° de l'intervenant",
+			"currentMission" : "Mission courante"
 	},
 	"journal" : {
 

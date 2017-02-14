@@ -1,5 +1,5 @@
 <div ui-content-for="title">
-  <span>Intervenant n°{{personnel.numero}}</span>
+  <span>{{translation.intervenants.editIntervenant.title}}{{personnel.numero}}</span>
 </div>
 
 <div class="scrollable">
@@ -14,14 +14,14 @@
                 </div>
                 <div class="col-xs-7 col-md-7">                
                     <div class="form-group input-group-lg">
-                        <label>N° de l'intervenant</label>
+                        <label>{{translation.intervenants.number}}</label>
                         <!-- TODO : rendre obligatoire -->
                         <input type="number" class="form-control huge-input" ng-model="personnel.numero" placeholder="n°" min=1 max=999  />
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label>Mission courante</label>
+                <label>{{translation.intervenants.currentMission}}</label>
                 <div>
                     <h2 class="inline-block">{{personnel.missions[personnel.missions.length - 1].libelle}}</h2>
                     <a ng-click="addMission = true" ng-show="!addMission" class="btn blue-bg white-text add-mission-btn">
@@ -36,8 +36,7 @@
             </div>
             <div class="center btn-delete-victime">
                 <button type="button" class="btn btn-default" ng-click="deletePersonnel()">
-                    <i class="fa fa-trash"></i>
-                    Supprimer l'intervenant
+                    <i class="fa fa-trash"></i>{{translation.intervenants.editIntervenant.delete}}
                 </button>
             </div>
         </form>

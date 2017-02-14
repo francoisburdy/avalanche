@@ -1,5 +1,5 @@
 <div ui-content-for="title">
-    <span>Validation intervenant</span>
+    <span>{{translation.intervenants.confirmIntervenant.title}}</span>
 </div>
 
 <div class="scrollable">
@@ -15,7 +15,7 @@
         </div>
 
         <div class="numConfInt" ng-if="tmpPersonnel.missions && tmpPersonnel.missions[tmpPersonnel.missions.length - 1].libelle">
-            <div class="text-lighter">Mission affectée</div>
+            <div class="text-lighter">{{translation.intervenants.confirmIntervenant}}</div>
             <h3>{{tmpPersonnel.missions[tmpPersonnel.missions.length - 1].libelle}}</h3>
         </div>
 
