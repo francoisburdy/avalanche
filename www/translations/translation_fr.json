@@ -7,7 +7,14 @@
 		"menuClose" : "Fermer l'application"
 	},
 	"dashboard" : {
-
+		"title" : "Opération en cours",
+		"terminateOperation" : "Terminer l'opération",
+		"exitApplication" : "Fermer l'application",
+		"intervenant" : "intervenant",
+		"noIntervenant" : "Aucun personnel sur site actuellement",
+		"noVictime" : "Aucune victime présente sur site actuellement",
+		"noEvacuatedVictime" : "Aucune victime évacuée",
+		"victime" : "Victime",
 	},
 	"export" : {
 
@@ -43,7 +50,15 @@
 
 	},
 	"parametres" : {
-
+		"title" : "Paramètres",
+		"corpsMetier" : "Corps de métier intervenants",
+		"nouveau" : "Nouveau",
+		"languageChoice" : "Choix de la langue",
+		"addMetier" : "Ajouter un métier",
+		"metier" : "Intitulé métier",
+		"color": "Couleur associée",
+		"updateMetier" : "Modifier un métier",
+		"deleteMetier" : "Supprimer le métier"
 	},
 	"victimes" : {
 		"addVictime" : {
@@ -51,7 +66,10 @@
 		},
 		"editVictime" : {
 			"title" : "Modifier la victime n°",
-			"delete" : "Supprimer la victime"
+			"deleteVictime" : "Supprimer la victime",
+			"evacuateVictime" : "Évacuer une victime",
+			"evacuate" : "Évacuer",
+			"confirmDelete" : "Souhaitez-vous vraiment supprimer la victime"
 		},
 		"number" : "N° de victime",
 		"status" : "Statut de la victime",
@@ -59,6 +77,9 @@
 	},
 	"global" : {
 
-	}
+	},
+	"cancel" : "Annuler",
+	"validate" : "Valider",
+	"delete" : "Supprimer"
 
 }

@@ -1,7 +1,8 @@
 'use strict';
 
 
-angular.module('myApp').controller('DashboardCtrl', function($scope, $location, $rootScope, Operation, Parametres, Global) {
+angular.module('myApp').controller('DashboardCtrl', function($scope, $location, $rootScope, Operation, Parametres, Global, Translation) {
+    Translation.getTranslation($scope);
 
     function init() {
         $scope.operation = Operation.getOperation();

@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres) {
+angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres, Translation) {
+    Translation.getTranslation($scope);
 
     $scope.metiers = Parametres.getMetiers();
     $scope.victimeStatus = Parametres.getVictimeStatus();

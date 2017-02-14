@@ -6,9 +6,16 @@
         "menuLoad" : "Load demo data",
         "menuClose" : "Close application"
     },
-    "dashboard" : {
-
-    },
+  	"dashboard" : {
+		"title" : "Running operation",
+		"terminateOperation" : "Terminate operation",
+		"exitApplication" : "Close application",
+		"intervenant" : "rescuer",
+		"noIntervenant" : "No rescuer currently on site",
+		"noVictime" : "No victim currently on site",
+		"noEvacuatedVictime" : "No evacuated victim",
+		"victime" : "Victim"
+	},
     "export" : {
 
     },
@@ -43,7 +50,15 @@
 
     },
     "parametres" : {
-
+    	"title" : "Parameters",
+		"corpsMetier" : "Resciers professions",
+		"nouveau" : "New",
+		"languageChoice" : "Language choice",
+		"addMetier" : "Add a profession",
+		"metier" : "Profession label",
+		"color": "Associated color",
+		"updateMetier" : "Edit profession",
+		"deleteMetier" : "Delete profession"
     },
     "victimes" : {
         "addVictime" : {
@@ -51,7 +66,10 @@
         },
         "editVictime" : {
             "title" : "Delete victim number",
-            "delete" : "Delete victim"
+            "deleteVictime" : "Delete victim",
+			"evacuateVictime" : "Evacuate a victim",
+			"evacuate" : "Evacuate",
+			"confirmDelete" : "Do you really want to delete the victim"
         },
         "number" : "Victim number",
         "status" : "Victim status",
@@ -59,6 +77,9 @@
     },
     "global" : {
 
-    }
+    },
+	"cancel" : "Cancel",
+	"validate" : "Validate",
+	"delete" : "Delete"
 
 }

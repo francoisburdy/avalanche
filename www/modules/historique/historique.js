@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('myApp').controller('HistoriqueCtrl', function($scope, Operation, Export) {
+angular.module('myApp').controller('HistoriqueCtrl', function($scope, Operation, Export, Translation) {
+    Translation.getTranslation($scope);
+
     $scope.journaux = Operation.getJournaux();
 
     /**
