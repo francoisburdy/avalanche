@@ -196,25 +196,33 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
 
         for(let p of operation.personnels) {
-            // TODO : journaliser les changement de mission
             var evDebut = {
-                date : p.beginDate,
-                texte :  $filter('date')(p.beginDate, 'HH:mm') +' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est entré sur zone.',
+                date: p.beginDate,
+                texte: $filter('date')(p.beginDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est entré sur zone.',
                 type: 'entrée'  
             };
             journal.evenements.push(evDebut);
 
             if(p.endDate != null) {
                 var evFin = {
-                    date : p.endDate,
-                    texte : $filter('date')(p.endDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est sorti de la zone.',
+                    date: p.endDate,
+                    texte: $filter('date')(p.endDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est sorti de la zone.',
                     type: 'sortie'
                 }
                 journal.evenements.push(evFin);
             }
+
+            for(let m of p.missions) {
+                var evMission = {
+                    date: m.beginDate,
+                    texte: $filter('date')(m.beginDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' a pris la mission ' + m.libelle +'.',
+                    type: 'maj'
+                };
+                journal.evenements.push(evMission);
+            }
         }
         
-        journal.evenements = journal.evenements.sort(function(a, b){ return new Date(a.date) - new Date(b.date); });
+        journal.evenements = journal.evenements.sort(function(a, b) { return new Date(a.date) - new Date(b.date); });
 
         return journal;
     }

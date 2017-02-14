@@ -31,7 +31,7 @@
                     </ul>
                 </p>
                 <div ng-repeat="e in j.evenements | orderBy: 'date'" class="ev-journal">
-                    <div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie'}">
+                    <div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie', 'alert-info': e.type == 'maj'}">
                         {{e.texte}}
                     </div>
                 </div>
