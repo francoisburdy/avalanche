@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $routeParams, $location, $document, Operation, Parametres) {
+angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $routeParams, $location, $document, Operation, Parametres, Translation) {
+    Translation.getTranslation($scope);
 
     function init() {
         $scope.tmpPersonnel = Operation.getTmpPersonnel();

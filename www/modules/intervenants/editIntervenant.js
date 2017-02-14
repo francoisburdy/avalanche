@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $routeParams, $location, Operation, Parametres) {
+angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation) {
+    Translation.getTranslation($scope);
+
     $scope.personnel = Operation.getPersonnel($routeParams.num);
     $scope.missions = Parametres.getMissions();
 

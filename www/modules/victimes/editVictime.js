@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation) {
-    var language = Parametres.getCurrentLanguage();
-    Translation.getTranslation($scope, language);
+    Translation.getTranslation($scope);
 
     function init() {
         $scope.victime = Operation.getVictime($routeParams.num);
