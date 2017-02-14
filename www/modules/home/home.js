@@ -1,9 +1,8 @@
 ﻿'use strict';
 
-angular.module('myApp').controller('HomeCtrl', function($scope, $location, $route, $filter, Operation, Global, Translation, Parametres, Export) {
+angular.module('myApp').controller('HomeCtrl', function($scope, $location, $route, $filter, Operation, Global, Translation, Export) {
     
-    var language = Parametres.getCurrentLanguage();
-    Translation.getTranslation($scope, language);
+    Translation.getTranslation($scope);
 
     $scope.createOperation = function() {
         navigator.notification.prompt(

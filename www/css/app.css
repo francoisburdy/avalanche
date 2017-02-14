@@ -26,6 +26,10 @@ select {
     border: 1px solid #2196f3;
 }
 
+input[type=number]{
+   -webkit-user-select: auto;
+}
+
 input.huge-input {
     font-size: 3em !important;
     height: 60px !important;
