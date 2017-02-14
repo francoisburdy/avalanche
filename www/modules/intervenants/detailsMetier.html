@@ -5,7 +5,7 @@
 <div class="scrollable">
     <div class="scrollable-content section detail-metier">
         <div ng-if="(personnels | filter: {endDate: null}).length == 0" class="empty-message">
-           {{translation.intervenants.detailsMetier.negation}} {{metier | lowercase}} {{translation.intervenants.detailsMetier.noOneFromJob}}
+           {{translation.intervenants.detailsMetier.negation}} {{metier | lowerMetier}} {{translation.intervenants.detailsMetier.noOneFromJob}}
         </div>
         <div class="row personnels-list">
             <div ng-repeat="p in personnels | filter: {endDate: null}" class="col-xs-6 col-md-3 card inline">

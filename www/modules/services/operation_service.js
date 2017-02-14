@@ -168,20 +168,19 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     this.getJournal = function(operation) {
-        
         var journal = {
             nom: operation.nom,
             beginDate: operation.beginDate,
-            endDate: null,
+            endDate: operation.endDate,
             nbVictimes: operation.victimes.length,
-            nbPersonnels : operation.personnels.length,
+            nbPersonnels: operation.personnels.length,
             evenements: []
         };
 
         for(let v of operation.victimes) {           
             var evDebut = {
                 date: v.beginDate,
-                texte: $filter('date')(v.beginDate, 'HH:mm')+ ' : La victime n°' + v.numero + ' a été enregistrée',
+                texte: $filter('date')(v.beginDate, 'HH:mm') + ' : La victime n°' + v.numero + ' a été enregistrée.',
                 type: 'entrée'
             };
             journal.evenements.push(evDebut);
@@ -189,7 +188,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(v.endDate != null) {
                 var evFin = {
                     date: v.endDate,
-                    texte: $filter('date')(v.endDate, 'HH:mm') + ' : La victime n°' + v.numero + ' a été évacuée',               
+                    texte: $filter('date')(v.endDate, 'HH:mm') + ' : La victime n°' + v.numero + ' a été évacuée.',               
                     type: 'sortie'
                 };
                 journal.evenements.push(evFin);
@@ -200,7 +199,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             // TODO : journaliser les changement de mission
             var evDebut = {
                 date : p.beginDate,
-                texte :  $filter('date')(p.beginDate, 'HH:mm') +' : L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est entré sur zone',
+                texte :  $filter('date')(p.beginDate, 'HH:mm') +' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est entré sur zone.',
                 type: 'entrée'  
             };
             journal.evenements.push(evDebut);
@@ -208,7 +207,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(p.endDate != null) {
                 var evFin = {
                     date : p.endDate,
-                    texte : $filter('date')(p.endDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' (' + p.metier.libelle.toLowerCase() + ') est sorti de la zone',
+                    texte : $filter('date')(p.endDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est sorti de la zone.',
                     type: 'sortie'
                 }
                 journal.evenements.push(evFin);

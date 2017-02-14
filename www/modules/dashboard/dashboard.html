@@ -43,7 +43,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 card metier-card" ng-click="detailsMetier(m.libelle)">
                             <div class="row card-container" ng-style="{'background-color': m.bg, 'color': m.text}">
                                 <div class="col-xs-12 card-content">
-                                    <span class="metier-libelle">{{m.libelle}}</span>
+                                    <span class="metier-libelle">{{m.libelle | plurielMetier}}</span>
                                     <span class="badge bold">{{nbPersonnels(m.libelle)}}</span>
                                 </div>
                             </div>

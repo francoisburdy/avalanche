@@ -17,10 +17,10 @@
             <div ng-if="isSelected($index)">
                 <p>
                     Opération débutée le {{j.beginDate | date: 'dd/MM/yyyy à HH:mm'}}
-                    et terminée le {{j.endDate | date: 'dd/MM/yyyy à HH:mm'}}
+                    et terminée le {{j.endDate | date: 'dd/MM/yyyy à HH:mm'}}.
                 </p>
                 <p>
-                    Cette opération a impliqué: 
+                    Cette opération a impliqué : 
                     <ul class="cr_nb_personnes">
                         <li>
                             <span class="bold">{{j.nbVictimes}}</span> victime<span ng-if="j.nbVictimes > 1">s</span>
