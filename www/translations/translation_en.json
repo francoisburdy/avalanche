@@ -1,64 +1,64 @@
 {
-	"home" : {
-		"btnDemarrerOperation" : "Start operation",
-		"btnHistoriqueOperation" : "Operations history",
-		"menuPurge" : "Delete all data",
-		"menuLoad" : "Load demo data",
-		"menuClose" : "Close application"
-	},
-	"dashboard" : {
+    "home" : {
+        "btnDemarrerOperation" : "Start operation",
+        "btnHistoriqueOperation" : "Operations history",
+        "menuPurge" : "Delete all data",
+        "menuLoad" : "Load demo data",
+        "menuClose" : "Close application"
+    },
+    "dashboard" : {
 
-	},
-	"export" : {
+    },
+    "export" : {
 
-	},
-	"historique" : {
+    },
+    "historique" : {
 
-	},
-	"intervenants" : {
-			"addIntervenant" : {
-				"title" : "Add a rescuer",
-				"corpsMetier" : "Profession"
-			},
-			"editIntervenant" : {
-				"title" : "Rescuer number",
-				"delete" : "Delete rescuer"
-			},
-			"confirmIntervenant" : {
-				"title" : "Confirm rescuer",
-				"affectedMission" : "Affected mission"
-			},
-			"detailsMetier" : {
-				"negation" : "No",
-				"noOneFromJob" : "currently on site",
-				"arrival" : "Arrival"
-			},
-			"number" : "Rescuer number",
-			"currentMission" : "Current mission"
-	},
-	"journal" : {
+    },
+    "intervenants" : {
+            "addIntervenant" : {
+                "title" : "Add a rescuer",
+                "corpsMetier" : "Profession"
+            },
+            "editIntervenant" : {
+                "title" : "Rescuer number",
+                "delete" : "Delete rescuer"
+            },
+            "confirmIntervenant" : {
+                "title" : "Confirm rescuer",
+                "affectedMission" : "Affected mission"
+            },
+            "detailsMetier" : {
+                "negation" : "No",
+                "noOneFromJob" : "currently on site",
+                "arrival" : "Arrival"
+            },
+            "number" : "Rescuer number",
+            "currentMission" : "Current mission"
+    },
+    "journal" : {
 
-	},
-	"menu" : {
+    },
+    "menu" : {
 
-	},
-	"parametres" : {
+    },
+    "parametres" : {
 
-	},
-	"victimes" : {
-		"addVictime" : {
-			"title" : "Add a victim"
-		},
-		"editVictime" : {
-			"title" : "Delete victim number",
-			"delete" : "Delete victim"
-		},
-		"number" : "Victim number",
-		"status" : "Victim status",
-		"situation" : "Victim situation"
-	},
-	"global" : {
+    },
+    "victimes" : {
+        "addVictime" : {
+            "title" : "Add a victim"
+        },
+        "editVictime" : {
+            "title" : "Delete victim number",
+            "delete" : "Delete victim"
+        },
+        "number" : "Victim number",
+        "status" : "Victim status",
+        "situation" : "Victim situation"
+    },
+    "global" : {
 
-	}
+    }
 
 }

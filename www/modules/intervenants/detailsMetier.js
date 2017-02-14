@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('myApp').controller('DetailsMetierCtrl', function($scope, $routeParams, $location, Operation) {
-    $scope.metier = $routeParams.lib;
-    
+angular.module('myApp').controller('DetailsMetierCtrl', function($scope, $routeParams, $location, Operation, Translation) {
+    Translation.getTranslation($scope);
+
+    $scope.metier = $routeParams.lib; 
     $scope.personnels = Operation.getPersonnelsByMetier($routeParams.lib);
 
     $scope.seeDetails = function(num) {

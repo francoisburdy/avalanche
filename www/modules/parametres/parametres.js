@@ -7,10 +7,9 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
     $scope.victimeSituation = Parametres.getVictimeSituations();
     $scope.languages = Parametres.getLanguages();
     $scope.language = Parametres.getCurrentLanguage();
-
     
-    $scope.changeLanguage = function(l){
-        Parametres.setLanguage(l);
+    $scope.changeLanguage = function(lang) {
+        Parametres.setLanguage(lang);
     }
 
     $scope.updateLastClicked = function(index) {

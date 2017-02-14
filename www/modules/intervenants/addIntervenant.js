@@ -20,7 +20,6 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
         if($routeParams.lib) {
             $scope.newIntervenant.metier = Parametres.getMetier($routeParams.lib);
         }
-        
     }
     init();
 
