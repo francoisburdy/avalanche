@@ -1,25 +1,25 @@
 <div ui-content-for="title">
-    <span>Journal de l'opération</span>
+    <span>{{translation.journal.title}}</span>
 </div>
 
 <div class="scrollable">
     <div class="scrollable-content section">
         <div ng-if="!journal" class="empty-message">
-           Aucune opération n'est en cours.
+           {{translation.journal.noOperation}}
         </div>
         <div ng-if="journal" class="btnExportJournal">
             <button ng-click="exportPdf()" class="btn btn-primary btn-block">
-                <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Export PDF
+                <i class="fa fa-file-pdf-o" aria-hidden="true"></i> {{translation.journal.pdfExport}}
             </button>
         </div>
 
         <h3 class="header-mission">{{journal.nom}}</h3>
         <div class="contenu">
             <p>
-                Opération débutée le {{journal.beginDate | date: 'dd/MM/yyyy à HH:mm'}}.
+                {{translation.journal.operationStarted}} {{journal.beginDate | date: 'dd/MM/yyyy {{translation.journal.operationTime}} HH:mm'}}.
             </p>
             <p>
-                Cette opération a impliqué : 
+                {{translation.journal.implicated}} : 
                 <ul class="cr_nb_personnes">
                     <li>
                         <span class="bold">{{journal.nbVictimes}}</span> victime<span ng-if="journal.nbVictimes > 1">s</span>

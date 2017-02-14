@@ -14,7 +14,7 @@
 		"noIntervenant" : "Aucun personnel sur site actuellement",
 		"noVictime" : "Aucune victime présente sur site actuellement",
 		"noEvacuatedVictime" : "Aucune victime évacuée",
-		"victime" : "Victime",
+		"victime" : "Victime"
 	},
 	"export" : {
 
@@ -44,7 +44,12 @@
 			"currentMission" : "Mission courante"
 	},
 	"journal" : {
-
+		"title" : "Journal de l'opération",
+		"noOperation" : "Aucune opération n'est en cours.",
+		"pdfExport" : "Export PDF",
+		"operationStarted" : "Opération débutée le",
+		"operationTime" : "à",
+		"implicated" : "Cette opération a impliqué"
 	},
 	"menu" : {
 
