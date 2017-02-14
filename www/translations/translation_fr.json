@@ -19,7 +19,9 @@
 
 	},
 	"historique" : {
-
+		"title" : "Historique des opérations",
+		"noHistory" : "Aucune opération passée n'est enregistrée",
+		"endDate" : "et terminée le"
 	},
 	"intervenants" : {
 			"addIntervenant" : {
@@ -52,7 +54,7 @@
 		"personnel" : "personnel"
 	},
 	"menu" : {
-
+		"home" : "Accueil"
 	},
 	"parametres" : {
 		"title" : "Paramètres",
@@ -80,12 +82,8 @@
 		"status" : "Statut de la victime",
 		"situation" : "Situation de la victime"
 	},
-	"global" : {
-
-	},
 	"cancel" : "Annuler",
 	"validate" : "Valider",
 	"delete" : "Supprimer",
 	"victime" : "Victime"
-
 }

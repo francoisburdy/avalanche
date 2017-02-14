@@ -7,7 +7,7 @@
         "menuClose" : "Close application"
     },
   	"dashboard" : {
-		"title" : "Running operation",
+		"title" : "Ongoing operation",
 		"terminateOperation" : "Terminate operation",
 		"exitApplication" : "Close application",
 		"intervenant" : "rescuer",
@@ -19,7 +19,9 @@
 
     },
     "historique" : {
-
+		"title" : "Operations history",
+		"noHistory" : "No past operation is saved",
+		"endDate" : "and finished the"
     },
     "intervenants" : {
             "addIntervenant" : {
@@ -52,7 +54,7 @@
 		"personnel" : "Rescuer"
     },
     "menu" : {
-
+		"home" : "Home"
     },
     "parametres" : {
     	"title" : "Parameters",
@@ -80,12 +82,8 @@
         "status" : "Victim status",
         "situation" : "Victim situation"
     },
-    "global" : {
-
-    },
 	"cancel" : "Cancel",
 	"validate" : "Validate",
 	"delete" : "Delete",
 	"victime" : "Victim"
-
 }
