@@ -16,7 +16,7 @@ angular.module('myApp').service('Export', function($filter, Operation) {
             data: html,
             documentSize: "A4",
             landscape: "portrait",
-            type: "base64"
+            type: "share"
         }, null, null);
     }
 
