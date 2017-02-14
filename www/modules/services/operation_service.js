@@ -71,8 +71,8 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
 
     /* Retourne un personnel à partir de son numéro */
     this.getPersonnel = function(numero) {
-        for(let personnel of $localStorage.operation.personnels) {
-            if(personnel.numero == numero) return personnel; 
+        for(let p of $localStorage.operation.personnels) {
+            if(!p.endDate && p.numero == numero) return p; 
         }
     }
 

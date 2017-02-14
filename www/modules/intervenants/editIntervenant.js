@@ -18,10 +18,13 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
     }
 
     $scope.confirm = function() {
-        if($scope.personnel.missions.length && $scope.selectedMission != $scope.personnel.missions[$scope.personnel.missions.length - 1].libelle) {
-            if($scope.newSelectedMission) $scope.personnel.missions.push({libelle: $scope.newSelectedMission, beginDate: new Date()});
-            else $scope.personnel.missions.push({libelle: $scope.selectedMission, beginDate: new Date()});
-        }
+        var missionDifferente = $scope.personnel.missions.length && $scope.selectedMission != $scope.personnel.missions[$scope.personnel.missions.length - 1].libelle;
+
+        if(($scope.personnel.missions.length == 0 || missionDifferente) && $scope.selectedMission) {
+            let libMission = $scope.selectedMission;
+            if($scope.selectedMission == '-- Autre --' && $scope.newSelectedMission) libMission = $scope.newSelectedMission;
+                $scope.personnel.missions.push({libelle: libMission, beginDate: new Date()});
+        } 
         $location.url('/metiers/' + $scope.personnel.metier.libelle);
     }
 

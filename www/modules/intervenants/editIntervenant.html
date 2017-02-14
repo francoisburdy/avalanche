@@ -24,10 +24,10 @@
                 <label>{{translation.intervenants.currentMission}}</label>
                 <div>
                     <h2 class="inline-block">{{personnel.missions[personnel.missions.length - 1].libelle}}</h2>
-                    <a ng-click="addMission = true" ng-show="!addMission" class="btn blue-bg white-text add-mission-btn">
+                    <a ng-click="autreMission = true" ng-show="!autreMission" class="btn blue-bg white-text add-mission-btn">
                         <i class="fa fa-pencil"></i>
                     </a>
-                    <select ng-model="selectedMission" ng-options="m for m in missions" ng-show="addMission">
+                    <select ng-model="selectedMission" ng-options="m for m in missions" ng-show="autreMission">
                        <option label="Nouvelle mission" selected="selected" disabled="disabled"></option>
                     </select>
                     <!-- TODO : cacher les boutons sur le keyboard est visible -->
