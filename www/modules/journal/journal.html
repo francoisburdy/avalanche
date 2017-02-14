@@ -7,8 +7,10 @@
         <div ng-if="!journal" class="empty-message">
            Aucune opération n'est en cours.
         </div>
-        <div ng-if="journal">
-            <button ng-click="exportPdf()" class="btn btn-primary btn-block">Export PDF</button>
+        <div ng-if="journal" class="btnExportJournal">
+            <button ng-click="exportPdf()" class="btn btn-primary btn-block">
+                <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Export PDF
+            </button>
         </div>
 
         <h3 class="header-mission">{{journal.nom}}</h3>
