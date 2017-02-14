@@ -47,7 +47,7 @@
 		"noOperation" : "No ongoing operation",
 		"pdfExport" : "Export PDF",
 		"operationStarted" : "Operation started the ",
-		"operationTime" : "at",
+		"operationTime" : "",
 		"implicated" : "This operation implicated",
 		"personnel" : "Rescuer"
     },
