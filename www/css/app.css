@@ -17,7 +17,7 @@
 }
 
 @font-face {
-    font-family: "Open Sans";
+    font-family: "Open Sans Light";
     src: url("Open_Sans/OpenSans-Light.ttf");
     font-weight: lighter;
 }
@@ -37,7 +37,7 @@
 
 body {
     font-size: 14px;
-    font-family: 'Open Sans' !important;
+    font-family: 'Open Sans', 'Roboto', sans-serif;
 }
 
 select {
@@ -121,7 +121,7 @@ input.large-input {
     font-style: italic;
 }
 
-.font-larger{
+.font-larger {
     font-size: 1.15em;
 }
 
@@ -149,6 +149,7 @@ input.large-input {
 
 .text-lighter {
     font-weight: lighter;
+    font-family: 'Open Sans Light';
 }
 
 .small-text{
@@ -413,5 +414,6 @@ div.card {
 .empty-message {
     font-size: 2.2em;
     font-weight: lighter;
+    font-family: 'Open Sans Light';
     text-align: center;
 }
