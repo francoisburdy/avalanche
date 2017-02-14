@@ -1,0 +1,222 @@
+[
+    {
+        "nom": "Avalanche Belledonne 13 janvier",
+        "beginDate": "2017-01-13T10:02:29.688Z",
+        "endDate": "2017-01-13T18:11:34.084Z",
+        "personnels": [
+            {
+                "beginDate": "2017-01-13T10:04:34.113Z",
+                "endDate": "2017-01-13T15:10:59.497Z",
+                "missions": [
+                    {
+                        "libelle": "COS CRS",
+                        "beginDate": "2017-01-13T10:05:13.481Z"
+                    },
+                    {
+                        "libelle": "Recherche Chien",
+                        "beginDate": "2017-01-13T14:05:24.973Z"
+                    }
+                ],
+                "numero": 3,
+                "metier": {
+                    "libelle": "CRS",
+                    "bg": "#b3ccff",
+                    "text": "#000"
+                }
+            },
+            {
+                "beginDate": "2017-01-13T10:08:08.387Z",
+                "endDate": "2017-01-13T17:05:15.166Z",
+                "missions": [
+                    {
+                        "libelle": "Sondage",
+                        "beginDate": "2017-01-13T10:09:27.371Z"
+                    }
+                ],
+                "metier": {
+                    "libelle": "CRS",
+                    "bg": "#b3ccff",
+                    "text": "#000"
+                },
+                "numero": 4
+            },
+            {
+                "beginDate": "2017-01-13T14:04:32.036Z",
+                "endDate": "2017-01-13T18:10:40.524Z",
+                "missions": [
+                    {
+                        "libelle": "COS pisteur",
+                        "beginDate": "2017-01-13T14:05:04.764Z"
+                    },
+                    {
+                        "libelle": "Surveillance soins",
+                        "beginDate": "2017-01-13T16:08:35.113Z"
+                    }
+                ],
+                "metier": {
+                    "libelle": "Pisteur",
+                    "bg": "#8b4ca0",
+                    "text": "#fff"
+                },
+                "numero": 12
+            },
+            {
+                "beginDate": "2017-01-13T13:05:52.667Z",
+                "endDate": "2017-01-13T18:10:14.382Z",
+                "missions": [],
+                "metier": {
+                    "libelle": "Pompier",
+                    "bg": "#b30000",
+                    "text": "#fff"
+                },
+                "numero": 21
+            },
+            {
+                "beginDate": "2017-01-13T10:06:05.193Z",
+                "endDate": "2017-01-13T14:29:19.480Z",
+                "missions": [
+                    {
+                        "libelle": "Pelletage",
+                        "beginDate": "2017-01-13T11:06:14.517Z"
+                    }
+                ],
+                "numero": 22,
+                "metier": {
+                    "libelle": "Pompier",
+                    "bg": "#b30000",
+                    "text": "#fff"
+                }
+            },
+            {
+                "beginDate": "2017-01-13T14:06:20.309Z",
+                "endDate": "2017-01-13T18:10:11.285Z",
+                "missions": [
+                    {
+                        "libelle": "Prise en charge victime",
+                        "beginDate": "2017-01-13T14:06:49.633Z"
+                    }
+                ],
+                "metier": {
+                    "libelle": "Secouriste",
+                    "bg": "#54a754",
+                    "text": "#fff"
+                },
+                "numero": 17
+            },
+            {
+                "beginDate": "2017-01-13T11:07:38.703Z",
+                "endDate": "2017-01-13T15:11:17.356Z",
+                "missions": [
+                    {
+                        "libelle": "Constatation judiciaire",
+                        "beginDate": "2017-01-13T11:08:03.706Z"
+                    }
+                ],
+                "metier": {
+                    "libelle": "Gendarme",
+                    "bg": "#001a66",
+                    "text": "#fff"
+                },
+                "numero": 40
+            },
+            {
+                "beginDate": "2017-01-13T16:08:40.205Z",
+                "endDate": "2017-01-13T18:10:04.058Z",
+                "missions": [
+                    {
+                        "libelle": "Secrétaire",
+                        "beginDate": "2017-01-13T16:09:08.625Z"
+                    }
+                ],
+                "metier": {
+                    "libelle": "Moniteur",
+                    "bg": "#ffdb4d",
+                    "text": "#000"
+                },
+                "numero": 14
+            },
+            {
+                "beginDate": "2017-01-13T10:09:42.498Z",
+                "endDate": "2017-01-13T17:11:27.956Z",
+                "missions": [
+                    {
+                        "libelle": "Guetteur",
+                        "beginDate": "2017-01-13T10:10:20.603Z"
+                    },
+                    {
+                        "libelle": "Constatation judiciaire",
+                        "beginDate": "2017-01-13T15:11:25.751Z"
+                    }
+                ],
+                "metier": {
+                    "libelle": "Gendarme",
+                    "bg": "#001a66",
+                    "text": "#fff"
+                },
+                "numero": 67
+            }
+        ],
+        "victimes": [
+            {
+                "numero": 1,
+                "situation": "Évacuée",
+                "status": {
+                    "libelle": "Inconnu",
+                    "code": "?",
+                    "bg": "#fff",
+                    "text": "#333"
+                },
+                "beginDate": "2017-01-13T15:03:47.550Z",
+                "endDate": "2017-01-13T17:10:31.357Z"
+            },
+            {
+                "numero": 2,
+                "situation": "Évacuée",
+                "status": {
+                    "libelle": "Urgence relative",
+                    "code": "UR",
+                    "bg": "#fffd36",
+                    "text": "#000"
+                },
+                "beginDate": "2017-01-13T12:03:59.624Z",
+                "endDate": "2017-01-13T17:11:07.905Z"
+            },
+            {
+                "numero": 3,
+                "situation": "Évacuée",
+                "status": {
+                    "libelle": "Urgence relative",
+                    "code": "UR",
+                    "bg": "#fffd36",
+                    "text": "#000"
+                },
+                "beginDate": "2017-01-13T14:05:40.700Z",
+                "endDate": "2017-01-13T17:05:45.048Z"
+            },
+            {
+                "numero": 4,
+                "situation": "Évacuée",
+                "status": {
+                    "libelle": "Décédée",
+                    "code": "DCD",
+                    "bg": "#000",
+                    "text": "#fff"
+                },
+                "beginDate": "2017-01-13T17:07:07.651Z",
+                "endDate": "2017-01-13T18:07:18.339Z"
+            },
+            {
+                "numero": 5,
+                "situation": "Évacuée",
+                "status": {
+                    "libelle": "Indemne",
+                    "code": "I",
+                    "bg": "#DCDDDE",
+                    "text": "#333"
+                },
+                "beginDate": "2017-01-13T11:59:31.642Z",
+                "endDate": "2017-01-13T12:35:55.217Z"
+            }
+        ]
+    }
+]

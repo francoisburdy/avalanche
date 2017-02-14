@@ -1,4 +1,4 @@
-﻿angular.module('myApp').service('Global', function($localStorage, $rootScope, $location) {
+﻿angular.module('myApp').service('Global', function($localStorage, $rootScope, $location, $http) {
     
     /**
      * Ferme l'application
@@ -29,7 +29,20 @@
     }
 
     this.loadDemoData = function() {
-        // TODO : charger données de démo
+        $http.get('demo/demo-historique.json').then(function(res) {
+            console.log("historique", res);
+            if(res.status == 200 && res.data)
+                $localStorage.historique = res.data;                
+        });
+
+        $http.get('demo/demo-operation.json').then(function(res) {
+            console.log("operation", res);
+            if(res.status == 200 && res.data)
+                $localStorage.operation = res.data;                
+        });
+
+        // TODO : faire une redirection sur dashboard après chargement terminé (promise ?)
+
     }
 
 });
