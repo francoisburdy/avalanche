@@ -36,7 +36,14 @@
         "exitCanceled": "Sortie de personnel annulée"
     },
     "export": {
-        "historyReportTitle": "Rapport des opérations"
+        "historyReportTitle": "Rapport des opérations",
+        "generated" : "Généré le",
+        "temporaryReport" : "Rapport temporaire d'opération",
+        "victimesAnd" : "victimes et",
+        "personnels" : "personnels",
+        "marquedFinished" : "L'opération à été marquée comme terminée à",
+        "notMarquedFinished" : "l'opération n'est pas marquée comme terminée",
+        "at" : "&Agrave;"
     },
     "historique": {
         "title": "Historique des opérations",

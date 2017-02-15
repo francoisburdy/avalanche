@@ -36,7 +36,14 @@
         "exitCanceled": "Rescuer exit canceled"
     },
     "export": {
-        "historyReportTitle": "Operations history report"
+        "historyReportTitle": "Operations history report",
+        "generated" : "Generated the",
+        "temporaryReport" : "Temporary operation report",
+        "victimesAnd" : "victims and",
+        "personnels" : "rescuers",
+        "marquedFinished" : "The operation has been marqued as finished at",
+        "notMarquedFinished" : "the operation is not marqued as finished",
+        "at" : "At"
     },
     "historique": {
         "title": "Operations history",
