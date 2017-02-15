@@ -206,6 +206,10 @@ a.flat-link:active, a.flat-link:hover, a.flat-link:focus {
     padding: 20px 15px;
 }
 
+.menu .list-group-item span {
+    font-weight: bold;
+}
+
 .list-group-item.active, .list-group-item.active:focus {
     background: #1976D2;
 }
@@ -216,30 +220,30 @@ a.flat-link:active, a.flat-link:hover, a.flat-link:focus {
 }
 
 .navbar-app {
-	min-height: 70px;
+    min-height: 70px;
     border:none;
     box-shadow: 0 1px 5px rgba(0,0,0,0.12), 0 0px 20px rgba(0,0,0,0.18);
 }
 
 .navbar .btn-group {
-	z-index: 100;
+    z-index: 100;
     padding-right: 1.5em;
 }
 
 .navbar-app .btn {
-	line-height: 70px;
+    line-height: 70px;
     border-radius: 0;
     padding: 0em 1.2em;
 }
 
 .navbar-brand {
-	line-height: 40px;
-    font-size: 20px;
+    line-height: 40px;
+    font-size: 1.23em;
     height: 70px;
 }
 
 .has-navbar-top .app-body {
-	padding-top: 70px;
+    padding-top: 70px;
 }
 
 .app-body, .app-content {
@@ -247,16 +251,16 @@ a.flat-link:active, a.flat-link:hover, a.flat-link:focus {
 }
 
 .faster-sidebar {
-    -webkit-transition: width 250ms ease;
-    -o-transition: width 250ms ease;
-  	transition: width 250ms ease;
+    -webkit-transition: width 200ms ease;
+    -o-transition: width 200ms ease;
+    transition: width 200ms ease;
 }
 
 .app.faster {
-	-webkit-transition: -webkit-transform 250ms ease;
-    -moz-transition: -moz-transform 250ms ease;
-    -o-transition: -o-transform 250ms ease;
-    transition: transform 250ms ease;
+    -webkit-transition: -webkit-transform 200ms ease;
+    -moz-transition: -moz-transform 200ms ease;
+    -o-transition: -o-transform 200ms ease;
+    transition: transform 200ms ease;
 }
 
 div.card {
@@ -302,6 +306,11 @@ div.card {
     width: 80px;
     height: 80px;
     bottom: 1em;
+}
+
+.btn-bottom-left div:active, .btn-bottom-right div:active, .btn-bottom-center div:active {
+    opacity: 0.75;
+    box-shadow: none;
 }
 
 .btn-bottom-right div i, .btn-bottom-left div i, .btn-bottom-center div i {

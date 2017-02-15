@@ -3,7 +3,7 @@
     margin-right: -5px;
 }
 
-.parametres-items .parametres-item{
+.parametres-items .parametres-item {
     padding-left: 4px;
     padding-right: 4px;
 }
@@ -17,18 +17,18 @@
     line-height: 0.9em;
 }
 
-.parametres-items button.btn-lg{
+.parametres-items button.btn-lg {
     text-align: left;
     padding: 6px 12px 4px 12px;
 }
 
-.parametres-items button.btn-lg i.right{
+.parametres-items button.btn-lg i.right {
     float: right;
     line-height: 24px;
     font-size: 0.9em;
 }
 
-.parametres-items button.btn-lg i.left{
+.parametres-items button.btn-lg i.left {
     float: left;
     line-height: 24px;
     font-size: 0.9em;
@@ -70,3 +70,18 @@
     padding: 0.8em 1em;
     box-shadow: none;
 }
+
+.lang-items {
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.lang-item {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.lang-item button {
+    font-size: 1.2em;
+}
+

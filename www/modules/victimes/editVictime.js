@@ -46,18 +46,18 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
         );
     }
     
-    window.addEventListener('native.keyboardshow', keyboardShowHandler);
-    window.addEventListener('native.keyboardhide', keyboardHideHandler);
-
-    function keyboardShowHandler(e) {
+    /**
+     * Ecoute les évenements clavier pour cacher afficher les boutons flottants
+     */
+    window.addEventListener('native.keyboardshow', function(e) {
         $scope.keyboardVisible = true;
-        $scope.$apply();
-    }
+        $scope.$apply();        
+    });
 
-    function keyboardHideHandler(e) {
+    window.addEventListener('native.keyboardhide', function(e) {
         $scope.keyboardVisible = false;
         $scope.$apply();
-    }
+    });
 
     /**
      * Met à jour l'opération dans le scope lorsque le local storage est modifié 

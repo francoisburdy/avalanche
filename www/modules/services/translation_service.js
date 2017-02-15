@@ -1,9 +1,7 @@
-angular.module('myApp').service('Translation', function($resource, Parametres) {
+angular.module('myApp').service('Translation', function($resource, $rootScope, Parametres) {
     
     this.getTranslation = function($scope) {
-    	var language = Parametres.getCurrentLanguage();
-        var languageFilePath = 'translations/translation_' + language.code + '.json';
-        $resource(languageFilePath).get(function(data) {
+        $resource('translations/translation_' + Parametres.getCurrentLanguage().code + '.json').get(function(data) {
             $scope.translation = data;
         });
     };

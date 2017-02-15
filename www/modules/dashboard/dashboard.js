@@ -2,9 +2,9 @@
 
 
 angular.module('myApp').controller('DashboardCtrl', function($scope, $location, $rootScope, Operation, Parametres, Global, Translation) {
-    Translation.getTranslation($scope);
 
     function init() {
+        Translation.getTranslation($scope);
         $scope.operation = Operation.getOperation();
         $scope.metiers = Parametres.getMetiers();
 
@@ -48,17 +48,16 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
      */
     $scope.terminateOperation = function() {
          navigator.notification.confirm(
-            'Souhaitez-vous mettre fin à l\'opération ?\nIl ne sera plus possible de modifier les informations.', 
+            $scope.translation.dashboard.confirmTerminateMsg, 
             function(buttonIndex) {
                 if(buttonIndex == 2) {
                     Operation.terminate();
-                    console.log('Opération terminée...');
                     $location.url('/home')
                     $scope.$apply();
                 }
             }, 
-            'Terminer l\'opération', 
-            ['Annuler', 'Terminer']
+            $scope.translation.terminate + ' ' + $scope.translation.theOperation, 
+            [$scope.translation.cancel, $scope.translation.terminate]
         );
     }
 

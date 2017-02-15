@@ -25,7 +25,7 @@
                         <div class="col-xs-6 col-md-3 parametres-item">
                             <button  ui-turn-on="modalAddMetier" type="button" 
                                 class="btn btn-lg full-width white-bg center">
-                                <i class="fa fa-plus-circle left" aria-hidden="true"></i> {{translation.parametres.new}}
+                                <i class="fa fa-plus-circle left" aria-hidden="true"></i> {{translation.new}}
                             </button>
                         </div>
 
@@ -37,8 +37,8 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">{{translation.parametres.languageChoice}}</h3>
                 </div>
-                <div class="panel-body">
-                    <div class="col-xs-6 col-md-3 parametres-item" ng-repeat="l in languages">
+                <div class="panel-body row lang-items">
+                    <div class="col-xs-6 col-md-4 lang-item" ng-repeat="l in languages">
                         <button type="button" class="btn btn-lg full-width" ng-click="changeLanguage(l)">
                             <div>
                                 <i class="fa fa-circle-o" ng-if="language.code != l.code"></i>
@@ -98,7 +98,7 @@
                     </div>
                 </div> <!-- end modale ajout métier -->
 
-            <!-- Modale modifier métier-->
+                <!-- Modale modifier métier-->
                 <div class="modal" ui-if='modalModifyMetier' ui-state='modalModifyMetier'>
                     <div class="modal-backdrop in"></div>
                     <div class="modal-dialog">

@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $routeParams, $location, $document, Operation, Parametres, Translation) {
-    Translation.getTranslation($scope);
 
     function init() {
+        Translation.getTranslation($scope);
         $scope.tmpPersonnel = Operation.getTmpPersonnel();
         
         if(!$scope.tmpPersonnel) {
@@ -80,16 +80,17 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
         console.log('image : onFail');
     }
 
-    window.addEventListener('native.keyboardshow', keyboardShowHandler);
-    window.addEventListener('native.keyboardhide', keyboardHideHandler);
-
-    function keyboardShowHandler(e) {
+    /**
+     * Ecoute les évenements clavier pour cacher afficher les boutons flottants
+     */
+    window.addEventListener('native.keyboardshow', function(e) {
         $scope.keyboardVisible = true;
-        $scope.$apply();
-    }
+        $scope.$apply();        
+    });
 
-    function keyboardHideHandler(e) {
+    window.addEventListener('native.keyboardhide', function(e) {
         $scope.keyboardVisible = false;
         $scope.$apply();
-    }
+    });
+
 });
