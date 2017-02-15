@@ -1,7 +1,7 @@
 angular.module('myApp').service('Export', function($filter, Operation) {
     
-    this.exportAllOperation = function() {
-        var html = this.historiqueAsHtml();
+    this.exportAllOperation = function($scope) {
+        var html = this.historiqueAsHtml($scope);
         pdf.htmlToPDF({
             data: html,
             documentSize: "A4",
@@ -10,8 +10,8 @@ angular.module('myApp').service('Export', function($filter, Operation) {
         }, null, null);
     }
 
-    this.exportCurrentOperation = function() {
-        var html = this.currentOperationAsHtml();
+    this.exportCurrentOperation = function($scope) {
+        var html = this.currentOperationAsHtml($scope);
         pdf.htmlToPDF({
             data: html,
             documentSize: "A4",
@@ -20,24 +20,24 @@ angular.module('myApp').service('Export', function($filter, Operation) {
         }, null, null);
     }
 
-    this.historiqueAsHtml = function() {
+    this.historiqueAsHtml = function($scope) {
         var operations = Operation.getJournaux();
         var now = $filter('date')(new Date(), 'dd/MM/yyyy à HH:mm');
 
         var html = '<!doctype html><html lang="fr"><head>';
         html += '<style type="text/css">body{margin:1.8cm 2.3cm}</style>';
         html += '</head>';
-        html += '<body><h1>Rapport des opérations</h1>';
+        html += '<body><h1>' + $scope.translation.export.historyReportTitle + '</h1>';
         html += '<div style="text-align:right"><em>Généré le '+ now +'</em></div>';
         for (let o of operations){
-            html += this.operationAsHtml(o) + "<br /><hr />";
+            html += this.operationAsHtml(o, $scope) + "<br /><hr />";
         }
         html += "</body></html>";
 
         return html.escape();
     }
 
-    this.currentOperationAsHtml = function() {
+    this.currentOperationAsHtml = function($scope) {
         let o = Operation.getCurrentJournal();
         var now = $filter('date')(new Date(), 'dd/MM/yyyy à HH:mm');
 
@@ -46,13 +46,13 @@ angular.module('myApp').service('Export', function($filter, Operation) {
         html += '</head>';
         html += '<body><h1>Rapport temporaire d\'opération</h1>';
         html += '<div style="text-align:right"><em>Généré le '+ now +'</em></div>';
-		html += this.operationAsHtml(o) + "<br /><hr />";
+		html += this.operationAsHtml(o, $scope) + "<br /><hr />";
         html += "</body></html>";
 
         return html.escape();
     }
 
-    this.operationAsHtml = function(o) {
+    this.operationAsHtml = function(o, $scope) {
         var date = $filter('date')(o.beginDate, 'dd/MM/yyyy');
         var dateDebut = $filter('date')(o.beginDate, 'dd/MM/yyyy, HH:mm');
         var dateFin = $filter('date')(o.endDate, 'dd/MM/yyyy, HH:mm');

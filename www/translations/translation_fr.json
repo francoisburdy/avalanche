@@ -35,6 +35,9 @@
         "confirmation": "Confirmation",
         "exitCanceled": "Sortie de personnel annulée"
     },
+    "export": {
+        "historyReportTitle": "Rapport des opérations"
+    },
     "historique": {
         "title": "Historique des opérations",
         "noHistory": "Aucune opération passée n'est enregistrée",

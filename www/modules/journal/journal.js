@@ -11,7 +11,7 @@ angular.module('myApp').controller('JournalCtrl', function($scope, Operation, Ex
     init();
 
     $scope.exportPdf = function() {
-        Export.exportCurrentOperation();
+        Export.exportCurrentOperation($scope);
     }
 
 });

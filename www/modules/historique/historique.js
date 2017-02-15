@@ -24,7 +24,7 @@ angular.module('myApp').controller('HistoriqueCtrl', function($scope, Operation,
     }
 
     $scope.exportPdf = function() {
-        Export.exportAllOperation();
+        Export.exportAllOperation($scope);
     }
 
 

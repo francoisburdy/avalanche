@@ -35,6 +35,9 @@
         "confirmation": "Confirmation",
         "exitCanceled": "Rescuer exit canceled"
     },
+    "export": {
+        "historyReportTitle": "Operations history report"
+    },
     "historique": {
         "title": "Operations history",
         "noHistory": "No past operation is saved",
