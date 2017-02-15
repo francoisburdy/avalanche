@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres, Translation, Operation) {
+angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope, Parametres, Translation, Operation) {
 
     function init() {
         Translation.getTranslation($scope);
@@ -21,7 +21,12 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
     }
 
     $scope.addMetier = function(color, metier) {
-        Parametres.addMetier({libelle: metier, bg: color, text: '#000'});
+        if (!metier){
+            navigator.notification.alert("Saisissez un intitulé de métier.");
+        }else{
+            Parametres.addMetier({libelle: metier, bg: color, text: '#000'});
+            $rootScope.Ui.turnOff('modalAddMetier')
+        }
     } 
 
     $scope.removeMetier = function(metier) {

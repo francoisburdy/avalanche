@@ -68,7 +68,7 @@
                                 <form>
                                     <div class="form-group form-group-lg">
                                         <label for="labelMetier">
-                                            {{translation.parametres.metier}}
+                                            {{translation.parametres.metier}}<span class="red-text">*</span>
                                         </label>
                                         <!-- TODO requiered -->
                                         <input type="text" class="form-control" 
@@ -90,7 +90,7 @@
                                 <button ui-turn-off="modalAddMetier" class="btn btn-default btn-lg min-width-40">
                                     <i class="fa fa-times" aria-hidden="true"></i> &nbsp; {{translation.cancel}}
                                 </button>
-                                <button ui-turn-off="modalAddMetier" class="btn btn-primary btn-lg min-width-40" 
+                                <button class="btn btn-primary btn-lg min-width-40" 
                                         ng-click="addMetier(color, labelMetier)">
                                     <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{translation.validate}}
                                 </button>
