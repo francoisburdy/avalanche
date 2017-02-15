@@ -31,16 +31,16 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
         navigator.notification.prompt(
             'Cette action est irréversible !\nSaisir SUPPRIMER pour confirmer', 
             function(results) {
-                if(results.buttonIndex == 2 && results.input1.toLowerCase() == "supprimer") {
+                if(results.buttonIndex == 1 && results.input1.toLowerCase() == "supprimer") {
                     console.log('Purge all data !');
                     Global.purgeData();
-                    //$location.url('/home');
+                    // TODO : mettre une confirm pop-up
                 } else {
                     console.log('Purge annulée')
                 }
             }, 
             'Supprimer les données',
-            ['Annuler', 'Supprimer']
+            ['Supprimer', 'Annuler']
         );
     }
 
@@ -52,10 +52,12 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
         navigator.notification.prompt(
             'Cette action est irréversible !\nSaisir DEMO pour confirmer', 
             function(results) {
-                if(results.buttonIndex == 2 && results.input1.toLowerCase() == "demo") {
+                if(results.buttonIndex == 1 && results.input1.toLowerCase() == "demo") {
                     console.log('Charger les données de démo !');
                     Global.purgeData();
                     Global.loadDemoData();
+                    
+                    // TODO : mettre une confirm pop-up
                 } else {
                     console.log('Chargement données démo annulé !');
                 }

@@ -1,10 +1,13 @@
 'use strict';
 
 angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation) {
-    Translation.getTranslation($scope);
 
-    $scope.personnel = Operation.getPersonnel($routeParams.num);
-    $scope.missions = Parametres.getMissions();
+    function init() {
+        Translation.getTranslation($scope);
+        $scope.personnel = Operation.getPersonnel($routeParams.num);
+        $scope.missions = Parametres.getMissions();
+    }
+    init();
 
     $scope.evacuatePersonnel = function() {
         $location.url('/metiers/' + $scope.personnel.metier.libelle);
@@ -28,20 +31,18 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
         $location.url('/metiers/' + $scope.personnel.metier.libelle);
     }
 
-
-    window.addEventListener('native.keyboardshow', keyboardShowHandler);
-    window.addEventListener('native.keyboardhide', keyboardHideHandler);
-
-    function keyboardShowHandler(e) {
+    /**
+     * Ecoute les évenements clavier pour cacher afficher les boutons flottants
+     */
+    window.addEventListener('native.keyboardshow', function(e) {
         $scope.keyboardVisible = true;
-        $scope.$apply();
-    }
+        $scope.$apply();        
+    });
 
-    function keyboardHideHandler(e) {
+    window.addEventListener('native.keyboardhide', function(e) {
         $scope.keyboardVisible = false;
         $scope.$apply();
-    }
-    
+    });    
 
     /**
      * Met à jour l'opération dans le scope lorsque le local storage est modifié 
@@ -49,4 +50,5 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
     $scope.$on('operationUpdated', function(event) {
         $scope.operation = Operation.getOperation();
     });
+
 });

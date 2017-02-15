@@ -1,13 +1,16 @@
 'use strict';
 
 angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres, Translation) {
-    Translation.getTranslation($scope);
 
-    $scope.metiers = Parametres.getMetiers();
-    $scope.victimeStatus = Parametres.getVictimeStatus();
-    $scope.victimeSituation = Parametres.getVictimeSituations();
-    $scope.languages = Parametres.getLanguages();
-    $scope.language = Parametres.getCurrentLanguage();
+    function init() {
+        Translation.getTranslation($scope);
+        $scope.metiers = Parametres.getMetiers();
+        $scope.victimeStatus = Parametres.getVictimeStatus();
+        $scope.victimeSituation = Parametres.getVictimeSituations();
+        $scope.languages = Parametres.getLanguages();
+        $scope.language = Parametres.getCurrentLanguage();
+    }
+    init();
     
     $scope.changeLanguage = function(lang) {
         Parametres.setLanguage(lang);
@@ -51,5 +54,8 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
         $scope.metiers = Parametres.getMetiers();
     });
 
+    $scope.$on('langUpdated', function(event) {
+        Translation.getTranslation($scope);
+    });
 
 });

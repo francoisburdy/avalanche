@@ -1,89 +1,93 @@
 {
-	"home" : {
-		"btnDemarrerOperation" : "Démarrer une opération",
-		"btnHistoriqueOperation" : "Historique des opérations",
-		"menuPurge" : "Supprimer les données",
-		"menuLoad" : "Charger les données de démo",
-		"menuClose" : "Fermer l'application"
-	},
-	"dashboard" : {
-		"title" : "Opération en cours",
-		"terminateOperation" : "Terminer l'opération",
-		"exitApplication" : "Fermer l'application",
-		"intervenant" : "intervenant",
-		"noIntervenant" : "Aucun personnel sur site actuellement",
-		"noVictime" : "Aucune victime présente sur site actuellement",
-		"noEvacuatedVictime" : "Aucune victime évacuée"
-	},
-	"export" : {
+    "home" : {
+        "btnDemarrerOperation" : "Démarrer une opération",
+        "btnHistoriqueOperation" : "Historique des opérations",
+        "menuPurge" : "Supprimer les données",
+        "menuLoad" : "Charger les données de démo",
+        "menuClose" : "Fermer l'application"
+    },
+    "dashboard" : {
+        "title" : "Opération en cours",
+        "terminateOperation" : "Terminer l'opération",
+        "exitApplication" : "Fermer l'application",
+        "intervenant" : "intervenant",
+        "noIntervenant" : "Aucun personnel sur site actuellement",
+        "noVictime" : "Aucune victime présente sur site actuellement",
+        "noEvacuatedVictime" : "Aucune victime évacuée",
+        "confirmTerminateMsg": "Souhaitez-vous mettre fin à l'opération ?\nIl ne sera plus possible de modifier les informations."
+    },
+    "export" : {
 
-	},
-	"historique" : {
-		"title" : "Historique des opérations",
-		"noHistory" : "Aucune opération passée n'est enregistrée",
-		"endDate" : "et terminée le"
-	},
-	"intervenants" : {
-			"addIntervenant" : {
-				"title" : "Ajouter un intervenant",
-				"corpsMetier" : "Corps de métier"
-			},
-			"editIntervenant" : {
-				"title" : "Intervenant n°",
-				"delete" : "Supprimer l'intervenant"
-			},
-			"confirmIntervenant" : {
-				"title" : "Validation intervenant",
-				"affectedMission" : "Mission affectée"
-			},
-			"detailsMetier" : {
-				"negation" : "Aucun",
-				"noOneFromJob" : "présent sur site actuellement",
-				"arrival" : "Arrivée"
-			},
-			"number" : "N° de l'intervenant",
-			"currentMission" : "Mission courante"
-	},
-	"journal" : {
-		"title" : "Journal de l'opération",
-		"noOperation" : "Aucune opération n'est en cours",
-		"pdfExport" : "Export PDF",
-		"operationStarted" : "Opération débutée le",
-		"operationTime" : "à",
-		"implicated" : "Cette opération a impliqué",
-		"personnel" : "personnel"
-	},
-	"menu" : {
-		"home" : "Accueil"
-	},
-	"parametres" : {
-		"title" : "Paramètres",
-		"corpsMetier" : "Corps de métier intervenants",
-		"nouveau" : "Nouveau",
-		"languageChoice" : "Choix de la langue",
-		"addMetier" : "Ajouter un métier",
-		"metier" : "Intitulé métier",
-		"color": "Couleur associée",
-		"updateMetier" : "Modifier un métier",
-		"deleteMetier" : "Supprimer le métier"
-	},
-	"victimes" : {
-		"addVictime" : {
-			"title" : "Ajouter une victime"
-		},
-		"editVictime" : {
-			"title" : "Modifier la victime n°",
-			"deleteVictime" : "Supprimer la victime",
-			"evacuateVictime" : "Évacuer une victime",
-			"evacuate" : "Évacuer",
-			"confirmDelete" : "Souhaitez-vous vraiment supprimer la victime"
-		},
-		"number" : "N° de victime",
-		"status" : "Statut de la victime",
-		"situation" : "Situation de la victime"
-	},
-	"cancel" : "Annuler",
-	"validate" : "Valider",
-	"delete" : "Supprimer",
-	"victime" : "Victime"
+    },
+    "historique" : {
+        "title" : "Historique des opérations",
+        "noHistory" : "Aucune opération passée n'est enregistrée",
+        "endDate" : "et terminée le"
+    },
+    "intervenants" : {
+            "addIntervenant" : {
+                "title" : "Ajouter un intervenant",
+                "corpsMetier" : "Corps de métier"
+            },
+            "editIntervenant" : {
+                "title" : "Intervenant n°",
+                "delete" : "Supprimer l'intervenant"
+            },
+            "confirmIntervenant" : {
+                "title" : "Validation intervenant",
+                "affectedMission" : "Mission affectée"
+            },
+            "detailsMetier" : {
+                "negation" : "Aucun",
+                "noOneFromJob" : "présent sur site actuellement",
+                "arrival" : "Arrivée"
+            },
+            "number" : "N° de l'intervenant",
+            "currentMission" : "Mission courante"
+    },
+    "journal" : {
+        "title" : "Journal de l'opération",
+        "noOperation" : "Aucune opération n'est en cours",
+        "pdfExport" : "Export PDF",
+        "operationStarted" : "Opération débutée le",
+        "operationTime" : "à",
+        "implicated" : "Cette opération a impliqué",
+        "personnel" : "personnel"
+    },
+    "menu" : {
+        "home" : "Accueil"
+    },
+    "parametres" : {
+        "title" : "Paramètres",
+        "corpsMetier" : "Corps de métier intervenants",
+        "nouveau" : "Nouveau",
+        "languageChoice" : "Choix de la langue",
+        "addMetier" : "Ajouter un métier",
+        "metier" : "Intitulé métier",
+        "color": "Couleur associée",
+        "updateMetier" : "Modifier un métier",
+        "deleteMetier" : "Supprimer le métier"
+    },
+    "victimes" : {
+        "addVictime" : {
+            "title" : "Ajouter une victime"
+        },
+        "editVictime" : {
+            "title" : "Modifier la victime n°",
+            "deleteVictime" : "Supprimer la victime",
+            "evacuateVictime" : "Évacuer une victime",
+            "evacuate" : "Évacuer",
+            "confirmDelete" : "Souhaitez-vous vraiment supprimer la victime"
+        },
+        "number" : "N° de victime",
+        "status" : "Statut de la victime",
+        "situation" : "Situation de la victime"
+    },
+    "cancel" : "Annuler",
+    "validate" : "Valider",
+    "terminate" : "Terminer",
+    "delete" : "Supprimer",
+    "theOperation": "l'opération",
+    "new": "Nouveau",
+    "victime" : "Victime"
 }

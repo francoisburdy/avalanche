@@ -1,10 +1,13 @@
 'use strict';
 
 angular.module('myApp').controller('DetailsMetierCtrl', function($scope, $routeParams, $location, Operation, Translation) {
-    Translation.getTranslation($scope);
-
-    $scope.metier = $routeParams.lib; 
-    $scope.personnels = Operation.getPersonnelsByMetier($routeParams.lib);
+    
+    function init() {
+        Translation.getTranslation($scope);
+        $scope.metier = $routeParams.lib; 
+        $scope.personnels = Operation.getPersonnelsByMetier($routeParams.lib);
+    }
+    init();
 
     $scope.seeDetails = function(num) {
     	$location.url('/intervenants/' + num);
@@ -20,4 +23,5 @@ angular.module('myApp').controller('DetailsMetierCtrl', function($scope, $routeP
     $scope.$on('operationUpdated', function(event) {
         $scope.operation = Operation.getOperation();
     });
+
 });
