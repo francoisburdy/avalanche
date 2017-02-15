@@ -181,7 +181,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let v of operation.victimes) {           
             var evDebut = {
                 date: v.beginDate,
-                texte: $filter('date')(v.beginDate, scope.translation.hourFormat) + ' : ' + scope.translation.historique.victim + ' ' + v.numero + ' ' + scope.translation.historique.victimSaved + ' : '+ v.status.libelle + ' ' + scope.translation.historique.situation + ' '+ v.situation +'.',
+                texte: $filter('date')(v.beginDate, scope.translation.hourFormat) + ' : ' + scope.translation.historique.victim + v.numero + ' ' + scope.translation.historique.victimSaved + ' '+ v.status.libelle + ' ' + scope.translation.historique.situation + ' '+ v.situation +'.',
                 type: 'entrée'
             };
             journal.evenements.push(evDebut);

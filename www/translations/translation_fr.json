@@ -37,26 +37,26 @@
     },
     "export": {
         "historyReportTitle": "Rapport des opérations",
-        "generated" : "Généré le",
-        "temporaryReport" : "Rapport temporaire d'opération",
-        "victimesAnd" : "victimes et",
-        "personnels" : "personnels",
-        "marquedFinished" : "L'opération à été marquée comme terminée à",
-        "notMarquedFinished" : "l'opération n'est pas marquée comme terminée",
-        "atMaj" : "À;"
+        "generated": "Généré le",
+        "temporaryReport": "Rapport temporaire d'opération",
+        "victimesAnd": "victimes et",
+        "personnels": "personnels",
+        "marquedFinished": "L'opération à été marquée comme terminée à",
+        "notMarquedFinished": "l'opération n'est pas marquée comme terminée",
+        "atMaj": "À;"
     },
     "historique": {
-        "title": "Historique des opérations",
+        "title": "Historique",
         "noHistory": "Aucune opération passée n'est enregistrée",
         "endDate": "et terminée le",
-        "victim" : "La victime n°",
-        "intervenant" : "L'intervenant",
-        "victimSaved" : "a été enregistrée. Son statut est",
-        "situation" : "et sa situation est",
-        "evacuated" : "a été évacuée. Son statut était",
-        "enterZone" : "est entré sur zone",
-        "leaveZone" : "est sorti de la zone",
-        "mission" : "a pris la mission"
+        "victim": "La victime n°",
+        "intervenant": "L'intervenant",
+        "victimSaved": "a été enregistrée. Son statut est",
+        "situation": "et sa situation est",
+        "evacuated": "a été évacuée. Son statut était",
+        "enterZone": "est entré sur zone",
+        "leaveZone": "est sorti de la zone",
+        "mission": "a pris la mission"
     },
     "intervenants": {
         "addIntervenant": {

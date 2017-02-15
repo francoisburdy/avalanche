@@ -37,26 +37,26 @@
     },
     "export": {
         "historyReportTitle": "Operations history report",
-        "generated" : "Generated the",
-        "temporaryReport" : "Temporary operation report",
-        "victimesAnd" : "victims and",
-        "personnels" : "rescuers",
-        "marquedFinished" : "The operation has been marqued as finished at",
-        "notMarquedFinished" : "the operation is not marqued as finished",
-        "atMaj" : "At"
+        "generated": "Generated the",
+        "temporaryReport": "Temporary operation report",
+        "victimesAnd": "victims and",
+        "personnels": "rescuers",
+        "marquedFinished": "The operation was marked as ended on",
+        "notMarquedFinished": "the operation is not marked as finished",
+        "atMaj": "At"
     },
     "historique": {
         "title": "Operations history",
         "noHistory": "No past operation is saved",
         "endDate": "and finished the",
-        "victim" : "The victim n°",
-        "intervenant" : "The rescuer",
-        "victimSaved" : "has been registered with the status",
-        "situation" : "et sa situation est",
-        "evacuated" : "has been evacuated with the status",
-        "enterZone" : "entered the zone",
-        "leaveZone" : "exited the zone",
-        "mission" : "took the mission"
+        "victim": "The victim #",
+        "intervenant": "The rescuer",
+        "victimSaved": "was registered with the status",
+        "situation": "and situation",
+        "evacuated": "was evacuated with the status",
+        "enterZone": "entered the zone",
+        "leaveZone": "left the zone",
+        "mission": "was affected the mission"
     },
     "intervenants": {
         "addIntervenant": {
@@ -77,17 +77,17 @@
         "detailsMetier": {
             "negation": "No",
             "noOneFromJob": "currently on site",
-            "arrival": "Arrival the"
+            "arrival": "Entered on"
         },
         "number": "Rescuer number",
         "currentMission": "Current mission"
     },
     "journal": {
-        "title": "Operation diary",
+        "title": "Operation journal",
         "noOperation": "No ongoing operation",
         "operationStarted": "Operation started the ",
         "at": "at",
-        "implicated": "This operation implicated",
+        "implicated": "This operation involved",
         "personnel": "Rescuer"
     },
     "menu": {
