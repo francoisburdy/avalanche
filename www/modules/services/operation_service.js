@@ -79,6 +79,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     /* Retourne la liste des personnels du métier passé en paramètre */
     this.getPersonnelsByMetier = function(libMetier) {
         let personnels = [];
+        if(!$localStorage.operation) return personnels;
         let pers = $localStorage.operation.personnels;
         for(let i = 0; i < pers.length; i++) {
             if(pers[i].metier.libelle == libMetier) personnels.push(pers[i]);
