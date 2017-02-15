@@ -180,7 +180,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let v of operation.victimes) {           
             var evDebut = {
                 date: v.beginDate,
-                texte: $filter('date')(v.beginDate, $scope.translation.hourFormat) + ' : La victime n°' + v.numero + ' a été enregistrée. Son statut est : '+ v.status.libelle + ' et sa situation est '+ v.situation +'.',
+                texte: $filter('date')(v.beginDate, $scope.translation.hourFormat) + ' : ' + $scope.translation.historique.victim + ' ' + v.numero + ' ' + $scope.translation.historique.victimSaved + ' : '+ v.status.libelle + ' ' + $scope.translation.historique.situation + ' '+ v.situation +'.',
                 type: 'entrée'
             };
             journal.evenements.push(evDebut);
@@ -188,7 +188,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(v.endDate != null) {
                 var evFin = {
                     date: v.endDate,
-                    texte: $filter('date')(v.endDate, $scope.translation.hourFormat) + ' : La victime n°' + v.numero + ' a été évacuée. Son statut était '+ v.status.libelle + '.',               
+                    texte: $filter('date')(v.endDate, $scope.translation.hourFormat) + ' : ' + $scope.translation.historique.victim + ' ' + v.numero + ' ' + $scope.translation.historique.evacuated + ' '+ v.status.libelle + '.',               
                     type: 'sortie'
                 };
                 journal.evenements.push(evFin);
@@ -198,7 +198,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let p of operation.personnels) {
             var evDebut = {
                 date: p.beginDate,
-                texte: $filter('date')(p.beginDate, $scope.translation.hourFormat) + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est entré sur zone.',
+                texte: $filter('date')(p.beginDate, $scope.translation.hourFormat) + ' : ' + $scope.translation.historique.intervenant + ' ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') ' + $scope.translation.historique.enterZone + '.',
                 type: 'entrée'  
             };
             journal.evenements.push(evDebut);
@@ -206,7 +206,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(p.endDate != null) {
                 var evFin = {
                     date: p.endDate,
-                    texte: $filter('date')(p.endDate, $scope.translation.hourFormat) + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est sorti de la zone.',
+                    texte: $filter('date')(p.endDate, $scope.translation.hourFormat) + ' : ' + $scope.translation.historique.intervenant + ' ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') ' + $scope.translation.historique.leaveZone + '.',
                     type: 'sortie'
                 }
                 journal.evenements.push(evFin);
@@ -215,7 +215,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             for(let m of p.missions) {
                 var evMission = {
                     date: m.beginDate,
-                    texte: $filter('date')(m.beginDate, $scope.translation.hourFormat) + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') a pris la mission ' + m.libelle +'.',
+                    texte: $filter('date')(m.beginDate, $scope.translation.hourFormat) + ' : ' + $scope.translation.historique.intervenant + ' ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') ' + $scope.translation.historique.mission + ' ' + m.libelle +'.',
                     type: 'maj'
                 };
                 journal.evenements.push(evMission);

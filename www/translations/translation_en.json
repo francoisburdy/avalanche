@@ -48,7 +48,15 @@
     "historique": {
         "title": "Operations history",
         "noHistory": "No past operation is saved",
-        "endDate": "and finished the"
+        "endDate": "and finished the",
+        "victim" : "The victim n°",
+        "intervenant" : "The rescuer",
+        "victimSaved" : "has been registered with the status",
+        "situation" : "et sa situation est",
+        "evacuated" : "has been evacuated with the status",
+        "enterZone" : "entered the zone",
+        "leaveZone" : "exited the zone",
+        "mission" : "took the mission"
     },
     "intervenants": {
         "addIntervenant": {

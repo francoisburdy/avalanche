@@ -48,7 +48,15 @@
     "historique": {
         "title": "Historique des opérations",
         "noHistory": "Aucune opération passée n'est enregistrée",
-        "endDate": "et terminée le"
+        "endDate": "et terminée le",
+        "victim" : "La victime n°",
+        "intervenant" : "L'intervenant",
+        "victimSaved" : "a été enregistrée. Son statut est",
+        "situation" : "et sa situation est",
+        "evacuated" : "a été évacuée. Son statut était",
+        "enterZone" : "est entré sur zone",
+        "leaveZone" : "est sorti de la zone",
+        "mission" : "a pris la mission"
     },
     "intervenants": {
         "addIntervenant": {
