@@ -10,7 +10,6 @@
         <div class="row personnels-list">
             <div ng-repeat="p in personnels | filter: {endDate: null}" class="col-xs-6 col-md-3 card inline">
                 <div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}" ng-click="seeDetails(p.numero)">
-                    <!-- TODO : mettre en page les cartes intervenant (image etc.) -->
                     <div class="img-container white-bg float-left">
                         <img ng-src="{{p.image}}" ng-if="p.image" class="intervenant-img" />
                         <img src="img/intervenant.png" ng-if="!p.image" class="intervenant-img" />

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres, Translation) {
+angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres, Translation, Operation) {
 
     function init() {
         Translation.getTranslation($scope);
@@ -26,15 +26,20 @@ angular.module('myApp').controller('ParametresCtrl', function($scope, Parametres
 
     $scope.removeMetier = function(metier) {
         // TODO : vérifier qu'il n'y a aucun intervenant pour ce métier dans l'opération courante
-        var i = 0;
-        while ($scope.metiers[i].libelle != metier && i<$scope.metiers.length) i++;
-        
-        if (i<$scope.metiers.length)
-            Parametres.removeMetier($scope.metiers[i]);
-        else 
-            console.log("Ce métier n'existe pas dans la liste des métiers.");
-        
-        Parametres.removeMetier(metier);
+        if (Operation.getPersonnelsByMetier(metier).length > 0){
+            navigator.notification.alert("Impossible de supprimer. \n Ce métier est encore utilisé dans l'opération", null, "Attention", "OK")
+        }else{
+            var i = 0;
+            while ($scope.metiers[i].libelle != metier && i<$scope.metiers.length) i++;
+            
+            if (i<$scope.metiers.length)
+                Parametres.removeMetier($scope.metiers[i]);
+            else 
+                console.log("Ce métier n'existe pas dans la liste des métiers.");
+            
+            Parametres.removeMetier(metier);
+        }
+
     }
 
     $scope.modifyMetier = function(color, metier) {

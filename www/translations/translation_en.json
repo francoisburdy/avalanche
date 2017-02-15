@@ -110,7 +110,7 @@
     "theOperation": "the operation",
     "new": "New",
 	"victime" : "Victim",
-    "intervenantNum" : "The rescuer number",
+    "intervenantNum" : "The rescuer #",
     "ok" : "OK",
     "cancelation" : "Cancelation",
     "create" : "Create"

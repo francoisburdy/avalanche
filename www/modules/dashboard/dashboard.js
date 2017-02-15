@@ -106,9 +106,11 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
                 navigator.notification.confirm(
                     $scope.translation.dashboard.exit + ' : ' + personnel.metier.libelle + ' ' + $scope.translation.dashboard.number + personnel.numero + '.',
                     function(buttonIndex) {
-                        console.log('buttonIndex', buttonIndex);
-                        Operation.evacuatePersonnel(personnel);
-                        $scope.$apply();
+                        if(buttonIndex == 1){
+                            console.log('buttonIndex', buttonIndex);
+                            Operation.evacuatePersonnel(personnel);
+                            $scope.$apply();
+                        }
                     },
                     $scope.translation.dashboard.confirmation, [$scope.translation.validate, $scope.translation.cancel]
                 )
