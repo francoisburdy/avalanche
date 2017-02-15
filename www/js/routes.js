@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @memberof avalanche
+ * @ngdoc module
+ */
 angular.module('myApp').config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 

@@ -1,9 +1,8 @@
 'use strict';
 
  /**
- * @class angular_module.myApp
- * @memberOf angular_module 
- */
+  * @name avalanche
+  */
 angular.module('myApp', [
   'ngRoute',
   'ngStorage',

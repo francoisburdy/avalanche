@@ -7,6 +7,8 @@
         <div ng-if="(personnels | filter: {endDate: null}).length == 0" class="empty-message">
            {{translation.intervenants.detailsMetier.negation}} {{metier | lowerMetier}} {{translation.intervenants.detailsMetier.noOneFromJob}}
         </div>
+        
+        <!-- Personnels présents -->
         <div class="row personnels-list">
             <div ng-repeat="p in personnels | filter: {endDate: null}" class="col-xs-6 col-md-3 card inline">
                 <div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}" ng-click="seeDetails(p.numero)">
@@ -28,11 +30,13 @@
 
         <hr/>
 
+        <!-- Personnels sortis -->
         <div class="row personnels-list list-history">
-            <div ng-if="(personnels | filter: {endDate: ''}).length != 0" class="empty-message title-history">Personnes déjà sorties
+            <div ng-if="(personnels | filter: {endDate: ''}).length != 0" class="empty-message title-history">
+                Personnes déjà sorties
             </div>
             <div ng-repeat="p in personnels | filter: {endDate: ''}" class="col-xs-6 col-md-3 card inline card-history">
-                <div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}" ng-click="seeDetails(p.numero)">
+                <div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}">
                     <div class="img-container white-bg float-left">
                         <img ng-src="{{p.image}}" ng-if="p.image" class="intervenant-img" />
                         <img src="img/intervenant.png" ng-if="!p.image" class="intervenant-img" />

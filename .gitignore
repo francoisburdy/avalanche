@@ -158,6 +158,7 @@ resources/signing
 # node
 npm-debug.log
 
+node_modules/
 platforms
 plugins
 www/logs/*
