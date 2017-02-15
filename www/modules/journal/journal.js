@@ -3,9 +3,8 @@
 angular.module('myApp').controller('JournalCtrl', function($scope, Operation, Export, Translation) {
 
     function init() {
-    	Translation.getTranslation($scope);
-        $scope.operation = Operation.getOperation();
-        $scope.journal = Operation.getJournal($scope.operation);
+        Translation.getTranslation($scope);
+        
     }
     
     init();
@@ -14,4 +13,8 @@ angular.module('myApp').controller('JournalCtrl', function($scope, Operation, Ex
         Export.exportCurrentOperation($scope);
     }
 
+    $scope.$on('translationLoaded', function(event) {
+        $scope.operation = Operation.getOperation();
+        $scope.journal = Operation.getJournal($scope.operation, $scope);
+    });
 });

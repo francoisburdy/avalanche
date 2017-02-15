@@ -154,20 +154,20 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
      * HISTORISATION DES DONNEES *
      ***************************/
 
-    this.getJournaux = function() {
+    this.getJournaux = function($scope) {
         var journaux = [];
 
         if($localStorage.historique) {
-            for(let operation of $localStorage.historique) journaux.push(this.getJournal(operation)); 
+            for(let operation of $localStorage.historique) journaux.push(this.getJournal(operation, $scope)); 
         }
         return journaux;
     }
 
-    this.getCurrentJournal = function() {
-        return this.getJournal(this.getOperation());
+    this.getCurrentJournal = function($scope) {
+        return this.getJournal(this.getOperation(), $scope);
     }
 
-    this.getJournal = function(operation) {
+    this.getJournal = function(operation, $scope) {
         var journal = {
             nom: operation.nom,
             beginDate: operation.beginDate,
@@ -180,7 +180,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let v of operation.victimes) {           
             var evDebut = {
                 date: v.beginDate,
-                texte: $filter('date')(v.beginDate, 'HH:mm') + ' : La victime n°' + v.numero + ' a été enregistrée. Son statut est : '+ v.status.libelle + ' et sa situation est '+ v.situation +'.',
+                texte: $filter('date')(v.beginDate, $scope.translation.hourFormat) + ' : La victime n°' + v.numero + ' a été enregistrée. Son statut est : '+ v.status.libelle + ' et sa situation est '+ v.situation +'.',
                 type: 'entrée'
             };
             journal.evenements.push(evDebut);
@@ -188,7 +188,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(v.endDate != null) {
                 var evFin = {
                     date: v.endDate,
-                    texte: $filter('date')(v.endDate, 'HH:mm') + ' : La victime n°' + v.numero + ' a été évacuée. Son statut était '+ v.status.libelle + '.',               
+                    texte: $filter('date')(v.endDate, $scope.translation.hourFormat) + ' : La victime n°' + v.numero + ' a été évacuée. Son statut était '+ v.status.libelle + '.',               
                     type: 'sortie'
                 };
                 journal.evenements.push(evFin);
@@ -198,7 +198,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let p of operation.personnels) {
             var evDebut = {
                 date: p.beginDate,
-                texte: $filter('date')(p.beginDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est entré sur zone.',
+                texte: $filter('date')(p.beginDate, $scope.translation.hourFormat) + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est entré sur zone.',
                 type: 'entrée'  
             };
             journal.evenements.push(evDebut);
@@ -206,7 +206,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(p.endDate != null) {
                 var evFin = {
                     date: p.endDate,
-                    texte: $filter('date')(p.endDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est sorti de la zone.',
+                    texte: $filter('date')(p.endDate, $scope.translation.hourFormat) + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') est sorti de la zone.',
                     type: 'sortie'
                 }
                 journal.evenements.push(evFin);
@@ -215,7 +215,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             for(let m of p.missions) {
                 var evMission = {
                     date: m.beginDate,
-                    texte: $filter('date')(m.beginDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') a pris la mission ' + m.libelle +'.',
+                    texte: $filter('date')(m.beginDate, $scope.translation.hourFormat) + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') a pris la mission ' + m.libelle +'.',
                     type: 'maj'
                 };
                 journal.evenements.push(evMission);

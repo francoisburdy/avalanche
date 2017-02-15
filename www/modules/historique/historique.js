@@ -3,7 +3,6 @@
 angular.module('myApp').controller('HistoriqueCtrl', function($scope, Operation, Export, Translation) {
 
     Translation.getTranslation($scope);
-    $scope.journaux = Operation.getJournaux();
 
     /**
      * Vérifie si l'index passé est sélectionné
@@ -27,5 +26,13 @@ angular.module('myApp').controller('HistoriqueCtrl', function($scope, Operation,
         Export.exportAllOperation($scope);
     }
 
+    $scope.$on('langUpdated', function(event) {
+        $scope.journaux = Operation.getJournaux($scope);
+        Translation.getTranslation($scope);
+    });
+
+    $scope.$on('translationLoaded', function(event) {
+        $scope.journaux = Operation.getJournaux($scope);
+    });
 
 });

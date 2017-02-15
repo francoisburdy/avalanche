@@ -43,7 +43,7 @@
         "personnels" : "personnels",
         "marquedFinished" : "L'opération à été marquée comme terminée à",
         "notMarquedFinished" : "l'opération n'est pas marquée comme terminée",
-        "at" : "&Agrave;"
+        "atMaj" : "À;"
     },
     "historique": {
         "title": "Historique des opérations",

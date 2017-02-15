@@ -43,7 +43,7 @@
         "personnels" : "rescuers",
         "marquedFinished" : "The operation has been marqued as finished at",
         "notMarquedFinished" : "the operation is not marqued as finished",
-        "at" : "At"
+        "atMaj" : "At"
     },
     "historique": {
         "title": "Operations history",

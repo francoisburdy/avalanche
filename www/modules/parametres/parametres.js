@@ -58,14 +58,11 @@ angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope
 
     $scope.$on('langUpdated', function(event) {
         $scope.language = Parametres.getCurrentLanguage();
+        Translation.getTranslation($scope);
     });
 
     $scope.$on('metiersUpdated', function(event) {
         $scope.metiers = Parametres.getMetiers();
-    });
-
-    $scope.$on('langUpdated', function(event) {
-        Translation.getTranslation($scope);
     });
 
 });

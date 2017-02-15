@@ -22,13 +22,14 @@ angular.module('myApp').service('Export', function($filter, Operation) {
 
     this.historiqueAsHtml = function($scope) {
         var operations = Operation.getJournaux();
-        var now = $filter('date')(new Date(), $scope.translation.dateFormat + ' ' + $scope.translation.journal.at + ' ' + $scope.translation.hourFormat);
+        var nowDate = $filter('date')(new Date(), $scope.translation.dateFormat);
+        var nowTime = $filter('date')(new Date(), $scope.translation.hourFormat);
 
         var html = '<!doctype html><html lang="fr"><head>';
         html += '<style type="text/css">body{margin:1.8cm 2.3cm}</style>';
         html += '</head>';
         html += '<body><h1>' + $scope.translation.export.historyReportTitle + '</h1>';
-        html += '<div style="text-align:right"><em>' + $scope.translation.export.generated + ' ' + now +'</em></div>';
+        html += '<div style="text-align:right"><em>' + $scope.translation.export.generated + ' ' + nowDate + ' ' + $scope.translation.journal.at + ' ' + nowTime + '</em></div>';
         for (let o of operations){
             html += this.operationAsHtml(o, $scope) + "<br /><hr />";
         }
@@ -39,13 +40,14 @@ angular.module('myApp').service('Export', function($filter, Operation) {
 
     this.currentOperationAsHtml = function($scope) {
         let o = Operation.getCurrentJournal();
-        var now = $filter('date')(new Date(), $scope.translation.dateFormat + ' ' + $scope.translation.journal.at + ' ' + $scope.translation.hourFormat);
+        var nowDate = $filter('date')(new Date(), $scope.translation.dateFormat);
+        var nowTime = $filter('date')(new Date(), $scope.translation.hourFormat);
 
         var html = '<!doctype html><html lang="fr"><head>';
         html += '<style type="text/css">body{margin:1.8cm 2.3cm}</style>';
         html += '</head>';
         html += '<body><h1>' + $scope.translation.export.temporaryReport + '</h1>';
-        html += '<div style="text-align:right"><em>' + $scope.translation.export.generated + ' ' + now + '</em></div>';
+        html += '<div style="text-align:right"><em>' + $scope.translation.export.generated + ' ' + nowDate + ' ' + $scope.translation.journal.at + ' ' + nowTime + '</em></div>';
 		html += this.operationAsHtml(o, $scope) + "<br /><hr />";
         html += "</body></html>";
 
@@ -59,7 +61,7 @@ angular.module('myApp').service('Export', function($filter, Operation) {
         var heureFin = $filter('date')(o.endDate, $scope.translation.hourFormat);
         var heureNow = $filter('date')(new Date(), $scope.translation.hourFormat);
 
-        var html = "<div><div><h3>" + o.nom + " " + date + "</h3><div>"; //titre + debut details operation
+        var html = "<div><div><h3>" + o.nom + "</h3><div>"; //titre + debut details operation
         html += '<p>' + $scope.translation.journal.operationStarted + ' ' + dateDebut + '.</p>';
         html += '<p>' + $scope.translation.journal.implicated + ' ' + o.nbVictimes + ' ' + $scope.translation.export.victimesAnd + ' ' + o.nbPersonnels + ' ' + $scope.translation.export.personnels + '.</p>';
 
@@ -68,14 +70,14 @@ angular.module('myApp').service('Export', function($filter, Operation) {
         if(heureFin)
         	html += "<p><em>" + $scope.translation.export.marquedFinished + " " + heureFin + "</em></p>";
         else 
-        	html += "<p><em>" + $scope.translation.export.at + " " + heureNow + ", " + $scope.translation.export.notMarquedFinished + ".</em></p>";
+        	html += "<p><em>" + $scope.translation.export.atMaj + " " + heureNow + ", " + $scope.translation.export.notMarquedFinished + ".</em></p>";
 
         html += "</div>";
         return html;
     }
 
     String.prototype.escape = function(){
-        return this.replace(/[éèàêôûùç€°]/g, function(a) {
+        return this.replace(/[ÀÉéèàêôûùç€°]/g, function(a) {
             return '&#'+a.charCodeAt(0)+';';
         });
     }
