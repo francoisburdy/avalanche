@@ -9,14 +9,28 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
     }
     init();
 
-    $scope.evacuatePersonnel = function() {
+    $scope.goToPrevious = function() {
         $location.url('/metiers/' + $scope.personnel.metier.libelle);
+    }
+
+    $scope.confirmGoBack = function() {
+        if(!$scope.personnel.numero) { // L'intervenant n'a pas de numéro
+            navigator.notification.alert("Saisissez le numéro de l'intervenant", null, "Numéro intervenant", "OK");
+        } else if(!$scope.personnel.metier) { // L'intervenant n'a pas de métier
+            navigator.notification.alert("Choisissez le métier de l'intervenant", null, "Corps de métier", "OK");
+        } else {
+            $scope.goToPrevious();
+        }
+    }
+
+    $scope.evacuatePersonnel = function() {
+        $scope.confirmGoBack();
         Operation.evacuatePersonnel($scope.personnel);
     }
 
     $scope.deletePersonnel = function() {
         // TODO : confirmation
-        $location.url('/metiers/' + $scope.personnel.metier.libelle);
+        $scope.goToPrevious();
         Operation.removePersonnel($scope.personnel);
     }
 
@@ -28,7 +42,7 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
             if($scope.selectedMission == '-- Autre --' && $scope.newSelectedMission) libMission = $scope.newSelectedMission;
                 $scope.personnel.missions.push({libelle: libMission, beginDate: new Date()});
         } 
-        $location.url('/metiers/' + $scope.personnel.metier.libelle);
+        $scope.confirmGoBack();
     }
 
     /**
