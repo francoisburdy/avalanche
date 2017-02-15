@@ -14,7 +14,17 @@
         "noIntervenant" : "Aucun personnel sur site actuellement",
         "noVictime" : "Aucune victime présente sur site actuellement",
         "noEvacuatedVictime" : "Aucune victime évacuée",
-        "confirmTerminateMsg": "Souhaitez-vous mettre fin à l'opération ?\nIl ne sera plus possible de modifier les informations."
+        "confirmTerminateMsg": "Souhaitez-vous mettre fin à l'opération ?\nIl ne sera plus possible de modifier les informations.",
+        "rescuerOutMsg" : "Saisissez le numéro de l\'intervenant sortant",
+        "rescuerOut" : "Sortie de personnel",
+        "notFound" : "est introuvable",
+        "intervenantNotFound" : "Intervenant introuvable",
+        "alreadyOut" : "Déjà sorti",
+        "isAlreadyOut" : "est déjà sorti le",
+        "exit" : "Sortie",
+        "number" : "n°",
+        "confirmation" : "Confirmation",
+        "exitCanceled" : "Sortie de personnel annulée"
     },
     "export" : {
 
@@ -60,7 +70,6 @@
     "parametres" : {
         "title" : "Paramètres",
         "corpsMetier" : "Corps de métier intervenants",
-        "nouveau" : "Nouveau",
         "languageChoice" : "Choix de la langue",
         "addMetier" : "Ajouter un métier",
         "metier" : "Intitulé métier",
@@ -89,5 +98,8 @@
     "delete" : "Supprimer",
     "theOperation": "l'opération",
     "new": "Nouveau",
-    "victime" : "Victime"
+    "victime" : "Victime",
+    "intervenantNum" : "L\'intervenant n°",
+    "ok" : "OK",
+    "cancelation" : "Annulation"
 }

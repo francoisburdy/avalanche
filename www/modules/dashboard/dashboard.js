@@ -79,43 +79,43 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     $scope.evacuatePersonnel = function() {
         navigator.notification.prompt(
-            'Saisissez le numéro de l\'intervenant sortant', 
+            $scope.translation.dashboard.rescuerOutMsg, 
             checkPersonnel, 
-            'Sortie de personnel', 
-            ['Valider', 'Annuler']
+            $scope.translation.dashboard.rescuerOut, 
+            [$scope.translation.validate, $scope.translation.cancel]
         );
     }
 
     function checkPersonnel(results) {
         if(results.buttonIndex == 1) {
-            console.log('Sortie du personnel', results.input1);
+            console.log($scope.translation.dashboard.rescuerOut, results.input1);
             var personnel = Operation.getPersonnel(results.input1);
             if(!personnel) { // Personnel inexistant
                 navigator.notification.alert(
-                    'L\'intervenant n°' + results.input1 + ' est introuvable.',
-                    null, 'Intervenant introuvable', ['OK']
+                    $scope.translation.intervenantNum + results.input1 + ' ' + $scope.translation.dashboard.notFound + '.',
+                    null, $scope.translation.dashboard.intervenantNotFound, [$scope.translation.ok]
                 )
             } else if(personnel.endDate) { // L'intervenant est déjà sorti
                 console.log('Personnel déjà sorti');
                 navigator.notification.confirm(
-                    'L\'intervenant n°' + personnel.numero + ' est déjà sorti le ' + personnel.endDate.toLocaleString() ,
-                    null, 'Déjà sorti', ['OK']
+                    $scope.translation.intervenantNum + personnel.numero + ' ' + $scope.translation.dashboard.isAlreadyOut + ' ' + personnel.endDate.toLocaleString() ,
+                    null, $scope.translation.alreadyOut, [$scope.translation.ok]
                 )
             } else { // On sort l'intervenant
                 navigator.notification.confirm(
-                    'Sortie : ' + personnel.metier.libelle + ' n°' + personnel.numero + '.',
+                    $scope.translation.dashboard.exit + ' : ' + personnel.metier.libelle + ' ' + $scope.translation.dashboard.number + personnel.numero + '.',
                     function(buttonIndex) {
                         console.log('buttonIndex', buttonIndex);
                         Operation.evacuatePersonnel(personnel);
                         $scope.$apply();
                     },
-                    'Confirmation', ['Valider', 'Annuler']
+                    $scope.translation.dashboard.confirmation, [$scope.translation.validate, $scope.translation.cancel]
                 )
             }
         } else { // Annulation
-            console.log('Sortie de personnel annulée');
+            console.log($scope.translation.dashboard.exitCanceled);
             navigator.notification.confirm(
-                'Sortie de personnel annulée.', null, 'Annulation', ['OK']
+                $scope.translation.dashboard.exitCanceled + '.', null, $scope.translation.cancelation, [$scope.translation.ok]
             )
         }
     }
