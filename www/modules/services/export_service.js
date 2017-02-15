@@ -45,7 +45,7 @@ angular.module('myApp').service('Export', function($filter, Operation) {
         html += '<style type="text/css">body{margin:1.8cm 2.3cm}</style>';
         html += '</head>';
         html += '<body><h1>' + $scope.translation.export.temporaryReport + '</h1>';
-        html += '<div style="text-align:right"><em>' + $scope.translation.export.generated ' ' + now +'</em></div>';
+        html += '<div style="text-align:right"><em>' + $scope.translation.export.generated + ' ' + now + '</em></div>';
 		html += this.operationAsHtml(o, $scope) + "<br /><hr />";
         html += "</body></html>";
 
