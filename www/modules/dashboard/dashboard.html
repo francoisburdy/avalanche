@@ -51,21 +51,7 @@
                     </div>
                 </div>
 
-                <div class="btn-bottom-left" ng-show="nbActivePersonnels() > 0">
-                    <div class="red-bg">
-                        <a ng-click="evacuatePersonnel()">
-                            <i class="fa fa-minus"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="btn-bottom-right">
-                    <div class="blue-bg">
-                        <a href="#!/addIntervenant">
-                            <i class="fa fa-plus"></i>
-                        </a>
-                    </div>
-                </div>
+                
 
             </div> <!-- end onglet personnel -->
 
@@ -126,13 +112,7 @@
                     </div>
                 </div>
 
-                <div class="btn-bottom-right">
-                    <div class="blue-bg">
-                        <a href="#!/victimes">
-                            <i class="fa fa-plus"></i>
-                        </a>
-                    </div>
-                </div> <!-- end btn-bottom-right --> 
+                 <!-- end btn-bottom-right --> 
 
             </div> <!-- end onglet victimes -->
 
@@ -140,3 +120,28 @@
 
     </div> <!-- end section -->
 </div> <!-- end scrollable -->
+
+
+<div ng-show="activeTab == 1" class="btn-bottom-left" ng-show="nbActivePersonnels() > 0">
+    <div class="red-bg">
+        <a ng-click="evacuatePersonnel()">
+            <i class="fa fa-minus"></i>
+        </a>
+    </div>
+</div>
+
+<div ng-show="activeTab == 1" class="btn-bottom-right">
+    <div class="blue-bg">
+        <a href="#!/addIntervenant">
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+</div>
+
+<div ng-show="activeTab == 2" class="btn-bottom-right">
+    <div class="blue-bg">
+        <a href="#!/victimes">
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+</div>
