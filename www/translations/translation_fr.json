@@ -43,14 +43,14 @@
         "personnels": "personnels",
         "marquedFinished": "L'opération à été marquée comme terminée à",
         "notMarquedFinished": "l'opération n'est pas marquée comme terminée",
-        "atMaj": "À;"
+        "atMaj": "À"
     },
     "historique": {
         "title": "Historique",
         "noHistory": "Aucune opération passée n'est enregistrée",
         "endDate": "et terminée le",
         "victim": "La victime n°",
-        "intervenant": "L'intervenant",
+        "intervenant": "L'intervenant n°",
         "victimSaved": "a été enregistrée. Son statut est",
         "situation": "et sa situation est",
         "evacuated": "a été évacuée. Son statut était",
