@@ -16,7 +16,7 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
             }, 
             $scope.translation.home.newOp,
             [$scope.translation.create, $scope.translation.cancel],
-            $scope.translation.avalancheFrom + ' ' + $filter('date')(new Date(), $scope.translation.dateFormat)
+            $scope.translation.home.avalancheFrom + ' ' + $filter('date')(new Date(), $scope.translation.dateFormat)
         );
     }
 
