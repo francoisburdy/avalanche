@@ -303,14 +303,20 @@ div.card {
     padding:10px;
 }
 
+/*.scrollable-content{
+    -webkit-overflow-scrolling: auto;
+}*/
+
 .btn-bottom-left div, .btn-bottom-right div, .btn-bottom-center div {
     position: fixed;
+    z-index: 900;
     border-radius: 50%;
     box-shadow: 0 16px 20px rgba(0,0,0,0.25), 0 5px 21px rgba(0,0,0,0.22);
     opacity: 0.97;
     width: 80px;
     height: 80px;
     bottom: 1em;
+    /*transform: translate3d(0px,0px,0px);*/
 }
 
 .btn-bottom-left div:active, .btn-bottom-right div:active, .btn-bottom-center div:active {
