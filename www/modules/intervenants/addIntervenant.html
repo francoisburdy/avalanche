@@ -37,7 +37,7 @@
                     <select ng-model="selectedMission" ng-options="m for m in missions">
                        <option label="Choisir une mission" selected="selected" disabled="disabled"></option>
                     </select>
-                    <input type="text" ng-model="newSelectedMission" ng-show="selectedMission == '-- Autre --'"/>
+                    <input type="text" class="large-input" placeholder="intitulé mission" ng-model="newSelectedMission" ng-show="selectedMission == '-- Autre --'"/>
                 </div>
             </div>
         </form>
