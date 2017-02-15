@@ -8,7 +8,7 @@
         François BURDY
     </author>
     <content src="index.html" />
-
+    <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#2196f3" />
     <preference name="ShowSplashScreenSpinner" value="false" />
