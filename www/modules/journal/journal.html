@@ -2,15 +2,16 @@
     <span>{{translation.journal.title}}</span>
 </div>
 
+<div class="btn-group dropdown-menu-btn">
+    <a class='btn' ng-click="exportPdf()">
+        <i class="fa fa-download fa-lg"></i> PDF
+    </a>
+</div>
+
 <div class="scrollable">
     <div class="scrollable-content section">
         <div ng-if="!journal" class="empty-message">
            {{translation.journal.noOperation}}.
-        </div>
-        <div ng-if="journal" class="btnExportJournal">
-            <button ng-click="exportPdf()" class="btn btn-primary btn-block">
-                <i class="fa fa-file-pdf-o" aria-hidden="true"></i> {{translation.journal.pdfExport}}
-            </button>
         </div>
 
         <h3 class="header-mission">{{journal.nom}}</h3>

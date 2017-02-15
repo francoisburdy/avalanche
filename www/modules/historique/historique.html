@@ -2,14 +2,16 @@
   <span>{{translation.historique.title}}</span>
 </div>
 
+<div class="btn-group dropdown-menu-btn">
+    <a class='btn' ng-click="exportPdf()">
+        <i class="fa fa-download fa-lg"></i> PDF
+    </a>
+</div>
+
 <div class="scrollable">
     <div class="scrollable-content section">
         <div ng-if="journaux.length == 0" class="empty-message">
            {{translation.historique.noHistory}}.
-        </div>
-
-        <div ng-if="journaux.length > 0">
-            <button ng-click="exportPdf()" class="btn btn-primary btn-block">{{translation.journal.pdfExport}}</button>
         </div>
 
         <div ng-repeat="j in journaux">
