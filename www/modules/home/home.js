@@ -72,6 +72,10 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
      */
     $scope.exitApp = function(){
         Global.exitApp();
-    }    
+    }
+
+    $scope.$on('dataFlushed', function(event) {
+        $location.url('/dashboard');
+    });
 
 });

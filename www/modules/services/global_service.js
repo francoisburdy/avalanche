@@ -33,17 +33,18 @@
             console.log("historique", res);
             if(res.status == 200 && res.data){
                 $localStorage.historique = res.data;                
-                $rootScope.$broadcast('operationUpdated');
+
+                $http.get('demo/demo-operation.json').then(function(res) {
+                    console.log("operation", res);
+                    if(res.status == 200 && res.data) {
+                        $localStorage.operation = res.data;                
+                        $rootScope.$broadcast('dataFlushed');
+                    }
+                });
             }
         });
 
-        $http.get('demo/demo-operation.json').then(function(res) {
-            console.log("operation", res);
-            if(res.status == 200 && res.data) {
-                $localStorage.operation = res.data;                
-                $rootScope.$broadcast('operationUpdated');
-            }
-        });
+        
         // TODO : faire une redirection sur dashboard après chargement terminé (promise ?)
     }
 

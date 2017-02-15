@@ -1,117 +1,114 @@
 {
-    "home" : {
-        "btnDemarrerOperation" : "Start operation",
-        "btnHistoriqueOperation" : "History",
-        "menuPurge" : "Delete all data",
-        "menuLoad" : "Load demo data",
-        "menuClose" : "Close application",
-        "newOpName" : "Select the name of the new operation",
-        "newOp" : "New operation",
-        "avalancheFrom" : "Avalanche of the",
-        "confirmDelete" : "This action is definitive !\nType SUPPRIMER to confirm",
-        "deleteData" : "Delete data",
-        "confirmDemo" : "This action is definitive !\nType DEMO to confirm",
-        "demoData" : "Demo data"
+    "home": {
+        "btnDemarrerOperation": "Start operation",
+        "btnHistoriqueOperation": "History",
+        "menuPurge": "Delete all data",
+        "menuLoad": "Load demo data",
+        "menuClose": "Close application",
+        "newOpName": "Select the name of the new operation",
+        "newOp": "New operation",
+        "avalancheFrom": "Avalanche of the",
+        "confirmDelete": "This action is definitive !\nType SUPPRIMER to confirm",
+        "deleteData": "Delete data",
+        "confirmDemo": "This action is definitive !\nType DEMO to confirm",
+        "demoData": "Demo data"
     },
-  	"dashboard" : {
-		"title" : "Ongoing operation",
-		"terminateOperation" : "Terminate operation",
-		"exitApplication" : "Close application",
-		"intervenant" : "rescuer",
-		"noIntervenant" : "No rescuer currently on site",
-		"noVictime" : "No victim currently on site",
-		"noEvacuatedVictime" : "No evacuated victim",
+    "dashboard": {
+        "title": "Ongoing operation",
+        "terminateOperation": "Terminate operation",
+        "exitApplication": "Close application",
+        "intervenant": "rescuer",
+        "noIntervenant": "No rescuer currently on site",
+        "noVictime": "No victim currently on site",
+        "noEvacuatedVictime": "No evacuated victim",
         "confirmTerminateMsg": "Would you like to terminate the running operation ?\nYou won't be able to edit it any longer.",
-        "rescuerOutMsg" : "Enter the number of the exiting rescuer",
-        "rescuerOut" : "Rescuer exit",
-        "notFound" : "cannot be found",
-        "intervenantNotFound" : "Rescuer not found",
-        "alreadyOut" : "Already out",
-        "isAlreadyOut" : "already went out the",
-        "exit" : "Exit",
-        "number" : "n°",
-        "confirmation" : "Confirmation",
-        "exitCanceled" : "Rescuer exit canceled"
-	},
-    "export" : {
-
+        "rescuerOutMsg": "Enter the number of the exiting rescuer",
+        "rescuerOut": "Rescuer exit",
+        "notFound": "cannot be found",
+        "intervenantNotFound": "Rescuer not found",
+        "alreadyOut": "Already out",
+        "isAlreadyOut": "already went out the",
+        "exit": "Exit",
+        "number": "n°",
+        "confirmation": "Confirmation",
+        "exitCanceled": "Rescuer exit canceled"
     },
-    "historique" : {
-		"title" : "Operations history",
-		"noHistory" : "No past operation is saved",
-		"endDate" : "and finished the"
+    "historique": {
+        "title": "Operations history",
+        "noHistory": "No past operation is saved",
+        "endDate": "and finished the"
     },
-    "intervenants" : {
-            "addIntervenant" : {
-                "title" : "Add a rescuer",
-                "corpsMetier" : "Profession",
-            	"selectMetier" : "Select profession",
-            	"selectMission" : "Select a mission",
-            	"missionPlaceholder" : "Mission title"
-            },
-            "editIntervenant" : {
-                "title" : "Rescuer n°",
-                "delete" : "Delete rescuer"
-            },
-            "confirmIntervenant" : {
-                "title" : "Confirm rescuer",
-                "affectedMission" : "Affected mission"
-            },
-            "detailsMetier" : {
-                "negation" : "No",
-                "noOneFromJob" : "currently on site",
-                "arrival" : "Arrival the"
-            },
-            "number" : "Rescuer number",
-            "currentMission" : "Current mission"
-    },
-    "journal" : {
-		"title" : "Operation diary",
-		"noOperation" : "No ongoing operation",
-		"operationStarted" : "Operation started the ",
-		"at" : "at",
-		"implicated" : "This operation implicated",
-		"personnel" : "Rescuer"
-    },
-    "menu" : {
-		"home" : "Home"
-    },
-    "parametres" : {
-    	"title" : "Settings",
-		"corpsMetier" : "Rescuers professions",
-		"languageChoice" : "Language choice",
-		"addMetier" : "Add a profession",
-		"metier" : "Profession label",
-		"color": "Associated color",
-		"updateMetier" : "Edit profession",
-		"deleteMetier" : "Delete profession"
-    },
-    "victimes" : {
-        "addVictime" : {
-            "title" : "Add a victim"
+    "intervenants": {
+        "addIntervenant": {
+            "title": "Add a rescuer",
+            "corpsMetier": "Profession",
+            "selectMetier": "Select profession",
+            "selectMission": "Select a mission",
+            "missionPlaceholder": "Mission title"
         },
-        "editVictime" : {
-            "title" : "Delete victim n°",
-            "deleteVictime" : "Delete victim",
-			"evacuateVictime" : "Evacuate a victim",
-			"evacuate" : "Evacuate",
-			"confirmDelete" : "Do you really want to delete the victim"
+        "editIntervenant": {
+            "title": "Rescuer n°",
+            "delete": "Delete rescuer"
         },
-        "number" : "Victim n°",
-        "status" : "Victim status",
-        "situation" : "Victim situation"
+        "confirmIntervenant": {
+            "title": "Confirm rescuer",
+            "affectedMission": "Affected mission"
+        },
+        "detailsMetier": {
+            "negation": "No",
+            "noOneFromJob": "currently on site",
+            "arrival": "Arrival the"
+        },
+        "number": "Rescuer number",
+        "currentMission": "Current mission"
     },
-    "dateFormat" : "MM-dd-yyyy",
-    "hourFormat" : "hh:mm a",
-	"cancel" : "Cancel",
-	"validate" : "Validate",
-    "terminate" : "Terminate",
-	"delete" : "Delete",
+    "journal": {
+        "title": "Operation diary",
+        "noOperation": "No ongoing operation",
+        "operationStarted": "Operation started the ",
+        "at": "at",
+        "implicated": "This operation implicated",
+        "personnel": "Rescuer"
+    },
+    "menu": {
+        "home": "Home"
+    },
+    "parametres": {
+        "title": "Settings",
+        "corpsMetier": "Rescuers professions",
+        "languageChoice": "Language choice",
+        "addMetier": "Add a profession",
+        "metier": "Profession label",
+        "color": "Associated color",
+        "updateMetier": "Edit profession",
+        "deleteMetier": "Delete profession"
+    },
+    "victimes": {
+        "addVictime": {
+            "title": "Add a victim"
+        },
+        "editVictime": {
+            "title": "Delete victim n°",
+            "deleteVictime": "Delete victim",
+            "evacuateVictime": "Evacuate a victim",
+            "evacuate": "Evacuate",
+            "confirmDelete": "Do you really want to delete the victim"
+        },
+        "number": "Victim n°",
+        "status": "Victim status",
+        "situation": "Victim situation"
+    },
+    "dateFormat": "MM-dd-yyyy",
+    "hourFormat": "hh:mm a",
+    "cancel": "Cancel",
+    "validate": "Validate",
+    "terminate": "Terminate",
+    "delete": "Delete",
     "theOperation": "the operation",
     "new": "New",
-	"victime" : "Victim",
-    "intervenantNum" : "The rescuer #",
-    "ok" : "OK",
-    "cancelation" : "Cancelation",
-    "create" : "Create"
+    "victime": "Victim",
+    "intervenantNum": "The rescuer #",
+    "ok": "OK",
+    "cancelation": "Cancelation",
+    "create": "Create"
 }
