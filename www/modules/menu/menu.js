@@ -13,7 +13,11 @@ angular.module('myApp').controller('MenuCtrl', function($scope, Operation, Trans
         $scope.hasOperation = Operation.getOperation() != null;
     });
 
+    $scope.$on('dataFlushed', function(event) {
+        $scope.hasOperation = Operation.getOperation() != null;
+    });
+
     $scope.$on('langUpdated', function(event) {
         Translation.getTranslation($scope);
     });
-})
+});

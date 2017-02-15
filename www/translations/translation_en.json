@@ -11,7 +11,9 @@
         "confirmDelete": "This action is definitive !\nType SUPPRIMER to confirm",
         "deleteData": "Delete data",
         "confirmDemo": "This action is definitive !\nType DEMO to confirm",
-        "demoData": "Demo data"
+        "demoData": "Demo data",
+        "demoMode": "Demo mode",
+        "demoLoadSuccess": "Welcome to demo mode!"
     },
     "dashboard": {
         "title": "Ongoing operation",

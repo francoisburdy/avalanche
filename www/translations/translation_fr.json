@@ -11,7 +11,9 @@
         "confirmDelete": "Cette action est irréversible !\nSaisir SUPPRIMER pour confirmer",
         "deleteData": "Supprimer les données",
         "confirmDemo": "Cette action est irréversible !\nSaisir DEMO pour confirmer",
-        "demoData": "Données de démo"
+        "demoData": "Données de démo",
+        "demoMode": "Mode démonstration",
+        "demoLoadSuccess": "Bienvenue dans le mode démonstration !"
     },
     "dashboard": {
         "title": "Opération en cours",

@@ -75,6 +75,12 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
     }
 
     $scope.$on('dataFlushed', function(event) {
+        navigator.notification.alert(
+            $scope.translation.home.demoLoadSuccess,
+            null,
+            $scope.translation.home.demoMode,
+            'OK'
+        );
         $location.url('/dashboard');
     });
 
