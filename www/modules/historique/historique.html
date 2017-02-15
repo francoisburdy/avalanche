@@ -18,8 +18,14 @@
             <h3 class="header-mission" ng-click="select($index)">{{j.nom}}</h3>
             <div ng-if="isSelected($index)">
                 <p>
-                    {{translation.journal.operationStarted}} {{j.beginDate | date: 'dd/MM/yyyy ' + translation.journal.operationTime + ' HH:mm'}}
-                    {{translation.history.endDate}} {{j.endDate | date: 'dd/MM/yyyy ' + translation.journal.operationTime + ' HH:mm'}}.
+                    {{translation.journal.operationStarted}}
+                    {{j.beginDate | date: translation.dateFormat}}
+                    {{translation.journal.at}}
+                    {{j.beginDate | date: translation.hourFormat}}
+                    {{translation.historique.endDate}}
+                    {{j.endDate | date: translation.dateFormat}}
+                    {{translation.journal.at}}
+                    {{j.endDate | date: translation.hourFormat}}.
                 </p>
                 <p>
                     {{translation.journal.implicated}} : 
@@ -28,7 +34,7 @@
                             <span class="bold">{{j.nbVictimes}}</span> {{translation.victime | lowercase}}<span ng-if="j.nbVictimes > 1">s</span>
                         </li>
                         <li>
-                            <span class="bold">{{j.nbPersonnels}}</span> {{translation.journal.personnel}}<span ng-if="j.nbPersonnels > 1">s</span>
+                            <span class="bold">{{j.nbPersonnels}}</span> {{translation.journal.personnel | lowercase}}<span ng-if="j.nbPersonnels > 1">s</span>
                         </li>
                     </ul>
                 </p>

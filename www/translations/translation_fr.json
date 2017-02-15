@@ -1,12 +1,17 @@
 {
     "home" : {
         "btnDemarrerOperation" : "Démarrer une opération",
-        "btnHistoriqueOperation" : "Historique des opérations",
+        "btnHistoriqueOperation" : "Historique",
         "menuPurge" : "Supprimer les données",
         "menuLoad" : "Charger les données de démo",
         "menuClose" : "Fermer l'application",
         "newOpName" : "Saisissez le nom de la nouvelle opération",
-        "newOp" : "Nouvelle opération"
+        "newOp" : "Nouvelle opération",
+        "avalancheFrom" : "Avalanche du",
+        "confirmDelete" : "Cette action est irréversible !\nSaisir SUPPRIMER pour confirmer",
+        "deleteData" : "Supprimer les données",
+        "confirmDemo" : "Cette action est irréversible !\nSaisir DEMO pour confirmer",
+        "demoData" : "Données de démo"
     },
     "dashboard" : {
         "title" : "Opération en cours",
@@ -55,7 +60,7 @@
             "detailsMetier" : {
                 "negation" : "Aucun",
                 "noOneFromJob" : "présent sur site actuellement",
-                "arrival" : "Arrivée"
+                "arrival" : "Arrivée le "
             },
             "number" : "N° de l'intervenant",
             "currentMission" : "Mission courante"
@@ -63,9 +68,8 @@
     "journal" : {
         "title" : "Journal de l'opération",
         "noOperation" : "Aucune opération n'est en cours",
-        "pdfExport" : "Export PDF",
         "operationStarted" : "Opération débutée le",
-        "operationTime" : "à",
+        "at" : "à",
         "implicated" : "Cette opération a impliqué",
         "personnel" : "personnel"
     },
@@ -97,6 +101,8 @@
         "status" : "Statut de la victime",
         "situation" : "Situation de la victime"
     },
+    "dateFormat" : "dd/MM/yyyy",
+    "hourFormat" : "HH:mm",
     "cancel" : "Annuler",
     "validate" : "Valider",
     "terminate" : "Terminer",
@@ -106,5 +112,6 @@
     "victime" : "Victime",
     "intervenantNum" : "L'intervenant n°",
     "ok" : "OK",
-    "cancelation" : "Annulation"
+    "cancelation" : "Annulation",
+    "create" : "Créer"
 }

@@ -19,7 +19,9 @@
                         {{p.numero}}
                     </div>
                     <div class="intervenant-date italic">
-                        {{translation.intervenants.detailsMetier.arrival}} : {{p.beginDate | date: 'dd/MM à HH:mm'}}
+                        {{translation.intervenants.detailsMetier.arrival}} {{p.beginDate | date: translation.dateFormat}} 
+                        {{translation.journal.at}} 
+                        {{p.beginDate | date: translation.hourFormat}}
                     </div>
                 </div>
             </div>

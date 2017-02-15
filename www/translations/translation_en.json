@@ -1,10 +1,17 @@
 {
     "home" : {
         "btnDemarrerOperation" : "Start operation",
-        "btnHistoriqueOperation" : "Operations history",
+        "btnHistoriqueOperation" : "History",
         "menuPurge" : "Delete all data",
         "menuLoad" : "Load demo data",
-        "menuClose" : "Close application"
+        "menuClose" : "Close application",
+        "newOpName" : "Select the name of the new operation",
+        "newOp" : "New operation",
+        "avalancheFrom" : "Avalanche of the",
+        "confirmDelete" : "This action is definitive !\nType SUPPRIMER to confirm",
+        "deleteData" : "Delete data",
+        "confirmDemo" : "This action is definitive !\nType DEMO to confirm",
+        "demoData" : "Demo data"
     },
   	"dashboard" : {
 		"title" : "Ongoing operation",
@@ -53,7 +60,7 @@
             "detailsMetier" : {
                 "negation" : "No",
                 "noOneFromJob" : "currently on site",
-                "arrival" : "Arrival"
+                "arrival" : "Arrival the"
             },
             "number" : "Rescuer number",
             "currentMission" : "Current mission"
@@ -61,9 +68,8 @@
     "journal" : {
 		"title" : "Operation diary",
 		"noOperation" : "No ongoing operation",
-		"pdfExport" : "Export PDF",
 		"operationStarted" : "Operation started the ",
-		"operationTime" : "",
+		"at" : "at",
 		"implicated" : "This operation implicated",
 		"personnel" : "Rescuer"
     },
@@ -95,6 +101,8 @@
         "status" : "Victim status",
         "situation" : "Victim situation"
     },
+    "dateFormat" : "MM-dd-yyyy",
+    "hourFormat" : "hh:mm a",
 	"cancel" : "Cancel",
 	"validate" : "Validate",
     "terminate" : "Terminate",
@@ -104,5 +112,6 @@
 	"victime" : "Victim",
     "intervenantNum" : "The rescuer number",
     "ok" : "OK",
-    "cancelation" : "Cancelation"
+    "cancelation" : "Cancelation",
+    "create" : "Create"
 }

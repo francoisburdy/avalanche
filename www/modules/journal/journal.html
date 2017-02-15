@@ -17,7 +17,10 @@
         <h3 class="header-mission">{{journal.nom}}</h3>
         <div class="contenu">
             <p>
-                {{translation.journal.operationStarted}} {{journal.beginDate | date: 'dd/MM/yyyy ' + translation.journal.operationTime + ' HH:mm'}}.
+                {{translation.journal.operationStarted}} 
+                {{journal.beginDate | date: translation.dateFormat}} 
+                {{translation.journal.at}}
+                {{journal.beginDate | date: translation.hourFormat}}.
             </p>
             <p>
                 {{translation.journal.implicated}} : 

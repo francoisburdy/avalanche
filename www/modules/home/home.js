@@ -15,8 +15,8 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
                 }
             }, 
             $scope.translation.home.newOp,
-            ['Créer', 'Annuler'],
-            'Avalanche du ' + $filter('date')(new Date(), 'dd/MM/yyyy')
+            [$scope.translation.create, $scope.translation.cancel],
+            $scope.translation.avalancheFrom + ' ' + $filter('date')(new Date(), $scope.translation.dateFormat)
         );
     }
 
@@ -29,7 +29,7 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
      */
     $scope.purgeStorage = function() {
         navigator.notification.prompt(
-            'Cette action est irréversible !\nSaisir SUPPRIMER pour confirmer', 
+            $scope.translation.home.confirmDelete, 
             function(results) {
                 if(results.buttonIndex == 1 && results.input1.toLowerCase() == "supprimer") {
                     console.log('Purge all data !');
@@ -39,8 +39,8 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
                     console.log('Purge annulée')
                 }
             }, 
-            'Supprimer les données',
-            ['Supprimer', 'Annuler']
+            $scope.translation.home.deleteData,
+            [$scope.translation.delete, $scope.translation.cancel]
         );
     }
 
@@ -50,7 +50,7 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
     $scope.loadDemoData = function() {
         console.log('Chargement des données de test ...');
         navigator.notification.prompt(
-            'Cette action est irréversible !\nSaisir DEMO pour confirmer', 
+            $scope.translation.home.confirmDemo, 
             function(results) {
                 if(results.buttonIndex == 1 && results.input1.toLowerCase() == "demo") {
                     console.log('Charger les données de démo !');
@@ -62,8 +62,8 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
                     console.log('Chargement données démo annulé !');
                 }
             }, 
-            'Données de démo',
-            ['OK', 'Annuler']
+            $scope.translation.home.demoData,
+            [$scope.translation.ok, $scope.translation.cancel]
         );
     }
 
