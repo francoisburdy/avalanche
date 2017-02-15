@@ -13,12 +13,13 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
 
     $scope.evacuateVictime = function() {
         navigator.notification.confirm(
-            'Souhaitez-vous marquer la victime ' + $scope.victime.numero + ' comme évacuée ?',
+            $scope.translation.victimes.editVictime.evacuateConfirm1 + ' ' + $scope.victime.numero 
+            + ' ' + $scope.translation.victimes.editVictime.evacuateConfirm2,
             function(buttonIndex) {
                 if(buttonIndex == 1) {
                     Operation.evacuateVictime($scope.victime);
                     $location.url('/dashboard');
-                    toast($scope.translation.victimes.number + $scope.victime.numero + ' ' + $scope.translation.evacuated);
+                    toast($scope.translation.victimes.number2 + $scope.victime.numero + ' ' + $scope.translation.evacuatedFemale);
                     $scope.$apply();  
                 }
             }, 
