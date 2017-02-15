@@ -25,7 +25,7 @@
                 <label>{{translation.intervenants.addIntervenant.corpsMetier}} <span class="red-text">*</span></label>
                 <div>
                     <select ng-model="newIntervenant.metier" ng-options="s.libelle for s in metiers">
-                       <option label={{translation.intervenants.addIntervenant.selectMetier}} selected="selected" disabled="disabled"></option>
+                       <option label="{{translation.intervenants.addIntervenant.selectMetier}}" selected="selected" disabled="disabled"></option>
                     </select>
                 </div>
             </div>
@@ -34,9 +34,9 @@
                 <label>{{translation.intervenants.currentMission}}</label>
                 <div>
                     <select ng-model="selectedMission" ng-options="m for m in missions">
-                       <option label="{{translation.intervenants.addIntervenant.selectMission" selected="selected" disabled="disabled"></option>
+                       <option label="{{translation.intervenants.addIntervenant.selectMission}}" selected="selected" disabled="disabled"></option>
                     </select>
-                    <input type="text" class="large-input" placeholder={{translation.intervenants.addIntervenant.missionPlaceholder}} ng-model="newSelectedMission" ng-show="selectedMission == '-- Autre --'"/>
+                    <input type="text" class="large-input" placeholder="{{translation.intervenants.addIntervenant.missionPlaceholder}}" ng-model="newSelectedMission" ng-show="selectedMission == '-- Autre --'"/>
                 </div>
             </div>
         </form>
