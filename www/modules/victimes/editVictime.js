@@ -7,7 +7,7 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
         $scope.victime = Operation.getVictime($routeParams.num);
         $scope.victimeStatus = Parametres.getVictimeStatus();
         $scope.victimeSituations = Parametres.getVictimeSituations();
-        console.log($scope.victime.status);
+        console.log($scope.victime.status, $scope.victimeStatus);
     }
     init();
 
@@ -28,6 +28,7 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
 
     $scope.checkSituation = function() {
         // TODO : ajouter confirmation
+        // TODO : vérifier unicité de l'ID
         if($scope.victime.situation == 'Évacuée') Operation.evacuateVictime($scope.victime);
     }
 

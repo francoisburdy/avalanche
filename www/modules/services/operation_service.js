@@ -154,20 +154,21 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
      * HISTORISATION DES DONNEES *
      ***************************/
 
-    this.getJournaux = function($scope) {
+    this.getJournaux = function(scope) {
         var journaux = [];
 
         if($localStorage.historique) {
-            for(let operation of $localStorage.historique) journaux.push(this.getJournal(operation, $scope)); 
+            for(let operation of $localStorage.historique) journaux.push(this.getJournal(operation, scope)); 
         }
         return journaux;
     }
 
-    this.getCurrentJournal = function($scope) {
-        return this.getJournal(this.getOperation(), $scope);
+    this.getCurrentJournal = function(scope) {
+        return this.getJournal(this.getOperation(), scope);
     }
 
-    this.getJournal = function(operation, $scope) {
+    this.getJournal = function(operation, scope) {
+        console.log(scope);
         var journal = {
             nom: operation.nom,
             beginDate: operation.beginDate,
@@ -180,7 +181,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let v of operation.victimes) {           
             var evDebut = {
                 date: v.beginDate,
-                texte: $filter('date')(v.beginDate, $scope.translation.hourFormat) + ' : ' + $scope.translation.historique.victim + ' ' + v.numero + ' ' + $scope.translation.historique.victimSaved + ' : '+ v.status.libelle + ' ' + $scope.translation.historique.situation + ' '+ v.situation +'.',
+                texte: $filter('date')(v.beginDate, scope.translation.hourFormat) + ' : ' + scope.translation.historique.victim + ' ' + v.numero + ' ' + scope.translation.historique.victimSaved + ' : '+ v.status.libelle + ' ' + scope.translation.historique.situation + ' '+ v.situation +'.',
                 type: 'entrée'
             };
             journal.evenements.push(evDebut);
@@ -188,7 +189,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(v.endDate != null) {
                 var evFin = {
                     date: v.endDate,
-                    texte: $filter('date')(v.endDate, $scope.translation.hourFormat) + ' : ' + $scope.translation.historique.victim + ' ' + v.numero + ' ' + $scope.translation.historique.evacuated + ' '+ v.status.libelle + '.',               
+                    texte: $filter('date')(v.endDate, scope.translation.hourFormat) + ' : ' + scope.translation.historique.victim + ' ' + v.numero + ' ' + scope.translation.historique.evacuated + ' '+ v.status.libelle + '.',               
                     type: 'sortie'
                 };
                 journal.evenements.push(evFin);
@@ -198,7 +199,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         for(let p of operation.personnels) {
             var evDebut = {
                 date: p.beginDate,
-                texte: $filter('date')(p.beginDate, $scope.translation.hourFormat) + ' : ' + $scope.translation.historique.intervenant + ' ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') ' + $scope.translation.historique.enterZone + '.',
+                texte: $filter('date')(p.beginDate, scope.translation.hourFormat) + ' : ' + scope.translation.historique.intervenant + ' ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') ' + scope.translation.historique.enterZone + '.',
                 type: 'entrée'  
             };
             journal.evenements.push(evDebut);
@@ -206,7 +207,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             if(p.endDate != null) {
                 var evFin = {
                     date: p.endDate,
-                    texte: $filter('date')(p.endDate, $scope.translation.hourFormat) + ' : ' + $scope.translation.historique.intervenant + ' ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') ' + $scope.translation.historique.leaveZone + '.',
+                    texte: $filter('date')(p.endDate, scope.translation.hourFormat) + ' : ' + scope.translation.historique.intervenant + ' ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') ' + scope.translation.historique.leaveZone + '.',
                     type: 'sortie'
                 }
                 journal.evenements.push(evFin);
@@ -215,7 +216,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             for(let m of p.missions) {
                 var evMission = {
                     date: m.beginDate,
-                    texte: $filter('date')(m.beginDate, $scope.translation.hourFormat) + ' : ' + $scope.translation.historique.intervenant + ' ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') ' + $scope.translation.historique.mission + ' ' + m.libelle +'.',
+                    texte: $filter('date')(m.beginDate, scope.translation.hourFormat) + ' : ' + scope.translation.historique.intervenant + ' ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') ' + scope.translation.historique.mission + ' ' + m.libelle +'.',
                     type: 'maj'
                 };
                 journal.evenements.push(evMission);

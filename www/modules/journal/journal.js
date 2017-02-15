@@ -4,7 +4,6 @@ angular.module('myApp').controller('JournalCtrl', function($scope, Operation, Ex
 
     function init() {
         Translation.getTranslation($scope);
-        
     }
     
     init();
