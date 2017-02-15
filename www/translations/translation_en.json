@@ -22,7 +22,7 @@
         "alreadyOut" : "Already out",
         "isAlreadyOut" : "already went out the",
         "exit" : "Exit",
-        "number" : "number",
+        "number" : "n°",
         "confirmation" : "Confirmation",
         "exitCanceled" : "Rescuer exit canceled"
 	},
@@ -37,10 +37,13 @@
     "intervenants" : {
             "addIntervenant" : {
                 "title" : "Add a rescuer",
-                "corpsMetier" : "Profession"
+                "corpsMetier" : "Profession",
+            	"selectMetier" : "Select profession",
+            	"selectMission" : "Select a mission",
+            	"missionPlaceholder" : "Mission title"
             },
             "editIntervenant" : {
-                "title" : "Rescuer number",
+                "title" : "Rescuer n°",
                 "delete" : "Delete rescuer"
             },
             "confirmIntervenant" : {
@@ -82,13 +85,13 @@
             "title" : "Add a victim"
         },
         "editVictime" : {
-            "title" : "Delete victim number",
+            "title" : "Delete victim n°",
             "deleteVictime" : "Delete victim",
 			"evacuateVictime" : "Evacuate a victim",
 			"evacuate" : "Evacuate",
 			"confirmDelete" : "Do you really want to delete the victim"
         },
-        "number" : "Victim number",
+        "number" : "Victim n°",
         "status" : "Victim status",
         "situation" : "Victim situation"
     },

@@ -4,7 +4,9 @@
         "btnHistoriqueOperation" : "Historique des opérations",
         "menuPurge" : "Supprimer les données",
         "menuLoad" : "Charger les données de démo",
-        "menuClose" : "Fermer l'application"
+        "menuClose" : "Fermer l'application",
+        "newOpName" : "Saisissez le nom de la nouvelle opération",
+        "newOp" : "Nouvelle opération"
     },
     "dashboard" : {
         "title" : "Opération en cours",
@@ -15,7 +17,7 @@
         "noVictime" : "Aucune victime présente sur site actuellement",
         "noEvacuatedVictime" : "Aucune victime évacuée",
         "confirmTerminateMsg": "Souhaitez-vous mettre fin à l'opération ?\nIl ne sera plus possible de modifier les informations.",
-        "rescuerOutMsg" : "Saisissez le numéro de l\'intervenant sortant",
+        "rescuerOutMsg" : "Saisissez le numéro de l'intervenant sortant",
         "rescuerOut" : "Sortie de personnel",
         "notFound" : "est introuvable",
         "intervenantNotFound" : "Intervenant introuvable",
@@ -37,7 +39,10 @@
     "intervenants" : {
             "addIntervenant" : {
                 "title" : "Ajouter un intervenant",
-                "corpsMetier" : "Corps de métier"
+                "corpsMetier" : "Corps de métier",
+            	"selectMetier" : "Choisir le métier",
+            	"selectMission" : "Choisir une mission",
+            	"missionPlaceholder" : "intitulé mission"
             },
             "editIntervenant" : {
                 "title" : "Intervenant n°",
@@ -99,7 +104,7 @@
     "theOperation": "l'opération",
     "new": "Nouveau",
     "victime" : "Victime",
-    "intervenantNum" : "L\'intervenant n°",
+    "intervenantNum" : "L'intervenant n°",
     "ok" : "OK",
     "cancelation" : "Annulation"
 }

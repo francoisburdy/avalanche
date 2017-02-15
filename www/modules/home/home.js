@@ -6,7 +6,7 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
 
     $scope.createOperation = function() {
         navigator.notification.prompt(
-            'Saisissez le nom de la nouvelle opération',
+            $scope.translation.home.newOpName,
             function(results) {
                 if(results.buttonIndex == 1 && results.input1){
                     console.log('Création d\'une nouvelle opération');
@@ -14,7 +14,7 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
                     $route.reload();
                 }
             }, 
-            'Nouvelle opération',
+            $scope.translation.home.newOp,
             ['Créer', 'Annuler'],
             'Avalanche du ' + $filter('date')(new Date(), 'dd/MM/yyyy')
         );
