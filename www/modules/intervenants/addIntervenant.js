@@ -2,6 +2,8 @@
 
 angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $routeParams, $location, $document, Operation, Parametres, Translation) {
 
+    cordova.plugins.Keyboard.disableScroll(false);
+
     function init() {
         Translation.getTranslation($scope);
         $scope.tmpPersonnel = Operation.getTmpPersonnel();

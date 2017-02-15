@@ -47,7 +47,8 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
      * Enregistre également dans le journal toutes les évènements effectués. 
      */
     $scope.terminateOperation = function() {
-         navigator.notification.confirm(
+        /* ToDo: Vérifier que tout le monde est sorti */
+        navigator.notification.confirm(
             $scope.translation.dashboard.confirmTerminateMsg, 
             function(buttonIndex) {
                 if(buttonIndex == 2) {

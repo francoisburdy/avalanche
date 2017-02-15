@@ -215,7 +215,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
             for(let m of p.missions) {
                 var evMission = {
                     date: m.beginDate,
-                    texte: $filter('date')(m.beginDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' a pris la mission ' + m.libelle +'.',
+                    texte: $filter('date')(m.beginDate, 'HH:mm') + ' : L\'intervenant ' + p.numero + ' (' + $filter('lowerMetier')(p.metier.libelle) + ') a pris la mission ' + m.libelle +'.',
                     type: 'maj'
                 };
                 journal.evenements.push(evMission);
