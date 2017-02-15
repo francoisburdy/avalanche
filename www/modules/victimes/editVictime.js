@@ -18,6 +18,7 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
                 if(buttonIndex == 1) {
                     Operation.evacuateVictime($scope.victime);
                     $location.url('/dashboard');
+                    toast($scope.translation.victimes.number + $scope.victime.numero + ' ' + $scope.translation.evacuated);
                     $scope.$apply();  
                 }
             }, 
@@ -29,7 +30,9 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
     $scope.checkSituation = function() {
         // TODO : ajouter confirmation
         // TODO : vérifier unicité de l'ID
-        if($scope.victime.situation == 'Évacuée') Operation.evacuateVictime($scope.victime);
+        if($scope.victime.situation == 'Évacuée') {
+          Operation.evacuateVictime($scope.victime);  
+        } 
     }
 
     $scope.deleteVictime = function() {

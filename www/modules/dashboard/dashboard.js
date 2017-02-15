@@ -53,7 +53,8 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
             function(buttonIndex) {
                 if(buttonIndex == 2) {
                     Operation.terminate();
-                    $location.url('/home')
+                    $location.url('/home');
+                    toast($scope.translation.operationTerminated);
                     $scope.$apply();
                 }
             }, 
@@ -92,10 +93,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
             console.log($scope.translation.dashboard.rescuerOut, results.input1);
             var personnel = Operation.getPersonnel(results.input1);
             if(!personnel) { // Personnel inexistant
-                navigator.notification.alert(
-                    $scope.translation.intervenantNum + results.input1 + ' ' + $scope.translation.dashboard.notFound + '.',
-                    null, $scope.translation.dashboard.intervenantNotFound, [$scope.translation.ok]
-                )
+                toast($scope.translation.intervenantNum + results.input1 + ' ' + $scope.translation.dashboard.notFound + '.');
             } else if(personnel.endDate) { // L'intervenant est déjà sorti
                 console.log('Personnel déjà sorti');
                 navigator.notification.confirm(
@@ -109,6 +107,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
                         if(buttonIndex == 1){
                             console.log('buttonIndex', buttonIndex);
                             Operation.evacuatePersonnel(personnel);
+                            toast($scope.translation.intervenants.number + personnel.numero + ' ' + $scope.translation.evacuated);
                             $scope.$apply();
                         }
                     },
@@ -117,9 +116,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
             }
         } else { // Annulation
             console.log($scope.translation.dashboard.exitCanceled);
-            navigator.notification.confirm(
-                $scope.translation.dashboard.exitCanceled + '.', null, $scope.translation.cancelation, [$scope.translation.ok]
-            )
+            toast($scope.translation.dashboard.exitCanceled);
         }
     }
 

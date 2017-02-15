@@ -1,22 +1,25 @@
 
 .ev-journal {
-	padding-top: 10px;
+    padding-top: 10px;
 }
-.header-mission{
-	background-color: rgb(33, 154, 243);
+
+.header-mission {
+    background-color: rgb(33, 154, 243);
     text-align: center;
     color: white;
     border-radius: 0.3em;
     padding: 0.3em
 }
-.contenu{
-	margin-left: 0.3em;
-}
-.cr_nb_personnes{
-	list-style: none;
+
+.contenu {
+    margin-left: 0.3em;
 }
 
-.cr_nb_personnes span.bold{
-	font-size: 1.3em;
-	color:#0c77cc;
+.cr_nb_personnes {
+    list-style: none;
+}
+
+.cr_nb_personnes span.bold {
+    font-size: 1.3em;
+    color:#0c77cc;
 }

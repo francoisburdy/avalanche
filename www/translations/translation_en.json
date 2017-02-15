@@ -31,7 +31,7 @@
         "alreadyOut": "Already out",
         "isAlreadyOut": "already went out the",
         "exit": "Exit",
-        "number": "n°",
+        "number": "#",
         "confirmation": "Confirmation",
         "exitCanceled": "Rescuer exit canceled"
     },
@@ -67,7 +67,7 @@
             "missionPlaceholder": "Mission title"
         },
         "editIntervenant": {
-            "title": "Rescuer n°",
+            "title": "Rescuer #",
             "delete": "Delete rescuer"
         },
         "confirmIntervenant": {
@@ -79,7 +79,7 @@
             "noOneFromJob": "currently on site",
             "arrival": "Entered on"
         },
-        "number": "Rescuer number",
+        "number": "Rescuer #",
         "currentMission": "Current mission"
     },
     "journal": {
@@ -108,23 +108,25 @@
             "title": "Add a victim"
         },
         "editVictime": {
-            "title": "Delete victim n°",
+            "title": "Delete victim #",
             "deleteVictime": "Delete victim",
             "evacuateVictime": "Evacuate a victim",
             "evacuate": "Evacuate",
             "confirmDelete": "Do you really want to delete the victim"
         },
-        "number": "Victim n°",
+        "number": "Victim #",
         "status": "Victim status",
         "situation": "Victim situation"
     },
     "dateFormat": "MM-dd-yyyy",
     "hourFormat": "hh:mm a",
+    "evacuated": "evacuated",
     "cancel": "Cancel",
     "validate": "Validate",
     "terminate": "Terminate",
     "delete": "Delete",
     "theOperation": "the operation",
+    "operationTerminated": "Operation ended",
     "new": "New",
     "victime": "Victim",
     "intervenantNum": "The rescuer #",

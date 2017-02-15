@@ -61,6 +61,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     this.removePersonnel = function(personnel) {
+        if(!$localStorage.operation) {
+            console.log("Error: Not ongoing operation")
+            return;
+        }
         var index = $localStorage.operation.personnels.indexOf(personnel);
         if(index == -1) console.log("Error : Operation does not contain this personnel");
         else {
@@ -71,8 +75,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
 
     /* Retourne un personnel à partir de son numéro */
     this.getPersonnel = function(numero) {
-        for(let p of $localStorage.operation.personnels) {
-            if(!p.endDate && p.numero == numero) return p; 
+        if($localStorage.operation){
+            for(let p of $localStorage.operation.personnels) {
+                if(!p.endDate && p.numero == numero) return p; 
+            }
         }
     }
 
@@ -110,11 +116,13 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     this.removeVictime = function(victime) {
-        var index = $localStorage.operation.victimes.indexOf(victime);
-        if(index == -1) console.log("Cette victime n'a pas été trouvée : elle ne peut pas être supprimée.");
-        else {
-            $localStorage.operation.victimes.splice(index, 1);
-            $rootScope.$broadcast('operationUpdated');
+        if($localStorage.operation){
+            var index = $localStorage.operation.victimes.indexOf(victime);
+            if(index == -1) console.log("Cette victime n'a pas été trouvée : elle ne peut pas être supprimée.");
+            else {
+                $localStorage.operation.victimes.splice(index, 1);
+                $rootScope.$broadcast('operationUpdated');
+            }
         }
     }
 

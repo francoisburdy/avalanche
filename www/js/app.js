@@ -40,3 +40,22 @@ function onDeviceReady() {
       navigator.splashscreen.hide();
     }, 50);
 }
+
+
+function toast(message){
+  window.plugins.toast.showWithOptions({
+      message: message,
+      duration: "short",
+      position: "bottom",
+      addPixelsY: -60,
+      styling: {
+        opacity: 0.65,
+        backgroundColor: '#222222',
+        textColor: '#FFFFFF',
+        textSize: 14, 
+        cornerRadius: 35,
+        horizontalPadding: 50,
+        verticalPadding: 30
+      }
+  });
+}
