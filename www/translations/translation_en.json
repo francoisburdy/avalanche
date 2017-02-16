@@ -78,7 +78,7 @@
             "negation": "No",
             "noOneFromJob": "currently on site",
             "arrival": "Entered on",
-            "alreadyOut" : "Personnes déjà sorties"
+            "alreadyOut": "Personnes déjà sorties"
         },
         "number": "Rescuer #",
         "currentMission": "Current mission"
@@ -107,8 +107,8 @@
     "victimes": {
         "addVictime": {
             "title": "Add a victim",
-            "confirm" : "Are you sure that you want to add this victim",
-            "addVictime" : "Add a victim"
+            "confirm": "Are you sure that you want to add this victim",
+            "addVictime": "Add a victim"
         },
         "editVictime": {
             "title": "Delete victim #",
@@ -140,5 +140,5 @@
     "ok": "OK",
     "cancelation": "Cancelation",
     "create": "Create",
-    "add" : "Add"
+    "add": "Add"
 }

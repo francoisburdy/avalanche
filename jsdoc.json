@@ -26,7 +26,7 @@
         "node_modules/angular-jsdoc/common/plugins/ngdoc"
     ],
     "templates": {
-        "cleverLinks": false,
+        "cleverLinks": true,
         "monospaceLinks": true,
         "default": {
             "outputSourceFiles": true

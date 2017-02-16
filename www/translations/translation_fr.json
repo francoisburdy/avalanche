@@ -78,7 +78,7 @@
             "negation": "Aucun",
             "noOneFromJob": "présent sur site actuellement",
             "arrival": "Arrivée le",
-            "alreadyOut" : "Personnes déjà sorties"
+            "alreadyOut": "Personnes déjà sorties"
         },
         "number": "N° de l'intervenant",
         "currentMission": "Mission courante"
@@ -107,8 +107,8 @@
     "victimes": {
         "addVictime": {
             "title": "Ajouter une victime",
-            "confirm" : "Etes-vous sûr de vouloir ajouter cette victime",
-            "addVictime" : "Ajouter une victime"
+            "confirm": "Etes-vous sûr de vouloir ajouter cette victime",
+            "addVictime": "Ajouter une victime"
         },
         "editVictime": {
             "title": "Modifier la victime n°",
@@ -140,5 +140,5 @@
     "ok": "OK",
     "cancelation": "Annulation",
     "create": "Créer",
-    "add" : "Ajouter"
+    "add": "Ajouter"
 }
