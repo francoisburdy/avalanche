@@ -20,7 +20,7 @@
                         {{p.numero}}
                     </div>
                     <div class="intervenant-date italic">
-                        {{translation.intervenants.detailsMetier.arrival}} {{p.beginDate | date: translation.dateFormat}} 
+                        {{translation.intervenants.detailsMetier.arrival}}  {{p.beginDate | date: translation.dateFormat}} 
                         {{translation.journal.at}} 
                         {{p.beginDate | date: translation.hourFormat}}
                     </div>
@@ -33,7 +33,7 @@
         <!-- Personnels sortis -->
         <div class="row personnels-list list-history">
             <div ng-if="(personnels | filter: {endDate: ''}).length != 0" class="empty-message title-history">
-                Personnes déjà sorties
+                {{translation.intervenants.detailsMetier.alreadyOut}}
             </div>
             <div ng-repeat="p in personnels | filter: {endDate: ''}" class="col-xs-6 col-md-3 card inline card-history">
                 <div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}">

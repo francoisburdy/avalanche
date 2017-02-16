@@ -77,7 +77,8 @@
         "detailsMetier": {
             "negation": "No",
             "noOneFromJob": "currently on site",
-            "arrival": "Entered on"
+            "arrival": "Entered on",
+            "alreadyOut" : "Personnes déjà sorties"
         },
         "number": "Rescuer #",
         "currentMission": "Current mission"

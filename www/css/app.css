@@ -381,6 +381,10 @@ div.card {
     color: #fff;
 }
 
+.blue-text {
+    color: #2196f3;
+}
+
 .modal-title {
     text-align: center;
     font-weight: bold;

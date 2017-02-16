@@ -77,7 +77,8 @@
         "detailsMetier": {
             "negation": "Aucun",
             "noOneFromJob": "présent sur site actuellement",
-            "arrival": "Arrivée le "
+            "arrival": "Arrivée le",
+            "alreadyOut" : "Personnes déjà sorties"
         },
         "number": "N° de l'intervenant",
         "currentMission": "Mission courante"
