@@ -7,6 +7,11 @@
  */
 angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope, Parametres, Translation, Operation) {
 
+     /**
+      * Récupère les paramètres stockés localement
+      * @memberof ParametresCtrl
+      * @func init
+      */
     function init() {
         Translation.getTranslation($scope);
         $scope.metiers = Parametres.getMetiers();
@@ -16,15 +21,31 @@ angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope
         $scope.language = Parametres.getCurrentLanguage();
     }
     init();
-    
+    /**
+     * Met à jour le langage utilisé dans l'application
+     * @memberof ParametresCtrl
+     * @function changeLanguage
+     * @param {string} lang Langue choisie
+     */
     $scope.changeLanguage = function(lang) {
         Parametres.setLanguage(lang);
     }
-
+    /**
+     * Met à jour l'identifiant du dernier metier cliqué
+     * @memberof ParametresCtrl
+     * @function updateLastClicked
+     * @param {string} index Index cliqué
+     */
     $scope.updateLastClicked = function(index) {
         $scope.lastClickedIndex = index;
     }
-
+    /**
+     * Ajoute un metier dans les coprs de métiers disponibles pour les intervenants
+     * @memberof ParametresCtrl
+     * @function addMetier
+     * @param {string} color Couleur représentative du métier choisie
+     * @param {string} metier Nom du métier choisi
+     */
     $scope.addMetier = function(color, metier) {
         if (!metier){
             navigator.notification.alert("Saisissez un intitulé de métier.");
@@ -33,7 +54,12 @@ angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope
             $rootScope.Ui.turnOff('modalAddMetier')
         }
     } 
-
+    /**
+     * Suuprime un metier parmi les corps de métiers disponibles pour les intervenants
+     * @memberof ParametresCtrl
+     * @function removeMetier
+     * @param {string} metier Nom du métier choisi
+     */
     $scope.removeMetier = function(metier) {
         // TODO : vérifier qu'il n'y a aucun intervenant pour ce métier dans l'opération courante
         if (Operation.getPersonnelsByMetier(metier).length > 0){
@@ -51,7 +77,13 @@ angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope
         }
 
     }
-
+        /**
+     * Modifie un metier parmis les coprs de métiers disponibles pour les intervenants
+     * @memberof ParametresCtrl
+     * @function modifyMetier
+     * @param {string} color Nouvelle couleur du métier modifié
+     * @param {string} metier Nouveau nom du corps de métier modifié
+     */
     $scope.modifyMetier = function(color, metier) {
         Parametres.modifyMetier({libelle: metier, bg: color, text: '#000' });
     }
