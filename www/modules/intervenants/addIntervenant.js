@@ -32,7 +32,9 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
     init();
 
     /**
-     * Remplit l'intervenant temporaire et le passe à l'écran de confirmation
+     * Remplit l'intervenant temporaire et le passe à l'écran de confirmation.
+     * @memberof AddIntervenantCtrl
+     * @func goToConfirmation
      */
     $scope.goToConfirmation = function() {
         if(!$scope.newIntervenant.numero) {
@@ -47,6 +49,11 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
         }
     }
 
+    /**
+     * Ajoute un intervenant après confirmation. Le nouvel intervenant est récupéré dans $scope.
+     * @memberof AddIntervenantCtrl
+     * @func addIntervenant
+     */
     $scope.addIntervenant = function() {
         // TODO : ajouter confirmation
         Operation.addPersonnel();

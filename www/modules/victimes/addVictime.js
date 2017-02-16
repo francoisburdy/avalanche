@@ -15,6 +15,11 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
     $scope.victimeStatus = Parametres.getVictimeStatus();
     $scope.victimeSituations = Parametres.getVictimeSituations();
 
+    /**
+     * Ajoute une victime après confirmation. La nouvelle victime est récupérée dans $scope.
+     * @memberof AddVictimeCtrl
+     * @func addVictime
+     */
     $scope.addVictime = function() {
         navigator.notification.confirm($scope.translation.victimes.addVictime.confirm + " ?",
             function(buttonIndex) {
@@ -22,9 +27,7 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
                     $scope.newVictime.beginDate = new Date();
                     $scope.newVictime.endDate = null;
                     Operation.addVictime($scope.newVictime);
-
                     if($scope.newVictime.situation == 'Évacuée') Operation.evacuateVictime($scope.newVictime);
-
                     $scope.$apply();
                 }
             },
