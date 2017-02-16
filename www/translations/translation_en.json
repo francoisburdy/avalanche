@@ -68,7 +68,11 @@
         },
         "editIntervenant": {
             "title": "Rescuer #",
-            "delete": "Delete rescuer"
+            "delete": "Delete rescuer",
+            "chooseNumber": "Rescuer number required",
+            "chooseProfession": "Select the rescuer's profession",
+            "deleteConfirm": "Do you really want to delete recuer #",
+            "evacuateConfirm": "Confirm the exit of recuer #"
         },
         "confirmIntervenant": {
             "title": "Confirm rescuer",
@@ -78,9 +82,10 @@
             "negation": "No",
             "noOneFromJob": "currently on site",
             "arrival": "Entered on",
-            "alreadyOut": "Personnes déjà sorties"
+            "alreadyOut": "Rescuers who already left"
         },
-        "number": "Rescuer #",
+        "number": "Rescuer number",
+        "number2": "Rescuer #",
         "currentMission": "Current mission"
     },
     "journal": {
@@ -132,6 +137,7 @@
     "validate": "Validate",
     "terminate": "Terminate",
     "delete": "Delete",
+    "deleted": "deleted",
     "theOperation": "the operation",
     "operationTerminated": "Operation ended",
     "new": "New",
@@ -139,6 +145,8 @@
     "intervenantNum": "The rescuer #",
     "ok": "OK",
     "cancelation": "Cancelation",
+    "confirm": "Confirm",
+    "confirmation": "Confirmation",
     "create": "Create",
     "add": "Add"
 }

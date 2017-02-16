@@ -70,8 +70,14 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
      */
     $scope.terminateOperation = function() {
         /* TODO: Vérifier que tout le monde est sorti */
+        var nbPersonnes = $scope.operation.victimes.filter(function(v){ return !v.endDate }).length 
+        + $scope.operation.personnels.filter(function(p){ return !p.endDate }).length;
+        var msg = nbPersonnes > 0 
+            ? nbPersonnes + " personnes sont encore sur zone !\n" + $scope.translation.dashboard.confirmTerminateMsg
+            : $scope.translation.dashboard.confirmTerminateMsg;
+
         navigator.notification.confirm(
-            $scope.translation.dashboard.confirmTerminateMsg, 
+            msg, 
             function(buttonIndex) {
                 if(buttonIndex == 2) {
                     Operation.terminate();
@@ -115,7 +121,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
             $scope.translation.dashboard.rescuerOutMsg, 
             checkPersonnel, 
             $scope.translation.dashboard.rescuerOut, 
-            [$scope.translation.validate, $scope.translation.cancel]
+            [$scope.translation.cancel, $scope.translation.validate]
         );
     }
 
@@ -126,7 +132,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
      * @param results {string} Libellé du métier recherché
      */
     function checkPersonnel(results) {
-        if(results.buttonIndex == 1) {
+        if(results.buttonIndex == 2) {
             console.log($scope.translation.dashboard.rescuerOut, results.input1);
             var personnel = Operation.getPersonnel(results.input1);
             if(!personnel) { // Personnel inexistant
@@ -141,14 +147,14 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
                 navigator.notification.confirm(
                     $scope.translation.dashboard.exit + ' : ' + personnel.metier.libelle + ' ' + $scope.translation.dashboard.number + personnel.numero + '.',
                     function(buttonIndex) {
-                        if(buttonIndex == 1){
+                        if(buttonIndex == 2){
                             console.log('buttonIndex', buttonIndex);
                             Operation.evacuatePersonnel(personnel);
                             toast($scope.translation.intervenants.number + personnel.numero + ' ' + $scope.translation.evacuated);
                             $scope.$apply();
                         }
                     },
-                    $scope.translation.dashboard.confirmation, [$scope.translation.validate, $scope.translation.cancel]
+                    $scope.translation.dashboard.confirmation, [$scope.translation.cancel, $scope.translation.validate]
                 )
             }
         } else { // Annulation

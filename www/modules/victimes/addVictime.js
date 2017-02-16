@@ -28,7 +28,7 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
     $scope.addVictime = function() {
         navigator.notification.confirm($scope.translation.victimes.addVictime.confirm + " ?",
             function(buttonIndex) {
-                if(buttonIndex == 1) {
+                if(buttonIndex == 2) {
                     $scope.newVictime.beginDate = new Date();
                     $scope.newVictime.endDate = null;
                     Operation.addVictime($scope.newVictime);
@@ -37,7 +37,7 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
                 }
             },
             $scope.translation.victimes.addVictime.addVictime,
-            [$scope.translation.add, $scope.translation.cancel]
+            [$scope.translation.cancel, $scope.translation.add]
         );
     }
 

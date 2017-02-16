@@ -44,8 +44,8 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
                     $scope.$apply();  
                 }
             }, 
-            'Évacuer une victime', 
-            ['Évacuer', 'Annuler']
+            $scope.translation.victimes.editVictime.evacuateVictime, 
+            [$scope.translation.cancel, $scope.translation.victimes.editVictime.evacuate]
         );
     }
 
@@ -57,7 +57,7 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
     $scope.checkSituation = function() {
         // TODO : ajouter confirmation
         // TODO : vérifier unicité de l'ID
-        navigator.notification.confirm("La victime a été mise à jour.", null, 'Mise à jour victime', "OK");
+        toast("Victime n°"+$scope.victime.numero+" mise à jour");
         if($scope.victime.situation == 'Évacuée') {
           Operation.evacuateVictime($scope.victime);  
         }
@@ -72,14 +72,15 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
         navigator.notification.confirm(
             'Souhaitez-vous vraiment supprimer la victime ' + $scope.victime.numero + ' ?',
             function(buttonIndex) {
-                if(buttonIndex == 1) {
+                if(buttonIndex == 2) {
                     Operation.removeVictime($scope.victime);
                     $location.url('/dashboard');
+                    toast($scope.translation.victimes.number2 + $scope.victime.numero + ' ' + $scope.translation.deleted);
                     $scope.$apply();
                 }
             }, 
-            'Supprimer une victime', 
-            ['Supprimer', 'Annuler']
+            $scope.translation.victimes.editVictime.deleteVictime, 
+            [$scope.translation.cancel, $scope.translation.delete]
         );
     }
     

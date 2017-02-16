@@ -25,14 +25,14 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
         navigator.notification.prompt(
             $scope.translation.home.newOpName,
             function(results) {
-                if(results.buttonIndex == 1 && results.input1){
+                if(results.buttonIndex == 2 && results.input1){
                     console.log('Création d\'une nouvelle opération');
                     Operation.createOperation(results.input1);
                     $route.reload();
                 }
             }, 
             $scope.translation.home.newOp,
-            [$scope.translation.create, $scope.translation.cancel],
+            [$scope.translation.cancel, $scope.translation.create],
             $scope.translation.home.avalancheFrom + ' ' + $filter('date')(new Date(), $scope.translation.dateFormat)
         );
     }

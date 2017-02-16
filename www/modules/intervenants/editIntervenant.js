@@ -23,6 +23,7 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
         $scope.missions = Parametres.getMissions();
     }
     init();
+    
     /**
      * Retourne à la page précédente
      * @memberof EditIntervenantCtrl
@@ -31,6 +32,7 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
     $scope.goToPrevious = function() {
         $location.url('/metiers/' + $scope.personnel.metier.libelle);
     }
+    
     /**
      * Confirmation du retour à la page précédente
      * @memberof EditIntervenantCtrl
@@ -38,21 +40,32 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
      */
     $scope.confirmGoBack = function() {
         if(!$scope.personnel.numero) { // L'intervenant n'a pas de numéro
-            navigator.notification.alert("Saisissez le numéro de l'intervenant", null, "Numéro intervenant", "OK");
+            toast($scope.translation.intervenants.editIntervenant.chooseNumber);
         } else if(!$scope.personnel.metier) { // L'intervenant n'a pas de métier
-            navigator.notification.alert("Choisissez le métier de l'intervenant", null, "Corps de métier", "OK");
+            toast($scope.translation.intervenants.editIntervenant.chooseProfession);
         } else {
             $scope.goToPrevious();
         }
     }
-     /**
+
+    /**
      * Fait sortir un intervenant
      * @memberof EditIntervenantCtrl
      * @function evacuatePersonnel
      */
     $scope.evacuatePersonnel = function() {
-        $scope.confirmGoBack();
-        Operation.evacuatePersonnel($scope.personnel);
+        navigator.notification.confirm(
+            $scope.translation.intervenants.editIntervenant.evacuateConfirm + $scope.personnel.numero + ' ?', 
+            function(buttonIndex){
+                if(buttonIndex == 2){
+                    $scope.confirmGoBack();
+                    Operation.evacuatePersonnel($scope.personnel);
+                    toast($scope.translation.intervenants.number2 + $scope.personnel.numero + ' ' + $scope.translation.evacuated);
+                }
+            }, 
+            $scope.translation.confirmation, 
+            [$scope.translation.cancel, $scope.translation.confirm]
+        );
     }
      /**
      * Supprime un intervenant
@@ -60,9 +73,18 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
      * @function deletePersonnel
      */
     $scope.deletePersonnel = function() {
-        // TODO : confirmation
-        $scope.goToPrevious();
-        Operation.removePersonnel($scope.personnel);
+        navigator.notification.confirm(
+            $scope.translation.intervenants.editIntervenant.deleteConfirm + $scope.personnel.numero + ' ?', 
+            function(buttonIndex){
+                if(buttonIndex == 2){
+                    $scope.goToPrevious();
+                    Operation.removePersonnel($scope.personnel);
+                    toast($scope.translation.intervenants.number2 + $scope.personnel.numero + ' ' + $scope.translation.deleted);
+                }
+            }, 
+            $scope.translation.intervenants.editIntervenant.delete, 
+            [$scope.translation.cancel, $scope.translation.delete]
+        );
     }
      /**
      * Confirme le changement de mission d'un intervenant
@@ -79,7 +101,6 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
         } 
         $scope.confirmGoBack();
     }
-
 
     /**
     * Ecoute les évenements clavier pour cacher afficher les boutons flottants

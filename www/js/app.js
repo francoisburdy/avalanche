@@ -34,8 +34,6 @@ angular.module('myApp', [
     });
 });
 
-
-
 /**
  * Helpers javascript.
  * Voir la documentation des plugins cordova pour plus d'informations sur l'API.

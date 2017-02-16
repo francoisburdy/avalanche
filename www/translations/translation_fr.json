@@ -68,7 +68,12 @@
         },
         "editIntervenant": {
             "title": "Intervenant n°",
-            "delete": "Supprimer l'intervenant"
+            "delete": "Supprimer l'intervenant",
+            "chooseNumber": "Saisissez le numéro de l'intervenant",
+            "chooseProfession": "Choisir le corps de métier de l'intervenant",
+            "deleteConfirm": "Cette action est irréversible !\nVoulez-vous supprimer l'intervenant n°",
+            "deleteConfirmToast": "Cette action est irréversible !\nVoulez-vous supprimer l'intervenant n°",
+            "evacuateConfirm": "Confirmez la sortie de l'intervenant n°"
         },
         "confirmIntervenant": {
             "title": "Validation intervenant",
@@ -81,6 +86,7 @@
             "alreadyOut": "Personnes déjà sorties"
         },
         "number": "N° de l'intervenant",
+        "number2": "Intervenant n°",
         "currentMission": "Mission courante"
     },
     "journal": {
@@ -132,6 +138,7 @@
     "validate": "Valider",
     "terminate": "Terminer",
     "delete": "Supprimer",
+    "deleted": "supprimé",
     "theOperation": "l'opération",
     "operationTerminated": "Operation terminée",
     "new": "Nouveau",
@@ -139,6 +146,8 @@
     "intervenantNum": "L'intervenant n°",
     "ok": "OK",
     "cancelation": "Annulation",
+    "confirm": "Confirmer",
+    "confirmation": "Confirmation",
     "create": "Créer",
     "add": "Ajouter"
 }
