@@ -52,6 +52,8 @@
         <splash height="960" src="res/ios/Default@2x~iphone.png" width="640" />
         <splash height="1024" src="res/ios/Default-Portrait~ipad.png" width="768" />
         <splash height="2048" src="res/ios/Default-Portrait@2x~ipad.png" width="1536" />
+        <splash src="res/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
+        <splash src="res/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
         <splash height="1136" src="res/ios/Default-568h@2x~iphone.png" width="640" />
         <splash height="1334" src="res/ios/Default-667h.png" width="750" />
         <splash height="2208" src="res/ios/Default-736h.png" width="1242" />

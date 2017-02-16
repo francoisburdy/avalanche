@@ -122,7 +122,7 @@
 </div> <!-- end scrollable -->
 
 
-<div ng-show="activeTab == 1" class="btn-bottom-left" ng-show="nbActivePersonnels() > 0">
+<div ng-show="activeTab == 1 && nbActivePersonnels() > 0" class="btn-bottom-left">
     <div class="red-bg">
         <a ng-click="evacuatePersonnel()">
             <i class="fa fa-minus"></i>
