@@ -20,7 +20,7 @@
 
             <div class="form-group victimStatus">
                 <label>{{translation.victimes.status}}</label>
-                <select ng-model="victime.status" ng-options="s.libelle for s in victimeStatus"></select>
+                <select ng-model="victime.status" ng-options="s.libelle for s in victimeStatus track by s.libelle"></select>
             </div>
             <div class="form-group victimSituation">
                 <label>{{translation.victimes.situation}}</label>
