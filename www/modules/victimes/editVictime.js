@@ -8,6 +8,11 @@
 angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation) {
     Translation.getTranslation($scope);
 
+    /**
+     * Initialise le scope du controller.
+     * @memberof EditVictimeCtrl
+     * @function init
+     */
     function init() {
         $scope.victime = Operation.getVictime($routeParams.num);
         $scope.victimeStatus = Parametres.getVictimeStatus();
@@ -16,6 +21,11 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
     }
     init();
 
+    /**
+     * Passe l'état de la victime à évacuer
+     * @memberof EditVictimeCtrl
+     * @function evacuateVictime
+     */
     $scope.evacuateVictime = function() {
         navigator.notification.confirm(
             $scope.translation.victimes.editVictime.evacuateConfirm1 + ' ' + $scope.victime.numero 
@@ -33,6 +43,11 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
         );
     }
 
+    /**
+     * Enregistre les modifications de statut et/ou situation apportées à la victime.
+     * @memberof EditVictimeCtrl
+     * @function checkSituation
+     */
     $scope.checkSituation = function() {
         // TODO : ajouter confirmation
         // TODO : vérifier unicité de l'ID
@@ -42,6 +57,11 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
         }
     }
 
+    /**
+     * Supprime la victime.
+     * @memberof EditVictimeCtrl
+     * @function deleteVictime
+     */
     $scope.deleteVictime = function() {
         navigator.notification.confirm(
             'Souhaitez-vous vraiment supprimer la victime ' + $scope.victime.numero + ' ?',
@@ -58,6 +78,13 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
     }
     
     /**
+     * Met à jour l'opération dans le scope lorsque le local storage est modifié 
+     */
+    $scope.$on('operationUpdated', function(event) {
+        $scope.operation = Operation.getOperation();
+    });
+
+    /**
      * Ecoute les évenements clavier pour cacher afficher les boutons flottants
      */
     window.addEventListener('native.keyboardshow', function(e) {
@@ -70,10 +97,5 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
         $scope.$apply();
     });
 
-    /**
-     * Met à jour l'opération dans le scope lorsque le local storage est modifié 
-     */
-    $scope.$on('operationUpdated', function(event) {
-        $scope.operation = Operation.getOperation();
-    });
+    
 });

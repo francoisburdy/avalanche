@@ -18,7 +18,7 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
     /**
      * Ajoute une victime après confirmation. La nouvelle victime est récupérée dans $scope.
      * @memberof AddVictimeCtrl
-     * @func addVictime
+     * @function addVictime
      */
     $scope.addVictime = function() {
         navigator.notification.confirm($scope.translation.victimes.addVictime.confirm + " ?",

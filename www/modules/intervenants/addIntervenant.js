@@ -121,7 +121,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
      * @param {string} message d'erreur
      */
     function onFail(message) {
-        console.log('image : onFail');
+        console.log('image : onFail ', message);
     }
 
     /**
