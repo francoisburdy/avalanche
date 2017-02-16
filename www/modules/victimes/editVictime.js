@@ -31,9 +31,10 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
     $scope.checkSituation = function() {
         // TODO : ajouter confirmation
         // TODO : vérifier unicité de l'ID
+        navigator.notification.confirm("La victime a été mise à jour.", null, 'Mise à jour victime', "OK");
         if($scope.victime.situation == 'Évacuée') {
           Operation.evacuateVictime($scope.victime);  
-        } 
+        }
     }
 
     $scope.deleteVictime = function() {

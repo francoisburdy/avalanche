@@ -11,12 +11,21 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
     $scope.victimeSituations = Parametres.getVictimeSituations();
 
     $scope.addVictime = function() {
-        // TODO : ajouter confirmation
-        $scope.newVictime.beginDate = new Date();
-        $scope.newVictime.endDate = null;
-        Operation.addVictime($scope.newVictime);
+        navigator.notification.confirm("Etes-vous sûr de vouloir ajouter cette victime ?",
+            function(buttonIndex) {
+                if(buttonIndex == 1) {
+                    $scope.newVictime.beginDate = new Date();
+                    $scope.newVictime.endDate = null;
+                    Operation.addVictime($scope.newVictime);
 
-        if($scope.newVictime.situation == 'Évacuée') Operation.evacuateVictime($scope.newVictime);
+                    if($scope.newVictime.situation == 'Évacuée') Operation.evacuateVictime($scope.newVictime);
+
+                    $scope.$apply();
+                }
+            },
+            "Ajouter une victime",
+            ["Ajouter", "Annuler"]
+        );
     }
 
     /**
