@@ -4,6 +4,13 @@
  * @ngdoc controllers
  * @memberof avalanche
  * @name HomeCtrl
+ * @param $scope {service} native controller scope
+ * @param $location {service} native location service
+ * @param $route {service} native route service
+ * @param $filter {service} native filter service
+ * @param Operation {service} Avalanche Operation service
+ * @param Global {service} Avalanche Global service
+ * @param Translation {service} Avalanche Translation service
  */
 angular.module('myApp').controller('HomeCtrl', function($scope, $location, $route, $filter, Operation, Global, Translation, Export) {
     

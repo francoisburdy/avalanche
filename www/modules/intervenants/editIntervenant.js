@@ -4,6 +4,12 @@
  * @ngdoc controllers
  * @memberof avalanche
  * @name EditIntervenantCtrl
+ * @param $scope {service} native controller scope
+ * @param $routeParams {service} native route parameters service
+ * @param $location {service} native location service
+ * @param Operation {service} Avalanche Operation service
+ * @param Parametres {service} Avalanche Parametres service
+ * @param Translation {service} Avalanche Translation service
  */
 angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation) {
     /**
@@ -74,9 +80,12 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
         $scope.confirmGoBack();
     }
 
+
     /**
-     * Ecoute les évenements clavier pour cacher afficher les boutons flottants
-     */
+    * Ecoute les évenements clavier pour cacher afficher les boutons flottants
+    * @ngdoc events
+    * @memberof EditIntervenantCtrl
+    */
     window.addEventListener('native.keyboardshow', function(e) {
         $scope.keyboardVisible = true;
         $scope.$apply();        

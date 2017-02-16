@@ -4,6 +4,10 @@
  * @ngdoc controllers
  * @memberof avalanche
  * @name JournalCtrl
+ * @param $scope {service} native controller scope
+ * @param Operation {service} Avalanche Operation service
+ * @param Export {service} Avalanche Export service
+ * @param Translation {service} Avalanche Translation service
  */
 angular.module('myApp').controller('JournalCtrl', function($scope, Operation, Export, Translation) {
 
@@ -29,7 +33,7 @@ angular.module('myApp').controller('JournalCtrl', function($scope, Operation, Ex
 
     /**
     * Lorsqu'un nouvelle langue est chargée, recharge le journal.
-    * @func onTranslationLoaded
+    * @func $on(translationLoaded)()
     * @memberof JournalCtrl
     * @listens translationLoaded
     */

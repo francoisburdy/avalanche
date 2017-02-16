@@ -4,8 +4,13 @@
  * @ngdoc controllers
  * @memberof avalanche
  * @name AddVictimeCtrl
+ * @param $scope {service} native controller scope
+ * @param $location {service} native location service
+ * @param Operation {service} Avalanche Operation service
+ * @param Parametres {service} Avalanche Parametres service
+ * @param Translation {service} Avalanche Translation service
  */
-angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location, Operation, Parametres, SharedState, Translation) {
+angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location, Operation, Parametres, Translation) {
     
     Translation.getTranslation($scope);
     $scope.newVictime = {};

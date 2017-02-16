@@ -4,6 +4,11 @@
  * @ngdoc controllers
  * @memberof avalanche
  * @name ParametresCtrl
+ * @param $rootScope {service} native rootScope service
+ * @param $scope {service} native scope service
+ * @param Parametres {service} Avalanche Parametres service
+ * @param Translation {service} Avalanche Translation service
+ * @param Operation {service} Avalanche Operation service
  */
 angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope, Parametres, Translation, Operation) {
 
@@ -21,6 +26,7 @@ angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope
         $scope.language = Parametres.getCurrentLanguage();
     }
     init();
+
     /**
      * Met à jour le langage utilisé dans l'application
      * @memberof ParametresCtrl
@@ -30,6 +36,7 @@ angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope
     $scope.changeLanguage = function(lang) {
         Parametres.setLanguage(lang);
     }
+
     /**
      * Met à jour l'identifiant du dernier metier cliqué
      * @memberof ParametresCtrl
@@ -39,6 +46,7 @@ angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope
     $scope.updateLastClicked = function(index) {
         $scope.lastClickedIndex = index;
     }
+
     /**
      * Ajoute un metier dans les coprs de métiers disponibles pour les intervenants
      * @memberof ParametresCtrl
@@ -54,8 +62,9 @@ angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope
             $rootScope.Ui.turnOff('modalAddMetier')
         }
     } 
+
     /**
-     * Suuprime un metier parmi les corps de métiers disponibles pour les intervenants
+     * Supprime un metier parmis les corps de métiers disponibles pour les intervenants
      * @memberof ParametresCtrl
      * @function removeMetier
      * @param {string} metier Nom du métier choisi
@@ -64,7 +73,7 @@ angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope
         // TODO : vérifier qu'il n'y a aucun intervenant pour ce métier dans l'opération courante
         if (Operation.getPersonnelsByMetier(metier).length > 0){
             navigator.notification.alert("Impossible de supprimer. \n Ce métier est encore utilisé dans l'opération", null, "Attention", "OK")
-        }else{
+        } else {
             var i = 0;
             while ($scope.metiers[i].libelle != metier && i<$scope.metiers.length) i++;
             
@@ -77,7 +86,8 @@ angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope
         }
 
     }
-        /**
+    
+    /**
      * Modifie un metier parmis les coprs de métiers disponibles pour les intervenants
      * @memberof ParametresCtrl
      * @function modifyMetier

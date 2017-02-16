@@ -4,6 +4,8 @@
  * @memberof avalanche
  * @ngdoc services
  * @name Export
+ * @param $filter {service} native filter service
+ * @param Operation {service} Avalanche Operation service
  * @description 
  *  Service dédié à l'export PDF des opérations. Il contient les méthodes
  *  permettant de construire les templates HTML des journaux construits dans

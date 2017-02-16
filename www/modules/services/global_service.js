@@ -4,6 +4,10 @@
  * @memberof avalanche
  * @ngdoc services
  * @name Global
+ * @param $localStorage {service} native localStorage service
+ * @param $rootScope {service} native rootScope service
+ * @param $location {service} native location service
+ * @param $http {service} native http service
  * @description 
  *   Service Global
  */

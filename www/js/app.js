@@ -1,10 +1,14 @@
 'use strict';
 
-
-
-/**
- * @name myApp
- */
+ /**
+  * Charge les modules externes utilisés par l'application.
+  * @memberof avalanche
+  * @ngdoc config
+  * @name app
+  * @param {service} $rootScope native rootScope service
+  * @param {service} $location native location service
+  * @param {service} Operation Avalanche Operation service
+  */
 angular.module('myApp', [
   'ngRoute',
   'ngStorage',
@@ -31,11 +35,21 @@ angular.module('myApp', [
 });
 
 
-document.addEventListener("deviceready", onDeviceReady, false);
 
 /**
-* Cordova callback
-*/
+ * Helpers javascript.
+ * Voir la documentation des plugins cordova pour plus d'informations sur l'API.
+ * @memberof avalanche
+ * @ngdoc helpers
+ * @name JS helpers
+ */
+
+document.addEventListener("deviceready", onDeviceReady, false);
+/**
+ * Callback executé quand cordova émet l'évènement 'deviceready'
+ * @memberof JS helpers
+ * @func onDeviceReady
+ */
 function onDeviceReady() {
     console.log('deviceready');
     setTimeout(function() {
@@ -43,7 +57,12 @@ function onDeviceReady() {
     }, 50);
 }
 
-
+/**
+ * Affiche un toast en bas au centre, sur fond gris clair transparent
+ * @memberof JS helpers
+ * @func toast
+ * @param {string} message Message à afficher dans un toast
+ */
 function toast(message){
   window.plugins.toast.showWithOptions({
       message: message,

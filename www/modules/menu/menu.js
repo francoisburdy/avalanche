@@ -5,12 +5,15 @@
  * @ngdoc controllers
  * @memberof avalanche
  * @name MenuCtrl
+ * @param $scope {service} native scope service
+ * @param Operation {service} Avalanche Operation service
+ * @param Translation {service} Avalanche Translation service
  */
 angular.module('myApp').controller('MenuCtrl', function($scope, Operation, Translation) {
 
     /**
       * Initialise le scope du controller
-      * @namespace MenuCtrl
+      * @memberof MenuCtrl
       * @function init
       */
     function init() {

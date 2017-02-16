@@ -1,9 +1,13 @@
 'use strict';
 
-/**
- * @memberof avalanche
- * @ngdoc module
- */
+   /**
+    * Définit les routes de l'application et les relations vues-controleurs
+    * @memberof avalanche
+    * @ngdoc config
+    * @name routes
+    * @param {service} $locationProvider native locationProvider service
+    * @param {service} $routeProvider native routeProvider service
+    */
 angular.module('myApp').config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 

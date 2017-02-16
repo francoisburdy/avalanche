@@ -4,6 +4,11 @@
  * @ngdoc controllers
  * @memberof avalanche
  * @name DetailsMetierCtrl
+ * @param $scope {service} native controller scope
+ * @param $routeParams {service} native route parameters service
+ * @param $location {service} native location service
+ * @param Operation {service} Avalanche Operation service
+ * @param Translation {service} Avalanche Translation service
  */
 angular.module('myApp').controller('DetailsMetierCtrl', function($scope, $routeParams, $location, Operation, Translation) {
     /**
@@ -35,6 +40,7 @@ angular.module('myApp').controller('DetailsMetierCtrl', function($scope, $routeP
     }
 
     /**
+     * 
      * Met à jour l'opération dans le scope lorsque le local storage est modifié 
      */
     $scope.$on('operationUpdated', function(event) {

@@ -1,24 +1,17 @@
 {
     "tags": {
         "allowUnknownTags": true,
-        "dictionaries": ["jsdoc","closure"]
+        "dictionaries": [
+            "jsdoc",
+            "closure"
+        ]
     },
     "source": {
         "include": [
-            "www/",
             "www/js",
-            "www/modules/dashboard",
-            "www/modules/historique",
-            "www/modules/home",
-            "www/modules/intervenants",
-            "www/modules/journal",
-            "www/modules/filters",
-            "www/modules/menu",
-            "www/modules/parametres",
-            "www/modules/services",
-            "www/modules/victimes"
+            "www/modules"
         ],
-        "includePattern": ".+\\.js(doc|x)?$",
+        "includePattern": ".+\\.js?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
     "plugins": [
@@ -31,5 +24,12 @@
         "default": {
             "outputSourceFiles": true
         }
+    },
+    "opts": {
+        "template": "node_modules/angular-jsdoc/angular-template", 
+        "encoding": "utf8",               // same as -e utf8
+        "readme": "README.md",
+        "recurse": "all",
+        "destination": "./doc/"  
     }
 }

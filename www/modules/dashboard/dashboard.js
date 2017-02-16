@@ -1,11 +1,17 @@
 'use strict';
 
-
  /**
-   * @ngdoc controllers
-   * @memberof avalanche
-   * @name DashboardCtrl
-   */
+  * @ngdoc controllers
+  * @memberof avalanche
+  * @name DashboardCtrl
+  * @param $scope {service} native scope service
+  * @param $location {service} native location service
+  * @param $rootScope {service} native rootScope service
+  * @param Operation {service} Avalanche Operation service
+  * @param Parametres {service} Avalanche Parametres service
+  * @param Global {service} Avalanche Global service
+  * @param Translation {service} Avalanche Translation service
+  */
 angular.module('myApp').controller('DashboardCtrl', function($scope, $location, $rootScope, Operation, Parametres, Global, Translation) {
 
     /**
@@ -63,7 +69,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
      * @function terminateOperation
      */
     $scope.terminateOperation = function() {
-        /* ToDo: Vérifier que tout le monde est sorti */
+        /* TODO: Vérifier que tout le monde est sorti */
         navigator.notification.confirm(
             $scope.translation.dashboard.confirmTerminateMsg, 
             function(buttonIndex) {
@@ -90,9 +96,9 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     }
 
     /**
-     * 
-     * @function detailsMetier
+     * Redirige vers la page listant les intervenant pour un métier donné
      * @memberof DashboardCtrl
+     * @function detailsMetier
      * @param lib {string} Libellé du métier recherché
      */
     $scope.detailsMetier = function(lib) {
@@ -100,6 +106,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     }
 
     /**
+     * Ouvre une modale avec un champs de saisie pour la sortie d'intervenant par son numéro
      * @memberof DashboardCtrl
      * @function evacuatePersonnel
      */
@@ -152,6 +159,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     /**
      * Va vers l'index d'onglet passé en paramètre
+     * @memberof DashboardCtrl
      * @function goTab
      * @param index de l'onglet recherché
      */
@@ -162,6 +170,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     /**
      * Affiche l'onglet suivant.
+     * @memberof DashboardCtrl  
      * @function nextTab
      */
     $scope.nextTab = function() {
@@ -170,6 +179,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     /**
      * Affiche l'onglet précédent
+     * @memberof DashboardCtrl
      * @function prevTab
      */
     $scope.prevTab = function() {
@@ -185,6 +195,8 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     });
 
     /**
+     * @memberof DashboardCtrl
+     * @func exitApp
      * Ferme l'application après avoir demandé la confirmation
      */
     $scope.exitApp = function(){
@@ -192,4 +204,3 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     }
 
 });
-

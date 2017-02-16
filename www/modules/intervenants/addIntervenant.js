@@ -4,20 +4,23 @@
  * @ngdoc controllers
  * @memberof avalanche
  * @name AddIntervenantCtrl
+ * @param $scope {service} native controller scope
+ * @param $routeParams {service} native route parameters service
+ * @param $location {service} native location service
+ * @param $document {service} native document service
+ * @param Operation {service} Avalanche Operation service
+ * @param Parametres {service} Avalanche Parametres service
+ * @param Translation {service} Avalanche Translation service
  */
 angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $routeParams, $location, $document, Operation, Parametres, Translation) {
-
 
     /**
      * Initialise le scope du controller et initialise la page de confirmation avec les informations du nouveau intervenant.
      * Initialise le formulaire avec les métiers et les missions possibles.
      * @memberof AddIntervenantCtrl
      * @function init
-     *
      */
     function init() {
-        //if (cordova) cordova.plugins.Keyboard.disableScroll(false);
-
         Translation.getTranslation($scope);
         $scope.tmpPersonnel = Operation.getTmpPersonnel();
         
@@ -84,7 +87,6 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
      * @function launchCamera
      */
     $scope.launchCamera = function() {
-        console.log(navigator.camera);
         if(navigator.camera !== undefined) {
             navigator.camera.getPicture(onSuccess, onFail, { 
                 quality: 40,
@@ -105,7 +107,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
      * Enregistre l'image pour l'intervenant concerné 
      * @memberof AddIntervenantCtrl
      * @function onSuccess
-     * @param {string} les données de l'image
+     * @param {string} imageData les données de l'image
      */
     function onSuccess(imageData) {
         console.log('image : onSuccess');
@@ -118,7 +120,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
      * Affiche l'erreur si la prise de la photo n'a pas fonctionné.
      * @memberof AddIntervenantCtrl
      * @function onFail
-     * @param {string} message d'erreur
+     * @param {string} message message d'erreur
      */
     function onFail(message) {
         console.log('image : onFail ', message);

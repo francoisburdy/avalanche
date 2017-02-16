@@ -4,6 +4,12 @@
  * @ngdoc controllers
  * @memberof avalanche
  * @name EditVictimeCtrl
+ * @param $scope {service} native controller scope
+ * @param $routeParams {service} native routeParams service
+ * @param $location {service} native location service
+ * @param Operation {service} Avalanche Operation service
+ * @param Parametres {service} Avalanche Parametres service
+ * @param Translation {service} Avalanche Translation service
  */
 angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation) {
     Translation.getTranslation($scope);
