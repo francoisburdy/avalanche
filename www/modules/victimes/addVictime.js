@@ -16,7 +16,7 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
     $scope.victimeSituations = Parametres.getVictimeSituations();
 
     $scope.addVictime = function() {
-        navigator.notification.confirm("Etes-vous sûr de vouloir ajouter cette victime ?",
+        navigator.notification.confirm($scope.translation.victimes.addVictime.confirm + " ?",
             function(buttonIndex) {
                 if(buttonIndex == 1) {
                     $scope.newVictime.beginDate = new Date();
@@ -28,8 +28,8 @@ angular.module('myApp').controller('AddVictimeCtrl', function($scope, $location,
                     $scope.$apply();
                 }
             },
-            "Ajouter une victime",
-            ["Ajouter", "Annuler"]
+            $scope.translation.victimes.addVictime.addVictime,
+            [$scope.translation.add, $scope.translation.cancel]
         );
     }
 

@@ -106,7 +106,9 @@
     },
     "victimes": {
         "addVictime": {
-            "title": "Ajouter une victime"
+            "title": "Ajouter une victime",
+            "confirm" : "Etes-vous sûr de vouloir ajouter cette victime",
+            "addVictime" : "Ajouter une victime"
         },
         "editVictime": {
             "title": "Modifier la victime n°",
@@ -137,5 +139,6 @@
     "intervenantNum": "L'intervenant n°",
     "ok": "OK",
     "cancelation": "Annulation",
-    "create": "Créer"
+    "create": "Créer",
+    "add" : "Ajouter"
 }
