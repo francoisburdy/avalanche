@@ -321,7 +321,6 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
       * @returns {Journal} Journal de l'opération
       */
     this.getJournal = function(operation, scope) {
-        console.log(scope);
         var journal = {
             nom: operation.nom,
             beginDate: operation.beginDate,
