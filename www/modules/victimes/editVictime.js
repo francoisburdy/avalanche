@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * @ngdoc controllers
+ * @memberof avalanche
+ * @name EditVictimeCtrl
+ */
 angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation) {
     Translation.getTranslation($scope);
 

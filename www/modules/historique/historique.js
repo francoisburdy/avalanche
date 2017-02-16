@@ -1,11 +1,19 @@
 'use strict';
 
+
+ /**
+   * @ngdoc controllers
+   * @memberof avalanche
+   * @name HistoriqueCtrl
+   */
 angular.module('myApp').controller('HistoriqueCtrl', function($scope, Operation, Export, Translation) {
 
     Translation.getTranslation($scope);
 
     /**
      * Vérifie si l'index passé est sélectionné
+     * @namespace HistoriqueCtrl
+     * @function isSelected
      * @param index à vérifier
      * @returns true si l'onglet est sélectionné, sinon false
      */

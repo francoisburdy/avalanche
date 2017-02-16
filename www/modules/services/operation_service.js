@@ -1,15 +1,26 @@
-﻿
+﻿'use strict';
+
 /**
- * @function Operation
- * @memberOf angular_module.myApp
- * @description Service gérant toutes les informations relatives à l'opération courante et à l'historisation des données.
+ * @memberof avalanche
+ * @ngdoc services
+ * @name Operation
+ * @description 
+ *   Service Operation
  */
 angular.module('myApp').service('Operation', function($localStorage, $rootScope, $location, $filter) {
     
+    /**
+      * @memberof Operation
+      * @func getOperation
+      */
     this.getOperation = function() {
         return $localStorage.operation;
     }
 
+    /**
+      * @memberof Operation
+      * @func createOperation
+      */
     this.createOperation = function(nomOperation) {
         if($localStorage.operation == null) {
             $localStorage.operation = {
@@ -25,6 +36,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
+    /**
+      * @memberof Operation
+      * @func terminate
+      */
     this.terminate = function() {
         $localStorage.operation.endDate = new Date();
         this.pushHistorique($localStorage.operation);
@@ -32,6 +47,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         $rootScope.$broadcast('operationUpdated');
     }
 
+    /**
+      * @memberof Operation
+      * @func addTmpPersonnel
+      */
     this.addTmpPersonnel = function(personnel) {
         if(!this.isPersonnelNumberAvailable(personnel.numero)) {
             navigator.notification.alert('Il y a déjà un personnel portant ce numéro', null, 'Numéro déjà utilisé', 'OK');
@@ -41,15 +60,27 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
+    /**
+      * @memberof Operation
+      * @func getTmpPersonnel
+      */
     this.getTmpPersonnel = function() {
         if(!this.tmpPersonnel) return null;
         return this.tmpPersonnel;
     }
 
+    /**
+      * @memberof Operation
+      * @func cancelTmpPersonnel
+      */
     this.cancelTmpPersonnel = function() {
         delete this.tmpPersonnel;
     }
 
+    /**
+      * @memberof Operation
+      * @func addPersonnel
+      */
     this.addPersonnel = function() {
         if($localStorage.operation.personnels.indexOf(this.tmpPersonnel) !== -1) {
             console.log("Error : operation already contains this personnel");
@@ -60,6 +91,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
+    /**
+      * @memberof Operation
+      * @func removePersonnel
+      */
     this.removePersonnel = function(personnel) {
         if(!$localStorage.operation) {
             console.log("Error: Not ongoing operation")
@@ -73,7 +108,12 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
-    /* Retourne un personnel à partir de son numéro */
+    /**
+      * Retourne un personnel de l'opération courante à partir de son numéro
+      * @memberof Operation
+      * @func getPersonnel
+      * @param {integer} numero Numéro de personnel
+      */
     this.getPersonnel = function(numero) {
         if($localStorage.operation){
             for(let p of $localStorage.operation.personnels) {
@@ -82,7 +122,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
-    /* Retourne la liste des personnels du métier passé en paramètre */
+    /**
+      * @memberof Operation
+      * @func getPersonnelsByMetier
+      * @param {string} libMetier
+      */
     this.getPersonnelsByMetier = function(libMetier) {
         let personnels = [];
         if(!$localStorage.operation) return personnels;
@@ -93,11 +137,21 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         return personnels;
     }
 
+    /**
+      * @memberof Operation
+      * @func evacuatePersonnel
+      * @param {integer} personnel
+      */
     this.evacuatePersonnel = function(personnel) {
         personnel.endDate = new Date();
         $rootScope.$broadcast('operationUpdated');
     }
 
+    /**
+      * @memberof Operation
+      * @func addVictime
+      * @param {Victime} victime
+      */
     this.addVictime = function(victime) {
         if($localStorage.operation.victimes.indexOf(victime) !== -1) console.log("Error : Operation already contains this victime")
         else if(!this.isVictimeNumberAvailable(victime.numero)) {
@@ -109,12 +163,22 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
+    /**
+      * @memberof Operation
+      * @func evacuateVictime
+      * @param {Victime} victime
+      */
     this.evacuateVictime = function(victime) {
         victime.situation = 'Évacuée';
         victime.endDate = new Date();
         $rootScope.$broadcast('operationUpdated');
     }
 
+    /**
+      * @memberof Operation
+      * @func removeVictime
+      * @param {Victime} victime
+      */
     this.removeVictime = function(victime) {
         if($localStorage.operation){
             var index = $localStorage.operation.victimes.indexOf(victime);
@@ -126,7 +190,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
-    /* Génère un numéro inexistant pour une victime */
+    /**
+      * Génère un numéro inexistant pour une victime 
+      * @memberof Operation
+      * @func generateVictimeNumber
+      */
     this.generateVictimeNumber = function() {
         if($localStorage.operation.victimes.length == 0) {
             return 1;
@@ -139,19 +207,37 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         }
     }
 
+    /**
+      *  
+      * @memberof Operation
+      * @func isVictimeNumberAvailable
+      * @param {integer} num
+      */
     this.isVictimeNumberAvailable = function(num) {
         for(let v of $localStorage.operation.victimes)
             if(v.numero == num) return false;
         return true;
     }
 
+    /**
+      *  
+      * @memberof Operation
+      * @func isPersonnelNumberAvailable
+      * @param {integer} num
+      */
     this.isPersonnelNumberAvailable = function(num) {
         for(let p of $localStorage.operation.personnels)
             if(p.numero == num && !p.endDate) return false;
         return true;
     }
 
-    /* Retourne une victime à partir de son numéro */
+    /**
+      *  
+      * Retourne une victime à partir de son numéro
+      * @memberof Operation
+      * @func getVictime
+      * @param {integer} numero
+      */
     this.getVictime = function(numero) {
         for(let victime of $localStorage.operation.victimes) {
             if(victime.numero == numero) return victime; 
@@ -163,6 +249,12 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
      * HISTORISATION DES DONNEES *
      ***************************/
 
+    /**
+      *
+      * @memberof Operation
+      * @func getJournaux
+      * @param {Scope} scope
+      */
     this.getJournaux = function(scope) {
         var journaux = [];
 
@@ -172,10 +264,22 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         return journaux;
     }
 
+    /**
+      *
+      * @memberof Operation
+      * @func getCurrentJournal
+      * @param {Scope} scope
+      */
     this.getCurrentJournal = function(scope) {
         return this.getJournal(this.getOperation(), scope);
     }
 
+    /**
+      *
+      * @memberof Operation
+      * @func getJournal
+      * @param {Scope} scope
+      */
     this.getJournal = function(operation, scope) {
         console.log(scope);
         var journal = {
@@ -237,6 +341,12 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         return journal;
     }
 
+    /**
+      *
+      * @memberof Operation
+      * @func pushHistorique
+      * @param {Operation} operation
+      */
     this.pushHistorique = function(operation) {
         if(!$localStorage.historique) {
             $localStorage.historique = [];

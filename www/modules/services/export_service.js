@@ -1,5 +1,18 @@
+'use strict';
+
+/**
+ * @memberof avalanche
+ * @ngdoc services
+ * @name Export
+ * @description 
+ *   Service Export
+ */
 angular.module('myApp').service('Export', function($filter, Operation) {
     
+    /**
+     * @memberof Export
+     * @func exportAllOperation
+     */
     this.exportAllOperation = function(scope) {
         var html = this.historiqueAsHtml(scope);
         pdf.htmlToPDF({
@@ -10,6 +23,10 @@ angular.module('myApp').service('Export', function($filter, Operation) {
         }, null, null);
     }
 
+    /**
+     * @memberof Export
+     * @func exportCurrentOperation
+     */
     this.exportCurrentOperation = function(scope) {
         var html = this.currentOperationAsHtml(scope);
         pdf.htmlToPDF({
@@ -20,6 +37,10 @@ angular.module('myApp').service('Export', function($filter, Operation) {
         }, null, null);
     }
 
+    /**
+     * @memberof Export
+     * @func historiqueAsHtml
+     */
     this.historiqueAsHtml = function(scope) {
         var operations = Operation.getJournaux(scope);
         var nowDate = $filter('date')(new Date(), scope.translation.dateFormat);
@@ -38,6 +59,10 @@ angular.module('myApp').service('Export', function($filter, Operation) {
         return html.escape();
     }
 
+    /**
+     * @memberof Export
+     * @func currentOperationAsHtml
+     */
     this.currentOperationAsHtml = function(scope) {
         let o = Operation.getCurrentJournal(scope);
         var nowDate = $filter('date')(new Date(), scope.translation.dateFormat);
@@ -54,6 +79,10 @@ angular.module('myApp').service('Export', function($filter, Operation) {
         return html.escape();
     }
 
+    /**
+     * @memberof Export
+     * @func operationAsHtml
+     */
     this.operationAsHtml = function(o, scope) {
         var date = $filter('date')(o.beginDate, scope.translation.dateFormat);
         var dateDebut = $filter('date')(o.beginDate, scope.translation.dateFormat + ', ' + scope.translation.hourFormat);

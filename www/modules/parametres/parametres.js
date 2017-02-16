@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * @ngdoc controllers
+ * @memberof avalanche
+ * @name ParametresCtrl
+ */
 angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope, Parametres, Translation, Operation) {
 
     function init() {

@@ -1,7 +1,18 @@
-﻿angular.module('myApp').service('Global', function($localStorage, $rootScope, $location, $http) {
+﻿'use strict';
+
+/**
+ * @memberof avalanche
+ * @ngdoc services
+ * @name Global
+ * @description 
+ *   Service Global
+ */
+angular.module('myApp').service('Global', function($localStorage, $rootScope, $location, $http) {
     
     /**
      * Ferme l'application
+     * @memberof Global
+     * @func exitApp
      */
     this.exitApp = function() {
         navigator.notification.confirm(
@@ -14,20 +25,36 @@
         );
     }
 
+    /**
+     * @memberof Global
+     * @func setDashboardTab
+     */
     this.setDashboardTab = function(index){
         $localStorage.dashboardTab = index;
     }
 
+    /**
+     * @memberof Global
+     * @func getDashboardTab
+     */
     this.getDashboardTab = function(){
         if ($localStorage.dashboardTab == undefined) this.setDashboardTab(1);
         return $localStorage.dashboardTab;
     }
 
+    /**
+     * @memberof Global
+     * @func purgeData
+     */
     this.purgeData = function() {
         $localStorage.$reset();
         $rootScope.$broadcast('operationUpdated');
     }
 
+    /**
+     * @memberof Global
+     * @func loadDemoData
+     */
     this.loadDemoData = function() {
         $http.get('demo/demo-historique.json').then(function(res) {
             console.log("historique", res);
@@ -43,9 +70,6 @@
                 });
             }
         });
-
-        
-        // TODO : faire une redirection sur dashboard après chargement terminé (promise ?)
     }
 
 });

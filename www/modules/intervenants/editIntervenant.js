@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * @ngdoc controllers
+ * @memberof avalanche
+ * @name EditIntervenantCtrl
+ */
 angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation) {
 
     function init() {

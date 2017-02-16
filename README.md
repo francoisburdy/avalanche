@@ -13,13 +13,13 @@ Mac/Linux
 Cette installation peut durer pas mal de temps, selon le nombre de dépendances manquantes.
 
 ```sh
-sudo npm install -g cordova bower jsdoc
+sudo npm install -g cordova bower jsdoc angular-jsdoc
 ```
 
 Windows
 
 ```sh
-C:\>npm install -g cordova bower jsdoc
+C:\>npm install -g cordova bower jsdoc angular-jsdoc
 ```
 
 ## Récupérer le projet depuis Github
@@ -34,7 +34,8 @@ cordova platform add browser
 bower install
 
 # Generer la documentation
-# jsdoc -c jsdoc.json -d ./doc
+# Recommandation : créer un alias pour éviter la saisie de cette commande
+node_modules/jsdoc/jsdoc.js -c jsdoc.json -d ./doc/ -R README.md -t node_modules/angular-jsdoc/angular-template
 
 ```
 

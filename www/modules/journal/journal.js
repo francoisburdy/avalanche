@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * @ngdoc controllers
+ * @memberof avalanche
+ * @name JournalCtrl
+ */
 angular.module('myApp').controller('JournalCtrl', function($scope, Operation, Export, Translation) {
 
     function init() {

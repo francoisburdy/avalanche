@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * @ngdoc controllers
+ * @memberof avalanche
+ * @name DetailsMetierCtrl
+ */
 angular.module('myApp').controller('DetailsMetierCtrl', function($scope, $routeParams, $location, Operation, Translation) {
     
     function init() {

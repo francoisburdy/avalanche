@@ -1,8 +1,18 @@
 'use strict';
 
 
+ /**
+   * @ngdoc controllers
+   * @memberof avalanche
+   * @name DashboardCtrl
+   */
 angular.module('myApp').controller('DashboardCtrl', function($scope, $location, $rootScope, Operation, Parametres, Global, Translation) {
 
+    /**
+      * Initialise le scope du controller
+      * @memberof DashboardCtrl
+      * @function init
+      */
     function init() {
         Translation.getTranslation($scope);
         $scope.operation = Operation.getOperation();
@@ -17,8 +27,10 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     init();
 
     /**
-     * Retourne le nombre de personnels pour un métier donné 
-     * @param metier Métier des personnels
+     * Retourne le nombre de personnels pour un métier donné.
+     * @memberof DashboardCtrl
+     * @function nbPersonnels
+     * @param {string} metier Métier des personnels
      */
     $scope.nbPersonnels = function(metier) {
         if(! $scope.operation || ! $scope.operation.personnels) return 0;
@@ -31,6 +43,8 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     /**
      * Retourne le nombre de personnels encore présents sur le site
+     * @memberof DashboardCtrl
+     * @function nbActivePersonnels     
      */
     $scope.nbActivePersonnels = function() {
         if(! $scope.operation || ! $scope.operation.personnels) return 0;
@@ -44,7 +58,9 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     /**
      * Termine une opération.
-     * Enregistre également dans le journal toutes les évènements effectués. 
+     * Enregistre également dans le journal toutes les évènements effectués.
+     * @memberof DashboardCtrl
+     * @function terminateOperation
      */
     $scope.terminateOperation = function() {
         /* ToDo: Vérifier que tout le monde est sorti */
@@ -65,20 +81,28 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     /**
      * Redirige vers la page d'édition de victime
-     * @param Numéro de la victime à éditer
+     * @function editVictime
+     * @memberof DashboardCtrl
+     * @param num {integer} Numéro de la victime à éditer
      */
     $scope.editVictime = function(num) {
         $location.url('/victimes/' + num);
     }
 
     /**
-     * Redirige vers la page de détails d'un métier
-     * @param Libellé du métier recherché
+     * 
+     * @function detailsMetier
+     * @memberof DashboardCtrl
+     * @param lib {string} Libellé du métier recherché
      */
     $scope.detailsMetier = function(lib) {
         $location.url('/metiers/' + lib);
     }
 
+    /**
+     * @memberof DashboardCtrl
+     * @function evacuatePersonnel
+     */
     $scope.evacuatePersonnel = function() {
         navigator.notification.prompt(
             $scope.translation.dashboard.rescuerOutMsg, 
@@ -88,6 +112,12 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
         );
     }
 
+    /**
+     * Redirige vers la page de détails d'un métier
+     * @memberof DashboardCtrl
+     * @function checkPersonnel
+     * @param results {string} Libellé du métier recherché
+     */
     function checkPersonnel(results) {
         if(results.buttonIndex == 1) {
             console.log($scope.translation.dashboard.rescuerOut, results.input1);
@@ -122,6 +152,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     /**
      * Va vers l'index d'onglet passé en paramètre
+     * @function goTab
      * @param index de l'onglet recherché
      */
     $scope.goTab = function(index) {
@@ -130,7 +161,8 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     }
 
     /**
-     * Affiche l'onglet suivant
+     * Affiche l'onglet suivant.
+     * @function nextTab
      */
     $scope.nextTab = function() {
         if( $scope.activeTab <= 2) $scope.goTab(2);
@@ -138,6 +170,7 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
 
     /**
      * Affiche l'onglet précédent
+     * @function prevTab
      */
     $scope.prevTab = function() {
         if ($scope.activeTab > 1) $scope.goTab(1)
@@ -159,3 +192,4 @@ angular.module('myApp').controller('DashboardCtrl', function($scope, $location, 
     }
 
 });
+

@@ -1,13 +1,30 @@
-﻿angular.module('myApp').service('Parametres', function($localStorage, $rootScope) {
+﻿'use strict';
+
+/**
+ * @memberof avalanche
+ * @ngdoc services
+ * @name Parametres
+ * @description 
+ *   Service Parametres
+ */
+angular.module('myApp').service('Parametres', function($localStorage, $rootScope) {
     
     /************************
      * STATUTS DES VICTIMES *
-     ***********************/ 
+     ***********************/
+     /**
+      * @memberof Parametres
+      * @func getVictimeStatus
+      */
     this.getVictimeStatus = function() {
         if(!$localStorage.victimeStatus) this.createDefaultVictimeStatus();
         return $localStorage.victimeStatus;
     }
 
+     /**
+      * @memberof Parametres
+      * @func addVictimeStatus
+      */
     this.addVictimeStatus = function(newStatus) {
         if($localStorage.victimeStatus) {
             $localStorage.victimeStatus.push(newStatus);
@@ -17,6 +34,10 @@
         }
     }
 
+     /**
+      * @memberof Parametres
+      * @func removeVictimeStatus
+      */
     this.removeVictimeStatus = function(status) {
         var index = $localStorage.victimeStatus.indexOf(status);
         if(index == -1) console.log("Ce statut n'existe pas dans la liste des statuts.");
@@ -26,6 +47,10 @@
         }   
     }
 
+     /**
+      * @memberof Parametres
+      * @func createDefaultVictimeStatus
+      */
     this.createDefaultVictimeStatus = function() {
         $localStorage.victimeStatus = [
             {libelle: 'Inconnu', code: '?', bg: '#fff', text: '#333'},
@@ -36,6 +61,10 @@
         ];
     }
 
+     /**
+      * @memberof Parametres
+      * @func defaultStatus
+      */
     this.defaultStatus = function() {
         if(!$localStorage.victimeStatus){
             this.createDefaultVictimeStatus();
@@ -46,11 +75,19 @@
     /***************************
      * SITUATIONS DES VICTIMES *
      **************************/ 
+     /**
+      * @memberof Parametres
+      * @func getVictimeSituations
+      */
     this.getVictimeSituations = function() {
         if(!$localStorage.victimeSituations) this.createDefaultVictimeSituations();
         return $localStorage.victimeSituations;
     }
 
+     /**
+      * @memberof Parametres
+      * @func addVictimeSituation
+      */
     this.addVictimeSituation = function(newSituation) {
         if($localStorage.victimeSituations) {
             $localStorage.victimeSituations.push(newSituation);
@@ -60,6 +97,10 @@
         }
     }
 
+     /**
+      * @memberof Parametres
+      * @func removeVictimeSituation
+      */
     this.removeVictimeSituation = function(situation) {
         var index = $localStorage.victimeSituations.indexOf(situation);
         if(index == -1) console.log("Cette situation n'existe pas dans la liste des situations.");
@@ -69,6 +110,10 @@
         }   
     }
 
+     /**
+      * @memberof Parametres
+      * @func createDefaultVictimeSituations
+      */
     this.createDefaultVictimeSituations = function() {
         $localStorage.victimeSituations = [
             'Inconnue',
@@ -79,6 +124,10 @@
         ];
     }
 
+     /**
+      * @memberof Parametres
+      * @func defaultSituation
+      */
     this.defaultSituation = function() {
         return 'Inconnue';
     }
@@ -86,11 +135,18 @@
     /************************
      *    CORPS DE METIER   *
      ***********************/ 
+     /**
+      * @memberof Parametres
+      * @func getMetiers
+      */
     this.getMetiers = function() {
         if(!$localStorage.metiers) this.createDefaultMetiers();
         return $localStorage.metiers;
     }
-
+     /**
+      * @memberof Parametres
+      * @func getMetier
+      */
     this.getMetier = function(lib) {
         if(!$localStorage.metiers) this.createDefaultMetiers();
         for (var i = 0; i < $localStorage.metiers.length; i++) {
@@ -99,6 +155,10 @@
         return null;
     }
 
+     /**
+      * @memberof Parametres
+      * @func addMetier
+      */
     this.addMetier = function(metier) {
         if($localStorage.metiers) {
             $localStorage.metiers.push(metier);
@@ -108,6 +168,10 @@
         }
     }
 
+     /**
+      * @memberof Parametres
+      * @func modifyMetier
+      */
     this.modifyMetier = function(metier) {
         var i = 0;
         var metiers = $localStorage.metiers;
@@ -119,6 +183,10 @@
         }
     }
 
+     /**
+      * @memberof Parametres
+      * @func removeMetier
+      */
     this.removeMetier = function(metier) {
         var index = $localStorage.metiers.indexOf(metier);
         if(index == -1) console.log("Ce métier n'existe pas dans la liste des métiers.");
@@ -128,6 +196,10 @@
         }       
     }
 
+     /**
+      * @memberof Parametres
+      * @func createDefaultMetiers
+      */
     this.createDefaultMetiers = function() {
         $localStorage.metiers = [
             {libelle: 'CRS', bg: '#b3ccff', text: '#000'},

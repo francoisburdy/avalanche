@@ -1,5 +1,10 @@
 ﻿'use strict';
 
+/**
+ * @ngdoc controllers
+ * @memberof avalanche
+ * @name HomeCtrl
+ */
 angular.module('myApp').controller('HomeCtrl', function($scope, $location, $route, $filter, Operation, Global, Translation, Export) {
     
     Translation.getTranslation($scope);
