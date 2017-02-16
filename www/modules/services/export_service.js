@@ -10,8 +10,10 @@
 angular.module('myApp').service('Export', function($filter, Operation) {
     
     /**
+     * Exporte toutes les opérations stockées dans l'application sous forme d'un journal PDF.
      * @memberof Export
      * @func exportAllOperation
+     * @param {Scope} scope Scope du controleur contenant les données de langues
      */
     this.exportAllOperation = function(scope) {
         var html = this.historiqueAsHtml(scope);
@@ -24,8 +26,11 @@ angular.module('myApp').service('Export', function($filter, Operation) {
     }
 
     /**
+     * Exporte un rapport temporaire de l'opération courante (non encore terminée) sous forme
+     * d'un journal PDF.
      * @memberof Export
      * @func exportCurrentOperation
+     * @param {Scope} scope Scope du controleur contenant les données de langues
      */
     this.exportCurrentOperation = function(scope) {
         var html = this.currentOperationAsHtml(scope);
@@ -38,8 +43,12 @@ angular.module('myApp').service('Export', function($filter, Operation) {
     }
 
     /**
+     * Créer un DOM HTML de toutes les opérations de l'historique, sous forme de chaine.
+     * Ce DOM est destiné à être injecté dans le convertisseur PDF.
      * @memberof Export
      * @func historiqueAsHtml
+     * @returns {string} Un DOM HTML contenant tous les évènements de chaque opérations de l'historique,
+     * sous forme de chaine.
      */
     this.historiqueAsHtml = function(scope) {
         var operations = Operation.getJournaux(scope);
@@ -60,8 +69,11 @@ angular.module('myApp').service('Export', function($filter, Operation) {
     }
 
     /**
+     * Créer un DOM HTML de l'opération courante (non-encore terminée).
+     * Ce DOM est destiné à être injecté dans le convertisseur PDF.
      * @memberof Export
      * @func currentOperationAsHtml
+     * @returns {string} Un DOM HTML des évènements de l'opération courante.
      */
     this.currentOperationAsHtml = function(scope) {
         let o = Operation.getCurrentJournal(scope);
@@ -80,8 +92,12 @@ angular.module('myApp').service('Export', function($filter, Operation) {
     }
 
     /**
+     * Construit le rapport d'une opération, formaté en HTML
      * @memberof Export
      * @func operationAsHtml
+     * @param {Operation} o L'opération à construire
+     * @param {Scope} scope Scope du controleur, contenant les données de langues.
+     * @returns {string} Journal des évènenement d'une opération, formaté en HTML.
      */
     this.operationAsHtml = function(o, scope) {
         var date = $filter('date')(o.beginDate, scope.translation.dateFormat);

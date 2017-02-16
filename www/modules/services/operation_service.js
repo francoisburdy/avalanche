@@ -10,15 +10,20 @@
 angular.module('myApp').service('Operation', function($localStorage, $rootScope, $location, $filter) {
     
     /**
+      * Retourne l'opération courante en mémoire dans le localStorage de la WebWiew.
       * @memberof Operation
       * @func getOperation
+      * @returns {Operation} Opération courante en JSON, null sinon
       */
     this.getOperation = function() {
         return $localStorage.operation;
     }
 
     /**
+      * Crée une nouvelle opération et la persiste dans le localStorage. 
+      * Il ne doit pas y avoir d'opération en cours.
       * @memberof Operation
+      * @param {string} nomOperation Nom de l'opération à créer.
       * @func createOperation
       */
     this.createOperation = function(nomOperation) {
@@ -37,6 +42,8 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+      * Termine l'opération courante et l'empile dans l'historique.
+      * Après execution, $localStorage.operation est null. 
       * @memberof Operation
       * @func terminate
       */
@@ -48,7 +55,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+      * Persiste un intervenant temporaire, celui-ci n'est pas persisté, et redirige sur /confirmIntervenant.
+      * S'il existe déjà un intervenant portant ce numéro dans l'opération courante, une modale est déclanchée.
       * @memberof Operation
+      * @see addPersonnel
+      * @param {Personnel} personnel Le personnel temporaire.
       * @func addTmpPersonnel
       */
     this.addTmpPersonnel = function(personnel) {
@@ -61,6 +72,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+      * Retourne l'intervenant temporaire s'il existe, null sinon.
       * @memberof Operation
       * @func getTmpPersonnel
       */
@@ -70,6 +82,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+      * Annule et détruit l'intervenant temporaire. 
       * @memberof Operation
       * @func cancelTmpPersonnel
       */
@@ -78,6 +91,8 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+      * Persiste l'intervenant temporaire s'il existe. Celui-ci sera empilé à la 
+      * liste des personnels de l'opération courante.
       * @memberof Operation
       * @func addPersonnel
       */
@@ -92,7 +107,9 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+      * Supprime un intervenant de l'opération courante s'il existe.  
       * @memberof Operation
+      * @param {Personnel} personnel Personnel dans l'opération courante
       * @func removePersonnel
       */
     this.removePersonnel = function(personnel) {
@@ -109,10 +126,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
-      * Retourne un personnel de l'opération courante à partir de son numéro
+      * Retourne un personnel de l'opération courante à partir de son numéro.
       * @memberof Operation
       * @func getPersonnel
       * @param {integer} numero Numéro de personnel
+      * @returns {Personnel} Personnel de l'opération courante
       */
     this.getPersonnel = function(numero) {
         if($localStorage.operation){
@@ -123,9 +141,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+      * Retourne la liste des intervenants dans l'opération courante pour un métier donné. 
       * @memberof Operation
       * @func getPersonnelsByMetier
-      * @param {string} libMetier
+      * @param {string} libMetier Intitulé du métier
+      * @returns {Array<Personnel>} Liste des intervenant pour un métier donné. 
       */
     this.getPersonnelsByMetier = function(libMetier) {
         let personnels = [];
@@ -138,9 +158,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+      * Provoque la sortie d'un personnel de la zone d'opération.
       * @memberof Operation
       * @func evacuatePersonnel
-      * @param {integer} personnel
+      * @param {integer} personnel Personne à sortie de la zone
       */
     this.evacuatePersonnel = function(personnel) {
         personnel.endDate = new Date();
@@ -148,6 +169,7 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+      *  
       * @memberof Operation
       * @func addVictime
       * @param {Victime} victime

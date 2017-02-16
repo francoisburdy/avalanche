@@ -10,7 +10,7 @@
 angular.module('myApp').service('Global', function($localStorage, $rootScope, $location, $http) {
     
     /**
-     * Ferme l'application
+     * Ferme l'application, après avoir demandé une confirmation.
      * @memberof Global
      * @func exitApp
      */
@@ -26,16 +26,20 @@ angular.module('myApp').service('Global', function($localStorage, $rootScope, $l
     }
 
     /**
+     * Définit l'onglet du dashboard courant
      * @memberof Global
      * @func setDashboardTab
+     * @param {integer} index Index de l'onget (1 ou 2)
      */
     this.setDashboardTab = function(index){
         $localStorage.dashboardTab = index;
     }
 
     /**
+     * Retourne l'onglet courant du dashboard
      * @memberof Global
      * @func getDashboardTab
+     * @returns {integer} onglet courant du dashboard (1 ou 2)
      */
     this.getDashboardTab = function(){
         if ($localStorage.dashboardTab == undefined) this.setDashboardTab(1);
@@ -43,8 +47,10 @@ angular.module('myApp').service('Global', function($localStorage, $rootScope, $l
     }
 
     /**
+     * ATTENTION ! Remet à zéro l'ensemble du localStorage de la WebView, sans demander de confirmation.
      * @memberof Global
      * @func purgeData
+     * @fires operationUpdated
      */
     this.purgeData = function() {
         $localStorage.$reset();
@@ -52,6 +58,8 @@ angular.module('myApp').service('Global', function($localStorage, $rootScope, $l
     }
 
     /**
+     * Charge les données de démonstrations.
+     * ATTENTION ! Remet à zéro l'ensemble du localStorage de la WebView, sans demander de confirmation.
      * @memberof Global
      * @func loadDemoData
      */
