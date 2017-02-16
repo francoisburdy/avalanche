@@ -9,6 +9,11 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
     
     Translation.getTranslation($scope);
 
+    /**
+     * Crée une nouvelle opération 
+     * @memberof HomeCtrl
+     * @function createOperation
+     */
     $scope.createOperation = function() {
         navigator.notification.prompt(
             $scope.translation.home.newOpName,
@@ -25,12 +30,19 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
         );
     }
 
+    /**
+     * Redirige vers la page "historique"
+     * @memberof HomeCtrl
+     * @function historique
+     */
     $scope.historique = function() {
         $location.url('historique');
     }
 
     /**
      * Vide le contenu du local storage
+     * @memberof HomeCtrl
+     * @function purgeStorage
      */
     $scope.purgeStorage = function() {
         navigator.notification.prompt(
@@ -51,6 +63,8 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
 
     /**
      * Vide le contenu du localStorage et charge les données de démonstration de l'application
+     * @memberof HomeCtrl
+     * @function loadDemoData
      */
     $scope.loadDemoData = function() {
         console.log('Chargement des données de test ...');
@@ -74,6 +88,8 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
 
     /**
      * Ferme l'application après avoir demandé la confirmation
+     * @memberof HomeCtrl
+     * @function exitApp
      */
     $scope.exitApp = function(){
         Global.exitApp();
