@@ -169,7 +169,8 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
-      *  
+      * Ajoutee une victime dans l'opération courante. Si le numéro est déjà utilisé,
+      * ouvre une modale. Redirige sur /dashboard lorsque l'opération est validée. 
       * @memberof Operation
       * @func addVictime
       * @param {Victime} victime
@@ -186,8 +187,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+      * Provoque l'évacuation d'une victime de l'opétation courante. La victime ne sera pas supprimée.
       * @memberof Operation
       * @func evacuateVictime
+      * @see removeVictime()
       * @param {Victime} victime
       */
     this.evacuateVictime = function(victime) {
@@ -197,8 +200,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+      * Supprime une victime de l'opération courante. Cette méthode aura pour effet 
+      * de supprimer toute trace de l'existance de la victime. 
       * @memberof Operation
       * @func removeVictime
+      * @see evacuateVictime()
       * @param {Victime} victime
       */
     this.removeVictime = function(victime) {
@@ -213,9 +219,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
-      * Génère un numéro inexistant pour une victime 
+      * Génère un numéro pour une nouvelle victime, il correspondra au nombre le plus
+      * élevé de la liste des victimes actuellement dans l'opération, incrémenté de 1.
       * @memberof Operation
       * @func generateVictimeNumber
+      * @returns {integer} Numéro pour une nouvelle victime
       */
     this.generateVictimeNumber = function() {
         if($localStorage.operation.victimes.length == 0) {
@@ -230,10 +238,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
-      *  
+      * Vérifie la disponibilité d'un numéro de victime pour dans l'opération courante. 
       * @memberof Operation
       * @func isVictimeNumberAvailable
-      * @param {integer} num
+      * @param {integer} num Numéro de victime à tester
+      * @returns {bool} true si le numéro testé est disponible, false sinon.
       */
     this.isVictimeNumberAvailable = function(num) {
         for(let v of $localStorage.operation.victimes)
@@ -242,10 +251,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
-      *  
+      * Vérifie la disponibilité d'un numéro d'intervenant pour l'opération courante. 
       * @memberof Operation
       * @func isPersonnelNumberAvailable
-      * @param {integer} num
+      * @param {integer} num Numéro d'intervenant à tester
+      * @returns {bool} true si le numéro testé est disponible, false sinon.
       */
     this.isPersonnelNumberAvailable = function(num) {
         for(let p of $localStorage.operation.personnels)
@@ -254,11 +264,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
-      *  
-      * Retourne une victime à partir de son numéro
+      * Retourne une victime de l'opération courante, à partir de son numéro.
       * @memberof Operation
       * @func getVictime
-      * @param {integer} numero
+      * @param {integer} numero Numéro de victime à rechercher
+      * @returns {Victime} Victime si trouvée, undefined sinon.
       */
     this.getVictime = function(numero) {
         for(let victime of $localStorage.operation.victimes) {
@@ -272,10 +282,13 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
      ***************************/
 
     /**
-      *
+      * Construit et retourne les journaux des opérations dans l'historique, [] s'il n'y a
+      * aucune opération terminée dans l'historique.
       * @memberof Operation
       * @func getJournaux
-      * @param {Scope} scope
+      * @see getJournal() 
+      * @param {Scope} scope Scope de controleur contenant les données de langues
+      * @returns {Array<Journal>} liste des journaux construits pour chaque opération de l'historique.
       */
     this.getJournaux = function(scope) {
         var journaux = [];
@@ -287,20 +300,25 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
-      *
+      * Construit et retourne le journal de l'opération courante.
       * @memberof Operation
       * @func getCurrentJournal
-      * @param {Scope} scope
+      * @see getJournal()
+      * @param {Scope} scope Scope de controleur contenant les données de langues
+      * @returns {Journal} Journal de l'opération courante.
       */
     this.getCurrentJournal = function(scope) {
         return this.getJournal(this.getOperation(), scope);
     }
 
     /**
-      *
+      * Construit et retourne le journal d'une opération en particulier.
+      * Celle-ci peut être terminée ou non.
       * @memberof Operation
       * @func getJournal
-      * @param {Scope} scope
+      * @param {Scope} scope Scope de controleur contenant les données de langues
+      * @param {Operation} operation Opération   
+      * @returns {Journal} Journal de l'opération
       */
     this.getJournal = function(operation, scope) {
         console.log(scope);
@@ -364,10 +382,10 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
-      *
+      * Empile une opération à l'historique.
       * @memberof Operation
       * @func pushHistorique
-      * @param {Operation} operation
+      * @param {Operation} operation Opération à empiler dans l'historique
       */
     this.pushHistorique = function(operation) {
         if(!$localStorage.historique) {

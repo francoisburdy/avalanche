@@ -5,7 +5,9 @@
  * @ngdoc services
  * @name Export
  * @description 
- *   Service Export
+ *  Service dédié à l'export PDF des opérations. Il contient les méthodes
+ *  permettant de construire les templates HTML des journaux construits dans
+ *  le service Operation   
  */
 angular.module('myApp').service('Export', function($filter, Operation) {
     
