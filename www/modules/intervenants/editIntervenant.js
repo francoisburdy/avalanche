@@ -6,18 +6,30 @@
  * @name EditIntervenantCtrl
  */
 angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation) {
-
+    /**
+     * Récupère les informations stockées localement sur l'intervenant
+     * @memberof EditIntervenantCtrl
+     * @function init
+     */
     function init() {
         Translation.getTranslation($scope);
         $scope.personnel = Operation.getPersonnel($routeParams.num);
         $scope.missions = Parametres.getMissions();
     }
     init();
-
+    /**
+     * Retourne à la page précédente
+     * @memberof EditIntervenantCtrl
+     * @function goToPrevious
+     */
     $scope.goToPrevious = function() {
         $location.url('/metiers/' + $scope.personnel.metier.libelle);
     }
-
+    /**
+     * Confirmation du retour à la page précédente
+     * @memberof EditIntervenantCtrl
+     * @function confirmGoBack
+     */
     $scope.confirmGoBack = function() {
         if(!$scope.personnel.numero) { // L'intervenant n'a pas de numéro
             navigator.notification.alert("Saisissez le numéro de l'intervenant", null, "Numéro intervenant", "OK");
@@ -27,18 +39,30 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
             $scope.goToPrevious();
         }
     }
-
+     /**
+     * Fait sortir un intervenant
+     * @memberof EditIntervenantCtrl
+     * @function evacuatePersonnel
+     */
     $scope.evacuatePersonnel = function() {
         $scope.confirmGoBack();
         Operation.evacuatePersonnel($scope.personnel);
     }
-
+     /**
+     * Supprime un intervenant
+     * @memberof EditIntervenantCtrl
+     * @function deletePersonnel
+     */
     $scope.deletePersonnel = function() {
         // TODO : confirmation
         $scope.goToPrevious();
         Operation.removePersonnel($scope.personnel);
     }
-
+     /**
+     * Confirme le changement de mission d'un intervenant
+     * @memberof EditIntervenantCtrl
+     * @function confirm
+     */
     $scope.confirm = function() {
         var missionDifferente = $scope.personnel.missions.length && $scope.selectedMission != $scope.personnel.missions[$scope.personnel.missions.length - 1].libelle;
 
