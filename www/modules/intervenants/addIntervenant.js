@@ -7,6 +7,14 @@
  */
 angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $routeParams, $location, $document, Operation, Parametres, Translation) {
 
+
+    /**
+     * Initialise le scope du controller et initialise la page de confirmation avec les informations du nouveau intervenant.
+     * Initialise le formulaire avec les métiers et les missions possibles.
+     * @memberof AddIntervenantCtrl
+     * @function init
+     *
+     */
     function init() {
         //if (cordova) cordova.plugins.Keyboard.disableScroll(false);
 
@@ -34,7 +42,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
     /**
      * Remplit l'intervenant temporaire et le passe à l'écran de confirmation.
      * @memberof AddIntervenantCtrl
-     * @func goToConfirmation
+     * @function goToConfirmation
      */
     $scope.goToConfirmation = function() {
         if(!$scope.newIntervenant.numero) {
@@ -52,7 +60,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
     /**
      * Ajoute un intervenant après confirmation. Le nouvel intervenant est récupéré dans $scope.
      * @memberof AddIntervenantCtrl
-     * @func addIntervenant
+     * @function addIntervenant
      */
     $scope.addIntervenant = function() {
         // TODO : ajouter confirmation
@@ -60,11 +68,21 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
         $location.url('/dashboard');
     }
 
+    /**
+     * Annule l'ajout d'un intervenant. Retour à la page principale
+     * @memberof AddIntervenantCtrl
+     * @function cancelAddIntervenant
+     */
     $scope.cancelAddIntervenant = function() {
         Operation.cancelTmpPersonnel();
         $location.url('/dashboard');
     }
 
+    /**
+     * Permet de lancer l'appareil photo
+     * @memberof AddIntervenantCtrl
+     * @function launchCamera
+     */
     $scope.launchCamera = function() {
         console.log(navigator.camera);
         if(navigator.camera !== undefined) {
@@ -83,13 +101,25 @@ angular.module('myApp').controller('AddIntervenantCtrl', function($scope, $route
         }
     }
     
+    /**
+     * Enregistre l'image pour l'intervenant concerné 
+     * @memberof AddIntervenantCtrl
+     * @function onSuccess
+     * @param {string} les données de l'image
+     */
     function onSuccess(imageData) {
         console.log('image : onSuccess');
         var imgSrc = 'data:image/jpeg;base64,' + imageData;
         $scope.newIntervenant.image = imgSrc; 
         $scope.$apply();
     }
-    
+
+    /**
+     * Affiche l'erreur si la prise de la photo n'a pas fonctionné.
+     * @memberof AddIntervenantCtrl
+     * @function onFail
+     * @param {string} message d'erreur
+     */
     function onFail(message) {
         console.log('image : onFail');
     }
