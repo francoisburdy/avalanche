@@ -63,6 +63,7 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
                     $scope.confirmGoBack();
                     Operation.evacuatePersonnel($scope.personnel);
                     toast($scope.translation.intervenants.number2 + $scope.personnel.numero + ' ' + $scope.translation.evacuated);
+                    $scope.$apply();
                 }
             }, 
             $scope.translation.confirmation, 
@@ -82,6 +83,7 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
                     $scope.goToPrevious();
                     Operation.removePersonnel($scope.personnel);
                     toast($scope.translation.intervenants.number2 + $scope.personnel.numero + ' ' + $scope.translation.deleted);
+                    $scope.$apply();
                 }
             }, 
             $scope.translation.intervenants.editIntervenant.delete, 
