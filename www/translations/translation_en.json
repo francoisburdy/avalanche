@@ -5,6 +5,7 @@
         "menuPurge": "Delete all data",
         "menuLoad": "Load demo data",
         "menuClose": "Close application",
+        "closeConfirm": "Do you want to close application",
         "newOpName": "Select the name of the new operation",
         "newOp": "New operation",
         "avalancheFrom": "Avalanche of the",
@@ -13,7 +14,8 @@
         "confirmDemo": "This action is definitive !\nType DEMO to confirm",
         "demoData": "Demo data",
         "demoMode": "Demo mode",
-        "demoLoadSuccess": "Welcome to demo mode!"
+        "demoLoadSuccess": "Welcome to demo mode!",
+        "purgeSuccess": "All data purged!"
     },
     "dashboard": {
         "title": "Ongoing operation",
@@ -134,6 +136,7 @@
     "evacuated": "evacuated",
     "evacuatedFemale": "evacuated",
     "cancel": "Cancel",
+    "close": "Close",
     "validate": "Validate",
     "terminate": "Terminate",
     "delete": "Delete",

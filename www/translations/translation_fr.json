@@ -5,6 +5,7 @@
         "menuPurge": "Supprimer les données",
         "menuLoad": "Charger les données de démo",
         "menuClose": "Fermer l'application",
+        "closeConfirm": "Souhaitez-vous fermer l'application ?",
         "newOpName": "Saisissez le nom de la nouvelle opération",
         "newOp": "Nouvelle opération",
         "avalancheFrom": "Avalanche du",
@@ -13,7 +14,8 @@
         "confirmDemo": "Cette action est irréversible !\nSaisir DEMO pour confirmer",
         "demoData": "Données de démo",
         "demoMode": "Mode démonstration",
-        "demoLoadSuccess": "Bienvenue dans le mode démonstration !"
+        "demoLoadSuccess": "Bienvenue dans le mode démonstration !",
+        "purgeSuccess": "Les données ont été supprimées"
     },
     "dashboard": {
         "title": "Opération en cours",
@@ -135,6 +137,7 @@
     "evacuated": "évacué",
     "evacuatedFemale": "évacuée",
     "cancel": "Annuler",
+    "close": "Fermer",
     "validate": "Valider",
     "terminate": "Terminer",
     "delete": "Supprimer",

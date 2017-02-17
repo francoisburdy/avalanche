@@ -55,16 +55,16 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
         navigator.notification.prompt(
             $scope.translation.home.confirmDelete, 
             function(results) {
-                if(results.buttonIndex == 1 && results.input1.toLowerCase() == "supprimer") {
+                if(results.buttonIndex == 2 && results.input1.toLowerCase() == "supprimer") {
                     console.log('Purge all data !');
                     Global.purgeData();
-                    // TODO : mettre une confirm pop-up
+                    toast($scope.translation.home.purgeSuccess);
                 } else {
                     console.log('Purge annulée')
                 }
             }, 
             $scope.translation.home.deleteData,
-            [$scope.translation.delete, $scope.translation.cancel]
+            [$scope.translation.cancel, $scope.translation.delete]
         );
     }
 
@@ -74,22 +74,19 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
      * @function loadDemoData
      */
     $scope.loadDemoData = function() {
-        console.log('Chargement des données de test ...');
         navigator.notification.prompt(
             $scope.translation.home.confirmDemo, 
             function(results) {
-                if(results.buttonIndex == 1 && results.input1.toLowerCase() == "demo") {
+                if(results.buttonIndex == 2 && results.input1.toLowerCase() == "demo") {
                     console.log('Charger les données de démo !');
                     Global.purgeData();
                     Global.loadDemoData();
-                    
-                    // TODO : mettre une confirm pop-up
                 } else {
                     console.log('Chargement données démo annulé !');
                 }
             }, 
             $scope.translation.home.demoData,
-            [$scope.translation.ok, $scope.translation.cancel]
+            [$scope.translation.cancel, $scope.translation.ok]
         );
     }
 
@@ -99,7 +96,7 @@ angular.module('myApp').controller('HomeCtrl', function($scope, $location, $rout
      * @function exitApp
      */
     $scope.exitApp = function(){
-        Global.exitApp();
+        Global.exitApp($scope);
     }
 
     $scope.$on('dataFlushed', function(event) {

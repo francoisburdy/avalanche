@@ -23,7 +23,6 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
         $scope.victime = Operation.getVictime($routeParams.num);
         $scope.victimeStatus = Parametres.getVictimeStatus();
         $scope.victimeSituations = Parametres.getVictimeSituations();
-        console.log($scope.victime.status, $scope.victimeStatus);
     }
     init();
 

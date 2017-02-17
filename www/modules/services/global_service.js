@@ -18,14 +18,14 @@ angular.module('myApp').service('Global', function($localStorage, $rootScope, $l
      * @memberof Global
      * @func exitApp
      */
-    this.exitApp = function() {
+    this.exitApp = function(scope) {
         navigator.notification.confirm(
-            'Souhaitez-vous fermer l\'application ?', 
+            scope.translation.home.closeConfirm, 
             function(buttonIndex) {
                 if(buttonIndex == 2) navigator.app.exitApp();
             }, 
-            'Fermer l\'application',
-            ['Annuler', 'Fermer']
+            scope.translation.home.menuClose,
+            [scope.translation.cancel, scope.translation.close]
         );
     }
 
@@ -69,12 +69,9 @@ angular.module('myApp').service('Global', function($localStorage, $rootScope, $l
      */
     this.loadDemoData = function() {
         $http.get('demo/demo-historique.json').then(function(res) {
-            console.log("historique", res);
             if(res.status == 200 && res.data){
                 $localStorage.historique = res.data;                
-
                 $http.get('demo/demo-operation.json').then(function(res) {
-                    console.log("operation", res);
                     if(res.status == 200 && res.data) {
                         $localStorage.operation = res.data;                
                         $rootScope.$broadcast('dataFlushed');
