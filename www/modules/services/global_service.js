@@ -81,4 +81,14 @@ angular.module('myApp').service('Global', function($localStorage, $rootScope, $l
         });
     }
 
+    this.setMenuDisabled = function(val) {
+        this.menuDisabled = val;
+        $rootScope.$broadcast('menuUpdated');
+    }
+
+    this.isMenuDisabled = function() {
+        if(this.menuDisabled === undefined) return false;
+        else return this.menuDisabled;
+    }
+
 });

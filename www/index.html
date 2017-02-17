@@ -49,7 +49,7 @@
 <body ui-swipe-right="Ui.turnOn('uiSidebarLeft')" ui-swipe-left="Ui.turnOff('uiSidebarLeft')">
 
   <div ng-include="'modules/menu/menu.html'" ng-controller="MenuCtrl" 
-      class="sidebar sidebar-left faster-sidebar" ng-swipe-right="swipe($event)"></div>
+      class="sidebar sidebar-left faster-sidebar" ng-swipe-right="swipe($event)" ng-class="{'untouchable': isMenuDisabled}"></div>
 
   <div class="app faster">
     <!-- Topbar -->

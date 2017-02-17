@@ -22,9 +22,9 @@
         "terminateOperation": "Terminate operation",
         "exitApplication": "Close application",
         "intervenant": "rescuer",
-        "noIntervenant": "No rescuer currently on site",
-        "noVictime": "No victim currently on site",
-        "noEvacuatedVictime": "No evacuated victim",
+        "noIntervenant": "No rescuers currently on site",
+        "noVictime": "No victims currently on site",
+        "noEvacuatedVictime": "No evacuated victims",
         "confirmTerminateMsg": "Would you like to terminate the running operation ?\nYou won't be able to edit it anymore.",
         "rescuerOutMsg": "Enter the number of the exiting rescuer",
         "rescuerOut": "Rescuer exit",
@@ -83,7 +83,7 @@
         "detailsMetier": {
             "negation": "No",
             "noOneFromJob": "currently on site",
-            "arrival": "Entered on",
+            "arrival": "Arrived",
             "alreadyOut": "Rescuers who already left"
         },
         "number": "Rescuer number",

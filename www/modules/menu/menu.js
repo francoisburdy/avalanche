@@ -9,7 +9,7 @@
  * @param Operation {service} Avalanche Operation service
  * @param Translation {service} Avalanche Translation service
  */
-angular.module('myApp').controller('MenuCtrl', function($scope, Operation, Translation) {
+angular.module('myApp').controller('MenuCtrl', function($scope, Operation, Translation, Global) {
 
     /**
       * Initialise le scope du controller
@@ -34,4 +34,9 @@ angular.module('myApp').controller('MenuCtrl', function($scope, Operation, Trans
     $scope.$on('langUpdated', function(event) {
         Translation.getTranslation($scope);
     });
+
+    $scope.$on('menuUpdated', function(event) {
+        $scope.isMenuDisabled = Global.isMenuDisabled();
+    });
+
 });

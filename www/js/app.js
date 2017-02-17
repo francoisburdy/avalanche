@@ -19,13 +19,14 @@ angular.module('myApp', [
   'ngLocale'
 ])
 
-.run(function($rootScope, $location, Operation) {
+.run(function($rootScope, $location, Operation, Global) {
     
     $rootScope.$on('$stateChangeStart', function(){
         $rootScope.broadcast('$routeChangeStart');
     });
 
     $rootScope.$on("$routeChangeStart", function(event, next, current) { 
+        Global.setMenuDisabled(false);
         if(next.$$route) {
             var nextPath = next.$$route.originalPath;
             if(nextPath == '/home' && Operation.getOperation() != null)  $location.url('/dashboard');

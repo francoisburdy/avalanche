@@ -9,9 +9,10 @@
  * @param $location {service} native location service
  * @param Operation {service} Avalanche Operation service
  * @param Parametres {service} Avalanche Parametres service
+ * @param Global {service} Avalanche Global service
  * @param Translation {service} Avalanche Translation service
  */
-angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation) {
+angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation, Global) {
     /**
      * Récupère les informations stockées localement sur l'intervenant
      * @memberof EditIntervenantCtrl
@@ -21,6 +22,7 @@ angular.module('myApp').controller('EditIntervenantCtrl', function($scope, $rout
         Translation.getTranslation($scope);
         $scope.personnel = Operation.getPersonnel($routeParams.num);
         $scope.missions = Parametres.getMissions();
+        Global.setMenuDisabled(true);
     }
     init();
     
