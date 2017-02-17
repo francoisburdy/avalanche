@@ -10,8 +10,9 @@
  * @param Operation {service} Avalanche Operation service
  * @param Parametres {service} Avalanche Parametres service
  * @param Translation {service} Avalanche Translation service
+ * @param Global {service} Avalanche Global service
  */
-angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation) {
+angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routeParams, $location, Operation, Parametres, Translation, Global) {
     Translation.getTranslation($scope);
 
     /**
@@ -23,6 +24,7 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
         $scope.victime = Operation.getVictime($routeParams.num);
         $scope.victimeStatus = Parametres.getVictimeStatus();
         $scope.victimeSituations = Parametres.getVictimeSituations();
+        Global.setMenuDisabled(true);
     }
     init();
 
@@ -54,11 +56,12 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
      * @function checkSituation
      */
     $scope.checkSituation = function() {
-        // TODO : ajouter confirmation
-        // TODO : vérifier unicité de l'ID
-        toast("Victime n°"+$scope.victime.numero+" mise à jour");
-        if($scope.victime.situation == 'Évacuée') {
-          Operation.evacuateVictime($scope.victime);  
+        if(!Operation.isVictimeNumberAvailable($scope.victime.numero)) {
+            navigator.notification.alert('Il y a déjà une victime portant ce numéro', null, 'Numéro déjà utilisé', 'OK');
+        } else {
+            toast("Victime n°" + $scope.victime.numero + " mise à jour");
+            if($scope.victime.situation == 'Évacuée')
+                Operation.evacuateVictime($scope.victime);
         }
     }
 
