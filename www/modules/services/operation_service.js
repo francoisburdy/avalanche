@@ -67,13 +67,17 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
       * @func addTmpPersonnel
       */
     this.addTmpPersonnel = function(personnel) {
-        // TODO : vérifier que personnel.numero est bien un entier !
+      if(isInt(personnel.numero)){
         if(!this.isPersonnelNumberAvailable(personnel.numero)) {
             navigator.notification.alert('Il y a déjà un personnel portant ce numéro', null, 'Numéro déjà utilisé', 'OK');
         } else {
             this.tmpPersonnel = personnel;
             $location.url('/confirmIntervenant');
         }
+      }else{
+        navigator.notification.alert("L'intervenant n'a pas un numéro valide.");
+      }
+        
     }
 
     /**
@@ -174,6 +178,16 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
+    *Verifie si la valeur est un int
+    *@value la valeur à tester
+    */
+    function isInt(value) {
+      return !isNaN(value) && 
+             parseInt(Number(value)) == value && 
+             !isNaN(parseInt(value, 10));
+    }
+
+    /**
       * Ajoutee une victime dans l'opération courante. Si le numéro est déjà utilisé,
       * ouvre une modale. Redirige sur /dashboard lorsque l'opération est validée. 
       * @memberof Operation
@@ -187,13 +201,17 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
         //   return;
         // }
 
-        if($localStorage.operation.victimes.indexOf(victime) !== -1) console.log("Error : Operation already contains this victime")
-        else if(!this.isVictimeNumberAvailable(victime.numero)) {
-            navigator.notification.alert('Il y a déjà une victime portant ce numéro', null, 'Numéro déjà utilisé', 'OK');
-        } else {
-            $localStorage.operation.victimes.push(victime);
-            $rootScope.$broadcast('operationUpdated');
-            $location.url('/dashboard');
+        if(isInt(victime.numero)){
+          if($localStorage.operation.victimes.indexOf(victime) !== -1) console.log("Error : Operation already contains this victime")
+          else if(!this.isVictimeNumberAvailable(victime.numero)) {
+              navigator.notification.alert('Il y a déjà une victime portant ce numéro', null, 'Numéro déjà utilisé', 'OK');
+          } else {
+              $localStorage.operation.victimes.push(victime);
+              $rootScope.$broadcast('operationUpdated');
+              $location.url('/dashboard');
+          }
+        }else{
+          navigator.notification.alert("La vicitime n'a pas un numéro valide.");
         }
     }
 
