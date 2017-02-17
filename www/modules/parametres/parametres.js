@@ -73,13 +73,21 @@ angular.module('myApp').controller('ParametresCtrl', function($rootScope, $scope
         if (Operation.getPersonnelsByMetier(metier).length > 0){
             navigator.notification.alert("Impossible de supprimer. \n Des intervenants de l'opération ont ce corps de métier", null, "Attention", "OK")
         } else {
-            var i = 0;
-            while ($scope.metiers[i].libelle != metier && i<$scope.metiers.length) i++;
-            
-            if (i<$scope.metiers.length) Parametres.removeMetier($scope.metiers[i]);
-            else console.log("Ce métier n'existe pas dans la liste des métiers.");
-            
-            Parametres.removeMetier(metier);
+            navigator.notification.confirm(
+                "Etes-vous sûr de vouloir supprimer ce métier ?",
+                function(buttonIndex){
+                    if (buttonIndex == 2){
+                        var i = 0;
+                        while ($scope.metiers[i].libelle != metier && i<$scope.metiers.length) i++;
+                        if (i<$scope.metiers.length) Parametres.removeMetier($scope.metiers[i]);
+                        else console.log("Ce métier n'existe pas dans la liste des métiers.");
+                        Parametres.removeMetier(metier);
+                        $rootScope.Ui.turnOff('modalModifyMetier');
+                        $scope.$apply();
+                    }
+                },
+                "Supprimer le métier",
+                ["Annuler", "Confirmer"]);
         }
     }
     
