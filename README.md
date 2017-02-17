@@ -65,7 +65,7 @@ $ cordova telemetry off
 
 Le code des différents modules du projet est documenté avec JSDoc (et un template optimisé pour angular)
 
-* Vous pouvez consulter la documentation sur un navigateur dans ./doc/index.html
+* Vous pouvez consulter la documentation sur un navigateur dans `doc/index.html`
 
 ```sh
 # Dans le répertoire racine du projet avalanche/
