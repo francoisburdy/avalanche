@@ -182,6 +182,11 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
       */
     this.addVictime = function(victime) {
         // TODO : Vérifier que victime.numero est bien un entier !
+        // if(isNaN(victime.numero) || victime.numero != parseInt(victime.numero)  ) {
+        //   navigator.notification.alert('Numéro invalide', null, 'Numéro invalide', 'OK');
+        //   return;
+        // }
+
         if($localStorage.operation.victimes.indexOf(victime) !== -1) console.log("Error : Operation already contains this victime")
         else if(!this.isVictimeNumberAvailable(victime.numero)) {
             navigator.notification.alert('Il y a déjà une victime portant ce numéro', null, 'Numéro déjà utilisé', 'OK');

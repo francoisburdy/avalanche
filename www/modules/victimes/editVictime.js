@@ -56,13 +56,9 @@ angular.module('myApp').controller('EditVictimeCtrl', function($scope, $routePar
      * @function checkSituation
      */
     $scope.checkSituation = function() {
-        if(!Operation.isVictimeNumberAvailable($scope.victime.numero)) {
-            navigator.notification.alert('Il y a déjà une victime portant ce numéro', null, 'Numéro déjà utilisé', 'OK');
-        } else {
-            toast("Victime n°" + $scope.victime.numero + " mise à jour");
-            if($scope.victime.situation == 'Évacuée')
-                Operation.evacuateVictime($scope.victime);
-        }
+        toast("Victime n°" + $scope.victime.numero + " mise à jour");
+        if($scope.victime.situation == 'Évacuée')
+            Operation.evacuateVictime($scope.victime);
     }
 
     /**
