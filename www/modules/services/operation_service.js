@@ -178,16 +178,6 @@ angular.module('myApp').service('Operation', function($localStorage, $rootScope,
     }
 
     /**
-    *Verifie si la valeur est un int
-    *@value la valeur à tester
-    */
-    function isInt(value) {
-      return !isNaN(value) && 
-             parseInt(Number(value)) == value && 
-             !isNaN(parseInt(value, 10));
-    }
-
-    /**
       * Ajoutee une victime dans l'opération courante. Si le numéro est déjà utilisé,
       * ouvre une modale. Redirige sur /dashboard lorsque l'opération est validée. 
       * @memberof Operation

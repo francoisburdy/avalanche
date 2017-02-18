@@ -80,10 +80,15 @@ function toast(message){
   });
 }
 
-
-function isNumberKey(evt){
-    var charCode = (evt.which) ? evt.which : event.keyCode
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
-    return true;
-}
+ /**
+  * Verifie si la valeur est un int
+  * @memberof JS helpers
+  * @func isInt
+  * @param {mixed} value la valeur à tester
+  * @returns {bool} true si la valeur est un entier
+  */
+  function isInt(value) {
+    return !isNaN(value) && 
+           parseInt(Number(value)) == value && 
+           !isNaN(parseInt(value, 10) && value > 0);
+  }
