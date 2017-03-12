@@ -1,4 +1,4 @@
-.victimForm { 
+.victimForm {
     width: 90%;
     margin: 0 auto;
     max-width: 400px;
@@ -42,5 +42,5 @@
 .add-victime-icon {
     max-height: 75px;
     max-width: 75px;
-    margin: 20px 0px 0px 5px;
+    margin: 20px 0 0 5px;
 }

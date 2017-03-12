@@ -1,35 +1,35 @@
 {
-    "tags": {
-        "allowUnknownTags": true,
-        "dictionaries": [
-            "jsdoc",
-            "closure"
-        ]
-    },
-    "source": {
-        "include": [
-            "www/js",
-            "www/modules"
-        ],
-        "includePattern": ".+\\.js?$",
-        "excludePattern": "(^|\\/|\\\\)_"
-    },
-    "plugins": [
-        "node_modules/jsdoc/plugins/markdown",
-        "node_modules/angular-jsdoc/common/plugins/ngdoc"
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": [
+      "jsdoc",
+      "closure"
+    ]
+  },
+  "source": {
+    "include": [
+      "www/js",
+      "www/modules"
     ],
-    "templates": {
-        "cleverLinks": true,
-        "monospaceLinks": true,
-        "default": {
-            "outputSourceFiles": true
-        }
-    },
-    "opts": {
-        "template": "node_modules/angular-jsdoc/angular-template", 
-        "encoding": "utf8",               // same as -e utf8
-        "readme": "README.md",
-        "recurse": "all",
-        "destination": "./doc/"  
+    "includePattern": ".+\\.js?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": [
+    "node_modules/jsdoc/plugins/markdown",
+    "node_modules/angular-jsdoc/common/plugins/ngdoc"
+  ],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "default": {
+      "outputSourceFiles": true
     }
+  },
+  "opts": {
+    "template": "node_modules/angular-jsdoc/angular-template",
+    "encoding": "utf8",
+    "readme": "README.md",
+    "recurse": "all",
+    "destination": "./doc/"
+  }
 }

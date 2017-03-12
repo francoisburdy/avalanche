@@ -3,61 +3,62 @@
 </div>
 
 <div class="scrollable">
-    <div class="scrollable-content section edit-victime">
-        <form class="victimForm">
-            
-            <div class="row">
-                <div class="col-xs-4 col-md-4">
-                    <img src="img/victime.png" class="add-victime-icon" />
-                </div>
-                <div class="col-xs-8 col-md-8">
-                    <div class="form-group victimId">
-                        <label>{{translation.victimes.number}} <span class="red-text">*</span></label>   
-                        <input type="number" class="form-control huge-input" ng-model="victime.numero" placeholder="Numéro" ng-readonly="true" />
-                    </div>
-                </div>
-            </div>
+  <div class="scrollable-content section edit-victime">
+    <form class="victimForm">
 
-            <div class="form-group victimStatus">
-                <label>{{translation.victimes.status}}</label>
-                <select ng-model="victime.status" ng-options="s.libelle for s in victimeStatus track by s.libelle"></select>
-            </div>
-            <div class="form-group victimSituation">
-                <label>{{translation.victimes.situation}}</label>
-                <select ng-model="victime.situation" ng-options="s for s in victimeSituations"></select>
-            </div>
-            <div class="bg-icon float-left">
-                <i class="fa fa-medkit" aria-hidden="true"></i>    
-            </div>
-            <div class="center btn-delete-victime">
-                <button type="button" class="btn btn-default" ng-click="deleteVictime()">
-                    <i class="fa fa-trash"></i> {{translation.victimes.editVictime.deleteVictime}}
-                </button>
-            </div>
-        </form>
-    </div>
+      <div class="row">
+        <div class="col-xs-4 col-md-4">
+          <img src="img/victime.png" class="add-victime-icon"/>
+        </div>
+        <div class="col-xs-8 col-md-8">
+          <div class="form-group victimId">
+            <label>{{translation.victimes.number}} <span class="red-text">*</span></label>
+            <input type="number" class="form-control huge-input" ng-model="victime.numero" placeholder="Numéro"
+                   ng-readonly="true"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group victimStatus">
+        <label>{{translation.victimes.status}}</label>
+        <select ng-model="victime.status" ng-options="s.libelle for s in victimeStatus track by s.libelle" title="Statut de la victime"></select>
+      </div>
+      <div class="form-group victimSituation">
+        <label>{{translation.victimes.situation}}</label>
+        <select ng-model="victime.situation" ng-options="s for s in victimeSituations" title="Situation de la victime"></select>
+      </div>
+      <div class="bg-icon float-left">
+        <i class="fa fa-medkit" aria-hidden="true"></i>
+      </div>
+      <div class="center btn-delete-victime">
+        <button type="button" class="btn btn-default" ng-click="deleteVictime()">
+          <i class="fa fa-trash"></i> {{translation.victimes.editVictime.deleteVictime}}
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <div class="btn-bottom-left" ng-show="!keyboardVisible">
-    <div class="blue-bg">
-        <a href="#!/dashboard">
-            <i class="fa fa-arrow-left"></i>
-        </a>
-    </div>
+  <div class="blue-bg">
+    <a href="#!/dashboard">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+  </div>
 </div>
 
 <div class="btn-bottom-center" ng-show="!keyboardVisible">
-    <div class="darkblue-bg">
-        <a ng-click="evacuateVictime()">
-            <i class="fa fa-ambulance"></i>
-        </a>
-    </div>
+  <div class="darkblue-bg">
+    <a ng-click="evacuateVictime()">
+      <i class="fa fa-ambulance"></i>
+    </a>
+  </div>
 </div>
 
 <div class="btn-bottom-right" ng-show="!keyboardVisible">
-    <div class="green-bg">
-        <a href="#!/dashboard" ng-click="checkSituation()">
-            <i class="fa fa-check"></i>
-        </a>
-    </div>
+  <div class="green-bg">
+    <a href="#!/dashboard" ng-click="checkSituation()">
+      <i class="fa fa-check"></i>
+    </a>
+  </div>
 </div>

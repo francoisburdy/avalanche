@@ -3,145 +3,148 @@
 </div>
 
 <div class="btn-group dropdown-menu-btn">
-    <a ui-turn-on='myDropdown' class='btn'>
-        <i class="fa fa-ellipsis-v fa-lg"></i>
-    </a>
-    <ul class="dropdown-menu"
-        ui-outer-click="Ui.turnOff('myDropdown')"
-        ui-outer-click-if="Ui.active('myDropdown')"
-        role="menu"
-        ui-show="myDropdown" 
-        ui-state="myDropdown"
-        ui-turn-off="myDropdown">
-        <li><a ng-click="terminateOperation()">{{translation.dashboard.terminateOperation}}</a></li>
-        <li class="divider"></li>
-        <li><a ng-click="exitApp()">{{translation.dashboard.exitApplication}}</a></li>
-    </ul>
+  <a ui-turn-on='myDropdown' class='btn'>
+    <i class="fa fa-ellipsis-v fa-lg"></i>
+  </a>
+  <ul class="dropdown-menu"
+      ui-outer-click="Ui.turnOff('myDropdown')"
+      ui-outer-click-if="Ui.active('myDropdown')"
+      role="menu"
+      ui-show="myDropdown"
+      ui-state="myDropdown"
+      ui-turn-off="myDropdown">
+    <li><a ng-click="terminateOperation()">{{translation.dashboard.terminateOperation}}</a></li>
+    <li class="divider"></li>
+    <li><a ng-click="exitApp()">{{translation.dashboard.exitApplication}}</a></li>
+  </ul>
 </div> <!-- end drop-down-menu -->
 
 <div class="scrollable">
-    <div class="scrollable-content section dashboard scroll-ios" ui-swipe-left="nextTab()" ui-swipe-right="prevTab()">
-        <div>
-            
-            <!-- boutons Onglets -->
-            <div class="row tabs-container two-tabs">
-                <div class="col-xs-6 tab" ng-class="{'active': activeTab == 1}" ng-click="goTab(1)">
-                    {{nbActivePersonnels()}} {{translation.dashboard.intervenant}}<span ng-show="nbActivePersonnels() > 1">s</span>
+  <div class="scrollable-content section dashboard scroll-ios" ui-swipe-left="nextTab()" ui-swipe-right="prevTab()">
+    <div>
+
+      <!-- boutons Onglets -->
+      <div class="row tabs-container two-tabs">
+        <div class="col-xs-6 tab" ng-class="{'active': activeTab == 1}" ng-click="goTab(1)">
+          {{nbActivePersonnels()}} {{translation.dashboard.intervenant}}<span
+            ng-show="nbActivePersonnels() > 1">s</span>
+        </div>
+        <div class="col-xs-6 tab" ng-class="{'active': activeTab == 2}" ng-click="goTab(2)">
+          {{operation.victimes.length}} {{translation.victime | lowercase}}<span
+            ng-show="operation.victimes.length > 1">s</span>
+        </div>
+      </div> <!-- fin boutons Onglets -->
+
+      <!-- Onglet personnel -->
+      <div ng-show="activeTab == 1">
+        <div ng-if="nbActivePersonnels() == 0" class="empty-message">
+          {{translation.dashboard.noIntervenant}}
+        </div>
+        <div class="row metier-container">
+          <div ng-repeat="m in metiers">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 card metier-card" ng-click="detailsMetier(m.libelle)">
+              <div class="row card-container" ng-style="{'background-color': m.bg, 'color': m.text}">
+                <div class="col-xs-12 card-content">
+                  <span class="metier-libelle">{{m.libelle | plurielMetier}}</span>
+                  <span class="badge bold">{{nbPersonnels(m.libelle)}}</span>
                 </div>
-                <div class="col-xs-6 tab" ng-class="{'active': activeTab == 2}" ng-click="goTab(2)">
-                    {{operation.victimes.length}} {{translation.victime | lowercase}}<span ng-show="operation.victimes.length > 1">s</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div> <!-- end onglet personnel -->
+
+      <!-- Onglet victimes -->
+      <div class="victimes-container" ng-show="activeTab == 2">
+
+        <div ng-if="(operation.victimes | filter: {situation: '!Évacuée'}).length == 0" class="empty-message">
+          {{translation.dashboard.noVictime}}
+        </div>
+        <div class="row">
+          <div ng-repeat="v in operation.victimes | orderBy: 'numero' | filter: {situation: '!Évacuée'}">
+            <div class="col-lg-4 col-md-6 col-xs-12 card">
+              <div class="row card-container flex-center" ng-click="editVictime(v.numero)">
+                <div class="col-xs-2 victime-icon">
+                  <img src="img/victime.png"/>
                 </div>
-            </div> <!-- fin boutons Onglets -->
-
-            <!-- Onglet personnel -->
-            <div ng-show="activeTab == 1">
-                <div ng-if="nbActivePersonnels() == 0" class="empty-message">
-                   {{translation.dashboard.noIntervenant}}
+                <div class="col-xs-3 center victime-number-container">
+                  <div class="victime-number-sup">
+                    {{translation.victim}}
+                  </div>
+                  <div class="victime-number">{{v.numero}}</div>
                 </div>
-                <div class="row metier-container">
-                    <div ng-repeat="m in metiers">
-                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 card metier-card" ng-click="detailsMetier(m.libelle)">
-                            <div class="row card-container" ng-style="{'background-color': m.bg, 'color': m.text}">
-                                <div class="col-xs-12 card-content">
-                                    <span class="metier-libelle">{{m.libelle | plurielMetier}}</span>
-                                    <span class="badge bold">{{nbPersonnels(m.libelle)}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-xs-7 card-content victime-details">
+                  <div class="italic center font-larger">{{v.situation}}</div>
+                  <div class="etat-victime" ng-style="{'background-color': v.status.bg, 'color': v.status.text}">
+                    {{v.status.libelle}}
+                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                
+        <hr/>
 
-            </div> <!-- end onglet personnel -->
-
-            <!-- Onglet victimes -->
-            <div class="victimes-container" ng-show="activeTab == 2">        
-                
-                <div ng-if="(operation.victimes | filter: {situation: '!Évacuée'}).length == 0" class="empty-message">
-                    {{translation.dashboard.noVictime}}
+        <div ng-if="(operation.victimes | filter: {situation: 'Évacuée'}).length == 0" class="empty-message">
+          {{translation.dashboard.noEvacuatedVictime}}
+        </div>
+        <div class="row">
+          <div ng-repeat="v in operation.victimes | orderBy: 'numero' | filter: {situation: 'Évacuée'}">
+            <div class="col-lg-4 col-md-6 col-xs-12 card">
+              <div class="row card-container flex-center" ng-click="editVictime(v.numero)">
+                <div class="col-xs-2 victime-icon">
+                  <img src="img/victime.png"/>
                 </div>
-                <div class="row">
-                    <div ng-repeat="v in operation.victimes | orderBy: 'numero' | filter: {situation: '!Évacuée'}">               
-                        <div class="col-lg-4 col-md-6 col-xs-12 card">
-                            <div class="row card-container flex-center" ng-click="editVictime(v.numero)">
-                                <div class="col-xs-2 victime-icon">
-                                    <img src="img/victime.png" />
-                                </div>
-                                <div class="col-xs-3 center victime-number-container">
-                                    <div class="victime-number-sup">
-                                        {{translation.victim}}
-                                    </div>
-                                    <div class="victime-number">{{v.numero}}</div>
-                                </div>
-                                <div class="col-xs-7 card-content victime-details">
-                                    <div class="italic center font-larger">{{v.situation}}</div>
-                                    <div class="etat-victime" ng-style="{'background-color': v.status.bg, 'color': v.status.text}">{{v.status.libelle}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-xs-3 center victime-number-container">
+                  <div class="victime-number-sup">
+                    {{translation.victim}}
+                  </div>
+                  <div class="victime-number">{{v.numero}}</div>
                 </div>
-
-                <hr/>
-           
-                <div ng-if="(operation.victimes | filter: {situation: 'Évacuée'}).length == 0" class="empty-message">
-                   {{translation.dashboard.noEvacuatedVictime}}
+                <div class="col-xs-7 card-content victime-details">
+                  <div class="italic center font-larger">{{v.situation}}</div>
+                  <div class="etat-victime label" ng-style="{'background-color': v.status.bg, 'color': v.status.text}">
+                    {{v.status.libelle}}
+                  </div>
                 </div>
-                <div class="row">
-                    <div ng-repeat="v in operation.victimes | orderBy: 'numero' | filter: {situation: 'Évacuée'}">               
-                       <div class="col-lg-4 col-md-6 col-xs-12 card">
-                            <div class="row card-container flex-center" ng-click="editVictime(v.numero)">
-                                <div class="col-xs-2 victime-icon">
-                                    <img src="img/victime.png" />
-                                </div>
-                                <div class="col-xs-3 center victime-number-container">
-                                    <div class="victime-number-sup">
-                                        {{translation.victim}}
-                                    </div>
-                                    <div class="victime-number">{{v.numero}}</div>
-                                </div>
-                                <div class="col-xs-7 card-content victime-details">
-                                    <div class="italic center font-larger">{{v.situation}}</div>
-                                    <div class="etat-victime label" ng-style="{'background-color': v.status.bg, 'color': v.status.text}">{{v.status.libelle}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                 <!-- end btn-bottom-right --> 
+        <!-- end btn-bottom-right -->
 
-            </div> <!-- end onglet victimes -->
+      </div> <!-- end onglet victimes -->
 
-        </div> <!-- end onglets -->
+    </div> <!-- end onglets -->
 
-    </div> <!-- end section -->
+  </div> <!-- end section -->
 </div> <!-- end scrollable -->
 
 
 <div ng-show="activeTab == 1 && nbActivePersonnels() > 0" class="btn-bottom-left">
-    <div class="red-bg">
-        <a ng-click="evacuatePersonnel()">
-            <i class="fa fa-minus"></i>
-        </a>
-    </div>
+  <div class="red-bg">
+    <a ng-click="evacuatePersonnel()">
+      <i class="fa fa-minus"></i>
+    </a>
+  </div>
 </div>
 
 <div ng-show="activeTab == 1" class="btn-bottom-right">
-    <div class="blue-bg">
-        <a href="#!/addIntervenant">
-            <i class="fa fa-plus"></i>
-        </a>
-    </div>
+  <div class="blue-bg">
+    <a href="#!/addIntervenant">
+      <i class="fa fa-plus"></i>
+    </a>
+  </div>
 </div>
 
 <div ng-show="activeTab == 2" class="btn-bottom-right">
-    <div class="blue-bg">
-        <a href="#!/victimes">
-            <i class="fa fa-plus"></i>
-        </a>
-    </div>
+  <div class="blue-bg">
+    <a href="#!/victimes">
+      <i class="fa fa-plus"></i>
+    </a>
+  </div>
 </div>

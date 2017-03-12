@@ -1,38 +1,40 @@
 <div ui-content-for="title">
-    <span>{{translation.intervenants.confirmIntervenant.title}}</span>
+  <span>{{translation.intervenants.confirmIntervenant.title}}</span>
 </div>
 
 <div class="scrollable">
-    <div class="scrollable-content section confirmIntervenant" ng-style="{'background-color': tmpPersonnel.metier.bg, 'color': tmpPersonnel.metier.text}">
-       
-        <h1>{{tmpPersonnel.metier.libelle}} <span class="confirm-numero">{{ tmpPersonnel.numero }}</span></h1>
+  <div class="scrollable-content section confirmIntervenant"
+       ng-style="{'background-color': tmpPersonnel.metier.bg, 'color': tmpPersonnel.metier.text}">
 
-        <div>
-            <div class="img-preview-container confirm">
-                <img ng-src="{{tmpPersonnel.image}}" ng-show="tmpPersonnel.image" />
-                <img ng-show="!tmpPersonnel.image" src="img/intervenant.png" class="white-bg" />
-            </div>
-        </div>
+    <h1>{{tmpPersonnel.metier.libelle}} <span class="confirm-numero">{{ tmpPersonnel.numero }}</span></h1>
 
-        <div class="numConfInt" ng-if="tmpPersonnel.missions && tmpPersonnel.missions[tmpPersonnel.missions.length - 1].libelle">
-            <div class="text-lighter">{{translation.intervenants.confirmIntervenant.affectedMission}}</div>
-            <h3>{{tmpPersonnel.missions[tmpPersonnel.missions.length - 1].libelle}}</h3>
-        </div>
-
-       <div class="btn-bottom-left">
-            <div class="blue-bg">
-                <a href="#!/addIntervenant">
-                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="btn-bottom-right">
-            <div class="darkblue-bg">
-                <a ng-click="addIntervenant()">
-                    <i class="fa fa-check" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
+    <div>
+      <div class="img-preview-container confirm">
+        <img ng-src="{{tmpPersonnel.image}}" ng-show="tmpPersonnel.image"/>
+        <img ng-show="!tmpPersonnel.image" src="img/intervenant.png" class="white-bg"/>
+      </div>
     </div>
+
+    <div class="numConfInt"
+         ng-if="tmpPersonnel.missions && tmpPersonnel.missions[tmpPersonnel.missions.length - 1].libelle">
+      <div class="text-lighter">{{translation.intervenants.confirmIntervenant.affectedMission}}</div>
+      <h3>{{tmpPersonnel.missions[tmpPersonnel.missions.length - 1].libelle}}</h3>
+    </div>
+
+    <div class="btn-bottom-left">
+      <div class="blue-bg">
+        <a href="#!/addIntervenant">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="btn-bottom-right">
+      <div class="darkblue-bg">
+        <a ng-click="addIntervenant()">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

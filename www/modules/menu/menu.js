@@ -8,35 +8,37 @@
  * @param $scope {service} native scope service
  * @param Operation {service} Avalanche Operation service
  * @param Translation {service} Avalanche Translation service
+ * @desc
+ *   Contrôleur associé au menu latéral de l'application
  */
-angular.module('myApp').controller('MenuCtrl', function($scope, Operation, Translation, Global) {
+angular.module('myApp').controller('MenuCtrl', function ($scope, Operation, Translation, Global) {
 
-    /**
-      * Initialise le scope du controller
-      * @memberof MenuCtrl
-      * @function init
-      */
-    function init() {
-        Translation.getTranslation($scope);
-        $scope.hasOperation = Operation.getOperation() != null;
-    }
-    
-    init();
+  /**
+   * Initialise le scope du controller
+   * @memberof MenuCtrl
+   * @function init
+   */
+  function init() {
+    Translation.getTranslation($scope);
+    $scope.hasOperation = Operation.getOperation() != null;
+  }
 
-    $scope.$on('operationUpdated', function(event) {
-        $scope.hasOperation = Operation.getOperation() != null;
-    });
+  init();
 
-    $scope.$on('dataFlushed', function(event) {
-        $scope.hasOperation = Operation.getOperation() != null;
-    });
+  $scope.$on('operationUpdated', function () {
+    $scope.hasOperation = Operation.getOperation() != null;
+  });
 
-    $scope.$on('langUpdated', function(event) {
-        Translation.getTranslation($scope);
-    });
+  $scope.$on('dataFlushed', function () {
+    $scope.hasOperation = Operation.getOperation() != null;
+  });
 
-    $scope.$on('menuUpdated', function(event) {
-        $scope.isMenuDisabled = Global.isMenuDisabled();
-    });
+  $scope.$on('langUpdated', function () {
+    Translation.getTranslation($scope);
+  });
+
+  $scope.$on('menuUpdated', function () {
+    $scope.isMenuDisabled = Global.isMenuDisabled();
+  });
 
 });

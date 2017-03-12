@@ -3,63 +3,65 @@
 </div>
 
 <div class="scrollable">
-    <div class="scrollable-content section edit-victime">
-        <form class="victimForm">
-            <div class="row">
-                <div class="col-xs-5 col-md-5">
-                    <div class="img-preview-container" ng-click="launchCamera()">
-                        <img ng-show="personnel.image" ng-src="{{personnel.image}}" />
-                        <img ng-show="!personnel.image" src="img/intervenant.png" />
-                    </div>
-                </div>
-                <div class="col-xs-7 col-md-7">                
-                    <div class="form-group input-group-lg">
-                        <label>{{translation.intervenants.number}}</label>
-                        <input type="number" class="form-control huge-input" ng-model="personnel.numero" placeholder="n°" min=1 max=999  ng-readonly="true"/>
-                    </div>
-                </div>
-            </div>
-            <a ng-click="autreMission = true" ng-show="!autreMission" class="btn blue-bg white-text add-mission-btn">
-                <i class="fa fa-pencil"></i>
-            </a>
-            <div class="form-group inline-block edit-mission-container">
-                <label>{{translation.intervenants.currentMission}}</label>
-                <div>
-                    <h2 class="inline-block blue-text">{{personnel.missions[personnel.missions.length - 1].libelle}}</h2>
-                </div>
-            </div>
-            <select ng-model="selectedMission" ng-options="m for m in missions" ng-show="autreMission">
-               <option label="Nouvelle mission" selected="selected" disabled="disabled"></option>
-            </select>
-            <input type="text" class="large-input" ng-model="newSelectedMission" placeholder="intitulé mission" ng-show="selectedMission == '-- Autre --'"/>
-            <div class="center btn-delete-victime">
-                <button type="button" class="btn btn-default" ng-click="deletePersonnel()">
-                    <i class="fa fa-trash"></i> {{translation.intervenants.editIntervenant.delete}}
-                </button>
-            </div>
-        </form>
-    </div>
+  <div class="scrollable-content section edit-victime">
+    <form class="victimForm">
+      <div class="row">
+        <div class="col-xs-5 col-md-5">
+          <div class="img-preview-container" ng-click="launchCamera()">
+            <img ng-show="personnel.image" ng-src="{{personnel.image}}"/>
+            <img ng-show="!personnel.image" src="img/intervenant.png"/>
+          </div>
+        </div>
+        <div class="col-xs-7 col-md-7">
+          <div class="form-group input-group-lg">
+            <label>{{translation.intervenants.number}}</label>
+            <input type="number" class="form-control huge-input" ng-model="personnel.numero" placeholder="n°" min=1
+                   max=999 ng-readonly="true"/>
+          </div>
+        </div>
+      </div>
+      <a ng-click="autreMission = true" ng-show="!autreMission" class="btn blue-bg white-text add-mission-btn">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <div class="form-group inline-block edit-mission-container">
+        <label>{{translation.intervenants.currentMission}}</label>
+        <div>
+          <h2 class="inline-block blue-text">{{personnel.missions[personnel.missions.length - 1].libelle}}</h2>
+        </div>
+      </div>
+      <select ng-model="selectedMission" ng-options="m for m in missions" ng-show="autreMission">
+        <option label="Nouvelle mission" selected="selected" disabled="disabled"></option>
+      </select>
+      <input type="text" class="large-input" ng-model="newSelectedMission" placeholder="intitulé mission"
+             ng-show="selectedMission == '-- Autre --'"/>
+      <div class="center btn-delete-victime">
+        <button type="button" class="btn btn-default" ng-click="deletePersonnel()">
+          <i class="fa fa-trash"></i> {{translation.intervenants.editIntervenant.delete}}
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 <div class="btn-bottom-left" ng-show="!keyboardVisible">
-    <div class="blue-bg">
-        <a ng-click="confirmGoBack()">
-            <i class="fa fa-arrow-left"></i>
-        </a>
-    </div>
+  <div class="blue-bg">
+    <a ng-click="confirmGoBack()">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+  </div>
 </div>
 
 <div class="btn-bottom-center" ng-show="!keyboardVisible">
-    <div class="darkblue-bg">
-        <a ng-click="evacuatePersonnel()">
-            <i class="fa fa-sign-out"></i>
-        </a>
-    </div>
+  <div class="darkblue-bg">
+    <a ng-click="evacuatePersonnel()">
+      <i class="fa fa-sign-out"></i>
+    </a>
+  </div>
 </div>
 
 <div class="btn-bottom-right" ng-show="!keyboardVisible">
-    <div class="green-bg">
-        <a ng-click="confirm()">
-            <i class="fa fa-check"></i>
-        </a>
-    </div>
+  <div class="green-bg">
+    <a ng-click="confirm()">
+      <i class="fa fa-check"></i>
+    </a>
+  </div>
 </div>

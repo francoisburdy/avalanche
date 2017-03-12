@@ -3,48 +3,51 @@
 </div>
 
 <div class="btn-group dropdown-menu-btn">
-    <a class='btn' ng-click="exportPdf()">
-        <i class="fa fa-download fa-lg"></i> PDF
-    </a>
+  <a class='btn' ng-click="exportPdf()">
+    <i class="fa fa-download fa-lg"></i> PDF
+  </a>
 </div>
 
 <div class="scrollable">
-    <div class="scrollable-content section">
-        <div ng-if="journaux.length == 0" class="empty-message">
-           {{translation.historique.noHistory}}.
-        </div>
-
-        <div ng-repeat="j in journaux">
-            <h3 class="header-mission" ng-click="select($index)">{{j.nom}}</h3>
-            <div ng-if="isSelected($index)">
-                <p>
-                    {{translation.journal.operationStarted}}
-                    {{j.beginDate | date: translation.dateFormat}}
-                    {{translation.journal.at}}
-                    {{j.beginDate | date: translation.hourFormat}}
-                    {{translation.historique.endDate}}
-                    {{j.endDate | date: translation.dateFormat}}
-                    {{translation.journal.at}}
-                    {{j.endDate | date: translation.hourFormat}}.
-                </p>
-                <p>
-                    {{translation.journal.implicated}} : 
-                    <ul class="cr_nb_personnes">
-                        <li>
-                            <span class="bold">{{j.nbVictimes}}</span> {{translation.victime | lowercase}}<span ng-if="j.nbVictimes > 1">s</span>
-                        </li>
-                        <li>
-                            <span class="bold">{{j.nbPersonnels}}</span> {{translation.journal.personnel | lowercase}}<span ng-if="j.nbPersonnels > 1">s</span>
-                        </li>
-                    </ul>
-                </p>
-                <div ng-repeat="e in j.evenements | orderBy: 'date'" class="ev-journal">
-                    <div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie', 'alert-info': e.type == 'maj'}">
-                        {{e.texte}}
-                    </div>
-                </div>
-            </div>
-            <hr/>
-        </div>      
+  <div class="scrollable-content section">
+    <div ng-if="journaux.length == 0" class="empty-message">
+      {{translation.historique.noHistory}}.
     </div>
+
+    <div ng-repeat="j in journaux">
+      <h3 class="header-mission" ng-click="select($index)">{{j.nom}}</h3>
+      <div ng-if="isSelected($index)">
+        <p>
+          {{translation.journal.operationStarted}}
+          {{j.beginDate | date: translation.dateFormat}}
+          {{translation.journal.at}}
+          {{j.beginDate | date: translation.hourFormat}}
+          {{translation.historique.endDate}}
+          {{j.endDate | date: translation.dateFormat}}
+          {{translation.journal.at}}
+          {{j.endDate | date: translation.hourFormat}}.
+        </p>
+        <p>
+          {{translation.journal.implicated}} :
+        <ul class="cr_nb_personnes">
+          <li>
+            <span class="bold">{{j.nbVictimes}}</span> {{translation.victime | lowercase}}<span
+              ng-if="j.nbVictimes > 1">s</span>
+          </li>
+          <li>
+            <span class="bold">{{j.nbPersonnels}}</span> {{translation.journal.personnel | lowercase}}<span
+              ng-if="j.nbPersonnels > 1">s</span>
+          </li>
+        </ul>
+        </p>
+        <div ng-repeat="e in j.evenements | orderBy: 'date'" class="ev-journal">
+          <div
+              ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie', 'alert-info': e.type == 'maj'}">
+            {{e.texte}}
+          </div>
+        </div>
+      </div>
+      <hr/>
+    </div>
+  </div>
 </div>

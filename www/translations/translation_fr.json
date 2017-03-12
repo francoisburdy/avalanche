@@ -1,156 +1,156 @@
 {
-    "home": {
-        "btnDemarrerOperation": "Démarrer une opération",
-        "btnHistoriqueOperation": "Historique",
-        "menuPurge": "Supprimer les données",
-        "menuLoad": "Charger les données de démo",
-        "menuClose": "Fermer l'application",
-        "closeConfirm": "Souhaitez-vous fermer l'application ?",
-        "newOpName": "Saisissez le nom de la nouvelle opération",
-        "newOp": "Nouvelle opération",
-        "avalancheFrom": "Avalanche du",
-        "confirmDelete": "Cette action est irréversible !\nSaisir SUPPRIMER pour confirmer",
-        "deleteData": "Supprimer les données",
-        "confirmDemo": "Cette action est irréversible !\nSaisir DEMO pour confirmer",
-        "demoData": "Données de démo",
-        "demoMode": "Mode démonstration",
-        "demoLoadSuccess": "Bienvenue dans le mode démonstration !",
-        "purgeSuccess": "Les données ont été supprimées"
-    },
-    "dashboard": {
-        "title": "Opération en cours",
-        "terminateOperation": "Terminer l'opération",
-        "exitApplication": "Fermer l'application",
-        "intervenant": "intervenant",
-        "noIntervenant": "Aucun personnel sur site actuellement",
-        "noVictime": "Aucune victime présente sur site actuellement",
-        "noEvacuatedVictime": "Aucune victime évacuée",
-        "confirmTerminateMsg": "Souhaitez-vous mettre fin à l'opération ?\nIl ne sera plus possible de modifier les informations.",
-        "rescuerOutMsg": "Saisissez le numéro de l'intervenant sortant",
-        "rescuerOut": "Sortie de personnel",
-        "notFound": "est introuvable",
-        "intervenantNotFound": "Intervenant introuvable",
-        "alreadyOut": "Déjà sorti",
-        "isAlreadyOut": "est déjà sorti le",
-        "exit": "Sortie",
-        "number": "n°",
-        "confirmation": "Confirmation",
-        "exitCanceled": "Sortie de personnel annulée"
-    },
-    "export": {
-        "historyReportTitle": "Rapport des opérations",
-        "generated": "Généré le",
-        "temporaryReport": "Rapport temporaire d'opération",
-        "victimesAnd": "victimes et",
-        "personnels": "personnels",
-        "marquedFinished": "L'opération à été marquée comme terminée à",
-        "notMarquedFinished": "l'opération n'est pas marquée comme terminée",
-        "atMaj": "À"
-    },
-    "historique": {
-        "title": "Historique",
-        "noHistory": "Aucune opération passée n'est enregistrée",
-        "endDate": "et terminée le",
-        "victim": "La victime n°",
-        "intervenant": "L'intervenant n°",
-        "victimSaved": "a été enregistrée. Son statut est",
-        "situation": "et sa situation est",
-        "evacuated": "a été évacuée. Son statut était",
-        "enterZone": "est entré sur zone",
-        "leaveZone": "est sorti de la zone",
-        "mission": "a pris la mission"
-    },
-    "intervenants": {
-        "addIntervenant": {
-            "title": "Ajouter un intervenant",
-            "corpsMetier": "Corps de métier",
-            "selectMetier": "Choisir le métier",
-            "selectMission": "Choisir une mission",
-            "missionPlaceholder": "intitulé mission"
-        },
-        "editIntervenant": {
-            "title": "Intervenant n°",
-            "delete": "Supprimer l'intervenant",
-            "chooseNumber": "Saisissez le numéro de l'intervenant",
-            "chooseProfession": "Choisir le corps de métier de l'intervenant",
-            "deleteConfirm": "Cette action est irréversible !\nVoulez-vous supprimer l'intervenant n°",
-            "deleteConfirmToast": "Cette action est irréversible !\nVoulez-vous supprimer l'intervenant n°",
-            "evacuateConfirm": "Confirmez la sortie de l'intervenant n°"
-        },
-        "confirmIntervenant": {
-            "title": "Validation intervenant",
-            "affectedMission": "Mission affectée"
-        },
-        "detailsMetier": {
-            "negation": "Aucun",
-            "noOneFromJob": "présent sur site actuellement",
-            "arrival": "Arrivée",
-            "alreadyOut": "Personnes déjà sorties"
-        },
-        "number": "N° de l'intervenant",
-        "number2": "Intervenant n°",
-        "currentMission": "Mission courante"
-    },
-    "journal": {
-        "title": "Journal de l'opération",
-        "noOperation": "Aucune opération n'est en cours",
-        "operationStarted": "Opération débutée le",
-        "at": "à",
-        "implicated": "Cette opération a impliqué",
-        "personnel": "personnel"
-    },
-    "menu": {
-        "home": "Accueil"
-    },
-    "parametres": {
-        "title": "Paramètres",
-        "corpsMetier": "Corps de métier intervenants",
-        "languageChoice": "Choix de la langue",
-        "addMetier": "Ajouter un métier",
-        "metier": "Intitulé métier",
-        "color": "Couleur associée",
-        "updateMetier": "Modifier un métier",
-        "deleteMetier": "Supprimer le métier"
-    },
-    "victimes": {
-        "addVictime": {
-            "title": "Ajouter une victime",
-            "confirm": "Etes-vous sûr de vouloir ajouter cette victime",
-            "addVictime": "Ajouter une victime"
-        },
-        "editVictime": {
-            "title": "Modifier la victime n°",
-            "deleteVictime": "Supprimer la victime",
-            "evacuateVictime": "Évacuer une victime",
-            "evacuate": "Évacuer",
-            "evacuateConfirm1": "Marquer la victime n°",
-            "evacuateConfirm2": "comme évacuée ?",
-            "confirmDelete": "Souhaitez-vous vraiment supprimer la victime"
-        },
-        "number": "N° de victime",
-        "number2": "Victime n°",
-        "status": "Statut de la victime",
-        "situation": "Situation de la victime"
-    },
-    "dateFormat": "dd/MM/yyyy",
-    "hourFormat": "HH:mm",
-    "evacuated": "évacué",
-    "evacuatedFemale": "évacuée",
-    "cancel": "Annuler",
-    "close": "Fermer",
-    "validate": "Valider",
-    "terminate": "Terminer",
-    "delete": "Supprimer",
-    "deleted": "supprimé",
-    "theOperation": "l'opération",
-    "operationTerminated": "Operation terminée",
-    "new": "Nouveau",
-    "victime": "Victime",
-    "intervenantNum": "L'intervenant n°",
-    "ok": "OK",
-    "cancelation": "Annulation",
-    "confirm": "Confirmer",
+  "home": {
+    "btnDemarrerOperation": "Démarrer une opération",
+    "btnHistoriqueOperation": "Historique",
+    "menuPurge": "Supprimer les données",
+    "menuLoad": "Charger les données de démo",
+    "menuClose": "Fermer l'application",
+    "closeConfirm": "Souhaitez-vous fermer l'application ?",
+    "newOpName": "Saisissez le nom de la nouvelle opération",
+    "newOp": "Nouvelle opération",
+    "avalancheFrom": "Avalanche du",
+    "confirmDelete": "Cette action est irréversible !\nSaisir SUPPRIMER pour confirmer",
+    "deleteData": "Supprimer les données",
+    "confirmDemo": "Cette action est irréversible !\nSaisir DEMO pour confirmer",
+    "demoData": "Données de démo",
+    "demoMode": "Mode démonstration",
+    "demoLoadSuccess": "Bienvenue dans le mode démonstration !",
+    "purgeSuccess": "Les données ont été supprimées"
+  },
+  "dashboard": {
+    "title": "Opération en cours",
+    "terminateOperation": "Terminer l'opération",
+    "exitApplication": "Fermer l'application",
+    "intervenant": "intervenant",
+    "noIntervenant": "Aucun personnel sur site actuellement",
+    "noVictime": "Aucune victime présente sur site actuellement",
+    "noEvacuatedVictime": "Aucune victime évacuée",
+    "confirmTerminateMsg": "Souhaitez-vous mettre fin à l'opération ?\nIl ne sera plus possible de modifier les informations.",
+    "rescuerOutMsg": "Saisissez le numéro de l'intervenant sortant",
+    "rescuerOut": "Sortie de personnel",
+    "notFound": "est introuvable",
+    "intervenantNotFound": "Intervenant introuvable",
+    "alreadyOut": "Déjà sorti",
+    "isAlreadyOut": "est déjà sorti le",
+    "exit": "Sortie",
+    "number": "n°",
     "confirmation": "Confirmation",
-    "create": "Créer",
-    "add": "Ajouter"
+    "exitCanceled": "Sortie de personnel annulée"
+  },
+  "export": {
+    "historyReportTitle": "Rapport des opérations",
+    "generated": "Généré le",
+    "temporaryReport": "Rapport temporaire d'opération",
+    "victimesAnd": "victimes et",
+    "personnels": "personnels",
+    "marquedFinished": "L'opération à été marquée comme terminée à",
+    "notMarquedFinished": "l'opération n'est pas marquée comme terminée",
+    "atMaj": "À"
+  },
+  "historique": {
+    "title": "Historique",
+    "noHistory": "Aucune opération passée n'est enregistrée",
+    "endDate": "et terminée le",
+    "victim": "La victime n°",
+    "intervenant": "L'intervenant n°",
+    "victimSaved": "a été enregistrée. Son statut est",
+    "situation": "et sa situation est",
+    "evacuated": "a été évacuée. Son statut était",
+    "enterZone": "est entré sur zone",
+    "leaveZone": "est sorti de la zone",
+    "mission": "a pris la mission"
+  },
+  "intervenants": {
+    "addIntervenant": {
+      "title": "Ajouter un intervenant",
+      "corpsMetier": "Corps de métier",
+      "selectMetier": "Choisir le métier",
+      "selectMission": "Choisir une mission",
+      "missionPlaceholder": "intitulé mission"
+    },
+    "editIntervenant": {
+      "title": "Intervenant n°",
+      "delete": "Supprimer l'intervenant",
+      "chooseNumber": "Saisissez le numéro de l'intervenant",
+      "chooseProfession": "Choisir le corps de métier de l'intervenant",
+      "deleteConfirm": "Cette action est irréversible !\nVoulez-vous supprimer l'intervenant n°",
+      "deleteConfirmToast": "Cette action est irréversible !\nVoulez-vous supprimer l'intervenant n°",
+      "evacuateConfirm": "Confirmez la sortie de l'intervenant n°"
+    },
+    "confirmIntervenant": {
+      "title": "Validation intervenant",
+      "affectedMission": "Mission affectée"
+    },
+    "detailsMetier": {
+      "negation": "Aucun",
+      "noOneFromJob": "présent sur site actuellement",
+      "arrival": "Arrivée",
+      "alreadyOut": "Personnes déjà sorties"
+    },
+    "number": "N° de l'intervenant",
+    "number2": "Intervenant n°",
+    "currentMission": "Mission courante"
+  },
+  "journal": {
+    "title": "Journal de l'opération",
+    "noOperation": "Aucune opération n'est en cours",
+    "operationStarted": "Opération débutée le",
+    "at": "à",
+    "implicated": "Cette opération a impliqué",
+    "personnel": "personnel"
+  },
+  "menu": {
+    "home": "Accueil"
+  },
+  "parametres": {
+    "title": "Paramètres",
+    "corpsMetier": "Corps de métier intervenants",
+    "languageChoice": "Choix de la langue",
+    "addMetier": "Ajouter un métier",
+    "metier": "Intitulé métier",
+    "color": "Couleur associée",
+    "updateMetier": "Modifier un métier",
+    "deleteMetier": "Supprimer le métier"
+  },
+  "victimes": {
+    "addVictime": {
+      "title": "Ajouter une victime",
+      "confirm": "Etes-vous sûr de vouloir ajouter cette victime",
+      "addVictime": "Ajouter une victime"
+    },
+    "editVictime": {
+      "title": "Modifier la victime n°",
+      "deleteVictime": "Supprimer la victime",
+      "evacuateVictime": "Évacuer une victime",
+      "evacuate": "Évacuer",
+      "evacuateConfirm1": "Marquer la victime n°",
+      "evacuateConfirm2": "comme évacuée ?",
+      "confirmDelete": "Souhaitez-vous vraiment supprimer la victime"
+    },
+    "number": "N° de victime",
+    "number2": "Victime n°",
+    "status": "Statut de la victime",
+    "situation": "Situation de la victime"
+  },
+  "dateFormat": "dd/MM/yyyy",
+  "hourFormat": "HH:mm",
+  "evacuated": "évacué",
+  "evacuatedFemale": "évacuée",
+  "cancel": "Annuler",
+  "close": "Fermer",
+  "validate": "Valider",
+  "terminate": "Terminer",
+  "delete": "Supprimer",
+  "deleted": "supprimé",
+  "theOperation": "l'opération",
+  "operationTerminated": "Operation terminée",
+  "new": "Nouveau",
+  "victime": "Victime",
+  "intervenantNum": "L'intervenant n°",
+  "ok": "OK",
+  "cancelation": "Annulation",
+  "confirm": "Confirmer",
+  "confirmation": "Confirmation",
+  "create": "Créer",
+  "add": "Ajouter"
 }

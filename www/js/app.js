@@ -3,7 +3,7 @@
  /**
   * Charge les modules externes utilisés par l'application.
   * @memberof avalanche
-  * @ngdoc config
+  * @ngdoc global
   * @name app
   * @param {service} $rootScope native rootScope service
   * @param {service} $location native location service
@@ -25,10 +25,10 @@ angular.module('myApp', [
         $rootScope.broadcast('$routeChangeStart');
     });
 
-    $rootScope.$on("$routeChangeStart", function(event, next, current) { 
+    $rootScope.$on("$routeChangeStart", function(event, next) {
         Global.setMenuDisabled(false);
         if(next.$$route) {
-            var nextPath = next.$$route.originalPath;
+            let nextPath = next.$$route.originalPath;
             if(nextPath == '/home' && Operation.getOperation() != null)  $location.url('/dashboard');
             if(nextPath == '/dashboard' && Operation.getOperation() == null)  $location.url('/home');
         }
@@ -81,14 +81,30 @@ function toast(message){
 }
 
  /**
-  * Verifie si la valeur est un int
+  * Vérifie si la valeur est un int
   * @memberof JS helpers
   * @func isInt
   * @param {mixed} value la valeur à tester
-  * @returns {bool} true si la valeur est un entier
+  * @returns {boolean} true si la valeur est un entier
   */
   function isInt(value) {
     return !isNaN(value) && 
            parseInt(Number(value)) == value && 
            !isNaN(parseInt(value, 10) && value > 0);
   }
+
+/**
+ * Structure d'object JavaScript réprésentant un intervenant (ou personnel) d'une opération
+ * @ngdoc Généralités
+ * @name service
+ * @desc Service angularJS. Se référer au guide dans la documentation officielle.
+ * @see {@link https://docs.angularjs.org/guide/services}
+ */
+
+/**
+ * Structure d'object JavaScript réprésentant un intervenant (ou personnel) d'une opération
+ * @ngdoc Généralités
+ * @name scope
+ * @desc Scope angularJS. Se référer au guide dans la documentation officielle.
+ * @see {@link https://docs.angularjs.org/guide/scope}
+ */

@@ -8,7 +8,7 @@
     padding-right: 4px;
 }
 
-.parametres-items .parametres-item .truncate{
+.parametres-items .parametres-item .truncate {
     max-width: calc(100% - 20px);
     display: inline-block;
     font-size: 0.8em;
@@ -34,19 +34,26 @@
     font-size: 0.9em;
 }
 
-.parametres button{
+.parametres button {
     margin-bottom: 0.5em;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-#picker { width: 200px; height: 200px }
-#slide { width: 30px; height: 200px }
+#picker {
+    width: 200px;
+    height: 200px
+}
+
+#slide {
+    width: 30px;
+    height: 200px
+}
 
 .selected-color {
     display: none;
 }
 
-.color-palette div{
+.color-palette div {
     width: 50px;
     height: 50px;
     border: 1px solid #aaa;
@@ -59,7 +66,7 @@
     border-radius: 4px;
 }
 
-.color-palette{
+.color-palette {
     visibility: visible;
     opacity: 1;
     position: initial;

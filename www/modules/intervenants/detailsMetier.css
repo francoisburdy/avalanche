@@ -1,50 +1,49 @@
 
-
 .detail-metier .intervenant-img {
-	min-width: 100%;
-	min-height: 100%;
-	position: relative;
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .detail-metier .card {
-	padding-left: 5px;
-	padding-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .detail-metier .img-container {
-	width: 65px;
-	height: 65px;
-	border-radius: 50%;
-	overflow: hidden;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .detail-metier .intervenant-num {
-	font-size: 2.5em;
+    font-size: 2.5em;
     line-height: 65px;
 }
 
 .detail-metier .intervenant-date {
-	font-size: 0.8em;
+    font-size: 0.8em;
 }
 
 .detail-metier .card-container {
-	padding: 0.3em;
+    padding: 0.3em;
     text-align: center;
 }
 
 .detail-metier .personnels-list {
-	margin-left: -5px;
-	margin-right: -5px;
+    margin-left: -5px;
+    margin-right: -5px;
 }
 
-.card-history{
-	opacity: 0.7;
+.card-history {
+    opacity: 0.7;
 }
 
-.title-history{
-	font-size: 2em;
-	font-weight: lighter;
-	padding-bottom: 10px;
+.title-history {
+    font-size: 2em;
+    font-weight: lighter;
+    padding-bottom: 10px;
 }

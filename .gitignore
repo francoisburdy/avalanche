@@ -168,3 +168,5 @@ www/bower_components/
 www/tmp
 www/.DS_Store
 www/.idea
+
+.idea/

@@ -3,31 +3,32 @@
 </div>
 
 <div class="btn-group dropdown-menu-btn">
-    <a ui-turn-on='myDropdown' class='btn'>
-        <i class="fa fa-ellipsis-v fa-lg"></i>
-    </a>
-    <ul class="dropdown-menu"
-        ui-outer-click="Ui.turnOff('myDropdown')"
-        ui-outer-click-if="Ui.active('myDropdown')"
-        role="menu"
-        ui-show="myDropdown" 
-        ui-state="myDropdown"
-        ui-turn-off="myDropdown">
-        <li><a ng-click="purgeStorage()">{{translation.home.menuPurge}}</a></li>
-        <li><a ng-click="loadDemoData()">{{translation.home.menuLoad}}</a></li>
-        <li class="divider"></li>
-        <li><a ng-click="exitApp()">{{translation.home.menuClose}}</a></li>
-    </ul>
+  <a ui-turn-on='myDropdown' class='btn'>
+    <i class="fa fa-ellipsis-v fa-lg"></i>
+  </a>
+  <ul class="dropdown-menu"
+      ui-outer-click="Ui.turnOff('myDropdown')"
+      ui-outer-click-if="Ui.active('myDropdown')"
+      role="menu"
+      ui-show="myDropdown"
+      ui-state="myDropdown"
+      ui-turn-off="myDropdown">
+    <li><a ng-click="purgeStorage()">{{translation.home.menuPurge}}</a></li>
+    <li><a ng-click="loadDemoData()">{{translation.home.menuLoad}}</a></li>
+    <li class="divider"></li>
+    <li><a ng-click="exitApp()">{{translation.home.menuClose}}</a></li>
+  </ul>
 </div> <!-- end drop-down-menu -->
 
 <div class="scrollable">
   <div class="scrollable-content section home">
 
     <div class="main">
-    
-      <img  src="img/logo-avalanche.jpg" alt="Logo Avalanche" class="img-circle">
 
-      <button ng-click="createOperation()" class="btn btn-primary btn-block">{{translation.home.btnDemarrerOperation}}</button>
+      <img src="img/logo-avalanche.jpg" alt="Logo Avalanche" class="img-circle">
+
+      <button ng-click="createOperation()" class="btn btn-primary btn-block">{{translation.home.btnDemarrerOperation}}
+      </button>
       <button ng-click="historique()" class="btn btn-primary btn-block">{{translation.historique.title}}</button>
 
     </div>

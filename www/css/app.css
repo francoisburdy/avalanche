@@ -1,11 +1,10 @@
 /* app css stylesheet */
 
 * {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: -moz-none;
-    -o-user-select: none;
     user-select: none;
     outline: none !important;
 }
@@ -19,7 +18,7 @@
 @font-face {
     font-family: "Open Sans Light";
     src: url("Open_Sans/OpenSans-Light.ttf");
-    font-weight: lighter;
+    font-weight: normal;
 }
 
 @font-face {
@@ -51,8 +50,8 @@ select {
     border: 1px solid #2196f3;
 }
 
-input{
-   -webkit-user-select: auto;
+input {
+    -webkit-user-select: auto;
 }
 
 input.huge-input {
@@ -74,7 +73,7 @@ input.large-input {
     border-radius: 8px;
     border: 1px solid #2196f3;
     margin-top: 10px;
-    padding: 0px 15px;
+    padding: 0 15px;
 }
 
 .scrollable-content {
@@ -93,19 +92,18 @@ input.large-input {
 }
 
 .dropdown-menu {
-    right: 0;
-    left:initial;
+    left: initial;
     top: 90%;
     min-width: 210px;
     right: -15px;
 }
 
-.dropdown-menu > li > a{
+.dropdown-menu > li > a {
     font-size: 1.3em;
-    line-height: 1.8em;  
+    line-height: 1.8em;
 }
 
-.section.dashboard, .section.edit-victime,.section.detail-metier, .section.addIntervenant {
+.section.dashboard, .section.edit-victime, .section.detail-metier, .section.addIntervenant {
     padding: 12px 10px 110px 10px;
 }
 
@@ -144,15 +142,15 @@ input.large-input {
 }
 
 .inline {
-    display:inline !important;
+    display: inline !important;
 }
 
 .text-lighter {
     font-weight: lighter;
-    font-family: 'Open Sans Light';
+    font-family: 'Open Sans Light', sans-serif;
 }
 
-.small-text{
+.small-text {
     font-size: .5em;
 }
 
@@ -161,7 +159,7 @@ input.large-input {
 }
 
 .full-width {
-    width:100% !important;
+    width: 100% !important;
 }
 
 .min-width-40 {
@@ -187,7 +185,7 @@ input.large-input {
 
 a.flat-link:active, a.flat-link:hover, a.flat-link:focus {
     text-decoration: none;
-    color:#fff;
+    color: #fff;
 }
 
 .sidebar-left .app-name img {
@@ -197,7 +195,7 @@ a.flat-link:active, a.flat-link:hover, a.flat-link:focus {
     padding-right: 7px;
 }
 
-.list-group-item .fa.pull-left{
+.list-group-item .fa.pull-left {
     line-height: 1em;
     margin-right: 1em;
 }
@@ -221,8 +219,8 @@ a.flat-link:active, a.flat-link:hover, a.flat-link:focus {
 
 .navbar-app {
     min-height: 70px;
-    border:none;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.12), 0 0px 20px rgba(0,0,0,0.18);
+    border: none;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 0 20px rgba(0, 0, 0, 0.18);
 }
 
 .navbar .btn-group {
@@ -233,7 +231,7 @@ a.flat-link:active, a.flat-link:hover, a.flat-link:focus {
 .navbar-app .btn {
     line-height: 70px;
     border-radius: 0;
-    padding: 0em 1.2em;
+    padding: 0 1.2em;
 }
 
 .navbar-brand {
@@ -277,13 +275,13 @@ div.card {
     background: #fff;
     border: 1px solid #ccc;
     cursor: pointer;
-    border-radius:2px;
-    margin: 0.5em 0em; 
-    box-shadow: 0px 0px 15px #aaa;
+    border-radius: 2px;
+    margin: 0.5em 0;
+    box-shadow: 0 0 15px #aaa;
 }
 
 .card .icon {
-    padding:2em 1em 2em 1em;
+    padding: 2em 1em 2em 1em;
     display: inline-block;
 }
 
@@ -300,7 +298,7 @@ div.card {
 }
 
 .panel-body {
-    padding:10px;
+    padding: 10px;
 }
 
 /*.scrollable-content{
@@ -311,7 +309,7 @@ div.card {
     position: fixed;
     z-index: 900;
     border-radius: 50%;
-    box-shadow: 0 16px 20px rgba(0,0,0,0.25), 0 5px 21px rgba(0,0,0,0.22);
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.25), 0 5px 21px rgba(0, 0, 0, 0.22);
     opacity: 0.97;
     width: 80px;
     height: 80px;
@@ -406,8 +404,8 @@ div.card {
 }
 
 .modal-footer {
-    border-top:none;
-    padding-top:0;
+    border-top: none;
+    padding-top: 0;
 }
 
 .img-preview-container {
@@ -415,10 +413,10 @@ div.card {
     height: 33vw;
     max-width: 140px;
     max-height: 140px;
-    overflow:hidden;
-    border:1px solid #2196f3;
+    overflow: hidden;
+    border: 1px solid #2196f3;
     border-radius: 50%;
-    margin:auto;
+    margin: auto;
     /* evite les soucis de overflow hidden qui marche pas sur chrome */
     -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
 }
@@ -426,11 +424,11 @@ div.card {
 .img-preview-container img {
     min-width: 100%;
     min-height: 100%;
-    border:none;
+    border: none;
     top: 50%;
     transform: translateY(-50%);
     position: relative;
-    margin:auto;
+    margin: auto;
 }
 
 .img-preview-container.confirm {
@@ -443,6 +441,6 @@ div.card {
 .empty-message {
     font-size: 2.2em;
     font-weight: lighter;
-    font-family: 'Open Sans Light';
+    font-family: 'Open Sans Light', sans-serif;
     text-align: center;
 }

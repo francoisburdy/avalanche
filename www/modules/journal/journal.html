@@ -1,44 +1,47 @@
 <div ui-content-for="title">
-    <span>{{translation.journal.title}}</span>
+  <span>{{translation.journal.title}}</span>
 </div>
 
 <div class="btn-group dropdown-menu-btn">
-    <a class='btn' ng-click="exportPdf()">
-        <i class="fa fa-download fa-lg"></i> PDF
-    </a>
+  <a class='btn' ng-click="exportPdf()">
+    <i class="fa fa-download fa-lg"></i> PDF
+  </a>
 </div>
 
 <div class="scrollable">
-    <div class="scrollable-content section">
-        <div ng-if="!journal" class="empty-message">
-           {{translation.journal.noOperation}}.
-        </div>
-
-        <h3 class="header-mission">{{journal.nom}}</h3>
-        <div class="contenu">
-            <p>
-                {{translation.journal.operationStarted}} 
-                {{journal.beginDate | date: translation.dateFormat}} 
-                {{translation.journal.at}}
-                {{journal.beginDate | date: translation.hourFormat}}.
-            </p>
-            <p>
-                {{translation.journal.implicated}} : 
-                <ul class="cr_nb_personnes">
-                    <li>
-                        <span class="bold">{{journal.nbVictimes}}</span> {{translation.victime | lowercase}}<span ng-if="journal.nbVictimes > 1">s</span>
-                    </li>
-                    <li>
-                        <span class="bold">{{journal.nbPersonnels}}</span> {{translation.journal.personnel | lowercase}}<span ng-if="journal.nbPersonnels > 1">s</span>
-                    </li>
-                </ul>
-            </p>
-
-            <div ng-repeat="e in journal.evenements | orderBy: 'date'" class="ev-journal">
-                <div ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie', 'alert-info': e.type == 'maj'}">
-                    {{e.texte}}
-                </div>
-            </div>
-        </div>
+  <div class="scrollable-content section">
+    <div ng-if="!journal" class="empty-message">
+      {{translation.journal.noOperation}}.
     </div>
+
+    <h3 class="header-mission">{{journal.nom}}</h3>
+    <div class="contenu">
+      <p>
+        {{translation.journal.operationStarted}}
+        {{journal.beginDate | date: translation.dateFormat}}
+        {{translation.journal.at}}
+        {{journal.beginDate | date: translation.hourFormat}}.
+      </p>
+      <p>
+        {{translation.journal.implicated}} :
+      </p>
+      <ul class="cr_nb_personnes">
+        <li>
+          <span class="bold">{{journal.nbVictimes}}</span> {{translation.victime | lowercase}}<span
+            ng-if="journal.nbVictimes > 1">s</span>
+        </li>
+        <li>
+          <span class="bold">{{journal.nbPersonnels}}</span> {{translation.journal.personnel | lowercase}}<span
+            ng-if="journal.nbPersonnels > 1">s</span>
+        </li>
+      </ul>
+
+      <div ng-repeat="e in journal.evenements | orderBy: 'date'" class="ev-journal">
+        <div
+            ng-class="{'alert-success': e.type == 'entrée', 'alert-danger': e.type == 'sortie', 'alert-info': e.type == 'maj'}">
+          {{e.texte}}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

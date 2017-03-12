@@ -1,72 +1,74 @@
 <div ui-content-for="title">
-    <span>{{metier | plurielMetier}} ({{(personnels | filter: {endDate: null}).length}})</span>
+  <span>{{metier | plurielMetier}} ({{(personnels | filter: {endDate: null}).length}})</span>
 </div>
 
 <div class="scrollable">
-    <div class="scrollable-content section detail-metier">
-        <div ng-if="(personnels | filter: {endDate: null}).length == 0" class="empty-message">
-           {{translation.intervenants.detailsMetier.negation}} {{metier | lowerMetier}} {{translation.intervenants.detailsMetier.noOneFromJob}}
-        </div>
-        
-        <!-- Personnels présents -->
-        <div class="row personnels-list">
-            <div ng-repeat="p in personnels | filter: {endDate: null}" class="col-xs-6 col-md-3 card inline">
-                <div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}" ng-click="seeDetails(p.numero)">
-                    <div class="img-container white-bg float-left">
-                        <img ng-src="{{p.image}}" ng-if="p.image" class="intervenant-img" />
-                        <img src="img/intervenant.png" ng-if="!p.image" class="intervenant-img" />
-                    </div>
-                    <div class="intervenant-num">
-                        {{p.numero}}
-                    </div>
-                    <div class="intervenant-date italic">
-                        {{translation.intervenants.detailsMetier.arrival}}  {{p.beginDate | date: translation.dateFormat}} 
-                        {{translation.journal.at}} 
-                        {{p.beginDate | date: translation.hourFormat}}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <hr/>
-
-        <!-- Personnels sortis -->
-        <div class="row personnels-list list-history">
-            <div ng-if="(personnels | filter: {endDate: ''}).length != 0" class="empty-message title-history">
-                {{translation.intervenants.detailsMetier.alreadyOut}}
-            </div>
-            <div ng-repeat="p in personnels | filter: {endDate: ''}" class="col-xs-6 col-md-3 card inline card-history">
-                <div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}">
-                    <div class="img-container white-bg float-left">
-                        <img ng-src="{{p.image}}" ng-if="p.image" class="intervenant-img" />
-                        <img src="img/intervenant.png" ng-if="!p.image" class="intervenant-img" />
-                    </div>
-                    <div class="intervenant-num">
-                        {{p.numero}}
-                    </div>
-                    <div class="intervenant-date italic">
-                        {{translation.intervenants.detailsMetier.arrival}} {{p.beginDate | date: translation.dateFormat}} 
-                        {{translation.journal.at}} 
-                        {{p.beginDate | date: translation.hourFormat}}
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="scrollable-content section detail-metier">
+    <div ng-if="(personnels | filter: {endDate: null}).length == 0" class="empty-message">
+      {{translation.intervenants.detailsMetier.negation}} {{metier | lowerMetier}}
+      {{translation.intervenants.detailsMetier.noOneFromJob}}
     </div>
-    
+
+    <!-- Personnels présents -->
+    <div class="row personnels-list">
+      <div ng-repeat="p in personnels | filter: {endDate: null}" class="col-xs-6 col-md-3 card inline">
+        <div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}"
+             ng-click="seeDetails(p.numero)">
+          <div class="img-container white-bg float-left">
+            <img ng-src="{{p.image}}" ng-if="p.image" class="intervenant-img"/>
+            <img src="img/intervenant.png" ng-if="!p.image" class="intervenant-img"/>
+          </div>
+          <div class="intervenant-num">
+            {{p.numero}}
+          </div>
+          <div class="intervenant-date italic">
+            {{translation.intervenants.detailsMetier.arrival}} {{p.beginDate | date: translation.dateFormat}}
+            {{translation.journal.at}}
+            {{p.beginDate | date: translation.hourFormat}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr/>
+
+    <!-- Personnels sortis -->
+    <div class="row personnels-list list-history">
+      <div ng-if="(personnels | filter: {endDate: ''}).length != 0" class="empty-message title-history">
+        {{translation.intervenants.detailsMetier.alreadyOut}}
+      </div>
+      <div ng-repeat="p in personnels | filter: {endDate: ''}" class="col-xs-6 col-md-3 card inline card-history">
+        <div class="card-container" ng-style="{'background-color': p.metier.bg, 'color': p.metier.text}">
+          <div class="img-container white-bg float-left">
+            <img ng-src="{{p.image}}" ng-if="p.image" class="intervenant-img"/>
+            <img src="img/intervenant.png" ng-if="!p.image" class="intervenant-img"/>
+          </div>
+          <div class="intervenant-num">
+            {{p.numero}}
+          </div>
+          <div class="intervenant-date italic">
+            {{translation.intervenants.detailsMetier.arrival}} {{p.beginDate | date: translation.dateFormat}}
+            {{translation.journal.at}}
+            {{p.beginDate | date: translation.hourFormat}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="btn-bottom-left">
-    <div class="blue-bg">
-        <a href="#!/dashboard">
-            <i class="fa fa-arrow-left"></i>
-        </a>
-    </div>
+  <div class="blue-bg">
+    <a href="#!/dashboard">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+  </div>
 </div>
 <div class="btn-bottom-right">
-    <div class="blue-bg">
-        <a ng-click="addIntervenantMetier(metier)">
-            <i class="fa fa-plus"></i>
-        </a>
-    </div>
+  <div class="blue-bg">
+    <a ng-click="addIntervenantMetier(metier)">
+      <i class="fa fa-plus"></i>
+    </a>
+  </div>
 </div>
