@@ -30,6 +30,6 @@
     "encoding": "utf8",
     "readme": "README.md",
     "recurse": "all",
-    "destination": "./doc/"
+    "destination": "./docs/"
   }
 }
