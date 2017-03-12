@@ -24,7 +24,7 @@
       <div class="form-group">
         <label>{{translation.intervenants.addIntervenant.corpsMetier}} <span class="red-text">*</span></label>
         <div>
-          <select ng-model="newIntervenant.metier" ng-options="s.libelle for s in metiers">
+          <select ng-model="newIntervenant.metier" ng-options="s.libelle for s in metiers" title="Corps de métier">
             <option label="{{translation.intervenants.addIntervenant.selectMetier}}" selected="selected"
                     disabled="disabled"></option>
           </select>
@@ -34,7 +34,7 @@
       <div class="form-group">
         <label>{{translation.intervenants.currentMission}}</label>
         <div>
-          <select ng-model="selectedMission" ng-options="m for m in missions">
+          <select ng-model="selectedMission" ng-options="m for m in missions" title="Mission affectée">
             <option label="{{translation.intervenants.addIntervenant.selectMission}}" selected="selected"
                     disabled="disabled"></option>
           </select>

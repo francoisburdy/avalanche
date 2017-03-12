@@ -1,16 +1,16 @@
 ﻿'use strict';
 
 /**
+ * Service donnant accès à des méthodes concernant l'application
+ * dans sa globalité.
+ *
  * @memberof avalanche
  * @ngdoc services
  * @name Global
- * @param $localStorage {service} native localStorage service
- * @param $rootScope {service} native rootScope service
- * @param $location {service} native location service
- * @param $http {service} native http service
- * @desc
- *   Service donnant accès à des méthodes concernant
- *   l'application dans sa globalité.
+ * @param {service} $localStorage - native localStorage AngularJS service
+ * @param {service} $rootScope - native rootScope AngularJS service
+ * @param {service} $location - native location AngularJS service
+ * @param {service} $http - native http AngularJS service
  */
 angular.module('myApp').service('Global', function ($localStorage, $rootScope, $location, $http) {
 
@@ -32,20 +32,20 @@ angular.module('myApp').service('Global', function ($localStorage, $rootScope, $
   };
 
   /**
-   * Définit l'onglet du dashboard courant
+   * Définit l'onglet sélectionné du dashboard.
    * @memberof Global
    * @func setDashboardTab
-   * @param {int} index Index de l'onget (1 ou 2)
+   * @param {int} index -  Index de l'onget (1 ou 2)
    */
   this.setDashboardTab = function (index) {
     $localStorage.dashboardTab = index;
   };
 
   /**
-   * Retourne l'onglet courant du dashboard
+   * Retourne l'onglet courant du dashboard.
    * @memberof Global
    * @func getDashboardTab
-   * @returns {int} onglet courant du dashboard (1 ou 2)
+   * @returns {int} - Onglet courant du dashboard (1 ou 2)
    */
   this.getDashboardTab = function () {
     if ($localStorage.dashboardTab == undefined) this.setDashboardTab(1);
@@ -87,7 +87,7 @@ angular.module('myApp').service('Global', function ($localStorage, $rootScope, $
    * Défini l'état du menu comme activé ou désactivé
    * @memberof Global
    * @func setMenuDisabled
-   * @param {boolean} val Valeur à affecter
+   * @param {boolean} val - Valeur à affecter
    */
   this.setMenuDisabled = function (val) {
     this.menuDisabled = val;

@@ -1,14 +1,14 @@
 'use strict';
 
-   /**
-    * Définit les routes de l'application et les relations vues-controleurs
-    * @memberof avalanche
-    * @ngdoc global
-    * @name routes
-    * @param {service} $locationProvider native locationProvider service
-    * @param {service} $routeProvider native routeProvider service
-    */
-angular.module('myApp').config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+/**
+ * Définit les routes de l'application et les relations vues-controleurs.
+ * @memberof avalanche
+ * @ngdoc global
+ * @name routes
+ * @param {service} $locationProvider native locationProvider service
+ * @param {service} $routeProvider native routeProvider service
+ */
+angular.module('myApp').config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
   $routeProvider.when('/victimes', {
@@ -18,7 +18,7 @@ angular.module('myApp').config(['$locationProvider', '$routeProvider', function(
   }).when('/victimes/:num', {
     templateUrl: 'modules/victimes/editVictime.html',
     controller: 'EditVictimeCtrl'
-  
+
   }).when('/home', {
     templateUrl: 'modules/home/home.html',
     controller: 'HomeCtrl'

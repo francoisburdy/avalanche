@@ -1,6 +1,8 @@
 ﻿'use strict';
 
 /**
+ * Contrôleur associé à la page d'accueil de l'application.
+ *
  * @ngdoc controllers
  * @memberof avalanche
  * @name HomeCtrl
@@ -11,17 +13,16 @@
  * @param Operation {service} Avalanche Operation service
  * @param Global {service} Avalanche Global service
  * @param Translation {service} Avalanche Translation service
- * @desc
- *   Contrôleur associé à la page d'accueil de l'application.
  */
 angular.module('myApp').controller('HomeCtrl', function ($scope, $location, $route, $filter, Operation, Global, Translation) {
 
   Translation.getTranslation($scope);
 
   /**
-   * Crée une nouvelle opération
+   * Démarre une nouvelle opération. Ouvre une boîte de dialogue de saisie
+   * du nom de l'opération.
    * @memberof HomeCtrl
-   * @function createOperation
+   * @func createOperation
    */
   $scope.createOperation = function () {
     navigator.notification.prompt(
@@ -40,18 +41,19 @@ angular.module('myApp').controller('HomeCtrl', function ($scope, $location, $rou
   };
 
   /**
-   * Redirige vers la page "historique"
+   * Redirige vers la page "historique".
    * @memberof HomeCtrl
-   * @function historique
+   * @func historique
    */
   $scope.historique = function () {
     $location.url('historique');
   };
 
   /**
-   * Vide le contenu du local storage
+   * Vide le contenu du local storage. Ouvre une boite de dialogue
+   * de confirmation avec saisie de mot de confirmation.
    * @memberof HomeCtrl
-   * @function purgeStorage
+   * @func purgeStorage
    */
   $scope.purgeStorage = function () {
     navigator.notification.prompt(
@@ -71,9 +73,10 @@ angular.module('myApp').controller('HomeCtrl', function ($scope, $location, $rou
   };
 
   /**
-   * Vide le contenu du localStorage et charge les données de démonstration de l'application
+   * Vide le contenu du localStorage et charge les données
+   * de démonstration de l'application.
    * @memberof HomeCtrl
-   * @function loadDemoData
+   * @func loadDemoData
    */
   $scope.loadDemoData = function () {
     navigator.notification.prompt(

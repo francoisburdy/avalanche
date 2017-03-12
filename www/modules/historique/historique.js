@@ -1,6 +1,7 @@
 'use strict';
 
 /**
+ * Contrôleur associé à la vue Historique des opérations passées.
  * @ngdoc controllers
  * @memberof avalanche
  * @name HistoriqueCtrl
@@ -8,8 +9,6 @@
  * @param Operation {service} Avalanche Operation service
  * @param Export {service} Avalanche Export service
  * @param Translation {service} Avalanche Translation service
- * @desc
- *   Contrôleur associé à la vue Historique des opérations passées.
  */
 angular.module('myApp').controller('HistoriqueCtrl', function ($scope, Operation, Export, Translation) {
 

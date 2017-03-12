@@ -2,15 +2,21 @@
 
 /**
  * Service dédié à l'internationalisation de l'application.
+ *
  * @memberof avalanche
  * @ngdoc services
  * @name Translation
+ * @param {service} $resource - native resource AngularJS service
+ * @param {service} $rootScope - native rootScope AngularJS service
+ * @param {service} Parametres - Avalanche Parametres AngularJS service
  */
 angular.module('myApp').service('Translation', function ($resource, $rootScope, Parametres) {
 
   /**
-   * Charge un fichier de langue de façon asynchrone et l'inject dans le scope passé en paramètres.
-   * Après le chargement, les données de langues sont accessible dans $scope.translation.
+   * Charge un fichier de langue de façon asynchrone et l'inject dans
+   * le scope passé en paramètres. Après le chargement, les données
+   * de langues sont accessible dans $scope.translation.
+   *
    * @memberof Translation
    * @function getTranslation
    * @eventType broadcast translationLoaded lorsque le chargement est terminé

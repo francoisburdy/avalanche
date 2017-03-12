@@ -2,21 +2,21 @@
 
 
 /**
+ * Contrôleur associé au menu latéral de l'application.
+ *
  * @ngdoc controllers
  * @memberof avalanche
  * @name MenuCtrl
  * @param $scope {service} native scope service
  * @param Operation {service} Avalanche Operation service
  * @param Translation {service} Avalanche Translation service
- * @desc
- *   Contrôleur associé au menu latéral de l'application
  */
 angular.module('myApp').controller('MenuCtrl', function ($scope, Operation, Translation, Global) {
 
   /**
    * Initialise le scope du controller
    * @memberof MenuCtrl
-   * @function init
+   * @func init
    */
   function init() {
     Translation.getTranslation($scope);

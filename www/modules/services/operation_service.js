@@ -1,16 +1,16 @@
 ﻿'use strict';
 
 /**
+ * Service dédié à la gestion de l'opération courante, des intervenants,
+ * des victimes ainsi que la journalisation des évènements
+ *
  * @memberof avalanche
  * @ngdoc services
  * @name Operation
- * @param $localStorage {service} native localStorage service
- * @param $rootScope {service} native rootScope service
- * @param $location {service} native location service
- * @param $filter {service} native filter service
- * @description
- *   Service dédié à la gestion de l'opération courante, des intervenants,
- *   des victimes ainsi que la journalisation des évènements
+ * @param {service} $localStorage - native localStorage AngularJS service
+ * @param {service} $rootScope - native rootScope AngularJS service
+ * @param {service} $location - native location AngularJS service
+ * @param {service} $filter - native filter AngularJS service
  */
 angular.module('myApp').service('Operation', function ($localStorage, $rootScope, $location, $filter) {
 
@@ -40,7 +40,7 @@ angular.module('myApp').service('Operation', function ($localStorage, $rootScope
    * Crée une nouvelle opération et la persiste dans le localStorage.
    * Il ne doit pas y avoir d'opération en cours.
    * @memberof Operation
-   * @param {string} nomOperation Nom de l'opération à créer.
+   * @param {string} nomOperation - Nom de l'opération à créer.
    * @func createOperation
    */
   this.createOperation = function (nomOperation) {
@@ -111,6 +111,7 @@ angular.module('myApp').service('Operation', function ($localStorage, $rootScope
    * Retourne l'intervenant temporaire s'il existe, null sinon.
    * @memberof Operation
    * @func getTmpPersonnel
+   * @returns {Personnel} Personnel temporaire en mémoire
    */
   this.getTmpPersonnel = function () {
     if (!this.tmpPersonnel) return null;
@@ -165,8 +166,8 @@ angular.module('myApp').service('Operation', function ($localStorage, $rootScope
    * Retourne un personnel de l'opération courante à partir de son numéro.
    * @memberof Operation
    * @func getPersonnel
-   * @param {int} numero Numéro de personnel
-   * @returns {Personnel} Personnel de l'opération courante
+   * @param {int} numero - Numéro de personnel
+   * @returns {Personnel} Personnel - de l'opération courante
    */
   this.getPersonnel = function (numero) {
     if ($localStorage.operation) {
@@ -180,7 +181,7 @@ angular.module('myApp').service('Operation', function ($localStorage, $rootScope
    * Retourne la liste des intervenants dans l'opération courante pour un métier donné.
    * @memberof Operation
    * @func getPersonnelsByMetier
-   * @param {string} libMetier Intitulé du métier
+   * @param {string} libMetier - Intitulé du métier
    * @returns {Personnel[]} Liste des intervenant pour un métier donné.
    */
   this.getPersonnelsByMetier = function (libMetier) {
@@ -379,7 +380,7 @@ angular.module('myApp').service('Operation', function ($localStorage, $rootScope
    * @memberof Operation
    * @func getCurrentJournal
    * @see getJournal()
-   * @param {scope} scope Scope de controleur contenant les données de langues
+   * @param {scope} scope - Scope de controleur contenant les données de langues
    * @returns {Journal} Journal de l'opération courante.
    */
   this.getCurrentJournal = function (scope) {

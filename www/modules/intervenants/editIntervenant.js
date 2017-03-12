@@ -1,20 +1,21 @@
 'use strict';
 
 /**
+ * Contrôleur associé à la vue d'édition d'un intervenant.
+ *
  * @ngdoc controllers
  * @memberof avalanche
  * @name EditIntervenantCtrl
- * @param $scope {service} native controller scope
- * @param $routeParams {service} native route parameters service
- * @param $location {service} native location service
- * @param Operation {service} Avalanche Operation service
- * @param Parametres {service} Avalanche Parametres service
- * @param Global {service} Avalanche Global service
- * @param Translation {service} Avalanche Translation service
- * @desc
- *   Contrôleur associé à la vue d'édition d'un intervenant
+ * @param {service} $scope - native controller scope AngularJS service
+ * @param {service} $routeParams - native route parameters AngularJS service
+ * @param {service} $location - native location AngularJS service
+ * @param {service} Operation - Avalanche Operation service
+ * @param {service} Parametres - Avalanche Parametres service
+ * @param {service} Global - Avalanche Global service
+ * @param {service} Translation - Avalanche Translation service
  */
 angular.module('myApp').controller('EditIntervenantCtrl', function ($scope, $routeParams, $location, Operation, Parametres, Translation, Global) {
+
   /**
    * Récupère les informations stockées localement sur l'intervenant
    * @memberof EditIntervenantCtrl
@@ -30,7 +31,7 @@ angular.module('myApp').controller('EditIntervenantCtrl', function ($scope, $rou
   init();
 
   /**
-   * Retourne à la page précédente
+   * Retourne à la page précédente.
    * @memberof EditIntervenantCtrl
    * @function goToPrevious
    */
@@ -39,9 +40,9 @@ angular.module('myApp').controller('EditIntervenantCtrl', function ($scope, $rou
   };
 
   /**
-   * Confirmation du retour à la page précédente
+   * Confirmation du retour à la page précédente.
    * @memberof EditIntervenantCtrl
-   * @function confirmGoBack
+   * @func confirmGoBack
    */
   $scope.confirmGoBack = function () {
     if (!$scope.personnel.numero) { // L'intervenant n'a pas de numéro
@@ -54,9 +55,9 @@ angular.module('myApp').controller('EditIntervenantCtrl', function ($scope, $rou
   };
 
   /**
-   * Fait sortir un intervenant
+   * Fait sortir un intervenant.
    * @memberof EditIntervenantCtrl
-   * @function evacuatePersonnel
+   * @func evacuatePersonnel
    */
   $scope.evacuatePersonnel = function () {
     navigator.notification.confirm(
@@ -74,9 +75,9 @@ angular.module('myApp').controller('EditIntervenantCtrl', function ($scope, $rou
     );
   };
   /**
-   * Supprime un intervenant
+   * Supprime un intervenant.
    * @memberof EditIntervenantCtrl
-   * @function deletePersonnel
+   * @func deletePersonnel
    */
   $scope.deletePersonnel = function () {
     navigator.notification.confirm(
@@ -94,9 +95,9 @@ angular.module('myApp').controller('EditIntervenantCtrl', function ($scope, $rou
     );
   };
   /**
-   * Confirme le changement de mission d'un intervenant
+   * Confirme le changement de mission d'un intervenant.
    * @memberof EditIntervenantCtrl
-   * @function confirm
+   * @func confirm
    */
   $scope.confirm = function () {
     let missionDifferente = $scope.personnel.missions.length && $scope.selectedMission != $scope.personnel.missions[$scope.personnel.missions.length - 1].libelle;
@@ -104,13 +105,16 @@ angular.module('myApp').controller('EditIntervenantCtrl', function ($scope, $rou
     if (($scope.personnel.missions.length == 0 || missionDifferente) && $scope.selectedMission) {
       let libMission = $scope.selectedMission;
       if ($scope.selectedMission == '-- Autre --' && $scope.newSelectedMission) libMission = $scope.newSelectedMission;
-      $scope.personnel.missions.push({libelle: libMission, beginDate: new Date()});
+      $scope.personnel.missions.push({
+        libelle: libMission,
+        beginDate: new Date()
+      });
     }
     $scope.confirmGoBack();
   };
 
   /**
-   * Ecoute les évenements clavier pour cacher afficher les boutons flottants
+   * Ecoute les évenements clavier pour cacher afficher les boutons flottants.
    * @ngdoc events
    * @memberof EditIntervenantCtrl
    */
@@ -125,7 +129,7 @@ angular.module('myApp').controller('EditIntervenantCtrl', function ($scope, $rou
   });
 
   /**
-   * Met à jour l'opération dans le scope lorsque le local storage est modifié
+   * Met à jour l'opération dans le scope lorsque le local storage est modifié.
    */
   $scope.$on('operationUpdated', function () {
     $scope.operation = Operation.getOperation();

@@ -1,11 +1,13 @@
 ﻿'use strict';
 
 /**
+ * Service dédié à la gestion des Paramètres généraux de l'application.
+ *
  * @memberof avalanche
  * @ngdoc services
  * @name Parametres
- * @description
- *   Service dédié à la gestion des Paramètres généraux de l'application.
+ * @param {service} $localStorage - native localStorage AngularJS service
+ * @param {service} $rootScope - native rootScope AngularJS service
  */
 angular.module('myApp').service('Parametres', function ($localStorage, $rootScope) {
 

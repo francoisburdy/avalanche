@@ -1,12 +1,12 @@
 'use strict';
 
 /**
+ * Met un nom de métier en minuscule. Injecter le service
+ * $filter dans le controleur pour utiliser les filtres
+ *
  * @ngdoc filters
  * @memberof avalanche
  * @name lowerMetier
- * @desc
- * Met un nom de métier en minuscule.
- *  Injecter le service $filter dans le controleur pour utiliser les filtres
  */
 angular.module('myApp').filter('lowerMetier', function () {
 

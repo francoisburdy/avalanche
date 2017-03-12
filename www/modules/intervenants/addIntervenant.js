@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * Contrôleur associé à la vue d'ajout d'un intervenant.
+ *
  * @ngdoc controllers
  * @memberof avalanche
  * @name AddIntervenantCtrl
@@ -11,16 +13,15 @@
  * @param Operation {service} Avalanche Operation service
  * @param Parametres {service} Avalanche Parametres service
  * @param Translation {service} Avalanche Translation service
- * @desc
- *   Contrôleur associé à la vue d'ajout d'un intervenant
  */
 angular.module('myApp').controller('AddIntervenantCtrl', function ($scope, $routeParams, $location, $document, Operation, Parametres, Translation) {
 
   /**
-   * Initialise le scope du controller et initialise la page de confirmation avec les informations du nouveau intervenant.
-   * Initialise le formulaire avec les métiers et les missions possibles.
+   * Initialise le scope du controller et initialise la page de confirmation
+   * avec les informations du nouveau intervenant. Initialise le formulaire
+   * avec les métiers et les missions possibles.
    * @memberof AddIntervenantCtrl
-   * @function init
+   * @func init
    */
   function init() {
     Translation.getTranslation($scope);
@@ -48,7 +49,7 @@ angular.module('myApp').controller('AddIntervenantCtrl', function ($scope, $rout
   /**
    * Remplit l'intervenant temporaire et le passe à l'écran de confirmation.
    * @memberof AddIntervenantCtrl
-   * @function goToConfirmation
+   * @func goToConfirmation
    */
   $scope.goToConfirmation = function () {
     if (!$scope.newIntervenant.numero) {
@@ -66,18 +67,17 @@ angular.module('myApp').controller('AddIntervenantCtrl', function ($scope, $rout
   /**
    * Ajoute un intervenant après confirmation. Le nouvel intervenant est récupéré dans $scope.
    * @memberof AddIntervenantCtrl
-   * @function addIntervenant
+   * @func addIntervenant
    */
   $scope.addIntervenant = function () {
-    // TODO : ajouter confirmation
     Operation.addPersonnel();
     $location.url('/dashboard');
   };
 
   /**
-   * Annule l'ajout d'un intervenant. Retour à la page principale
+   * Annule l'ajout d'un intervenant. Retour à la page principale.
    * @memberof AddIntervenantCtrl
-   * @function cancelAddIntervenant
+   * @func cancelAddIntervenant
    */
   $scope.cancelAddIntervenant = function () {
     Operation.cancelTmpPersonnel();
@@ -85,9 +85,10 @@ angular.module('myApp').controller('AddIntervenantCtrl', function ($scope, $rout
   };
 
   /**
-   * Permet de lancer l'appareil photo
+   * Démarre l'appareil photo et retourne l'image en base64. L'IHM
+   * de shooting varie selon l'implémentation du constructeur.
    * @memberof AddIntervenantCtrl
-   * @function launchCamera
+   * @func launchCamera
    */
   $scope.launchCamera = function () {
     if (navigator.camera !== undefined) {
@@ -107,9 +108,9 @@ angular.module('myApp').controller('AddIntervenantCtrl', function ($scope, $rout
   };
 
   /**
-   * Enregistre l'image pour l'intervenant concerné
+   * Enregistre l'image pour l'intervenant concerné.
    * @memberof AddIntervenantCtrl
-   * @function onSuccess
+   * @func onSuccess
    * @param {string} imageData les données de l'image
    */
   function onSuccess(imageData) {
@@ -121,8 +122,8 @@ angular.module('myApp').controller('AddIntervenantCtrl', function ($scope, $rout
   /**
    * Affiche l'erreur si la prise de la photo n'a pas fonctionné.
    * @memberof AddIntervenantCtrl
-   * @function onFail
-   * @param {string} message message d'erreur
+   * @func onFail
+   * @param {string} message - Message d'erreur de l'appareil photo.
    */
   function onFail(message) {
     console.log('image : onFail ', message);

@@ -1,15 +1,15 @@
 'use strict';
 
 /**
+ * Service dédié à l'export PDF des opérations. Il contient les méthodes
+ * permettant de construire les templates HTML des journaux construits dans
+ * le service Operation.
+ *
  * @memberof avalanche
  * @ngdoc services
  * @name Export
- * @param $filter {service} native filter service
- * @param Operation {service} Avalanche Operation service
- * @description
- *  Service dédié à l'export PDF des opérations. Il contient les méthodes
- *  permettant de construire les templates HTML des journaux construits dans
- *  le service Operation
+ * @param {service} $filter - native filter service
+ * @param {service} Operation - Avalanche Operation service
  */
 angular.module('myApp').service('Export', function ($filter, Operation) {
 
@@ -17,7 +17,7 @@ angular.module('myApp').service('Export', function ($filter, Operation) {
    * Exporte toutes les opérations stockées dans l'application sous forme d'un journal PDF.
    * @memberof Export
    * @func exportAllOperation
-   * @param {scope} scope Scope du controleur, contenant les données de langues.
+   * @param {scope} scope - Scope du controleur, contenant les données de langues.
    */
   this.exportAllOperation = function (scope) {
     let html = this.historiqueAsHtml(scope);
@@ -33,9 +33,8 @@ angular.module('myApp').service('Export', function ($filter, Operation) {
    * Exporte un rapport temporaire de l'opération courante (non encore terminée) sous forme
    * d'un journal PDF.
    * @memberof Export
-   * @param {scope} scope Scope du controleur, contenant les données de langues.
+   * @param {scope} scope - Scope du controleur, contenant les données de langues.
    * @func exportCurrentOperation
-   * @param {Scope} scope Scope du controleur contenant les données de langues
    */
   this.exportCurrentOperation = function (scope) {
     let html = this.currentOperationAsHtml(scope);
@@ -52,9 +51,9 @@ angular.module('myApp').service('Export', function ($filter, Operation) {
    * Ce DOM est destiné à être injecté dans le convertisseur PDF.
    * @memberof Export
    * @func historiqueAsHtml
-   * @param {scope} scope Scope du controleur, contenant les données de langues.
-   * @returns {string} Un DOM HTML contenant tous les évènements de chaque opérations de l'historique,
-   * sous forme de chaine.
+   * @param {scope} scope - Scope du controleur, contenant les données de langues.
+   * @returns {string} - Un DOM HTML contenant tous les évènements de chaque
+   * opérations de l'historique, sous forme de chaine.
    */
   this.historiqueAsHtml = function (scope) {
     let operations = Operation.getJournaux(scope);
@@ -75,12 +74,12 @@ angular.module('myApp').service('Export', function ($filter, Operation) {
   };
 
   /**
-   * Créer un DOM HTML de l'opération courante (non-encore terminée).
+   * Crée un DOM HTML de l'opération courante (non-encore terminée).
    * Ce DOM est destiné à être injecté dans le convertisseur PDF.
    * @memberof Export
-   * @param {scope} scope Scope du controleur, contenant les données de langues.
+   * @param {scope} scope - Scope du controleur, contenant les données de langues.
    * @func currentOperationAsHtml
-   * @returns {string} Un DOM HTML des évènements de l'opération courante.
+   * @returns {string} - Un DOM HTML des évènements de l'opération courante.
    */
   this.currentOperationAsHtml = function (scope) {
     let o = Operation.getCurrentJournal(scope);
@@ -99,12 +98,12 @@ angular.module('myApp').service('Export', function ($filter, Operation) {
   };
 
   /**
-   * Construit le rapport d'une opération, formaté en HTML
+   * Construit le rapport d'une opération, formaté en HTML.
    * @memberof Export
    * @func operationAsHtml
-   * @param {Operation} o L'opération à construire
-   * @param {scope} scope Scope du controleur, contenant les données de langues.
-   * @returns {string} Journal des évènenement d'une opération, formaté en HTML.
+   * @param {Operation} o - L'opération à convertir
+   * @param {scope} scope - Scope du contrôleur, contenant les données de langues.
+   * @returns {string} - Journal des évènenements d'une opération, formaté en HTML.
    */
   this.operationAsHtml = function (o, scope) {
     let date = $filter('date')(o.beginDate, scope.translation.dateFormat);
@@ -128,9 +127,10 @@ angular.module('myApp').service('Export', function ($filter, Operation) {
   };
 
   /**
+   * Echappe les lettres accentuées d'une chaine de caractères.
    * @memberof JS helpers
    * @func String.escape
-   * @returns {string} - Chaine raw HTML échappée des caractères accentués
+   * @returns {string} - Chaine échappée des caractères accentués
    */
   String.prototype.escape = function () {
     return this.replace(/[ÀÉéèàêôûùç€°]/g, function (a) {

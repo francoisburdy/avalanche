@@ -1,6 +1,8 @@
 'use strict';
 
 /**
+ * Contrôleur associé à la vue des intervenant par métier.
+ *
  * @ngdoc controllers
  * @memberof avalanche
  * @name DetailsMetierCtrl
@@ -13,9 +15,10 @@
 angular.module('myApp').controller('DetailsMetierCtrl', function ($scope, $routeParams, $location, Operation, Translation) {
 
   /**
-   * Récupère les informations stockées localement sur le métier et les intervenants qui y sont associés
+   * Récupère les informations stockées localement sur le
+   * métier et les intervenants associés.
    * @memberof DetailsMetierCtrl
-   * @function init
+   * @func init
    */
   function init() {
     Translation.getTranslation($scope);
@@ -26,18 +29,18 @@ angular.module('myApp').controller('DetailsMetierCtrl', function ($scope, $route
   init();
 
   /**
-   * Affiche les détails sur un intervenant
+   * Affiche les détails sur un intervenant.
    * @memberof DetailsMetierCtrl
-   * @function seeDetails
+   * @func seeDetails
    */
   $scope.seeDetails = function (num) {
     $location.url('/intervenants/' + num);
   };
 
   /**
-   * Charge la page pour aajouter un intervenant à un metier
+   * Charge la page pour aajouter un intervenant à un métier
    * @memberof DetailsMetierCtrl
-   * @function addIntervenantMetier
+   * @func addIntervenantMetier
    */
   $scope.addIntervenantMetier = function (lib) {
     $location.url('/addIntervenantMetier/' + lib);

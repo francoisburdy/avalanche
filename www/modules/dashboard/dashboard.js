@@ -1,21 +1,23 @@
 'use strict';
 
 /**
+ * Contrôleur associé à la vue dashboard de l'application.
+ *
  * @ngdoc controllers
  * @memberof avalanche
  * @name DashboardCtrl
- * @param $scope {service} native scope service
- * @param $location {service} native location service
- * @param $rootScope {service} native rootScope service
- * @param Operation {service} Avalanche Operation service
- * @param Parametres {service} Avalanche Parametres service
- * @param Global {service} Avalanche Global service
- * @param Translation {service} Avalanche Translation service
+ * @param {service} $scope  - native scope AngularJS service
+ * @param {service} $location  - native location AngularJS service
+ * @param {service} $rootScope  - native rootScope AngularJS service
+ * @param {service} Operation  - Avalanche Operation AngularJS service
+ * @param {service} Parametres  - Avalanche Parametres AngularJS service
+ * @param {service} Global  - Avalanche Global AngularJS service
+ * @param {service} Translation  - Avalanche Translation AngularJS service
  */
 angular.module('myApp').controller('DashboardCtrl', function ($scope, $location, $rootScope, Operation, Parametres, Global, Translation) {
 
   /**
-   * Initialise le scope du controller
+   * Initialise le scope du controller.
    * @memberof DashboardCtrl
    * @function init
    */
@@ -33,10 +35,12 @@ angular.module('myApp').controller('DashboardCtrl', function ($scope, $location,
   init();
 
   /**
-   * Retourne le nombre de personnels pour un métier donné.
+   * Retourne le nombre de personnels présents sur zone de l'opération
+   * courante pour un corps de métier donné.
    * @memberof DashboardCtrl
-   * @function nbPersonnels
-   * @param {string} metier Métier des personnels
+   * @func nbPersonnels
+   * @param {string} metier - Corps de métier.
+   * @returns {int} Nombre d'intervenants.
    */
   $scope.nbPersonnels = function (metier) {
     if (!$scope.operation || !$scope.operation.personnels) return 0;
@@ -45,12 +49,14 @@ angular.module('myApp').controller('DashboardCtrl', function ($scope, $location,
     for (let p of $scope.operation.personnels)
       if (p.metier.libelle == metier && !p.endDate) compteur++;
     return compteur;
-  }
+  };
 
   /**
-   * Retourne le nombre de personnels encore présents sur le site
+   * Retourne le nombre de personnels encore présents sur le site.
    * @memberof DashboardCtrl
-   * @function nbActivePersonnels
+   * @func nbActivePersonnels
+   * @returns {int} Nombre d'intervenants de l'opération courante, zéro s'il
+   * n'y a pas d'opération en cours.
    */
   $scope.nbActivePersonnels = function () {
     if (!$scope.operation || !$scope.operation.personnels) return 0;
@@ -60,23 +66,23 @@ angular.module('myApp').controller('DashboardCtrl', function ($scope, $location,
       if (!p.endDate) compteur++;
     }
     return compteur;
-  }
+  };
 
   /**
-   * Termine une opération.
-   * Enregistre également dans le journal toutes les évènements effectués.
+   * Termine une opération. Enregistre également dans le
+   * journal toutes les évènements effectués.
    * @memberof DashboardCtrl
-   * @function terminateOperation
+   * @func terminateOperation
    */
   $scope.terminateOperation = function () {
     /* TODO: Vérifier que tout le monde est sorti */
-    var nbPersonnes = $scope.operation.victimes.filter(function (v) {
+    let nbPersonnes = $scope.operation.victimes.filter(function (v) {
         return !v.endDate
       }).length
       + $scope.operation.personnels.filter(function (p) {
         return !p.endDate
       }).length;
-    var msg = nbPersonnes > 0
+    let msg = nbPersonnes > 0
       ? nbPersonnes + " personnes sont encore sur zone !\n" + $scope.translation.dashboard.confirmTerminateMsg
       : $scope.translation.dashboard.confirmTerminateMsg;
 
@@ -96,29 +102,30 @@ angular.module('myApp').controller('DashboardCtrl', function ($scope, $location,
   };
 
   /**
-   * Redirige vers la page d'édition de victime
-   * @function editVictime
+   * Redirige vers la page d'édition de victime.
+   * @func editVictime
    * @memberof DashboardCtrl
-   * @param {int} num Numéro de la victime à éditer
+   * @param {int} num - Numéro de la victime à éditer
    */
   $scope.editVictime = function (num) {
     $location.url('/victimes/' + num);
   };
 
   /**
-   * Redirige vers la page listant les intervenant pour un métier donné
+   * Redirige vers la page listant les intervenant pour un métier donné.
    * @memberof DashboardCtrl
-   * @function detailsMetier
-   * @param {string} lib Libellé du métier recherché
+   * @funct detailsMetier
+   * @param {string} lib - Libellé du métier recherché
    */
   $scope.detailsMetier = function (lib) {
     $location.url('/metiers/' + lib);
   };
 
   /**
-   * Ouvre une modale avec un champs de saisie pour la sortie d'intervenant par son numéro
+   * Ouvre une modale avec un champs de saisie pour la sortie
+   * d'intervenant par son numéro.
    * @memberof DashboardCtrl
-   * @function evacuatePersonnel
+   * @func evacuatePersonnel
    */
   $scope.evacuatePersonnel = function () {
     navigator.notification.prompt(
@@ -130,10 +137,10 @@ angular.module('myApp').controller('DashboardCtrl', function ($scope, $location,
   };
 
   /**
-   * Redirige vers la page de détails d'un métier
+   * Redirige vers la page de détails d'un métier.
    * @memberof DashboardCtrl
-   * @function checkPersonnel
-   * @param {string} results Libellé du métier recherché
+   * @func checkPersonnel
+   * @param {string} results - Libellé du métier recherché
    */
   function checkPersonnel(results) {
     if (results.buttonIndex == 2) {
@@ -168,10 +175,10 @@ angular.module('myApp').controller('DashboardCtrl', function ($scope, $location,
   }
 
   /**
-   * Va vers l'index d'onglet passé en paramètre
+   * Va vers l'index d'onglet passé en paramètre.
    * @memberof DashboardCtrl
-   * @function goTab
-   * @param {int} index de l'onglet recherché
+   * @func goTab
+   * @param {int} index - Index de l'onglet recherché
    */
   $scope.goTab = function (index) {
     $scope.activeTab = index;
@@ -181,16 +188,16 @@ angular.module('myApp').controller('DashboardCtrl', function ($scope, $location,
   /**
    * Affiche l'onglet suivant.
    * @memberof DashboardCtrl
-   * @function nextTab
+   * @func nextTab
    */
   $scope.nextTab = function () {
     if ($scope.activeTab <= 2) $scope.goTab(2);
   };
 
   /**
-   * Affiche l'onglet précédent
+   * Affiche l'onglet précédent.
    * @memberof DashboardCtrl
-   * @function prevTab
+   * @func prevTab
    */
   $scope.prevTab = function () {
     if ($scope.activeTab > 1) $scope.goTab(1);
@@ -198,19 +205,19 @@ angular.module('myApp').controller('DashboardCtrl', function ($scope, $location,
   };
 
   /**
-   * Met à jour l'opération dans le scope lorsque le local storage est modifié
+   * Met à jour l'opération dans le scope lorsque le local storage est modifié.
    */
-  $scope.$on('operationUpdated', function (event) {
+  $scope.$on('operationUpdated', function () {
     $scope.operation = Operation.getOperation();
   });
 
   /**
+   * Ferme l'application après avoir demandé la confirmation.
    * @memberof DashboardCtrl
    * @func exitApp
-   * Ferme l'application après avoir demandé la confirmation
    */
   $scope.exitApp = function () {
-    Global.exitApp();
+    Global.exitApp($scope);
   }
 
 });

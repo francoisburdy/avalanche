@@ -1,16 +1,16 @@
 'use strict';
 
 /**
+ * Contrôleur associé à la vue Paramètres de l'application.
+ *
  * @ngdoc controllers
  * @memberof avalanche
  * @name ParametresCtrl
- * @param $rootScope {service} native rootScope service
- * @param $scope {service} native scope service
- * @param Parametres {service} Avalanche Parametres service
- * @param Translation {service} Avalanche Translation service
- * @param Operation {service} Avalanche Operation service
- * @desc
- *   Contrôleur associé à la vue Paramètres de l'application
+ * @param {service} $rootScope - native rootScope service
+ * @param {service} $scope - native scope service
+ * @param {service} Parametres - Avalanche Parametres service
+ * @param {service} Translation - Avalanche Translation service
+ * @param {service} Operation - Avalanche Operation service
  */
 angular.module('myApp').controller('ParametresCtrl', function ($rootScope, $scope, Parametres, Translation, Operation) {
 

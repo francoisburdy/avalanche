@@ -1,12 +1,12 @@
 'use strict';
 
 /**
+ * Met un nom de métier au pluriel. Injecter le service
+ * $filter dans le controleur pour utiliser les filtres
+ *
  * @ngdoc filters
  * @memberof avalanche
  * @name plurielMetier
- * @desc
- *  Met un nom de métier au pluriel.
- *  Injecter le service $filter dans le controleur pour utiliser les filtres
  */
 angular.module('myApp').filter('plurielMetier', function () {
 

@@ -1,6 +1,7 @@
 'use strict';
 
 /**
+ * Contrôleur associé à la vue d'édition d'une victime
  * @ngdoc controllers
  * @memberof avalanche
  * @name EditVictimeCtrl
